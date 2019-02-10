@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.menu-option {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  box-shadow: 10px 10px 20px gray;
+}
+
+.menu-option.contact {
+  top: 20px;
+  left: 20px;
+  background-color: red;
+}
+
+.menu-option.training {
+  top: 20px;
+  right: 20px;
+  background-color: green;
+}
+
+.menu-option.games {
+  bottom: 20px;
+  left: 20px;
+  background-color: blue;
+}
+
+.menu-option.sites {
+  bottom: 20px;
+  right: 20px;
+  background-color: yellow;
+  transition: all 0.5s;
+}
+
+.menu-option.sites:hover {
+  box-shadow: -5px -5px 20px gray;
+  transition: all 0.5s;
+}
+
+nav li {
+  width: 25%;
+  float: left;
+  height: 50px;
+  position: relative;
+}
+
+nav li span {
+  position: absolute;
+  bottom: 0
+  left: 0;
+}
+
+ul {
+  list-style-type: none;
+  overflow: hidden;
+  box-shadow: 10px 0 15px;
+}
+
+li.contact {
+  background-color: red;
+}
+li.contact:hover {
+  background-color: red;
+}
+
+span.contact-seed {
+  background-color: black;
+}
+
+li.games {
+  background-color: blue;
+}
+li.games:hover {
+  background-color: blue;
+}
+
+li.sites {
+  background-color: green;
+}
+li.sites:hover {
+  background-color: green;
+}
+
+li.training {
+  background-color: gold;
+}
+li.training:hover {
+  background-color: yellow;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  
+  text-decoration: none;
+}
+
+section {
+  text-align: center;
+}
+
+.codepen-logo svg {
+  width: 100px;
+}

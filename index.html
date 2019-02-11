@@ -8,10 +8,21 @@
 
 <body>
   <div class="menu-items">
-    <div class="menu-option contact" data-bgcolor="red">Contact</div>
-    <div class="menu-option sites" data-bgcolor="yellow">Sites</div>
-    <div class="menu-option games" data-bgcolor="blue">Games</div>
-    <div class="menu-option training" data-bgcolor="green">Training</div>
+    <div class="filler contact-filler"></div>
+    <div class="menu-shadow contact-shadow"></div>
+    <div class="menu-option contact">Contact</div>
+    
+    <div class="filler sites-filler"></div>
+    <div class="menu-shadow sites-shadow"></div>
+    <div class="menu-option sites">Sites</div>
+
+    <div class="filler games-filler"></div>
+    <div class="menu-shadow games-shadow"></div>
+    <div class="menu-option games">Games</div>
+
+    <div class="filler training-filler"></div>
+    <div class="menu-shadow training-shadow"></div>
+    <div class="menu-option training">Training</div>
   </div>
 
   <section>
@@ -89,6 +100,23 @@
   <script>
     document.getElementsByClassName('menu-items')[0].addEventListener('click', function(event){
       console.log(event.target.dataset);
+      // remove active class from all other elements
+      document.querySelectorAll('.active').forEach(function(elm){ 
+        elm.classList.remove('active');
+      })
+      console.log( 'listas: ', event.target.classList );
+
+      if ( event.target.classList.contains('contact') ) {
+        document.querySelectorAll('.contact-filler')[0].classList.add('active')
+      }
+      if ( event.target.classList.contains('sites') ) {
+        document.querySelectorAll('.sites-filler')[0].classList.add('active')
+      }
+      event.target.classList.add('active');
+      console.log(' >> ',document.querySelectorAll('.menu-option-contact-fill')[0].classList);
+      document.querySelectorAll('.menu-option-contact-fill')[0].classList.add('active');
+      console.log( event.target.classList.add('active') );
+
       document.body.style.backgroundColor = event.target.dataset.bgcolor;
     })
   </script>

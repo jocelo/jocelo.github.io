@@ -7,53 +7,14 @@
 </head>
 
 <body>
-  <div class="menu-items">
-    <div class="lego-piece piece-NW">
-      <div class="top-face top-face-contact"></div>
-      <div class="corner corner-NE"></div>
-      <div class="corner corner-SW"></div>
-
-      <div class="bump-shadow bump-NW-sh"></div>
-      <div class="bump bump-NW"></div>
-
-      <div class="bump-shadow bump-NE-sh"></div>
-      <div class="bump bump-NE"></div>
-
-      <div class="bump-shadow bump-SW-sh"></div>
-      <div class="bump bump-SW"></div>
-
-      <div class="bump-shadow bump-SE-sh"></div>
-      <div class="bump bump-SE"></div>
-
-      <div class="lego-piece-cover"></div>
-    </div>
-
-
-<!--
-    <div class="filler contact-filler"></div>
-    <div class="menu-shadow contact-shadow"></div>
-    <div class="menu-option contact">Contact</div>
--->
-    <div class="filler sites-filler"></div>
-    <div class="menu-shadow sites-shadow"></div>
-    <div class="menu-option sites">Sites</div>
-
-    <div class="filler games-filler"></div>
-    <div class="menu-shadow games-shadow"></div>
-    <div class="menu-option games">Games</div>
-
-    <div class="filler training-filler"></div>
-    <div class="menu-shadow training-shadow"></div>
-    <div class="menu-option training">Training</div>
-  </div>
-
-  <section>
+<section class="main-sect">
+  <section class="sub-sect contact">
     <h1>Contact</h1>
     <div>Alfredo Alonso</div>
     <div></div>
   </section>
 
-  <section>
+  <section class="sub-sect projects">
     <h1>Sites</h1>
     <div>
       <h3>Collections</h3>
@@ -63,9 +24,53 @@
     </div>
   </section>
 
-  <section>
+  <section class="sub-sect games">
     <h1>Games</h1>
     <div>
+      <h3>Conway's Game of life</h3>
+      <p>A simple game where the only interaction needed is to "create" life... if you are good enough, your creation will live forever!<p>
+      <p>Simple vanilla JS implementation </p>
+    </div>    <div>
+      <h3>Conway's Game of life</h3>
+      <p>A simple game where the only interaction needed is to "create" life... if you are good enough, your creation will live forever!<p>
+      <p>Simple vanilla JS implementation </p>
+    </div>    <div>
+      <h3>Conway's Game of life</h3>
+      <p>A simple game where the only interaction needed is to "create" life... if you are good enough, your creation will live forever!<p>
+      <p>Simple vanilla JS implementation </p>
+    </div>    <div>
+      <h3>Conway's Game of life</h3>
+      <p>A simple game where the only interaction needed is to "create" life... if you are good enough, your creation will live forever!<p>
+      <p>Simple vanilla JS implementation </p>
+    </div>    <div>
+      <h3>Conway's Game of life</h3>
+      <p>A simple game where the only interaction needed is to "create" life... if you are good enough, your creation will live forever!<p>
+      <p>Simple vanilla JS implementation </p>
+    </div>    <div>
+      <h3>Conway's Game of life</h3>
+      <p>A simple game where the only interaction needed is to "create" life... if you are good enough, your creation will live forever!<p>
+      <p>Simple vanilla JS implementation </p>
+    </div>    <div>
+      <h3>Conway's Game of life</h3>
+      <p>A simple game where the only interaction needed is to "create" life... if you are good enough, your creation will live forever!<p>
+      <p>Simple vanilla JS implementation </p>
+    </div>    <div>
+      <h3>Conway's Game of life</h3>
+      <p>A simple game where the only interaction needed is to "create" life... if you are good enough, your creation will live forever!<p>
+      <p>Simple vanilla JS implementation </p>
+    </div>    <div>
+      <h3>Conway's Game of life</h3>
+      <p>A simple game where the only interaction needed is to "create" life... if you are good enough, your creation will live forever!<p>
+      <p>Simple vanilla JS implementation </p>
+    </div>    <div>
+      <h3>Conway's Game of life</h3>
+      <p>A simple game where the only interaction needed is to "create" life... if you are good enough, your creation will live forever!<p>
+      <p>Simple vanilla JS implementation </p>
+    </div>    <div>
+      <h3>Conway's Game of life</h3>
+      <p>A simple game where the only interaction needed is to "create" life... if you are good enough, your creation will live forever!<p>
+      <p>Simple vanilla JS implementation </p>
+    </div>    <div>
       <h3>Conway's Game of life</h3>
       <p>A simple game where the only interaction needed is to "create" life... if you are good enough, your creation will live forever!<p>
       <p>Simple vanilla JS implementation </p>
@@ -88,7 +93,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="sub-sect training">
     <h1>Training</h1>
     <div>
       <h3>Android Developer</h3>
@@ -115,32 +120,26 @@
       <h3>Intro to computer science</h3>
     </div>
   </section>
+</section>
+<footer>
+  <button type="button" data-section="contact" class="btn">(icon show first and on hover will change content with label)contact</button>
+  <button type="button" data-section="training" class="btn">training</button>
+  <button type="button" data-section="projects" class="btn">projects</button>
+  <button type="button" data-section="games" class="btn">games</button>
+</footer>
 
-  <footer>
-    @2019 Alfredo Alonso
-  </footer>
   <script>
-    document.getElementsByClassName('menu-items')[0].addEventListener('click', function(event){
-      console.log(event.target.dataset);
-      // remove active class from all other elements
-      document.querySelectorAll('.active').forEach(function(elm){ 
-        elm.classList.remove('active');
+    document.querySelector('footer').addEventListener('click', function(event){
+      
+      if (event.target.dataset.hasOwnProperty('section')) {
+        console.log(event.target.dataset.section);
+        var selector = '.'+event.target.dataset.section;
+        if (document.querySelector('.active')) {
+          document.querySelector('.active').classList.remove('active');
+        }
+        document.querySelector(selector).classList.add('active')
+      }
       })
-      console.log( 'listas: ', event.target.classList );
-
-      if ( event.target.classList.contains('contact') ) {
-        document.querySelectorAll('.contact-filler')[0].classList.add('active')
-      }
-      if ( event.target.classList.contains('sites') ) {
-        document.querySelectorAll('.sites-filler')[0].classList.add('active')
-      }
-      event.target.classList.add('active');
-      console.log(' >> ',document.querySelectorAll('.menu-option-contact-fill')[0].classList);
-      document.querySelectorAll('.menu-option-contact-fill')[0].classList.add('active');
-      console.log( event.target.classList.add('active') );
-
-      document.body.style.backgroundColor = event.target.dataset.bgcolor;
-    })
   </script>
 </body>
 

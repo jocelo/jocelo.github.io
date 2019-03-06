@@ -2,3 +2,111 @@
   margin: 0;
   padding: 0;
 }
+
+html {
+  height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: 'Josefin Slab', serif;
+}
+
+i.fa {
+  font-family: FontAwesome;
+  font-style: normal;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;  
+}
+
+.bg-image {
+  background: rgba(255, 102, 0) url("../assets/cerro.jpg") no-repeat fixed center;
+  background-size: cover;
+  z-index: -1;
+}
+
+.bg-screen {
+  background-color: rgba(125, 125, 125, .6);
+  z-index: -1;
+}
+
+@keyframes appear-dissapear {
+  from {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 1; 
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.light-cover {
+  position: fixed;
+  top: 61%; 
+  width: 100%;
+  height: 50%;
+  left: 0;
+  background-color: rgb(14, 14, 24);
+  z-index: -1;
+  animation-duration: 10s;
+  animation-name: appear-dissapear;
+  animation-iteration-count: infinite;
+}
+
+.fas, .far {
+  font-family: FontAwesome;
+}
+
+.container {
+  flex-grow: 1;
+}
+
+.footer {
+  flex-shrink: 0;
+  background-color: rgba(255, 250, 205, .5);
+}
+
+.footer .left {
+  padding: 3px 10px;
+  float: left;
+}
+
+.footer .right {
+  padding: 3px 10px;
+  float: right;
+}
+
+.contact-card {
+  width: 50%;
+  margin: auto;
+  background-color: rgba(255, 250, 205, .5);
+  padding: 35px;
+  top: 25%;
+  position: relative;
+  height: 50%;
+  font-size: 1.5rem;
+}
+
+.contact-card h3 {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 2rem;
+}
+
+.contact-card h4 {
+}

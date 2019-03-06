@@ -103,6 +103,16 @@ i.fa {
   font-size: 1.5rem;
 }
 
+.contact-icons {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.contact-icons i.fa {
+  font-size: 2rem;
+  margin: 0 10px;
+}
+
 .contact-card h3 {
   font-family: 'Permanent Marker', cursive;
   font-size: 2rem;

@@ -1,5 +1,3 @@
-# jocelo.github.io
+# About.me
 
-Alfredo Alonso About me page
-
-WIP
+<a href="https://jocelo.github.io" target="_parent">About.me page</a>

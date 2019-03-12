@@ -250,15 +250,14 @@ i.fa {
 }
 
 .avatar-container {
-  position: relative;
-  margin: auto;
-  width: 100px;
-  top: -100px;
   margin-bottom: -90px;
 }
 
 .avatar {
   width: 150px;
   border-radius: 50%;
+  display: block;
+  margin: auto;
+  position: relative;
+  top: -100px;
 }
-

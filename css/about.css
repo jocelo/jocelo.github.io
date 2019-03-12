@@ -27,10 +27,111 @@ i.fa {
   height: 100%;  
 }
 
-.bg-image-skyline {
-  background: transparent url("../assets/sunraise.jpg") no-repeat fixed center;
+.bg-image-sky {
   background-size: cover;
-  z-index: -1;
+  z-index: -1;  
+}
+
+.bg-image-sunrise {
+  background: transparent url("../assets/sunraise_1.jpg") no-repeat fixed center;
+  opacity: 0;
+  animation-duration: 21s;
+  animation-name: day-afternoon;
+  animation-iteration-count: infinite;
+}
+
+.bg-image-sunset {
+  background: transparent url("../assets/sunset_1.jpg") no-repeat fixed center;
+  opacity: 0;
+  animation-duration: 21s;
+  animation-name: afternoon-night;
+  animation-iteration-count: infinite;
+}
+
+.bg-image-nightsky {
+  background: transparent url("../assets/night_1.jpg") no-repeat fixed center;
+  opacity: 0;
+  animation-duration: 21s;
+  animation-name: night-day;
+  animation-iteration-count: infinite;
+}
+
+@keyframes day-afternoon {
+  from {
+    opacity: 1;
+  }
+
+  23% {
+    opacity: 1;
+  }
+
+  33% {
+    opacity: 0;
+  }
+
+  89% {
+    opacity: 0;
+  }
+
+  99% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes afternoon-night {
+  from {
+    opacity: 0;
+  }
+
+  23% {
+    opacity: 0;
+  }
+
+  33% {
+    opacity: 1;
+  }
+
+  56% {
+    opacity: 1;
+  }
+
+  66% {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes night-day {
+  from {
+    opacity: 0;
+  }
+
+  56% {
+    opacity: 0;
+  }
+
+  66% {
+    opacity: 1;
+  }
+
+  89% {
+    opacity: 1;
+  }
+
+  99% {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0;
+  }
 }
 
 .bg-image {
@@ -46,19 +147,27 @@ i.fa {
 
 @keyframes appear-dissapear {
   from {
-    opacity: 0;
+    opacity: 1;
   }
 
-  25% {
+  50% {
     opacity: 1;
   }
 
   75% {
-    opacity: 1; 
+    opacity: 0; 
+  }
+
+  89% {
+    opacity: 0;
+  }
+
+  99% {
+    opacity: 1;
   }
 
   to {
-    opacity: 0;
+    opacity: 1;
   }
 }
 
@@ -70,13 +179,14 @@ i.fa {
   left: 0;
   background-color: rgb(14, 14, 24);
   z-index: -1;
-  animation-duration: 10s;
+  animation-duration: 21s;
   animation-name: appear-dissapear;
   animation-iteration-count: infinite;
 }
 
-.fas, .far {
+.fas, .far, .fa {
   font-family: FontAwesome;
+  color: #000;
 }
 
 .container {

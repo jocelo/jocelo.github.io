@@ -34,6 +34,7 @@ i.fa {
 
 .bg-image-sunrise {
   background: transparent url("../assets/sunrise.jpg") no-repeat fixed center;
+  background-size: cover;
   opacity: 0;
   animation-duration: 21s;
   animation-name: day-afternoon;
@@ -42,6 +43,7 @@ i.fa {
 
 .bg-image-sunset {
   background: transparent url("../assets/sunset.jpg") no-repeat fixed center;
+  background-size: cover;
   opacity: 0;
   animation-duration: 21s;
   animation-name: afternoon-night;
@@ -50,6 +52,7 @@ i.fa {
 
 .bg-image-nightsky {
   background: transparent url("../assets/night.jpg") no-repeat fixed center;
+  background-size: cover;
   opacity: 0;
   animation-duration: 21s;
   animation-name: night-day;

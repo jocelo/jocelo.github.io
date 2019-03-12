@@ -184,6 +184,12 @@ i.fa {
   animation-iteration-count: infinite;
 }
 
+i.fa {
+  background-color: rgba(255,255,0, .5);
+  padding: 10px;
+  border-radius: 25px;
+}
+
 .fas, .far, .fa {
   font-family: FontAwesome;
   color: #000;
@@ -217,6 +223,7 @@ i.fa {
   position: relative;
   height: 50%;
   font-size: 1.5rem;
+  box-shadow: 2px 2px 5px rgb(125, 125, 125);
 }
 
 .contact-icons {

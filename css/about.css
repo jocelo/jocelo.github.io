@@ -14,9 +14,10 @@ body {
   font-family: 'Josefin Slab', serif;
 }
 
-i.fa {
+i.fas, i.far, i.fa {
   font-family: FontAwesome;
   font-style: normal;
+  color: #000;
 }
 
 .background {
@@ -187,63 +188,22 @@ i.fa {
   animation-iteration-count: infinite;
 }
 
-.container i.fa {  
-  background-color: rgba(255,255,0, .5);
-  padding: 10px;
-  border-radius: 30px;
-  width: 32px;
-  height: 32px;
-}
-
-.fas, .far, .fa {
-  font-family: FontAwesome;
-  color: #000;
-}
-
 .container {
   flex-grow: 1;
 }
 
-.footer {
-  flex-shrink: 0;
-  background-color: rgba(255, 250, 205, .5);
-}
-
-.footer .left {
-  padding: 3px 10px;
-  float: left;
-}
-
-.footer .right {
-  padding: 3px 10px;
-  float: right;
-}
-
 .contact-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
   width: 50%;
+  height: 55%;
   margin: auto;
   background-color: rgba(255, 250, 205, .5);
   padding: 35px;
-  top: 25%;
-  position: relative;
-  height: 50%;
   font-size: 1.5rem;
-  box-shadow: 2px 2px 5px rgb(125, 125, 125);
-}
-
-.contact-icons {
-  margin-top: 25px;
-  text-align: center;
-}
-
-.contact-icons i.fa {
-  font-size: 2rem;
-  margin: 0 10px;
-}
-
-.contact-card h3 {
-  font-family: 'Permanent Marker', cursive;
-  font-size: 2rem;
+  border-radius: 5px;
+  transform: translate(-50%, -50%);
 }
 
 .contact-card h3,
@@ -253,12 +213,64 @@ i.fa {
   margin-bottom: 10px;
 }
 
-.contact-card h5 {
+.contact-card h3 {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 2rem;
+}
+
+.contact-card h4 {
   margin-bottom: 35px;
 }
 
+.contact-card h4 span {
+  font-size: 1.2rem;
+}
+
+.contact-card h4 span i.fa {
+  font-size: 2rem;
+}
+
 .contact-card p {
-  line-height: 30px;
+  line-height: 35px;
+  font-size: 1.6rem;
+  margin-top: 15px;
+}
+
+.contact-card a.site {
+  text-decoration: none;
+  font-weight: bolder;
+  border: 1px solid #000;
+  padding: 5px;
+  color: lemonchiffon;
+  background-color: #000;
+  border-radius: 3px;
+}
+
+.contact-card a.site:hover {
+  box-shadow: 2px 2px 2px;
+  color: white;
+}
+
+.contact-icons {
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  bottom: 1em;
+  margin-left: -35px;
+}
+
+.contact-icons i.fa {
+  width: 32px;
+  height: 32px;
+  background-color: rgba(255,255,0, .5);
+  padding: 10px;
+  border-radius: 30px;
+  font-size: 2rem;
+  margin: 0 10px;
+}
+
+.contact-icons i.fa:hover {  
+  background-color: rgba(255,255,0, 1);
 }
 
 .avatar-container {
@@ -274,6 +286,17 @@ i.fa {
   top: -100px;
 }
 
-.test {
-  content: 'work in progress';
+.footer {
+  flex-shrink: 0;
+  background-color: rgba(255, 250, 205, .5);
+}
+
+.footer .left {
+  padding: 3px 10px;
+  float: left;
+}
+
+.footer .right {
+  padding: 3px 10px;
+  float: right;
 }

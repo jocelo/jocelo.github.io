@@ -206,6 +206,11 @@ i.fas, i.far, i.fa {
   transform: translate(-50%, -50%);
 }
 
+.contact-card .small {
+  display: none;
+  text-align: center;
+}
+
 .contact-card h3,
 .contact-card h4,
 .contact-card h5 {
@@ -299,4 +304,43 @@ i.fas, i.far, i.fa {
 .footer .right {
   padding: 3px 10px;
   float: right;
+}
+
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (max-width: 420px) {
+  .contact-card {
+    height: 55%;
+  }
+
+  .avatar-container {
+    margin-bottom: 0;
+    height: 1px;
+  }
+  
+  .avatar {
+    width: 50px;
+    top: -60px;
+  }
+
+  .contact-card h3.normal {
+    display: none;
+  }
+
+  .contact-card h3.small {
+    display: block;
+    font-size: 1.5rem;
+  }
+
+  .contact-card h4,
+  .contact-card p {
+    display: none;
+  }
+
+  .contact-card p.small{
+    display: block;
+  }
+
+  .contact-icons i.fa {
+    margin: 5px 10px;
+  }
 }

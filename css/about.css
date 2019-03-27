@@ -138,54 +138,45 @@ i.fas, i.far, i.fa {
   }
 }
 
-.bg-image {
-  background: transparent url("../assets/cerro.png") no-repeat fixed center;
+.bg-image-off {
+  background: transparent url("../assets/cerro_off.png") no-repeat fixed center;
   background-size: cover;
   z-index: -1;
 }
 
-.bg-screen {
-  background-color: rgba(125, 125, 125, .6);
+.bg-image-on {
+  background: transparent url("../assets/cerro_on.png") no-repeat fixed center;
+  background-size: cover;
+  animation-duration: 21s;
+  animation-name: appear-dissapear;
+  animation-iteration-count: infinite;
   z-index: -1;
 }
 
 @keyframes appear-dissapear {
   from {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 1;
-  }
-
-  75% {
-    opacity: 0; 
-  }
-
-  89% {
     opacity: 0;
   }
 
-  99% {
+  50% {
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 1; 
+  }
+
+  89% {
     opacity: 1;
+  }
+
+  99% {
+    opacity: 0;
   }
 
   to {
-    opacity: 1;
+    opacity: 0;
   }
-}
-
-.light-cover {
-  position: fixed;
-  top: 61%; 
-  width: 100%;
-  height: 50%;
-  left: 0;
-  background-color: rgb(14, 14, 24);
-  z-index: -1;
-  animation-duration: 21s;
-  animation-name: appear-dissapear;
-  animation-iteration-count: infinite;
 }
 
 .container {

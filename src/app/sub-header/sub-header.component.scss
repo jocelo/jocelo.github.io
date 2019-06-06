@@ -1,0 +1,10 @@
+.floating-items > a {
+  margin: 0 5px;
+  text-decoration: none;
+}
+
+.active-item {
+  color: #0F71A3;
+  border-bottom: 2px solid #0F71A3;
+  padding: 0 10px;
+}

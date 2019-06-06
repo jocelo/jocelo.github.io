@@ -1,0 +1,34 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-portfolio',
+  templateUrl: './portfolio.component.html',
+  styleUrls: ['./portfolio.component.scss']
+})
+export class PortfolioComponent implements OnInit {
+  projects = [];
+
+  constructor() {
+    this.projects = [{
+      title: 'Homepage',
+      link: 'https://jocelo.github.io',
+      desc: 'Personal website with portfolio, tech stack, links and more personal information. Created with angular7 in 2019.'
+    },{
+      title: 'Phonebook',
+      link: 'https://jocelo.github.io/phonebook/',
+      desc: 'Sample application that showcase basic react and redux funcionality. Can '
+    },{
+      title: 'Snake game',
+      link: 'https://jocelo.github.io/snake-game/',
+      desc: 'Simple vanilla JS game that replicates the funcionality of the snake game where you move a snake over a board with the only objective to eat apples.'
+    },{
+      title: 'Wordsearch Generator',
+      link: 'https://jocelo.github.io/wordsearch-generator/',
+      desc: 'Application created with react to genreate and play wordsearch games. This was created in order to have a way of easily generate more crossword games.'
+    }]
+  }
+
+  ngOnInit() {
+  }
+
+}

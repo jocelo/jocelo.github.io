@@ -16,19 +16,19 @@
     <!-- First Level -->
     <div class="roww" *ngFor="let tech of techstack">
       <div>
-        <span *ngIf="tech.details.length >= 1" class="details-lv1" [ngClass]=" 1 === 1 ? 'more-details' : ''"><fa-icon [icon]="faAngleDoubleDown"></fa-icon></span>
-        <span>{{tech.title}}</span>
+        <span *ngIf="tech.details.length >= 1" class="details-lv1" [ngClass]=" 1 === 1 ? 'more-details' : ''"></span>
+        <span>(1) {{tech.title}}</span>
         <span class="time-square" *ngFor="let o of cols">{{o}}</span>
       
         <!-- Second Level -->
         <div *ngFor="let subtech of tech.details">
-          <span>{{subtech.title}}</span>
+          <span class="details-lv2">(2) {{subtech.title}}</span>
           <span class="time-container">
           </span>
 
           <!-- Third Level -->
           <div *ngFor="let specificTech of subtech.details">
-            <span>{{specificTech.title}}</span>
+            <span class="details-lv3">(3) {{specificTech.title}}</span>
           </div> <!-- Third level -->
         </div> <!-- Second level -->
       </div> <!-- First level -->

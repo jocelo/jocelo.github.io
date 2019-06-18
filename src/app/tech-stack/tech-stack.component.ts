@@ -9,16 +9,32 @@ import { faCoffee, faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons';
 export class TechStackComponent implements OnInit {
   faAngleDoubleDown = faAngleDoubleDown;
   techstack = [];
-  timelapse = [];
-  cols = new Array(39);
+  timelapse = {};
+  startTime = 0;
+  endTime = 0;
+  totalTime = 0;
+  timeSlots = [];
+  percentajeSlots = [];
+  trimesterInMS = 2592000000 * 4;
 
   constructor() {
-    this.timelapse = [{
-      start: '10/1/2006',
+    this.timelapse = {
+      start: '10/1/2015',
       end: '05/01/2019'
-    }];
+    };
+    this.startTime = new Date(this.timelapse['start']).getTime();
+    this.endTime = new Date(this.timelapse['end']).getTime();
+    this.totalTime = this.endTime - this.startTime;
+
+    for (var i= this.startTime; i <= this.endTime ; i+=this.trimesterInMS) {
+      this.timeSlots.push({
+        time: i,
+        percentage: Math.floor((i-this.startTime)*100/this.totalTime)
+      });
+    }
+
     this.techstack = [{
-      title: 'frontend',
+      title: 'Frontend',
       details: [{
         title: 'javascript',
         details: [{
@@ -45,7 +61,7 @@ export class TechStackComponent implements OnInit {
         }]
       }]
     },{
-      title: 'backend',
+      title: 'Backend',
       details: [{
         title: 'python',
         icon: '',
@@ -55,7 +71,10 @@ export class TechStackComponent implements OnInit {
         }]
       }]
     },{
-      title: 'databases',
+      title: 'Databases',
+      details: []
+    },{
+      title: 'Softskills',
       details: []
     }];
   }

@@ -5,33 +5,59 @@
   <div class="main-container">
     
     <!-- Headers -->
-    <div class="single-row">
+    <!-- <div class="single-row">
       <div class="tech-name">Javascript</div>
       <div class="time-lapse">
         <span class="time-square" *ngFor="let o of cols">{{o}}</span>
       </div>
       <div class="time-of-exp">7 years</div>
+    </div> -->
+
+    <div class="time-handlers">
+      <div class="zoom-out"> <div class="btn">-</div> </div>
+      <div class="zoom-in"> <div class="btn">+</div> </div>
+    </div>
+    <!-- Table headers -->
+    <div class="time-table">
+      
+      <div class="cell sidebar-left">
+        <span class="more-details"></span>
+        <span>Tech Name</span>
+      </div>
+
+      <div class="cell time-lapse">
+        <span class="date-square" *ngFor="let o of timeSlots; let idx = index" style="position: absolute;" [style.left.%]="o.percentage">
+          <span class="time-stop">{{o.time|date:'MMM-yy'}}</span>
+        </span>
+      </div>
+
     </div>
 
     <!-- First Level -->
-    <div class="roww" *ngFor="let tech of techstack">
-      <div>
-        <span *ngIf="tech.details.length >= 1" class="details-lv1" [ngClass]=" 1 === 1 ? 'more-details' : ''"></span>
+    <div class="time-table" *ngFor="let tech of techstack">
+      <div class="cell sidebar-left">
         <span>(1) {{tech.title}}</span>
-        <span class="time-square" *ngFor="let o of cols">{{o}}</span>
+        
       
-        <!-- Second Level -->
+        <!-- Second Level ->
         <div *ngFor="let subtech of tech.details">
           <span class="details-lv2">(2) {{subtech.title}}</span>
           <span class="time-container">
           </span>
 
-          <!-- Third Level -->
+          <!-- Third Level ->
           <div *ngFor="let specificTech of subtech.details">
             <span class="details-lv3">(3) {{specificTech.title}}</span>
-          </div> <!-- Third level -->
+          </div> <!-- Third level ->
         </div> <!-- Second level -->
+
       </div> <!-- First level -->
+      <div class="cell time-lapse">
+        <span class="date-square" *ngFor="let o of timeSlots; let idx = index" style="position: absolute;" [style.left.%]="o.percentage">
+          <span class="time-stop-light">&nbsp;</span>
+        </span>
+        <span class="allocated-time">&nbsp;</span>
+      </div>
     </div>
   </div>
 </div>

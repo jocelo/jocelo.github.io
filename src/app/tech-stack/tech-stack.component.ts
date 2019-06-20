@@ -21,7 +21,7 @@ export class TechStackComponent implements OnInit {
   constructor() {
     this.timelapse = {
       start: '10/1/2015',
-      end: '05/01/2019'
+      end: '06/30/2019'
     };
     this.startTime = new Date(this.timelapse['start']).getTime();
     this.endTime = new Date(this.timelapse['end']).getTime();
@@ -98,16 +98,29 @@ export class TechStackComponent implements OnInit {
   }
 
   ngOnInit() {
+    let startTime = new Date(this.timelapse['start']).getTime(),
+      endTime = new Date(this.timelapse['end']).getTime(),
+      totalTime = endTime - startTime;
+
+    console.log('start time:', startTime);
+    console.log('end time:', endTime);
+    console.log('totalTime:', totalTime);
+
     this.techstack = this.data.map((category)=>{
       const allMinDates = this.getAllDates([], 'start', category.details);
       const allMaxDates = this.getAllDates([], 'end', category.details);
       const minDate = allMinDates.reduce((lowestDateStr, actualDateStr)=> new Date(lowestDateStr).getTime() > new Date(actualDateStr).getTime()  ? actualDateStr : lowestDateStr, allMinDates[0]);
       const maxDate = allMaxDates.reduce((greatestDateStr, actualDateStr)=> new Date(greatestDateStr).getTime() > new Date(actualDateStr).getTime()  ? actualDateStr : greatestDateStr, allMaxDates[0]);
+      const minTime = new Date(minDate).getTime();
+      const maxTime = new Date(maxDate).getTime();
 
       return ({
         title: category.title,
-        startDate: new Date(minDate),
-        endDate: new Date(maxDate),
+        startDate: minDate,
+        endDate: maxDate,
+        startTime: maxTime,
+        startPoint: (minTime-startTime)*100/totalTime,
+        widthPercentage: (maxTime-startTime)*100/totalTime - (minTime-startTime)*100/totalTime,
         parent: null
       });
     });

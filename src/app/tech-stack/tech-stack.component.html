@@ -36,9 +36,8 @@
     <!-- First Level -->
     <div class="time-table" *ngFor="let tech of techstack">
       <div class="cell sidebar-left">
-        <span>(1) {{tech.title}}</span>
+        <span>{{tech.title}}</span>
         
-      
         <!-- Second Level ->
         <div *ngFor="let subtech of tech.details">
           <span class="details-lv2">(2) {{subtech.title}}</span>
@@ -53,7 +52,10 @@
 
       </div> <!-- First level -->
       <div class="cell time-lapse">
-
+          <span class="date-square" *ngFor="let o of timeSlots; let idx = index" style="position: absolute;" [style.left.%]="o.percentage">
+            <span class="time-stop-light">&nbsp;</span>
+          </span>
+          <span class="allocated-time" [style.left.%]="tech.startPoint" [style.width.%]="tech.widthPercentage">&nbsp;</span>
       </div>
     </div>
   </div>

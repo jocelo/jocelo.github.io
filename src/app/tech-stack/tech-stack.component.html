@@ -3,23 +3,14 @@
     
   </div>
   <div class="main-container">
-    
-    <!-- Headers -->
-    <!-- <div class="single-row">
-      <div class="tech-name">Javascript</div>
-      <div class="time-lapse">
-        <span class="time-square" *ngFor="let o of cols">{{o}}</span>
-      </div>
-      <div class="time-of-exp">7 years</div>
-    </div> -->
 
     <div class="time-handlers">
       <div class="zoom-out"> <div class="btn">-</div> </div>
       <div class="zoom-in"> <div class="btn">+</div> </div>
     </div>
+
     <!-- Table headers -->
     <div class="time-table">
-      
       <div class="cell sidebar-left">
         <span class="more-details"></span>
         <span>Tech Name</span>
@@ -30,33 +21,21 @@
           <span class="time-stop">{{o.time|date:'MMM-yy'}}</span>
         </span>
       </div>
+    </div> <!-- Table headers -->
 
-    </div>
-
-    <!-- First Level -->
-    <div class="time-table" *ngFor="let tech of techstack">
-      <div class="cell sidebar-left">
-        <span>{{tech.title}}</span>
-        
-        <!-- Second Level ->
-        <div *ngFor="let subtech of tech.details">
-          <span class="details-lv2">(2) {{subtech.title}}</span>
-          <span class="time-container">
-          </span>
-
-          <!-- Third Level ->
-          <div *ngFor="let specificTech of subtech.details">
-            <span class="details-lv3">(3) {{specificTech.title}}</span>
-          </div> <!-- Third level ->
-        </div> <!-- Second level -->
-
-      </div> <!-- First level -->
-      <div class="cell time-lapse">
-          <span class="date-square" *ngFor="let o of timeSlots; let idx = index" style="position: absolute;" [style.left.%]="o.percentage">
-            <span class="time-stop-light">&nbsp;</span>
-          </span>
-          <span class="allocated-time" [style.left.%]="tech.startPoint" [style.width.%]="tech.widthPercentage">&nbsp;</span>
-      </div>
-    </div>
-  </div>
+    <!-- All techs data -->
+    <span *ngFor="let tech of techstack">
+      <div class="time-table" *ngIf="true">
+        <div class="cell sidebar-left">
+          <span>{{tech.title}} <span class="expand-child" *ngIf="tech.children">+</span> </span>
+        </div>
+        <div class="cell time-lapse">
+            <span class="date-square" *ngFor="let o of timeSlots; let idx = index" style="position: absolute;" [style.left.%]="o.percentage">
+              <span class="time-stop-light">&nbsp;</span>
+            </span>
+            <span class="allocated-time" [style.left.%]="tech.startPoint" [style.width.%]="tech.widthPercentage">5 years</span>
+        </div>
+      </div> <!-- ./time-table -->
+    </span>
+  </div> <!-- ./main-container -->
 </div>

@@ -17,6 +17,7 @@ export class TechStackComponent implements OnInit {
   timeSlots = [];
   percentajeSlots = [];
   trimesterInMS = 2592000000 * 4;
+  sectionShow = {};
 
   constructor() {
     this.timelapse = {
@@ -36,18 +37,25 @@ export class TechStackComponent implements OnInit {
 
     this.data = [{
       title: 'Frontend',
+      idx: 'frontend',
       details: [{
         title: 'javascript',
+        idx: 'javascript',
         details: [{
           title: 'react',
           icon: '',
           start: '09/01/2018',
           end: '06/30/2019'
         },{
-          title: 'angular',
+          title: 'angular.Js',
           icon: '',
-            start: '1/15/2019',
-            end: ''
+            start: '01/15/2019',
+            end: '06/30/2019'
+        },{
+          title: 'angular 7',
+          icon: '',
+            start: '01/15/2019',
+            end: '06/30/2019'
         },{
           title: 'vue',
           icon: '',
@@ -62,6 +70,7 @@ export class TechStackComponent implements OnInit {
       }]
     },{
       title: 'Backend',
+      idx: 'backend',
       details: [{
         title: 'python',
         icon: '',
@@ -80,6 +89,7 @@ export class TechStackComponent implements OnInit {
       }]
     },{
       title: 'Databases',
+      idx: 'databases',
       details: [{
         title: 'SQL Server',
         icon: '',
@@ -88,6 +98,7 @@ export class TechStackComponent implements OnInit {
       }]
     },{
       title: 'Devops',
+      idx: 'devops',
       details: [{
         title: 'docker',
         icon: '',
@@ -102,29 +113,67 @@ export class TechStackComponent implements OnInit {
       endTime = new Date(this.timelapse['end']).getTime(),
       totalTime = endTime - startTime;
 
-    console.log('start time:', startTime);
-    console.log('end time:', endTime);
-    console.log('totalTime:', totalTime);
-
     this.techstack = this.data.map((category)=>{
       const allMinDates = this.getAllDates([], 'start', category.details);
       const allMaxDates = this.getAllDates([], 'end', category.details);
       const minDate = allMinDates.reduce((lowestDateStr, actualDateStr)=> new Date(lowestDateStr).getTime() > new Date(actualDateStr).getTime()  ? actualDateStr : lowestDateStr, allMinDates[0]);
-      const maxDate = allMaxDates.reduce((greatestDateStr, actualDateStr)=> new Date(greatestDateStr).getTime() > new Date(actualDateStr).getTime()  ? actualDateStr : greatestDateStr, allMaxDates[0]);
+      const maxDate = allMaxDates.reduce((greatestDateStr, actualDateStr)=> new Date(greatestDateStr).getTime() < new Date(actualDateStr).getTime() ? actualDateStr : greatestDateStr, allMaxDates[0]);
       const minTime = new Date(minDate).getTime();
       const maxTime = new Date(maxDate).getTime();
 
-      return ({
+      let children = category.details.map(tech => {
+        let moreChildren = [];
+
+        if (tech.details) {
+          moreChildren = tech.details.map(single=>{
+            const minTime = new Date(single.start).getTime();
+            const maxTime = new Date(single.end).getTime();
+
+            return {
+              title: single.title,
+              children: Boolean(single.details),
+              startDate: single.start,
+              endDate: single.end,
+              startTime: '',
+              startPoint: (minTime-startTime)*100/totalTime,
+              widthPercentage: (maxTime-startTime)*100/totalTime - (minTime-startTime)*100/totalTime,
+              parent: tech.idx
+            }
+          })
+        }
+
+        return [{
+          title: tech.title,
+          children: Boolean(tech.details),
+          startDate: tech.start,
+          endDate: tech.end,
+          startTime: '',
+          startPoint: '',
+          widthPercentage: '',
+          parent: category.idx
+        }, ...moreChildren]
+      }).flat();
+
+      let parent = {
         title: category.title,
+        children: Boolean(category.details),
         startDate: minDate,
         endDate: maxDate,
         startTime: maxTime,
         startPoint: (minTime-startTime)*100/totalTime,
         widthPercentage: (maxTime-startTime)*100/totalTime - (minTime-startTime)*100/totalTime,
         parent: null
-      });
-    });
-    console.log('this.techstack', this.techstack);
+      };
+
+      return [parent, ...children];
+    }).flat();
+
+    this.sectionShow = this.techstack.reduce((allItems, item)=>{
+      if (item.parent) {
+        allItems[item.parent] = false;
+      }
+      return allItems;
+    }, {});
   }
 
   getAllDates(allDates: any[], dateType: string, details: any[]) {

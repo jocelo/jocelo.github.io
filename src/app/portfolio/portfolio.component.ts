@@ -25,6 +25,10 @@ export class PortfolioComponent implements OnInit {
       title: 'Wordsearch Generator',
       link: 'https://jocelo.github.io/wordsearch-generator/',
       desc: 'Application created with react to genreate and play wordsearch games. This was created in order to have a way of easily generate more crossword games.'
+    },{
+      title: 'JS Mentor at Exercism website',
+      link: 'https://exercism.io/tracks/javascript/mentors',
+      desc: 'Giving back to the community in a non-profit website to help improve problem solving, though exercise solvig with vanilla JavaScript.'
     }]
   }
 

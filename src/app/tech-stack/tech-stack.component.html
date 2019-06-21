@@ -25,9 +25,9 @@
 
     <!-- All techs data -->
     <span *ngFor="let tech of techstack">
-      <div class="time-table" *ngIf="true">
-        <div class="cell sidebar-left">
-          <span>{{tech.title}} <span class="expand-child" *ngIf="tech.children">+</span> </span>
+      <div class="time-table" *ngIf="!tech.parent || sectionShow[tech.parent]">
+        <div [ngClass]="['cell','sidebar-left', 'level_'+tech.level]">
+          <span>{{tech.title}} <span class="expand-child" *ngIf="tech.children" (click)="showHideSection(tech.key)"><fa-icon [icon]="faAngleDown" size="md"></fa-icon></span> </span>
         </div>
         <div class="cell time-lapse">
             <span class="date-square" *ngFor="let o of timeSlots; let idx = index" style="position: absolute;" [style.left.%]="o.percentage">

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faCoffee, faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons';
+import { faCoffee, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-tech-stack',
@@ -7,7 +7,7 @@ import { faCoffee, faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./tech-stack.component.scss']
 })
 export class TechStackComponent implements OnInit {
-  faAngleDoubleDown = faAngleDoubleDown;
+  faAngleDown = faAngleDown;
   techstack = [];
   data = [];
   timelapse = {};
@@ -39,7 +39,7 @@ export class TechStackComponent implements OnInit {
       title: 'Frontend',
       idx: 'frontend',
       details: [{
-        title: 'javascript',
+        title: 'JavaScript',
         idx: 'javascript',
         details: [{
           title: 'react',
@@ -131,6 +131,8 @@ export class TechStackComponent implements OnInit {
 
             return {
               title: single.title,
+              key: single.idx || '',
+              level: 3,
               children: Boolean(single.details),
               startDate: single.start,
               endDate: single.end,
@@ -144,6 +146,8 @@ export class TechStackComponent implements OnInit {
 
         return [{
           title: tech.title,
+          key: tech.idx || '',
+          level: 2,
           children: Boolean(tech.details),
           startDate: tech.start,
           endDate: tech.end,
@@ -156,6 +160,8 @@ export class TechStackComponent implements OnInit {
 
       let parent = {
         title: category.title,
+        key: category.idx || '',
+        level: 1,
         children: Boolean(category.details),
         startDate: minDate,
         endDate: maxDate,
@@ -167,6 +173,8 @@ export class TechStackComponent implements OnInit {
 
       return [parent, ...children];
     }).flat();
+    
+    console.log(' >>>', this.techstack);
 
     this.sectionShow = this.techstack.reduce((allItems, item)=>{
       if (item.parent) {
@@ -185,5 +193,9 @@ export class TechStackComponent implements OnInit {
       allDates.push(details[i][dateType]);
     }
     return allDates;
+  }
+
+  showHideSection(sectionKey) {
+    this.sectionShow[sectionKey] = !this.sectionShow[sectionKey];
   }
 }

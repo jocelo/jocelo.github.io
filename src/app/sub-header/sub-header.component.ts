@@ -13,4 +13,6 @@ export class SubHeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  searchAgain() {}
+
 }

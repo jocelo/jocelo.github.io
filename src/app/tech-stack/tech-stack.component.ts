@@ -113,6 +113,8 @@ export class TechStackComponent implements OnInit {
       endTime = new Date(this.timelapse['end']).getTime(),
       totalTime = endTime - startTime;
 
+    let teckStack2 = [];
+
     this.techstack = this.data.map((category)=>{
       const allMinDates = this.getAllDates([], 'start', category.details);
       const allMaxDates = this.getAllDates([], 'end', category.details);
@@ -172,9 +174,15 @@ export class TechStackComponent implements OnInit {
       };
 
       return [parent, ...children];
-    }).flat();
-    
-    console.log(' >>>', this.techstack);
+    });
+  
+    this.techstack.map(singleStack=>{
+      singleStack.map(one=>{
+        teckStack2.push(one);
+      });
+    });
+
+    this.techstack = teckStack2;
 
     this.sectionShow = this.techstack.reduce((allItems, item)=>{
       if (item.parent) {

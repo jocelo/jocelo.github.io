@@ -1,0 +1,41 @@
+<div>
+  <div class="headers">
+    
+  </div>
+  <div class="main-container">
+
+    <div class="time-handlers">
+      <div class="zoom-out"> <div class="btn">-</div> </div>
+      <div class="zoom-in"> <div class="btn">+</div> </div>
+    </div>
+
+    <!-- Table headers -->
+    <div class="time-table">
+      <div class="cell sidebar-left">
+        <span class="more-details"></span>
+        <span>Tech Name</span>
+      </div>
+
+      <div class="cell time-lapse">
+        <span class="date-square" *ngFor="let o of timeSlots; let idx = index" style="position: absolute;" [style.left.%]="o.percentage">
+          <span class="time-stop">{{o.time|date:'MMM-yy'}}</span>
+        </span>
+      </div>
+    </div> <!-- Table headers -->
+
+    <!-- All techs data -->
+    <span *ngFor="let tech of techstack">
+      <div class="time-table" *ngIf="!tech.parent || sectionShow[tech.parent]">
+        <div [ngClass]="['cell','sidebar-left', 'level_'+tech.level]">
+          <span>{{tech.title}} <span class="expand-child" *ngIf="tech.children" (click)="showHideSection(tech.key)"><fa-icon [icon]="faAngleDown" size="md"></fa-icon></span> </span>
+        </div>
+        <div class="cell time-lapse">
+            <span class="date-square" *ngFor="let o of timeSlots; let idx = index" style="position: absolute;" [style.left.%]="o.percentage">
+              <span class="time-stop-light">&nbsp;</span>
+            </span>
+            <span class="allocated-time" [style.left.%]="tech.startPoint" [style.width.%]="tech.widthPercentage">5 years</span>
+        </div>
+      </div> <!-- ./time-table -->
+    </span>
+  </div> <!-- ./main-container -->
+</div>

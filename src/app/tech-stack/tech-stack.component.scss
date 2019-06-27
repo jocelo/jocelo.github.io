@@ -1,0 +1,135 @@
+.main-container {
+  width: 100%;
+  display: table;
+}
+
+
+.cell {
+  display: table-cell;
+}
+
+.sidebar-left {
+  width: 8%;
+  min-width: 70px;
+}
+
+.sidebar-right {
+  width: 50px;
+}
+
+.time-table {
+  width: 100%;
+  display: table;
+}
+
+.time-table:hover {
+  background-color: rgba(255, 72, 0, 0.05);
+}
+
+.time-square {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  background-color: rgba(230, 230, 230, 0.1);
+}
+
+.time-stop {
+  border-left: 2px solid orangered;
+  padding-left: 5px;
+  position: absolute;
+  vertical-align: bottom;
+}
+
+.time-stop-light {
+  border-left: 2px solid RGBA(255, 69, 0, 0.2);
+  padding-left: 5px;
+  position: absolute;
+  height: 100%;
+}
+
+.date-square {
+  display: inline-block;
+  width: 124px;
+  height: 30px;
+  border: 0;
+  background-color: transparent;
+}
+
+.time-square.time-exp {
+  background-color: rgba(39, 174, 96, 1);
+}
+
+.time-container {
+  display: flex;
+}
+
+.time-lapse {
+  position: relative;
+  height: 30px;
+}
+
+.single-row {
+  display: flex;
+}
+
+.time-handlers {
+  width: 100%;
+}
+
+.time-handlers > div {
+  display: inline-block;
+  width: 49%;
+}
+
+.zoom-out {
+  text-align: right;
+  padding-right: 10px;
+}
+
+.zoom-in {
+  text-align: left;
+  padding-left: 10px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.allocated-time {
+  position: absolute;
+  top: 5px;
+  border: 1px solid purple;
+  background-color: rgba(128, 0, 128, 0.2);
+  height: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.expand-child {
+  cursor: pointer;
+}
+
+.sidebar-left.level_2 {
+  padding-left: 10px;
+}
+
+.sidebar-left.level_3 {
+  padding-left: 20px;
+}
+
+/*
+.frontend {}
+
+.frontend {}
+
+.frontend {}
+
+.frontend {}
+*/

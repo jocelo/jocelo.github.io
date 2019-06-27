@@ -1,0 +1,38 @@
+.actions-container {
+  text-align: center;
+
+  & button {
+    margin: 10px;
+    padding: 5px 10px;
+  }
+
+  & .btn-search {
+    position: relative;
+  }
+  & .btn-shake {
+    // transform: rotate(3deg);
+    animation-duration: 0.4s;
+    animation-name: shakeshake;
+    animation-iteration-count: infinite;
+  }
+}
+
+@keyframes shakeshake {
+  from {
+    transform: none;
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: none;
+    padding: 6px 12px;
+  }
+  75% {
+    transform: rotate(5deg);  
+  }
+
+  to {
+    transform: none;
+  }
+}

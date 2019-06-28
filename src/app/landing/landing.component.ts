@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-landing',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./landing.component.scss']
 })
 export class LandingComponent implements OnInit {
-  cochinada: string = '';
+  wordSearched: string = '';
   shake: boolean = false;
   topics: Array<string> = ['portfolio', 'certifications', 'photos', 'languages', 'store', 'tech stack', 'videos'];
   topicSelected: string;
+
+  faSearch = faSearch;
 
   constructor() {
     this.getRandomTopic();
@@ -33,16 +36,16 @@ export class LandingComponent implements OnInit {
     event.stopPropagation();
 
     if ( event.keyCode == 8) {
-      this.cochinada = this.cochinada.slice(0,-1);
+      this.wordSearched = this.wordSearched.slice(0,-1);
       this.killAnimation();
       
-      if (this.cochinada.length === 0) {
+      if (this.wordSearched.length === 0) {
         this.getRandomTopic();
       }
-    } else if (this.cochinada.length < this.topicSelected.length) {
-      this.cochinada += this.topicSelected[this.cochinada.length];
+    } else if (this.wordSearched.length < this.topicSelected.length) {
+      this.wordSearched += this.topicSelected[this.wordSearched.length];
       this.killAnimation();
-    } else if (this.cochinada.length == this.topicSelected.length) {
+    } else if (this.wordSearched.length == this.topicSelected.length) {
       this.animate();
     }
   }

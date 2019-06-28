@@ -1,9 +1,10 @@
 <div class="col">
   <div class="align-center-container">
-    <p>Jose Alfredo Alonso</p>
+    <p class="main-line">Jose Alfredo Alonso</p>
   </div>
   <div class="align-center-container">
-    <input type="text" class="form-control" [value]='cochinada' (keyup)="handleKeyUp($event)" (keydown)="handleKeyDown($event)">
+    <input type="text" class="form-control token" [value]='wordSearched' (keyup)="handleKeyUp($event)" (keydown)="handleKeyDown($event)">
+    <span class="icon-container"><fa-icon [icon]="faSearch" size="lg"></fa-icon></span>
   </div>
   <div class="actions-container">
     <button type="button" class="btn btn-search" [ngClass]="{'btn-shake':shake}" (onmouseover)="log('caca')" (click)="log('clicked')">Search</button>

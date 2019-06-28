@@ -1,5 +1,10 @@
 <div class="col">
-  <input type="text" class="form-control" [value]='cochinada' (keyup)="handleKeyUp($event)" (keydown)="handleKeyDown($event)">
+  <div class="align-center-container">
+    <p>Jose Alfredo Alonso</p>
+  </div>
+  <div class="align-center-container">
+    <input type="text" class="form-control" [value]='cochinada' (keyup)="handleKeyUp($event)" (keydown)="handleKeyDown($event)">
+  </div>
   <div class="actions-container">
     <button type="button" class="btn btn-search" [ngClass]="{'btn-shake':shake}" (onmouseover)="log('caca')" (click)="log('clicked')">Search</button>
     <button type="button" class="btn" (click)="log('')">I'm Feeling Adventurous</button>

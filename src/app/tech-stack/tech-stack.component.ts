@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faCoffee, faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { faCoffee, faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-tech-stack',
@@ -8,6 +8,7 @@ import { faCoffee, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 })
 export class TechStackComponent implements OnInit {
   faAngleDown = faAngleDown;
+  faAngleUp = faAngleUp;
   techstack = [];
   data = [];
   timelapse = {};

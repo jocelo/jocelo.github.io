@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faCoffee, faTh } from '@fortawesome/free-solid-svg-icons';
+import { faCoffee, faTh, faUserCircle, faGlasses } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -9,9 +9,12 @@ import { faCoffee, faTh } from '@fortawesome/free-solid-svg-icons';
 export class HeaderComponent implements OnInit {
   faCoffee = faCoffee;
   faTh = faTh;
+  faUserCircle = faUserCircle;
+  
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

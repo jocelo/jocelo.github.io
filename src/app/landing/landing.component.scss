@@ -6,6 +6,7 @@
     margin: 10px;
     padding: 5px 10px;
     background-color: #ededed;
+    color: gray;
     border: 1px solid gray;
     cursor: pointer;
     font-size: 14px;
@@ -53,6 +54,7 @@
     width: 100%;
     border-radius: 15px;
     border: 1px solid gray;
+    box-shadow: 0 0 7px lightskyblue;
   }
 
   & p.main-line {
@@ -72,4 +74,25 @@
   position: absolute;
   right: -10px;
   top: 7px;
+}
+
+.col-actions {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+
+  & .action-icon {
+    display: inline-block;
+    position: relative;
+    margin: 0 25px;
+    cursor: pointer;
+
+    & p {
+      margin-top: 5px;
+    }
+  }
+
+  & .action-icon:hover {
+    color: #6A5ACD;
+  }
 }

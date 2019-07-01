@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faGithub, faCodepen, faLinkedin, faYoutube, faTwitter, faInstagram, faJsSquare } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-landing',
@@ -12,7 +13,16 @@ export class LandingComponent implements OnInit {
   topics: Array<string> = ['portfolio', 'certifications', 'photos', 'languages', 'store', 'tech stack', 'videos'];
   topicSelected: string;
 
-  faSearch = faSearch;
+  faIcons = {
+    search: faSearch,
+    github: faGithub,
+    codepen: faCodepen,
+    linkedin: faLinkedin,
+    youtube: faYoutube,
+    twitter: faTwitter,
+    instagram: faInstagram,
+    exercism: faJsSquare
+  };
 
   constructor() {
     this.getRandomTopic();

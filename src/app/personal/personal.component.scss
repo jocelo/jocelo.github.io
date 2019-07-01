@@ -1,12 +1,32 @@
 h3 {
 	text-align: center;
 	font-size: 25px;
-	padding: 20px 0;
+	padding: 20px 0 0;
 	color: #0F71A3;
 }
 
 .section-container {
 	padding: 0 50px;
+}
+
+.section-container.languages {
+	text-align: center;
+}
+
+.section-container.languages h4 {
+	margin-top: 0;
+	padding-top: 0;
+	font-size: 22px;
+}
+
+.section-container a {
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.section-container a .ng-fa-icon {
+	font-size: 12px;
+	vertical-align: super;
 }
 
 .lang-section {
@@ -29,7 +49,7 @@ h3 {
 }
 
 .french-lang span:first-of-type .novice {
-	color: black;
+	color: crimson;
 }
 
 .eng-lang span:last-of-type .fluent {
@@ -38,4 +58,12 @@ h3 {
 
 .spa-lang {
 	color: green;
+}
+
+.eng-lang {
+	color: blue;
+}
+
+.french-lang {
+	color: crimson;
 }

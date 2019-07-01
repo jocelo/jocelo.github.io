@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faPepperHot, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faPepperHot, faStar, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { faCanadianMapleLeaf } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
@@ -11,6 +11,7 @@ export class PersonalComponent implements OnInit {
   faPepperHot = faPepperHot;
   faLeaf = faCanadianMapleLeaf;
   faStar = faStar;
+  faExternalLinkAlt = faExternalLinkAlt;
   
   constructor() { }
 

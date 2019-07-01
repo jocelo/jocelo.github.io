@@ -12,7 +12,7 @@ export class PortfolioComponent implements OnInit {
     this.projects = [{
       title: 'Homepage',
       link: 'https://jocelo.github.io',
-      desc: 'Personal website with portfolio, tech stack, links and more personal information. Created with angular7 in 2019.'
+      desc: "Portfolio's website. Has all the professional information, certifications achieved, tech stack and contact information. Created with angular7 in 2019."
     },{
       title: 'JS Mentor at Exercism website',
       link: 'https://exercism.io/tracks/javascript/mentors',

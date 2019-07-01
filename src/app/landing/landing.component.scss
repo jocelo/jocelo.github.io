@@ -9,7 +9,7 @@
     color: gray;
     border: 1px solid gray;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 13px;
   }
 
   & .btn-search {
@@ -53,8 +53,12 @@
   & input {
     width: 100%;
     border-radius: 15px;
-    border: 1px solid gray;
-    box-shadow: 0 0 7px lightskyblue;
+    border: 1px solid lightgray;
+    box-shadow: 0 1px 7px lightgray;
+  }
+
+  & .icon-container {
+    color: gray;
   }
 
   & p.main-line {
@@ -86,6 +90,10 @@
     position: relative;
     margin: 0 25px;
     cursor: pointer;
+
+    & a {
+      text-decoration: none;
+    }
 
     & p {
       margin-top: 5px;

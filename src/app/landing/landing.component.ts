@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faCodepen, faLinkedin, faYoutube, faTwitter, faInstagram, faJsSquare } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
@@ -15,6 +15,7 @@ export class LandingComponent implements OnInit {
 
   faIcons = {
     search: faSearch,
+    envelope: faEnvelope,
     github: faGithub,
     codepen: faCodepen,
     linkedin: faLinkedin,

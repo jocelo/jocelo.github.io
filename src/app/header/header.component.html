@@ -1,9 +1,9 @@
-<nav style="overflow: auto;">
+<nav style="overflow: auto;" *ngIf="showHeader">
   <a routerLink="/index" style="float: left;"> Home </a>
   <a routerLink="/portfolio" style="float: left;"> Portfolio(About) </a>
   <a routerLink="/certifications" style="float: left;"> Certifications (Store) </a>
 
-  <a style="float: right;"> <fa-icon [icon]="faUserCircle" size="lg"></fa-icon> </a>
-  <a style="float: right;"> <fa-icon [icon]="faTh" size="lg"></fa-icon> </a>
+  <a style="float: right;"> <fa-icon [icon]="faIcons.userCircle" size="lg"></fa-icon> </a>
+  <a style="float: right;"> <fa-icon [icon]="faIcons.th" size="lg"></fa-icon> </a>
   <a style="float: right;"> Email</a>
 </nav>

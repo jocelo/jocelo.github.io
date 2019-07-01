@@ -14,15 +14,15 @@ export class PortfolioComponent implements OnInit {
       link: 'https://jocelo.github.io',
       desc: "Portfolio's website. Has all the professional information, certifications achieved, tech stack and contact information. Created with angular7 in 2019."
     },{
-      title: 'JS Mentor at Exercism website',
+      title: 'JavaScript Mentor at Exercism Website',
       link: 'https://exercism.io/tracks/javascript/mentors',
-      desc: 'Giving back to the community in a non-profit website to help improve problem solving, though exercise solvig with vanilla JavaScript.'
+      desc: "Non-profit project that help developer students to learn different languages. Working in JavaScript's language/track to mentor students in learning JavaScript's language."
     },{
       title: 'Phonebook',
       link: 'https://jocelo.github.io/phonebook/',
-      desc: 'Sample application that showcase basic react and redux funcionality. Can '
+      desc: 'Sample application built to showcase basic React+Redux funcionality. Application was created to pass knowledge to a colleague.'
     },{
-      title: 'Snake game',
+      title: 'Snake Game',
       link: 'https://jocelo.github.io/snake-game/',
       desc: 'Simple vanilla JS game that replicates the funcionality of the snake game where you move a snake over a board with the only objective to eat apples.'
     },{

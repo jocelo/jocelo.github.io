@@ -1,17 +1,42 @@
 .section {
-  margin: 20px 30px;
+  margin: 20px 30px 20px 100px;
+
+  & .header {
+    color: slateblue;
+    font-weight: bold;
+  }
+
+  & .link {
+    font-size: 14px;
+  }
+
+  & .desc {
+    color: #666;
+  }
 }
 
-.section .header {
-  color: blue;
-  font-weight: bold;
-}
-
-.section .link a, .section .link a:hover, .section .link a:visited {
+.section .link a, 
+.section .link a:hover, 
+.section .link a:visited {
   color: green;
   text-decoration: none;
 }
 
-.section .desc {
-  color: #666;
+.tech-section {
+  padding: 5px 0 0 0;
+
+  & > span {
+    margin: 0 10px;
+  }
+
+  & .icon {
+    font-size: 20px;
+    padding: 5px;
+    color: gray;
+  }
+
+  & .tech-label {
+    font-size: 13px;
+    vertical-align: text-top;
+  }
 }

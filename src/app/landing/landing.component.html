@@ -1,33 +1,34 @@
-<div class="col">
-  <div class="align-center-container" *ngIf="false">
-    <p class="main-line">Alfredo Alonso</p>
+<div class="landing-wrapper">
+  <div class="col">
+    <div class="align-center-container" *ngIf="true">
+      <p class="main-line">Alfredo Alonso</p>
+    </div>
+    <div class="align-center-container">
+      <input type="text" class="form-control token" [value]='wordSearched' (keyup)="handleKeyUp($event)" (keydown)="handleKeyDown($event)">
+      <span class="icon-container"><fa-icon [icon]="faIcons.search" size="lg"></fa-icon></span>
+    </div>
+    <div class="actions-container">
+      <button type="button" class="btn btn-search" [ngClass]="{'btn-shake':shake}" (onmouseover)="log('caca')" (click)="log('clicked')">Search</button>
+      <button type="button" class="btn" (click)="log('')">I'm Feeling Adventurous</button>
+    </div>
   </div>
-  <div class="align-center-container">
-    <input type="text" class="form-control token" [value]='wordSearched' (keyup)="handleKeyUp($event)" (keydown)="handleKeyDown($event)">
-    <span class="icon-container"><fa-icon [icon]="faIcons.search" size="lg"></fa-icon></span>
-  </div>
-  <div class="actions-container">
-    <button type="button" class="btn btn-search" [ngClass]="{'btn-shake':shake}" (onmouseover)="log('caca')" (click)="log('clicked')">Search</button>
-    <button type="button" class="btn" (click)="log('')">I'm Feeling Adventurous</button>
-  </div>
-</div>
 
-<div class="col-actions">
-  <span class="action-icon">
-    <a href="https://github.com/jocelo" target="_blank"> <fa-icon [icon]="faIcons.github" size="2x"></fa-icon> <p>github</p> </a> 
-  </span>
-  <span class="action-icon">
-    <a href="https://codepen.io/jocelo/" target="_blank"> <fa-icon [icon]="faIcons.codepen" size="2x"></fa-icon> <p>codepen</p> </a>
-  </span>
-  <span class="action-icon">
-    <a href="https://www.linkedin.com/in/alfredoae/" target="_blank"> <fa-icon [icon]="faIcons.linkedin" size="2x"></fa-icon> <p>linkedin</p> </a>
-  </span>
-  <span class="action-icon">
-    <a href="https://www.youtube.com/channel/UC547pgqomI0IcjOmltxQdAQ" target="_blank"> <fa-icon [icon]="faIcons.youtube" size="2x"></fa-icon> <p>youtube</p> </a>
-  </span>
-</div>
+  <div class="col-actions">
+    <span class="action-icon">
+      <a href="https://github.com/jocelo" target="_blank"> <fa-icon [icon]="faIcons.github" size="2x"></fa-icon> <p>github</p> </a> 
+    </span>
+    <span class="action-icon">
+      <a href="https://codepen.io/jocelo/" target="_blank"> <fa-icon [icon]="faIcons.codepen" size="2x"></fa-icon> <p>codepen</p> </a>
+    </span>
+    <span class="action-icon">
+      <a href="https://www.linkedin.com/in/alfredoae/" target="_blank"> <fa-icon [icon]="faIcons.linkedin" size="2x"></fa-icon> <p>linkedin</p> </a>
+    </span>
+    <span class="action-icon">
+      <a href="https://www.youtube.com/channel/UC547pgqomI0IcjOmltxQdAQ" target="_blank"> <fa-icon [icon]="faIcons.youtube" size="2x"></fa-icon> <p>youtube</p> </a>
+    </span>
+  </div>
 
-<div class="col-actions">
+  <div class="col-actions">
     <span class="action-icon">
       <a href="https://exercism.io/profiles/jocelo" target="_blank"> <fa-icon [icon]="faIcons.exercism" size="2x"></fa-icon> <p>exercism</p> </a>
     </span>
@@ -41,3 +42,4 @@
         <a href="mailto:jocelohere@gmail.com"> <fa-icon [icon]="faIcons.envelope" size="2x"></fa-icon> <p>email</p> </a>
       </span>
   </div>
+</div>

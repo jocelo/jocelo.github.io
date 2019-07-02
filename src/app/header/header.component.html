@@ -3,7 +3,6 @@
   <a routerLink="/portfolio" style="float: left;"> Portfolio </a>
   <a routerLink="/certifications" style="float: left;"> Certifications </a>
 </nav>
-
-<span class="personal-icon">
+<span [ngClass]="{'details-page': !this.showHeader, 'personal-icon': true}">
   <a routerLink="/"> <fa-icon [icon]="faIcons.userCircle" size="2x"></fa-icon> </a>
 </span>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-sub-header',
@@ -9,6 +10,9 @@ import { Router, NavigationEnd } from '@angular/router';
 export class SubHeaderComponent implements OnInit {
   selectedItem: string = 'all';
   showLinks: boolean = true;
+  faIcons = {
+    search: faSearch
+  };
 
   constructor(private route: Router) {
     this.routerEvent(this.route);

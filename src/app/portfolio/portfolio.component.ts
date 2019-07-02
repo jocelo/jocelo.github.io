@@ -49,6 +49,7 @@ export class PortfolioComponent implements OnInit {
       desc: 'Sample application built to showcase basic React+Redux funcionality. Application was created to pass knowledge to a colleague.',
       techStack: [
         { name: 'react', icon: 'react'},
+        { name: 'redux', icon: 'code'},
         { name: 'nodeJs', icon: 'node'},
         { name: 'github pages', icon: 'server'}
       ]

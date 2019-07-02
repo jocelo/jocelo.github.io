@@ -19,6 +19,31 @@
   margin-bottom: 25px;
 }
 
+.second-search {
+  margin-left: 10px;
+  position: relative;
+  font-size: 20px;
+
+  & a {
+    vertical-align: bottom;
+  }
+
+  & input {
+    margin-left: 20px;
+    border-radius: 15px;
+    border: 1px solid gray;
+    padding: 4px 10px;
+    width: 250px;
+  }
+  
+  & .icon-container {
+    position: absolute;
+    right: 7px;
+    top: 2px;
+    color: gray;
+  }
+}
+
 hr {
   padding-top: 0;
   margin-top: 7px;

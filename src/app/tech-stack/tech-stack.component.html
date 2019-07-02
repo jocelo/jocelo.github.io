@@ -5,8 +5,7 @@
   <div class="main-container">
 
     <div class="time-handlers">
-      <div class="zoom-out"> <div class="btn">-</div> </div>
-      <div class="zoom-in"> <div class="btn">+</div> </div>
+
     </div>
 
     <!-- Table headers -->
@@ -26,8 +25,13 @@
     <!-- All techs data -->
     <span *ngFor="let tech of techstack">
       <div class="time-table" *ngIf="!tech.parent || sectionShow[tech.parent]">
-        <div [ngClass]="['cell','sidebar-left', 'level_'+tech.level]">
-          <span>{{tech.title}} <span class="expand-child" *ngIf="tech.children" (click)="showHideSection(tech.key)"><fa-icon [icon]="faAngleDown" size="md"></fa-icon></span> </span>
+        <div [ngClass]="['cell','sidebar-left', 'level_'+tech.level]" (click)="showHideSection(tech.key)">
+          <span>{{tech.title}}
+            <span class="expand-child" *ngIf="tech.children">
+              <fa-icon *ngIf="!sectionShow[tech.key]" [icon]="faAngleDown" size="md"></fa-icon>
+              <fa-icon *ngIf="sectionShow[tech.key]" [icon]="faAngleUp" size="md"></fa-icon>
+            </span>
+          </span>
         </div>
         <div class="cell time-lapse">
             <span class="date-square" *ngFor="let o of timeSlots; let idx = index" style="position: absolute;" [style.left.%]="o.percentage">

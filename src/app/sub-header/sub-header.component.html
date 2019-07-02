@@ -1,12 +1,12 @@
-<div>
-  <span>Jocelo</span> <span><input type="text" (onChange)="searchAgain()"></span>
-  <div class="floating-items">
-    <a routerLink="/all">All</a>
-    <a routerLink="/portfolio" class="active-item">Portfolio</a>
-    <a routerLink="/certifications">Certifications</a>
-    <a routerLink="/tech-stack">Tech Stack</a>
+<div class="margin-bottom">
+  <span *ngIf="!showLinks"><a routerLink="/">Jocelo</a> <input type="text" (onChange)="searchAgain()"></span>
+  <div *ngIf="!showLinks" class="floating-items">
+    <a routerLink="/all" [ngClass]="{'active-item' : this.selectedItem === 'all'}">All</a>
+    <a routerLink="/portfolio" [ngClass]="{'active-item' : this.selectedItem === 'portfolio'}">Portfolio</a>
+    <a routerLink="/certifications" [ngClass]="{'active-item' : this.selectedItem === 'certifications'}">Certifications</a>
+    <a routerLink="/tech-stack" [ngClass]="{'active-item' : this.selectedItem === 'tech-stack'}">Tech Stack</a>
     <a>Store</a>
-    <a href="https://www.youtube.com/channel/UC547pgqomI0IcjOmltxQdAQ" target="_self">Videos</a>
+    <a href="https://www.youtube.com/channel/UC547pgqomI0IcjOmltxQdAQ" target="_blank">Videos</a>
   </div>
-  <hr class="" />
+  <hr />
 </div>

@@ -1,9 +1,15 @@
 .actions-container {
   text-align: center;
+  margin-top: 10px;
 
   & button {
     margin: 10px;
     padding: 5px 10px;
+    background-color: #ededed;
+    color: gray;
+    border: 1px solid gray;
+    cursor: pointer;
+    font-size: 13px;
   }
 
   & .btn-search {
@@ -34,5 +40,67 @@
 
   to {
     transform: none;
+  }
+}
+
+.align-center-container {
+  width: 30%;
+  display: block;
+  margin: auto;
+  text-align: center;
+  position: relative;
+
+  & input {
+    width: 100%;
+    border-radius: 15px;
+    border: 1px solid lightgray;
+    box-shadow: 0 1px 7px lightgray;
+  }
+
+  & .icon-container {
+    color: gray;
+  }
+
+  & p.main-line {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 4px 4px 4px #aaa;
+  }
+}
+
+.token {
+  font-size: 20px;
+  padding: 5px 10px;
+}
+
+.icon-container {
+  position: absolute;
+  right: -10px;
+  top: 7px;
+}
+
+.col-actions {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+
+  & .action-icon {
+    display: inline-block;
+    position: relative;
+    margin: 0 25px;
+    cursor: pointer;
+
+    & a {
+      text-decoration: none;
+    }
+
+    & p {
+      margin-top: 5px;
+    }
+  }
+
+  & .action-icon:hover {
+    color: #6A5ACD;
   }
 }

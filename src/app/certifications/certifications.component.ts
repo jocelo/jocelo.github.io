@@ -25,7 +25,7 @@ export class CertificationsComponent implements OnInit {
       certImage: 'https://res.cloudinary.com/mycollections/image/upload/v1551302762/certificates/computer_science_python_mitx.png'
     },{
       obtainedDate: 'March 12, 2015',
-      desc: 'Programming Mobile Applications for Android Handheld Systems: Part 1 by University of Maryland, College Park',
+      desc: 'Programming Mobile Applications for Android Handheld Systems: Part 1',
       siteLink: 'https://www.coursera.org',
       site: 'Coursera',
       certLink: 'https://www.coursera.org/account/accomplishments/certificate/HMB4F9CDRM',

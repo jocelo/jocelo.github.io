@@ -1,0 +1,69 @@
+h3 {
+	text-align: center;
+	font-size: 25px;
+	padding: 20px 0 0;
+	color: #0F71A3;
+}
+
+.section-container {
+	padding: 0 50px;
+}
+
+.section-container.languages {
+	text-align: center;
+}
+
+.section-container.languages h4 {
+	margin-top: 0;
+	padding-top: 0;
+	font-size: 22px;
+}
+
+.section-container a {
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.section-container a .ng-fa-icon {
+	font-size: 12px;
+	vertical-align: super;
+}
+
+.lang-section {
+	width: 20%;
+	display: inline-block;
+	text-align: center;	
+
+	& p:nth-child(1) {
+		font-size: 25px;
+	}
+
+	& p.prof {
+		font-size: 20px;
+		color: gray;
+	}
+}
+
+.novice {
+	color: lightgray;
+}
+
+.french-lang span:first-of-type .novice {
+	color: crimson;
+}
+
+.eng-lang span:last-of-type .fluent {
+	color: lightgray;
+}
+
+.spa-lang {
+	color: green;
+}
+
+.eng-lang {
+	color: blue;
+}
+
+.french-lang {
+	color: crimson;
+}

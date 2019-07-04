@@ -18,3 +18,26 @@ nav a {
   }
 }
 
+.menu {
+  display: inline-block;
+  width: 49%;
+}
+
+.menu.left-menu {
+  text-align: left;
+}
+
+.menu.right-menu {
+  text-align: right;
+}
+
+.brand-icon {
+  margin-left: 10px;
+  background-color: darkslateblue;
+  padding: 3px 15px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}

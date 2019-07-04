@@ -1,6 +1,7 @@
-<div class="section" *ngFor="let oneSection of projects">
+<div class="project-container" *ngFor="let oneSection of projects">
   <div class="header"><a [href]="oneSection.link" target="_blank">{{oneSection.title}}</a></div>
   <div class="link"><a [href]="oneSection.link" target="_blank">{{oneSection.link}}</a></div>
+  <img class="screenshot" src="/assets/{{oneSection.img}}">
   <div class="desc">{{oneSection.desc}}</div>
   <div class="tech-section">
     <span *ngFor="let tech of oneSection.techStack"> 

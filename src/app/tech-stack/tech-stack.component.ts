@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { faCoffee, faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
+import { Component, OnInit, Input } from '@angular/core';
+import { faCoffee, faAngleDown, faAngleUp, faDatabase, faServer } from '@fortawesome/free-solid-svg-icons';
+import { faAngular, faReact, faVuejs, faPython, faPhp, faJsSquare, faCuttlefish } from '@fortawesome/free-brands-svg-icons';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-tech-stack',
@@ -7,8 +9,20 @@ import { faCoffee, faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-ic
   styleUrls: ['./tech-stack.component.scss']
 })
 export class TechStackComponent implements OnInit {
-  faAngleDown = faAngleDown;
-  faAngleUp = faAngleUp;
+  @Input() shortVersion: boolean = false;
+  faIcons = {
+    angleDown: faAngleDown,
+    angleUp: faAngleUp,
+    angular: faAngular,
+    react: faReact,
+    vue: faVuejs,
+    python: faPython,
+    php: faPhp,
+    db: faDatabase,
+    server: faServer,
+    js2: faJsSquare,
+    cuttlefish: faCuttlefish
+  };
   techstack = [];
   data = [];
   timelapse = {};
@@ -20,7 +34,9 @@ export class TechStackComponent implements OnInit {
   trimesterInMS = 2592000000 * 4;
   sectionShow = {};
 
-  constructor() {
+  constructor(
+    private route: ActivatedRoute
+  ) {
     this.timelapse = {
       start: '10/1/2015',
       end: '06/30/2019'
@@ -39,32 +55,39 @@ export class TechStackComponent implements OnInit {
     this.data = [{
       title: 'Frontend',
       idx: 'frontend',
+      bgColor: 'frontend',
       details: [{
         title: 'JavaScript',
         idx: 'javascript',
+        bgColor: 'frontend-child',
         details: [{
           title: 'react',
-          icon: '',
+          icon: 'react',
+          bgColor: 'frontend-child',
           start: '09/01/2018',
           end: '06/30/2019'
         },{
           title: 'angular.Js',
-          icon: '',
-            start: '01/15/2019',
-            end: '06/30/2019'
+          icon: 'angular',
+          bgColor: 'frontend-child',
+          start: '01/15/2019',
+          end: '06/30/2019'
         },{
           title: 'angular 7',
-          icon: '',
-            start: '01/15/2019',
-            end: '06/30/2019'
+          icon: 'angular',
+          bgColor: 'frontend-child',
+          start: '01/15/2019',
+          end: '06/30/2019'
         },{
           title: 'vue',
-          icon: '',
+          icon: 'vue',
+          bgColor: 'frontend-child',
           start: '07/01/2017',
           end: '08/30/2018'
         },{
           title: 'jQuery',
-          icon: '',
+          icon: 'js2',
+          bgColor: 'frontend-child',
           start: '06/01/2017',
           end: '06/30/2019'
         }]
@@ -72,39 +95,53 @@ export class TechStackComponent implements OnInit {
     },{
       title: 'Backend',
       idx: 'backend',
+      bgColor: 'backend',
       details: [{
         title: 'python',
-        icon: '',
+        icon: 'python',
+        bgColor: 'backend-child',
         start: '10/1/2015',
         end: '07/01/2017'
       },{
         title: 'php',
-        icon: '',
+        icon: 'php',
+        bgColor: 'backend-child',
         start: '10/1/2015',
         end: '07/01/2017'
       },{
         title: 'coldfusion',
-        icon: '',
+        icon: 'cuttlefish',
+        bgColor: 'backend-child',
         start: '10/1/2015',
         end: '06/30/2017'
       }]
     },{
       title: 'Databases',
       idx: 'databases',
+      bgColor: 'databases',
       details: [{
         title: 'SQL Server',
-        icon: '',
+        icon: 'db',
+        bgColor: 'databases-child',
         start: '10/1/2015',
         end: '06/30/2017'
       }]
     },{
       title: 'Devops',
       idx: 'devops',
+      bgColor: 'devops',
       details: [{
         title: 'docker',
-        icon: '',
+        icon: 'server',
+        bgColor: 'devops-child',
         start: '07/01/2017',
         end: '08/30/2018'
+      },{
+        title: 'heroku',
+        icon: 'server',
+        bgColor: 'devops-child',
+        start: '07/01/2017',
+        end: '06/30/2019'
       }]
     }];
   }
@@ -135,6 +172,8 @@ export class TechStackComponent implements OnInit {
             return {
               title: single.title,
               key: single.idx || '',
+              icon: single.icon || '',
+              bgColor: single.bgColor || '',
               level: 3,
               children: Boolean(single.details),
               startDate: single.start,
@@ -150,6 +189,8 @@ export class TechStackComponent implements OnInit {
         return [{
           title: tech.title,
           key: tech.idx || '',
+          icon: tech.icon || '',
+          bgColor: tech.bgColor || '',
           level: 2,
           children: Boolean(tech.details),
           startDate: tech.start,
@@ -164,6 +205,8 @@ export class TechStackComponent implements OnInit {
       let parent = {
         title: category.title,
         key: category.idx || '',
+        icon: category.icon || '',
+        bgColor: category.bgColor || '',
         level: 1,
         children: Boolean(category.details),
         startDate: minDate,
@@ -191,6 +234,12 @@ export class TechStackComponent implements OnInit {
       }
       return allItems;
     }, {});
+
+    this.route.queryParams.subscribe(
+      (params: Params) => {
+        this.sectionShow[params.section] = true;
+      }
+    );
   }
 
   getAllDates(allDates: any[], dateType: string, details: any[]) {
@@ -205,6 +254,14 @@ export class TechStackComponent implements OnInit {
   }
 
   showHideSection(sectionKey) {
+    if (this.shortVersion) {
+      return;
+    }
     this.sectionShow[sectionKey] = !this.sectionShow[sectionKey];
+    
+    // todo: need to rework on this section
+    if (sectionKey === 'frontend' && !this.sectionShow[sectionKey]) {
+      this.sectionShow['javascript'] = false;
+    }
   }
 }

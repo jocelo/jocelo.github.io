@@ -26,18 +26,22 @@
     <span *ngFor="let tech of techstack">
       <div class="time-table" *ngIf="!tech.parent || sectionShow[tech.parent]">
         <div [ngClass]="['cell','sidebar-left', 'level_'+tech.level]" (click)="showHideSection(tech.key)">
-          <span>{{tech.title}}
-            <span class="expand-child" *ngIf="tech.children">
-              <fa-icon *ngIf="!sectionShow[tech.key]" [icon]="faAngleDown" size="md"></fa-icon>
-              <fa-icon *ngIf="sectionShow[tech.key]" [icon]="faAngleUp" size="md"></fa-icon>
+          <span><fa-icon *ngIf="tech.icon && tech.icon.length > 0" [icon]="faIcons[tech.icon]" size="md"></fa-icon>{{tech.title}}
+            <span class="expand-child" *ngIf="tech.children && !shortVersion">
+              <fa-icon *ngIf="!sectionShow[tech.key]" [icon]="faIcons.angleDown" size="md"></fa-icon>
+              <fa-icon *ngIf="sectionShow[tech.key]" [icon]="faIcons.angleUp" size="md"></fa-icon>
             </span>
           </span>
         </div>
-        <div class="cell time-lapse">
+        <div class="cell time-lapse main-section">
             <span class="date-square" *ngFor="let o of timeSlots; let idx = index" style="position: absolute;" [style.left.%]="o.percentage">
               <span class="time-stop-light">&nbsp;</span>
             </span>
-            <span class="allocated-time" [style.left.%]="tech.startPoint" [style.width.%]="tech.widthPercentage">5 years</span>
+            <span [ngClass]="['allocated-time', tech.bgColor]" [style.left.%]="tech.startPoint" [style.width.%]="tech.widthPercentage">
+              <fa-icon *ngIf="tech.icon && tech.icon.length > 0" [icon]="faIcons[tech.icon]" size="md"></fa-icon> 
+              <span class="actual-time">5 years</span>
+              <span *ngIf="shortVersion" class="link-to-details"><a routerLink="/tech-stack" [queryParams]="{section: tech.key}">click for details</a></span>
+            </span>
         </div>
       </div> <!-- ./time-table -->
     </span>

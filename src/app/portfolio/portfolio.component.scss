@@ -1,30 +1,46 @@
-.section {
-  margin: 20px 30px 20px 100px;
+.project-container {
+  display: inline-block;
+  width: 400px;
+  padding: 10px 30px;
+  text-align: center;
+  vertical-align: top;
+  border-left: 1px dotted lightgray;
+
+  .screenshot {
+    width: 300px;
+    box-shadow: 0 0 12px 5px lightgray;
+  }
 
   & .header {
     color: slateblue;
     font-weight: bold;
+    font-size: 18px;
   }
 
   & .link {
     font-size: 14px;
     padding: 3px 0;
+    margin-bottom: 15px;
   }
 
   & .desc {
     color: #666;
+    margin-top: 15px;
+    font-size: 15px;
   }
 }
 
-.section .link a, 
-.section .link a:hover, 
-.section .link a:visited {
+.project-container .link a, 
+.project-container .link a:hover, 
+.project-container .link a:visited {
   color: green;
   text-decoration: none;
 }
 
 .tech-section {
-  padding: 5px 0 0 0;
+  border: 1px dotted purple;
+  padding: 15px 5px;
+  margin-top: 10px;
 
   & > span {
     margin: 0 10px;

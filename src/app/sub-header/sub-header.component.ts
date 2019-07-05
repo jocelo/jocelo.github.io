@@ -11,7 +11,6 @@ export class SubHeaderComponent implements OnInit {
   selectedItem: string = 'all';
   showLinks: boolean = true;
   faIcons = {
-    search: faSearch
   };
 
   constructor(private route: Router) {
@@ -31,6 +30,4 @@ export class SubHeaderComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  searchAgain() {}
 }

@@ -40,7 +40,7 @@
             <span [ngClass]="['allocated-time', tech.bgColor]" [style.left.%]="tech.startPoint" [style.width.%]="tech.widthPercentage">
               <fa-icon *ngIf="tech.icon && tech.icon.length > 0" [icon]="faIcons[tech.icon]" size="md"></fa-icon> 
               <span class="actual-time">5 years</span>
-              <span *ngIf="shortVersion" class="link-to-details"><a routerLink="/tech-stack" [queryParams]="{section: tech.key}">click for details</a></span>
+              <span *ngIf="shortVersion" class="link-to-details"><a routerLink="/tech-stack" [queryParams]="{section: tech.key}">+ details</a></span>
             </span>
         </div>
       </div> <!-- ./time-table -->

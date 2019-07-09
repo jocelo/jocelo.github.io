@@ -37,13 +37,18 @@ nav a {
 
 .brand-icon {
   margin-left: 10px;
-  background-color: darkslateblue;
-  padding: 3px 15px;
+  background-color: rgb(15, 113, 163);
+  padding: 5px 25px;
   color: white;
   text-decoration: none;
   font-weight: bold;
+  font-size: 25px;
   border-top-right-radius: 10px;
   border-bottom-left-radius: 10px;
+
+  &:hover{
+    background-color: orangered;
+  }
 }
 
 .floating-items {
@@ -56,24 +61,13 @@ nav a {
 .active-item {
   color: #0F71A3;
   border-bottom: 4px solid #0F71A3;
-  padding: 0 10px 5px;
+  padding: 0 10px 2px;
   margin-left: -5px !important;
   margin-right: -5px !important;
 }
 
 .margin-bottom {
   margin-bottom: 25px;
-}
-
-.brand-icon {
-  margin-left: 10px;
-  background-color: darkslateblue;
-  padding: 5px 20px;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  border-top-right-radius: 10px;
-  border-bottom-left-radius: 10px;
 }
 
 .second-search {
@@ -103,7 +97,8 @@ nav a {
 
 hr {
   padding-top: 0;
-  margin-top: 7px;
+  margin-top: 3px;
   border: 0;
   border-top: 2px solid lightgray;
+  margin-bottom: 30px;
 }

@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
     linkedin: faLinkedin
   }
   showHeader: boolean = true;
+  selectedItem: string = '';
 
   constructor(private route: Router) {
     this.routeEvent(this.route);
@@ -24,6 +25,7 @@ export class HeaderComponent implements OnInit {
       event=>{
         if (event instanceof NavigationEnd) {
           this.showHeader = ['/', '/index'].indexOf(event.url) !== -1;
+          this.selectedItem = event.url.split('/')[1];
         }
       }
     )

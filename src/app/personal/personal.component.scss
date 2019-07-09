@@ -28,16 +28,11 @@ h3 {
 	& a {
 		text-decoration: none;
 		font-weight: bold;
-		color: rgb(118, 109, 112);
 
 		& .ng-fa-icon {
 			font-size: 12px;
 			vertical-align: super;
 		}
-	}
-
-	& a:hover {
-		color: rgb(15, 113, 163);
 	}
 }
 

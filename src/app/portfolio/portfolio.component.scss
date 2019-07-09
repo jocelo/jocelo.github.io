@@ -1,10 +1,14 @@
 .project-container {
+  text-align: center;
+}
+
+.project-item {
   display: inline-block;
   width: 400px;
   padding: 10px 30px;
   text-align: center;
   vertical-align: top;
-  border-left: 1px dotted lightgray;
+  border-right: 1px dotted lightgray;
 
   .screenshot {
     width: 300px;
@@ -30,9 +34,13 @@
   }
 }
 
-.project-container .link a, 
-.project-container .link a:hover, 
-.project-container .link a:visited {
+.project-item:nth-child(3n+3) {
+  border-right: none;
+}
+
+.project-item .link a, 
+.project-item .link a:hover, 
+.project-item .link a:visited {
   color: green;
   text-decoration: none;
 }

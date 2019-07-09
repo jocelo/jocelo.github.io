@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 
-import { faUserCircle, faSearch, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faGithub, faCodepen, faLinkedin, faYoutube, faTwitter, faInstagram, faJsSquare } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -11,16 +10,8 @@ import { faGithub, faCodepen, faLinkedin, faYoutube, faTwitter, faInstagram, faJ
 })
 export class HeaderComponent implements OnInit {
   faIcons = {
-    userCircle: faUserCircle,
-    search: faSearch,
-    envelope: faEnvelope,
     github: faGithub,
-    codepen: faCodepen,
-    linkedin: faLinkedin,
-    youtube: faYoutube,
-    twitter: faTwitter,
-    instagram: faInstagram,
-    exercism: faJsSquare
+    linkedin: faLinkedin
   }
   showHeader: boolean = true;
 

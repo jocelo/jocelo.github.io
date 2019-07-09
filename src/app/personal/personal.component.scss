@@ -1,32 +1,46 @@
 h3 {
 	text-align: center;
+	width: 35%;
+	margin: auto;
+	margin-bottom: 30px;
+	margin-top: 20px;
+
 	font-size: 25px;
 	padding: 0;
+	padding-bottom: 5px;
 	color: #0F71A3;
+	border-bottom: 2px solid rgba(15, 113, 163, 0.3);
 }
 
 .section-container {
 	padding: 0 50px;
+
+	&.social {
+		& .social-card {
+			display: inline-block;
+			width: 100px;
+		}
+	}
+
+	& a {
+		text-decoration: none;
+		font-weight: bold;
+
+		& .ng-fa-icon {
+			font-size: 12px;
+			vertical-align: super;
+		}
+	}
 }
 
 .section-container.languages {
 	text-align: center;
-}
 
-.section-container.languages h4 {
-	margin-top: 0;
-	padding-top: 0;
-	font-size: 22px;
-}
-
-.section-container a {
-	text-decoration: none;
-	font-weight: bold;
-}
-
-.section-container a .ng-fa-icon {
-	font-size: 12px;
-	vertical-align: super;
+	& h4 {
+		margin-top: 0;
+		padding-top: 0;
+		font-size: 22px;
+	}
 }
 
 .lang-section {

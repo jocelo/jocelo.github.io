@@ -14,6 +14,7 @@ import { TechStackComponent } from './tech-stack/tech-stack.component';
 import { PersonalComponent } from './personal/personal.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FooterComponent } from './footer/footer.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/all', pathMatch: 'full' },
@@ -35,7 +36,8 @@ const appRoutes: Routes = [
     LandingComponent,
     PageNotFoundComponent,
     TechStackComponent,
-    PersonalComponent
+    PersonalComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

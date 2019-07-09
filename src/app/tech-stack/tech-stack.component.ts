@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { faCoffee, faAngleDown, faAngleUp, faDatabase, faServer } from '@fortawesome/free-solid-svg-icons';
-import { faAngular, faReact, faVuejs, faPython, faPhp, faJsSquare, faCuttlefish } from '@fortawesome/free-brands-svg-icons';
+import { faAngular, faReact, faVuejs, faPython, faPhp, faJsSquare, faCuttlefish, faMicrosoft } from '@fortawesome/free-brands-svg-icons';
 import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
@@ -21,7 +21,8 @@ export class TechStackComponent implements OnInit {
     db: faDatabase,
     server: faServer,
     js2: faJsSquare,
-    cuttlefish: faCuttlefish
+    cuttlefish: faCuttlefish,
+    microsoft: faMicrosoft
   };
   techstack = [];
   data = [];
@@ -106,8 +107,8 @@ export class TechStackComponent implements OnInit {
         title: 'php',
         icon: 'php',
         bgColor: 'backend-child',
-        start: '10/1/2015',
-        end: '07/01/2017'
+        start: '12/01/2015',
+        end: '06/01/2016'
       },{
         title: 'coldfusion',
         icon: 'cuttlefish',
@@ -140,7 +141,7 @@ export class TechStackComponent implements OnInit {
         title: 'heroku',
         icon: 'server',
         bgColor: 'devops-child',
-        start: '07/01/2017',
+        start: '03/01/2019',
         end: '06/30/2019'
       }]
     }];
@@ -149,20 +150,21 @@ export class TechStackComponent implements OnInit {
   ngOnInit() {
     let startTime = new Date(this.timelapse['start']).getTime(),
       endTime = new Date(this.timelapse['end']).getTime(),
-      totalTime = endTime - startTime;
-
-    let teckStack2 = [];
+      totalTime = endTime - startTime,
+      teckStack2 = [];
 
     this.techstack = this.data.map((category)=>{
-      const allMinDates = this.getAllDates([], 'start', category.details);
-      const allMaxDates = this.getAllDates([], 'end', category.details);
-      const minDate = allMinDates.reduce((lowestDateStr, actualDateStr)=> new Date(lowestDateStr).getTime() > new Date(actualDateStr).getTime()  ? actualDateStr : lowestDateStr, allMinDates[0]);
-      const maxDate = allMaxDates.reduce((greatestDateStr, actualDateStr)=> new Date(greatestDateStr).getTime() < new Date(actualDateStr).getTime() ? actualDateStr : greatestDateStr, allMaxDates[0]);
-      const minTime = new Date(minDate).getTime();
-      const maxTime = new Date(maxDate).getTime();
+      const allMinDates = this.getAllDates([], 'start', category.details),
+        allMaxDates = this.getAllDates([], 'end', category.details),
+        minDate = allMinDates.reduce((lowestDateStr, actualDateStr)=> new Date(lowestDateStr).getTime() > new Date(actualDateStr).getTime()  ? actualDateStr : lowestDateStr, allMinDates[0]),
+        maxDate = allMaxDates.reduce((greatestDateStr, actualDateStr)=> new Date(greatestDateStr).getTime() < new Date(actualDateStr).getTime() ? actualDateStr : greatestDateStr, allMaxDates[0]),
+        minTime = new Date(minDate).getTime(),
+        maxTime = new Date(maxDate).getTime();
 
       let children = category.details.map(tech => {
         let moreChildren = [];
+        const minTime = new Date(tech.start).getTime();
+        const maxTime = new Date(tech.end).getTime();
 
         if (tech.details) {
           moreChildren = tech.details.map(single=>{
@@ -196,8 +198,8 @@ export class TechStackComponent implements OnInit {
           startDate: tech.start,
           endDate: tech.end,
           startTime: '',
-          startPoint: '',
-          widthPercentage: '',
+          startPoint:(minTime-startTime)*100/totalTime,
+          widthPercentage: (maxTime-startTime)*100/totalTime - (minTime-startTime)*100/totalTime,
           parent: category.idx
         }, ...moreChildren]
       }).flat();
@@ -219,6 +221,8 @@ export class TechStackComponent implements OnInit {
 
       return [parent, ...children];
     });
+
+    console.log('children', this.techstack);
   
     this.techstack.map(singleStack=>{
       singleStack.map(one=>{

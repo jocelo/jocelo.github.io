@@ -58,40 +58,35 @@ export class TechStackComponent implements OnInit {
       idx: 'frontend',
       bgColor: 'frontend',
       details: [{
-        title: 'JavaScript',
-        idx: 'javascript',
+        title: 'react',
+        icon: 'react',
         bgColor: 'frontend-child',
-        details: [{
-          title: 'react',
-          icon: 'react',
-          bgColor: 'frontend-child',
-          start: '09/01/2018',
-          end: '06/30/2019'
-        },{
-          title: 'angular.Js',
-          icon: 'angular',
-          bgColor: 'frontend-child',
-          start: '01/15/2019',
-          end: '06/30/2019'
-        },{
-          title: 'angular 7',
-          icon: 'angular',
-          bgColor: 'frontend-child',
-          start: '01/15/2019',
-          end: '06/30/2019'
-        },{
-          title: 'vue',
-          icon: 'vue',
-          bgColor: 'frontend-child',
-          start: '07/01/2017',
-          end: '08/30/2018'
-        },{
-          title: 'jQuery',
-          icon: 'js2',
-          bgColor: 'frontend-child',
-          start: '06/01/2017',
-          end: '06/30/2019'
-        }]
+        start: '09/01/2018',
+        end: '06/30/2019'
+      },{
+        title: 'angular.Js',
+        icon: 'angular',
+        bgColor: 'frontend-child',
+        start: '01/15/2019',
+        end: '06/30/2019'
+      },{
+        title: 'angular 7',
+        icon: 'angular',
+        bgColor: 'frontend-child',
+        start: '01/15/2019',
+        end: '06/30/2019'
+      },{
+        title: 'vue',
+        icon: 'vue',
+        bgColor: 'frontend-child',
+        start: '07/01/2017',
+        end: '08/30/2018'
+      },{
+        title: 'jQuery',
+        icon: 'js2',
+        bgColor: 'frontend-child',
+        start: '06/01/2017',
+        end: '06/30/2019'
       }]
     },{
       title: 'Backend',
@@ -148,6 +143,7 @@ export class TechStackComponent implements OnInit {
   }
 
   ngOnInit() {
+    // TODO: Rework on this calculations
     let startTime = new Date(this.timelapse['start']).getTime(),
       endTime = new Date(this.timelapse['end']).getTime(),
       totalTime = endTime - startTime,
@@ -163,17 +159,18 @@ export class TechStackComponent implements OnInit {
 
       let children = category.details.map(tech => {
         let moreChildren = [];
-        const minTime = new Date(tech.start).getTime();
-        const maxTime = new Date(tech.end).getTime();
+        const minTime = new Date(tech.start).getTime(),
+          maxTime = new Date(tech.end).getTime();
 
         if (tech.details) {
           moreChildren = tech.details.map(single=>{
-            const minTime = new Date(single.start).getTime();
-            const maxTime = new Date(single.end).getTime();
-
+            const minTime = new Date(single.start).getTime(),
+              maxTime = new Date(single.end).getTime();
+            
             return {
               title: single.title,
               key: single.idx || '',
+              label: this.getTimeLapse(minTime, maxTime),
               icon: single.icon || '',
               bgColor: single.bgColor || '',
               level: 3,
@@ -187,10 +184,11 @@ export class TechStackComponent implements OnInit {
             }
           })
         }
-
+        
         return [{
           title: tech.title,
           key: tech.idx || '',
+          label: this.getTimeLapse(minTime, maxTime),
           icon: tech.icon || '',
           bgColor: tech.bgColor || '',
           level: 2,
@@ -203,10 +201,11 @@ export class TechStackComponent implements OnInit {
           parent: category.idx
         }, ...moreChildren]
       }).flat();
-
+      
       let parent = {
         title: category.title,
         key: category.idx || '',
+        label: this.getTimeLapse(minTime, maxTime),
         icon: category.icon || '',
         bgColor: category.bgColor || '',
         level: 1,
@@ -221,8 +220,6 @@ export class TechStackComponent implements OnInit {
 
       return [parent, ...children];
     });
-
-    console.log('children', this.techstack);
   
     this.techstack.map(singleStack=>{
       singleStack.map(one=>{
@@ -257,15 +254,33 @@ export class TechStackComponent implements OnInit {
     return allDates;
   }
 
+  getTimeLapse(startDate, endDate) {
+    const pluralize = ['','s'];
+
+    let label = '...',
+      diffMinutes = (endDate-startDate) / (1000 * 60),
+      diffHours = diffMinutes / 60,
+      diffDays = diffHours / 24,
+      diffMonths = diffDays / 30,
+      diffYears = diffMonths / 12;
+    
+    if (diffYears > 1) {
+      label = Math.floor(diffYears)+' Yr'+pluralize[Number(diffYears>2)];
+      diffMonths = Math.floor( diffMonths - Math.floor(Math.floor(diffYears)*12) );
+      if (diffMonths >= 1) {
+        label += ' + '+diffMonths+' Mon'+pluralize[Number(diffMonths>2)];
+      }
+    } else if (diffMonths > 1) {
+      label = Math.floor(diffMonths)+' Mon'+pluralize[Number(diffMonths>2)];
+    }
+
+    return label;
+  }
+
   showHideSection(sectionKey) {
     if (this.shortVersion) {
       return;
     }
     this.sectionShow[sectionKey] = !this.sectionShow[sectionKey];
-    
-    // todo: need to rework on this section
-    if (sectionKey === 'frontend' && !this.sectionShow[sectionKey]) {
-      this.sectionShow['javascript'] = false;
-    }
   }
 }

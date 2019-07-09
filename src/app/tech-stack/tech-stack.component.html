@@ -1,5 +1,5 @@
 <div class="main-container">
-  
+
   <div class="time-handlers">
   </div>
 
@@ -7,7 +7,7 @@
   <div class="time-table">
     <div class="cell sidebar-left">
       <span class="more-details"></span>
-      <span>Tech Name</span>
+      <span></span>
     </div>
 
     <div class="cell time-lapse">
@@ -34,7 +34,7 @@
           </span>
           <span [ngClass]="['allocated-time', tech.bgColor]" [style.left.%]="tech.startPoint" [style.width.%]="tech.widthPercentage">
             <fa-icon *ngIf="tech.icon && tech.icon.length > 0" [icon]="faIcons[tech.icon]" size="md"></fa-icon> 
-            <span class="actual-time">5 years</span>
+            <span class="actual-time">{{tech.label}}</span>
             <span *ngIf="shortVersion" class="link-to-details"><a routerLink="/tech-stack" [queryParams]="{section: tech.key}">+ details</a></span>
           </span>
       </div>

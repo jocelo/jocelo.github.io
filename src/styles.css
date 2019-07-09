@@ -1,4 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  font-family: 'Raleway', serif;
+  overflow-x: hidden;
+  margin: 8px 0;
+  padding-bottom: 50px;
+}
+
+a {
+  color: rgb(15, 113, 163);
+}
+
+a:hover {
+  color: orangered;
+}
+
 input {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

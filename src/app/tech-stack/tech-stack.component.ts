@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { faCoffee, faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
+import { Component, OnInit, Input } from '@angular/core';
+import { faCoffee, faAngleDown, faAngleUp, faDatabase, faServer } from '@fortawesome/free-solid-svg-icons';
+import { faAngular, faReact, faVuejs, faPython, faPhp, faJsSquare, faCuttlefish, faMicrosoft } from '@fortawesome/free-brands-svg-icons';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-tech-stack',
@@ -7,8 +9,21 @@ import { faCoffee, faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-ic
   styleUrls: ['./tech-stack.component.scss']
 })
 export class TechStackComponent implements OnInit {
-  faAngleDown = faAngleDown;
-  faAngleUp = faAngleUp;
+  @Input() shortVersion: boolean = false;
+  faIcons = {
+    angleDown: faAngleDown,
+    angleUp: faAngleUp,
+    angular: faAngular,
+    react: faReact,
+    vue: faVuejs,
+    python: faPython,
+    php: faPhp,
+    db: faDatabase,
+    server: faServer,
+    js2: faJsSquare,
+    cuttlefish: faCuttlefish,
+    microsoft: faMicrosoft
+  };
   techstack = [];
   data = [];
   timelapse = {};
@@ -20,7 +35,9 @@ export class TechStackComponent implements OnInit {
   trimesterInMS = 2592000000 * 4;
   sectionShow = {};
 
-  constructor() {
+  constructor(
+    private route: ActivatedRoute
+  ) {
     this.timelapse = {
       start: '10/1/2015',
       end: '06/30/2019'
@@ -39,102 +56,123 @@ export class TechStackComponent implements OnInit {
     this.data = [{
       title: 'Frontend',
       idx: 'frontend',
+      bgColor: 'frontend',
       details: [{
-        title: 'JavaScript',
-        idx: 'javascript',
-        details: [{
-          title: 'react',
-          icon: '',
-          start: '09/01/2018',
-          end: '06/30/2019'
-        },{
-          title: 'angular.Js',
-          icon: '',
-            start: '01/15/2019',
-            end: '06/30/2019'
-        },{
-          title: 'angular 7',
-          icon: '',
-            start: '01/15/2019',
-            end: '06/30/2019'
-        },{
-          title: 'vue',
-          icon: '',
-          start: '07/01/2017',
-          end: '08/30/2018'
-        },{
-          title: 'jQuery',
-          icon: '',
-          start: '06/01/2017',
-          end: '06/30/2019'
-        }]
+        title: 'react',
+        icon: 'react',
+        bgColor: 'frontend-child',
+        start: '09/01/2018',
+        end: '06/30/2019'
+      },{
+        title: 'angular.Js',
+        icon: 'angular',
+        bgColor: 'frontend-child',
+        start: '01/15/2019',
+        end: '06/30/2019'
+      },{
+        title: 'angular 7',
+        icon: 'angular',
+        bgColor: 'frontend-child',
+        start: '01/15/2019',
+        end: '06/30/2019'
+      },{
+        title: 'vue',
+        icon: 'vue',
+        bgColor: 'frontend-child',
+        start: '07/01/2017',
+        end: '08/30/2018'
+      },{
+        title: 'jQuery',
+        icon: 'js2',
+        bgColor: 'frontend-child',
+        start: '06/01/2017',
+        end: '06/30/2019'
       }]
     },{
       title: 'Backend',
       idx: 'backend',
+      bgColor: 'backend',
       details: [{
         title: 'python',
-        icon: '',
+        icon: 'python',
+        bgColor: 'backend-child',
         start: '10/1/2015',
         end: '07/01/2017'
       },{
         title: 'php',
-        icon: '',
-        start: '10/1/2015',
-        end: '07/01/2017'
+        icon: 'php',
+        bgColor: 'backend-child',
+        start: '12/01/2015',
+        end: '06/01/2016'
       },{
         title: 'coldfusion',
-        icon: '',
+        icon: 'cuttlefish',
+        bgColor: 'backend-child',
         start: '10/1/2015',
         end: '06/30/2017'
       }]
     },{
       title: 'Databases',
       idx: 'databases',
+      bgColor: 'databases',
       details: [{
         title: 'SQL Server',
-        icon: '',
+        icon: 'db',
+        bgColor: 'databases-child',
         start: '10/1/2015',
         end: '06/30/2017'
       }]
     },{
       title: 'Devops',
       idx: 'devops',
+      bgColor: 'devops',
       details: [{
         title: 'docker',
-        icon: '',
+        icon: 'server',
+        bgColor: 'devops-child',
         start: '07/01/2017',
         end: '08/30/2018'
+      },{
+        title: 'heroku',
+        icon: 'server',
+        bgColor: 'devops-child',
+        start: '03/01/2019',
+        end: '06/30/2019'
       }]
     }];
   }
 
   ngOnInit() {
+    // TODO: Rework on this calculations
     let startTime = new Date(this.timelapse['start']).getTime(),
       endTime = new Date(this.timelapse['end']).getTime(),
-      totalTime = endTime - startTime;
-
-    let teckStack2 = [];
+      totalTime = endTime - startTime,
+      teckStack2 = [];
 
     this.techstack = this.data.map((category)=>{
-      const allMinDates = this.getAllDates([], 'start', category.details);
-      const allMaxDates = this.getAllDates([], 'end', category.details);
-      const minDate = allMinDates.reduce((lowestDateStr, actualDateStr)=> new Date(lowestDateStr).getTime() > new Date(actualDateStr).getTime()  ? actualDateStr : lowestDateStr, allMinDates[0]);
-      const maxDate = allMaxDates.reduce((greatestDateStr, actualDateStr)=> new Date(greatestDateStr).getTime() < new Date(actualDateStr).getTime() ? actualDateStr : greatestDateStr, allMaxDates[0]);
-      const minTime = new Date(minDate).getTime();
-      const maxTime = new Date(maxDate).getTime();
+      const allMinDates = this.getAllDates([], 'start', category.details),
+        allMaxDates = this.getAllDates([], 'end', category.details),
+        minDate = allMinDates.reduce((lowestDateStr, actualDateStr)=> new Date(lowestDateStr).getTime() > new Date(actualDateStr).getTime()  ? actualDateStr : lowestDateStr, allMinDates[0]),
+        maxDate = allMaxDates.reduce((greatestDateStr, actualDateStr)=> new Date(greatestDateStr).getTime() < new Date(actualDateStr).getTime() ? actualDateStr : greatestDateStr, allMaxDates[0]),
+        minTime = new Date(minDate).getTime(),
+        maxTime = new Date(maxDate).getTime();
 
       let children = category.details.map(tech => {
         let moreChildren = [];
+        const minTime = new Date(tech.start).getTime(),
+          maxTime = new Date(tech.end).getTime();
 
         if (tech.details) {
           moreChildren = tech.details.map(single=>{
-            const minTime = new Date(single.start).getTime();
-            const maxTime = new Date(single.end).getTime();
-
+            const minTime = new Date(single.start).getTime(),
+              maxTime = new Date(single.end).getTime();
+            
             return {
               title: single.title,
               key: single.idx || '',
+              label: this.getTimeLapse(minTime, maxTime),
+              icon: single.icon || '',
+              bgColor: single.bgColor || '',
               level: 3,
               children: Boolean(single.details),
               startDate: single.start,
@@ -146,24 +184,30 @@ export class TechStackComponent implements OnInit {
             }
           })
         }
-
+        
         return [{
           title: tech.title,
           key: tech.idx || '',
+          label: this.getTimeLapse(minTime, maxTime),
+          icon: tech.icon || '',
+          bgColor: tech.bgColor || '',
           level: 2,
           children: Boolean(tech.details),
           startDate: tech.start,
           endDate: tech.end,
           startTime: '',
-          startPoint: '',
-          widthPercentage: '',
+          startPoint:(minTime-startTime)*100/totalTime,
+          widthPercentage: (maxTime-startTime)*100/totalTime - (minTime-startTime)*100/totalTime,
           parent: category.idx
         }, ...moreChildren]
       }).flat();
-
+      
       let parent = {
         title: category.title,
         key: category.idx || '',
+        label: this.getTimeLapse(minTime, maxTime),
+        icon: category.icon || '',
+        bgColor: category.bgColor || '',
         level: 1,
         children: Boolean(category.details),
         startDate: minDate,
@@ -191,6 +235,12 @@ export class TechStackComponent implements OnInit {
       }
       return allItems;
     }, {});
+
+    this.route.queryParams.subscribe(
+      (params: Params) => {
+        this.sectionShow[params.section] = true;
+      }
+    );
   }
 
   getAllDates(allDates: any[], dateType: string, details: any[]) {
@@ -204,7 +254,33 @@ export class TechStackComponent implements OnInit {
     return allDates;
   }
 
+  getTimeLapse(startDate, endDate) {
+    const pluralize = ['','s'];
+
+    let label = '...',
+      diffMinutes = (endDate-startDate) / (1000 * 60),
+      diffHours = diffMinutes / 60,
+      diffDays = diffHours / 24,
+      diffMonths = diffDays / 30,
+      diffYears = diffMonths / 12;
+    
+    if (diffYears > 1) {
+      label = Math.floor(diffYears)+' Yr'+pluralize[Number(diffYears>2)];
+      diffMonths = Math.floor( diffMonths - Math.floor(Math.floor(diffYears)*12) );
+      if (diffMonths >= 1) {
+        label += ' + '+diffMonths+' Mon'+pluralize[Number(diffMonths>2)];
+      }
+    } else if (diffMonths > 1) {
+      label = Math.floor(diffMonths)+' Mon'+pluralize[Number(diffMonths>2)];
+    }
+
+    return label;
+  }
+
   showHideSection(sectionKey) {
+    if (this.shortVersion) {
+      return;
+    }
     this.sectionShow[sectionKey] = !this.sectionShow[sectionKey];
   }
 }

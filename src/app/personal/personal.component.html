@@ -1,13 +1,13 @@
 <h3>Abstract</h3>
 <div class="section-container">
   <p>Working right as UI/front end developer for the client's website of a provider of voice and data network communications and managed services Company to businesses in the United States. Located in King of Prussia, PA.</p>
-  <p>Mentoring developers for JavaScript in <a href="https://exercism.io" target="_blank">exercism <fa-icon [icon]="faExternalLinkAlt" size="sm"></fa-icon></a> website. On this website a student can learn a language by solving exercises; each one of this exercises teaches a single concept and the code is evaluated manually by mentors. </p>
-  <p>Creating youtube content as <a href="https://www.youtube.com/channel/UC547pgqomI0IcjOmltxQdAQ" target="_blank">the new guy <fa-icon [icon]="faExternalLinkAlt" size="sm"></fa-icon></a> to share knowledge in assorted topics, mainly in JavaScript, Web technologies and algorithms.</p>
+  <p>Mentoring developers for JavaScript in <a href="https://exercism.io" target="_blank">exercism <fa-icon [icon]="faIcons.externallink" size="sm"></fa-icon></a> website. On this website a student can learn a language by solving exercises; each one of this exercises teaches a single concept and the code is evaluated manually by mentors. </p>
+  <p>Creating youtube content as <a href="https://www.youtube.com/channel/UC547pgqomI0IcjOmltxQdAQ" target="_blank">the new guy <fa-icon [icon]="faIcons.externallink" size="sm"></fa-icon></a> to share knowledge in assorted topics, mainly in JavaScript, Web technologies and algorithms.</p>
 </div>
 
 <h3>Tech stack</h3>
 <div class="section-container">
-  <app-tech-stack></app-tech-stack>
+  <app-tech-stack shortVersion=true></app-tech-stack>
 </div>
 
 <h3>Languages</h3>
@@ -15,22 +15,54 @@
   <div class="lang-section spa-lang">
     <h4>Spanish</h4>
     <span *ngFor="let i of [1,2,3,4,5]">
-      <fa-icon  [icon]="faPepperHot" size="lg"></fa-icon>
+      <fa-icon  [icon]="faIcons.pepperhot" size="lg"></fa-icon>
     </span>
     <p class="prof">Native</p>
   </div>
   <div class="lang-section eng-lang">
     <h4>English</h4>
     <span *ngFor="let i of [1,2,3,4,5]">
-        <fa-icon class="fluent" [icon]="faStar" size="lg"></fa-icon>
+        <fa-icon class="fluent" [icon]="faIcons.star" size="lg"></fa-icon>
     </span>
     <p class="prof">Fluent</p>
   </div>
   <div class="lang-section french-lang">
     <h4>French</h4>
     <span *ngFor="let i of [1,2,3,4,5]">
-        <fa-icon class="novice" [icon]="faLeaf" size="lg"></fa-icon>
+        <fa-icon class="novice" [icon]="faIcons.leaf" size="lg"></fa-icon>
     </span>
     <p class="prof">Basic</p>
+  </div>
+</div>
+
+<h3>Social Networks</h3>
+<div class="section-container social">
+  <div class="social-card">
+    <a href="https://twitter.com/jocelo" target="_blank"> <fa-icon [icon]="faIcons.twitter" size="4x"></fa-icon> </a>
+    <p><a href="https://twitter.com/jocelo" target="_blank">Twitter</a></p>
+  </div>
+  <div class="social-card">
+    <a href="https://www.instagram.com/joceloae/" target="_blank"> <fa-icon [icon]="faIcons.instagram" size="4x"></fa-icon> </a>
+    <p><a href="https://www.instagram.com/joceloae/" target="_blank">Instagram</a></p>
+  </div>
+  <div class="social-card">
+    <a href="https://github.com/jocelo" target="_blank"> <fa-icon [icon]="faIcons.github" size="4x"></fa-icon> </a>
+    <p><a href="https://github.com/jocelo" target="_blank">Github</a></p>
+  </div>
+  <div class="social-card">
+    <a href="https://codepen.io/jocelo/" target="_blank"> <fa-icon [icon]="faIcons.codepen" size="4x"></fa-icon> </a>
+    <p><a href="https://codepen.io/jocelo/" target="_blank">Codepen</a></p>
+  </div>
+  <div class="social-card">
+    <a href="https://exercism.io/profiles/jocelo" target="_blank"> <fa-icon [icon]="faIcons.exercism" size="4x"></fa-icon> </a>
+    <p><a href="https://exercism.io/profiles/jocelo" target="_blank">Excersism</a></p>
+  </div>
+  <div class="social-card">
+    <a href="https://www.youtube.com/channel/UC547pgqomI0IcjOmltxQdAQ" target="_blank"> <fa-icon [icon]="faIcons.youtube" size="3x"></fa-icon> </a>
+    <p><a href="https://www.youtube.com/channel/UC547pgqomI0IcjOmltxQdAQ" target="_blank">Youtube</a></p>
+  </div>
+  <div class="social-card">
+    <a href="https://www.linkedin.com/in/alfredoae/" target="_blank"> <fa-icon [icon]="faIcons.linkedin" size="4x"></fa-icon> </a>
+    <p><a href="https://www.linkedin.com/in/alfredoae/" target="_blank">LinkedIn</a></p>
   </div>
 </div>

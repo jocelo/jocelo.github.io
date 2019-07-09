@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 
-import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -10,9 +10,11 @@ import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 })
 export class HeaderComponent implements OnInit {
   faIcons = {
-    userCircle: faUserCircle
+    github: faGithub,
+    linkedin: faLinkedin
   }
   showHeader: boolean = true;
+  selectedItem: string = '';
 
   constructor(private route: Router) {
     this.routeEvent(this.route);
@@ -23,6 +25,7 @@ export class HeaderComponent implements OnInit {
       event=>{
         if (event instanceof NavigationEnd) {
           this.showHeader = ['/', '/index'].indexOf(event.url) !== -1;
+          this.selectedItem = event.url.split('/')[1];
         }
       }
     )

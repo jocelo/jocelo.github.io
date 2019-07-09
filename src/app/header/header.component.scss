@@ -18,3 +18,87 @@ nav a {
   }
 }
 
+.menu {
+  display: inline-block;
+  width: 50%;
+}
+
+.menu.left-menu {
+  text-align: left;
+}
+
+.menu.right-menu {
+  text-align: right;
+
+  & span {
+    padding: 0 10px;
+  }
+}
+
+.brand-icon {
+  margin-left: 10px;
+  background-color: rgb(15, 113, 163);
+  padding: 5px 25px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 25px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+
+  &:hover{
+    background-color: orangered;
+  }
+}
+
+.floating-items {
+  & a {
+    margin: 0 10px;
+    text-decoration: none;
+  }
+}
+
+.active-item {
+  color: #0F71A3;
+  border-bottom: 4px solid #0F71A3;
+  padding: 0 10px 2px;
+  margin-left: -5px !important;
+  margin-right: -5px !important;
+}
+
+.margin-bottom {
+  margin-bottom: 25px;
+}
+
+.second-search {
+  margin-left: 10px;
+  position: relative;
+  font-size: 20px;
+
+  & a {
+    vertical-align: bottom;
+  }
+
+  & input {
+    margin-left: 10px;
+    border-radius: 15px;
+    border: 1px solid gray;
+    padding: 4px 10px;
+    width: 250px;
+  }
+  
+  & .icon-container {
+    position: absolute;
+    right: 7px;
+    top: 2px;
+    color: gray;
+  }
+}
+
+hr {
+  padding-top: 0;
+  margin-top: 3px;
+  border: 0;
+  border-top: 2px solid lightgray;
+  margin-bottom: 30px;
+}

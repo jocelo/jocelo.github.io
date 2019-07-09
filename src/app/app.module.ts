@@ -5,7 +5,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { SubHeaderComponent } from './sub-header/sub-header.component';
 import { CertificationsComponent } from './certifications/certifications.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { LandingComponent } from './landing/landing.component';
@@ -14,10 +13,11 @@ import { TechStackComponent } from './tech-stack/tech-stack.component';
 import { PersonalComponent } from './personal/personal.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FooterComponent } from './footer/footer.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/index', pathMatch: 'full' },
-  { path: 'index', component: LandingComponent },
+  { path: '', redirectTo: '/all', pathMatch: 'full' },
+  { path: 'index', redirectTo: '/all' },
   { path: 'all', component: PersonalComponent },
   { path: 'portfolio', component: PortfolioComponent },
   { path: 'certifications', component: CertificationsComponent },
@@ -29,13 +29,13 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HeaderComponent,
-    SubHeaderComponent,
     CertificationsComponent,
     PortfolioComponent,
     LandingComponent,
     PageNotFoundComponent,
     TechStackComponent,
-    PersonalComponent
+    PersonalComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

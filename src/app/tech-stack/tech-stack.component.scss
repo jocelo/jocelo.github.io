@@ -1,16 +1,28 @@
+
 .main-container {
-  width: 100%;
+  width: 95%;
+  margin: auto;
   display: table;
 }
 
-
 .cell {
   display: table-cell;
+  vertical-align: middle;
 }
 
 .sidebar-left {
-  width: 8%;
+  width: 10%;
   min-width: 70px;
+
+  & .ng-fa-icon {
+    margin-right: 5px;
+    color: gray;
+  }
+}
+
+.main-section .allocated-time .ng-fa-icon {
+  font-size: 18px !important;
+  padding: 0 5px;
 }
 
 .sidebar-right {
@@ -67,6 +79,7 @@
 .time-lapse {
   position: relative;
   height: 30px;
+  vertical-align: top;
 }
 
 .single-row {
@@ -110,6 +123,34 @@
   height: 20px;
   font-size: 14px;
   text-align: center;
+
+  &.frontend {
+    background-color: rgba(255, 30, 0, 0.6);
+  }
+  &.frontend-child {
+    background-color: rgba(255, 30, 0, 0.3);
+  }
+
+  &.backend {
+    background-color: rgba(0, 255, 0, 0.6);
+  }
+  &.backend-child {
+    background-color: rgba(0, 255, 0, 0.3);
+  }
+
+  &.databases {
+    background-color: rgba(51, 153, 255, 0.6);
+  }
+  &.databases-child {
+    background-color: rgba(51, 153, 255, 0.3);
+  }
+
+  &.devops {
+    background-color: rgba(255, 255, 51, 0.6);
+  }
+  &.devops-child {
+    background-color: rgba(255, 255, 51, 0.3);
+  }
 }
 
 .sidebar-left {
@@ -124,12 +165,11 @@
   padding-left: 20px;
 }
 
-/*
-.frontend {}
-
-.frontend {}
-
-.frontend {}
-
-.frontend {}
-*/
+.link-to-details {
+  margin-left: 5px;
+  font-size: 12px;
+  & a {
+    text-decoration: none;
+    font-weight: bold;
+  }
+}

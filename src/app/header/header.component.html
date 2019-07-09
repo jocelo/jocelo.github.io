@@ -1,8 +1,19 @@
-<nav *ngIf="showHeader">
-  <a style="float: left;"> Home </a>
-  <a routerLink="/portfolio" style="float: left;"> Portfolio </a>
-  <a routerLink="/certifications" style="float: left;"> Certifications </a>
-</nav>
-<span [ngClass]="{'details-page': !this.showHeader, 'personal-icon': true}">
-  <a routerLink="/"> <fa-icon [icon]="faIcons.userCircle" size="2x"></fa-icon> </a>
-</span>
+<div class="menu left-menu">
+  <div *ngIf="!showLinks" class="floating-items">
+    <a routerLink="/all" class="brand-icon" *ngIf="!showLinks">alfredo</a> 
+    <a routerLink="/portfolio" [ngClass]="{'active-item' : this.selectedItem === 'portfolio'}">Portfolio</a>
+    <a routerLink="/certifications" [ngClass]="{'active-item' : this.selectedItem === 'certifications'}">Certifications</a>
+    <a routerLink="/tech-stack" [ngClass]="{'active-item' : this.selectedItem === 'tech-stack'}">Tech Stack</a>
+    <a>Store</a>
+    <a href="https://www.youtube.com/channel/UC547pgqomI0IcjOmltxQdAQ" target="_blank">Videos</a>
+  </div>
+</div>
+<div class="menu right-menu">
+  <span>
+    <a href="https://github.com/jocelo" target="_blank"> <fa-icon [icon]="faIcons.github" size="2x"></fa-icon>  </a> 
+  </span>
+  <span>
+    <a href="https://www.linkedin.com/in/alfredoae/" target="_blank"> <fa-icon [icon]="faIcons.linkedin" size="2x"></fa-icon>  </a>
+  </span>
+</div>
+<hr />

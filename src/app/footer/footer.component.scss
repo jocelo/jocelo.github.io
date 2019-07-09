@@ -1,0 +1,19 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 20px;
+  background-color: rgba(15, 113, 163, 0.7);
+  padding: 5px;
+  text-align: right;
+
+  & .float-right {
+    color: white;
+    
+    margin-right: 35px;
+
+    & a {
+      color: white;
+    }
+  }
+}

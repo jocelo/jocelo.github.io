@@ -33,6 +33,10 @@ nav a {
   & span {
     padding: 0 10px;
   }
+
+  & .hamburger {
+    display: none;
+  }
 }
 
 .brand-icon {
@@ -101,4 +105,80 @@ hr {
   border: 0;
   border-top: 2px solid lightgray;
   margin-bottom: 30px;
+}
+
+.navbar {
+  background-color: rgba(15, 113, 163, 0.7);
+}
+
+.mobile-menu {
+  & a {
+    display: block;
+    margin: 5px 10px;
+    text-decoration: none;
+  }
+
+  & a:first-child {
+    margin-top: 0;
+    padding-top: 10px;
+  }
+
+  & a:last-child {
+    padding-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  /* .floating-items a:not(.brand-icon) */
+  a {
+    color: white;
+    
+    & .ng-fa-icon {
+      display: inline-block;
+      width: 20px;
+      text-align: center;
+    }
+
+    & .menu-option {
+      padding-left: 5px;
+    }
+  }
+
+  .floating-items {
+    & a {
+      margin: 0 10px 0 0;
+    }
+
+    & a:not(.brand-icon) {
+      display: none;
+    }
+  }
+
+  .brand-icon {
+    border-bottom-left-radius: 0;
+    font-size: 20px;
+    padding: 4px 20px;
+  }
+  
+  .menu {
+    &.left-menu {
+      width: 75%;
+    }
+
+    &.right-menu {
+      width: 25%;
+    }
+  }
+
+  .menu.right-menu .icon {
+    display: none;
+  }
+
+  .menu.right-menu .hamburger {
+    display: inline-block;
+  }
+
+  hr {
+    margin-bottom: 0;
+  }
 }

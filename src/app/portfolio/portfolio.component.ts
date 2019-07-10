@@ -27,7 +27,7 @@ export class PortfolioComponent implements OnInit {
       title: 'Homepage',
       link: 'https://jocelowebsite.herokuapp.com',
       desc: "Portfolio's website. Has all the professional information, certifications achieved, tech stack and contact information. Created with angular7 in 2019.",
-      img: 'portfolio_1.png',
+      img: 'portfolio.png',
       techStack: [
         { name: 'angular 6', icon: 'angular'},
         { name: 'typescript', icon: 'code'},

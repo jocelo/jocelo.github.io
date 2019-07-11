@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faUserCircle, faCode, faServer } from '@fortawesome/free-solid-svg-icons';
-import { faAngular, faNodeJs, faFontAwesome, faSass, faGithub, faJs, faReact } from '@fortawesome/free-brands-svg-icons';
+import { faAngular, faNodeJs, faFontAwesome, faSass, faGithub, faJs, faReact, faGoogle } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-portfolio',
@@ -19,7 +19,8 @@ export class PortfolioComponent implements OnInit {
     github: faGithub,
     js: faJs,
     react: faReact,
-    server: faServer
+    server: faServer,
+    firebase: faGoogle
   }
 
   constructor() {
@@ -67,15 +68,16 @@ export class PortfolioComponent implements OnInit {
       ]
     },{
       title: 'Wordsearch Generator',
-      link: 'https://jocelo.github.io/wordsearch-generator/',
-      desc: 'Application created with react to genreate and play wordsearch games. This was created in order to have a way of easily generate more crossword games.',
+      link: 'https://the-wordsearch-game.herokuapp.com/',
+      desc: "Work in progress Application to assist when generating wordsearch games. One of the main features is that it is miltilingual and in the plans it is to have export and import features. This games will be used to feed the crossword game that's being developed.",
       img: 'wordsearch.png',
       techStack: [
         { name: 'angular 6', icon: 'angular'},
         { name: 'typescript', icon: 'code'},
         { name: 'font awesome', icon: 'fontAwesome'},
         { name: 'nodeJs', icon: 'node'},
-        { name: 'github pages', icon: 'server'}
+        { name: 'heroku', icon: 'server'},
+        { name: 'firebase', icon: 'firebase'}
       ]
     },{
       title: 'Credit Card Validator',

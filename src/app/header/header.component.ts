@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
   showMobileMenu: boolean = false;
   showHeader: boolean = true;
   selectedItem: string = '';
-  mobileSectionTitle: string = 'XX';
+  mobileSectionTitle: string = 'Homepage';
 
   constructor(private route: Router) {
     this.routeEvent(this.route);

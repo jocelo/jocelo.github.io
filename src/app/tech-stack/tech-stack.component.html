@@ -41,3 +41,11 @@
     </div> <!-- ./time-table -->
   </span>
 </div> <!-- ./main-container -->
+
+<div class="main-container-mobile">
+  <div [ngClass]="['main-header', tech.key]" *ngFor="let tech of techstack">
+    <fa-icon *ngIf="tech.icon && tech.icon.length > 0" [icon]="faIcons[tech.icon]" size="md"></fa-icon>
+    <strong>{{tech.title}}</strong>
+    <span class="float-right">{{tech.label}}</span>
+  </div>
+</div>

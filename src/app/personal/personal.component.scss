@@ -88,3 +88,14 @@ h3 {
 .french-lang {
 	color: crimson;
 }
+
+@media screen and (max-width: 700px) {
+	.lang-section {
+		width: 100%;
+	}
+
+	.section-container {
+		padding: 0 25px;
+		text-align: center;
+	}
+}

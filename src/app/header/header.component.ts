@@ -35,6 +35,7 @@ export class HeaderComponent implements OnInit {
           this.showHeader = ['/', '/index'].indexOf(event.url) !== -1;
           this.selectedItem = event.url.split('/')[1];
           this.mobileSectionTitle = this.formatTitle(this.selectedItem);
+          this.showMobileMenu = false;
         }
       }
     )

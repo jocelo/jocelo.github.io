@@ -6,7 +6,7 @@
     <a routerLink="/tech-stack" [ngClass]="{'active-item' : this.selectedItem === 'tech-stack'}">Tech Stack</a>
     <a>Store</a>
     <a href="https://www.youtube.com/channel/UC547pgqomI0IcjOmltxQdAQ" target="_blank">Videos</a>
-    <span class="mobile-title">{{mobileSectionTitle}}</span>
+    <span class="mobile-title"> {{"<\/ "+mobileSectionTitle}} > </span>
   </div>
 </div>
 <div class="menu right-menu">
@@ -26,4 +26,7 @@
   <a routerLink="/certifications"> <fa-icon [icon]="faIcons.award"></fa-icon> <span class="menu-option">Certifications</span></a>
   <a routerLink="/tech-stack"> <fa-icon [icon]="faIcons.code"></fa-icon> <span class="menu-option">Tech Stack</span></a>
   <a href="https://www.youtube.com/channel/UC547pgqomI0IcjOmltxQdAQ" target="_blank"> <fa-icon [icon]="faIcons.youtube"></fa-icon> <span class="menu-option">Videos</span></a>
+  <hr class="menu-divisor">
+  <a href="https://github.com/jocelo" target="_blank"> <fa-icon [icon]="faIcons.github"></fa-icon> <span class="menu-option">Github</span></a>
+  <a href="https://www.linkedin.com/in/alfredoae/" target="_blank"> <fa-icon [icon]="faIcons.linkedin"></fa-icon> <span class="menu-option">LinkedIn</span></a>
 </div>

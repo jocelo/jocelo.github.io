@@ -1,3 +1,16 @@
-<p>
-  blog works!
-</p>
+<div class="main-container">
+  <div class="table-row">
+    <div class="table-cell latest">
+      <h2>Latest Post</h2>
+      <div *ngFor="let post of posts">{{post.title}}</div>
+    </div>
+    <div class="table-cell">
+      <div class="readest">
+        <h2>Most Read</h2>
+      </div>
+      <div class="likest">
+        <h2>Most Liked</h2>
+      </div>
+    </div>
+  </div>
+</div>

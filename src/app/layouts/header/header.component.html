@@ -1,6 +1,7 @@
 <div class="menu left-menu">
   <div *ngIf="!showLinks" class="floating-items">
     <a routerLink="/all" class="brand-icon" *ngIf="!showLinks">alfredo</a> 
+    <a routerLink="/blog" [ngClass]="{'active-item': this. selectedItem == 'blog'}">Blog</a>
     <a routerLink="/portfolio" [ngClass]="{'active-item' : this.selectedItem === 'portfolio'}">Portfolio</a>
     <a routerLink="/certifications" [ngClass]="{'active-item' : this.selectedItem === 'certifications'}">Certifications</a>
     <a routerLink="/tech-stack" [ngClass]="{'active-item' : this.selectedItem === 'tech-stack'}">Tech Stack</a>

@@ -15,12 +15,15 @@ import { BlogComponent } from './layouts/blog/blog.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { PostComponent } from './layouts/post/post.component';
+import { SectionCardComponent } from './components/section-card/section-card.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/all', pathMatch: 'full' },
   { path: 'index', redirectTo: '/all' },
   { path: 'all', component: PersonalComponent },
   { path: 'blog', component: BlogComponent },
+  { path: 'blog/:id', component: PostComponent },
   { path: 'portfolio', component: PortfolioComponent },
   { path: 'certifications', component: CertificationsComponent },
   { path: 'tech-stack', component: TechStackComponent },
@@ -38,7 +41,9 @@ const appRoutes: Routes = [
     TechStackComponent,
     PersonalComponent,
     FooterComponent,
-    BlogComponent
+    BlogComponent,
+    PostComponent,
+    SectionCardComponent
   ],
   imports: [
     BrowserModule,

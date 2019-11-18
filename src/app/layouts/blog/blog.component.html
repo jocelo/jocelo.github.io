@@ -2,13 +2,17 @@
   <div class="search-bar"><input type="text" /></div>
   <div class="latest">
     <h2>Latest Post</h2>
-    <div *ngFor="let post of posts.latest">{{post.title}} ( {{post.date}} ) <a routerLink="/blog/{{post.id}}">read</a></div>
+    <div *ngFor="let post of posts.latest">
+      <div class="post-title">{{post.title}} ( {{post.date}} )</div>
+      <div class="post-desc">{{post.abstract}}</div>
+      <a routerLink="/blog/{{post.id}}">read more</a>
+    </div>
   </div>
   <div class="high5">
     <h2>Most high 5'ed</h2>
     <div *ngFor="let post of posts.mostLiked">{{post.title}} ( {{post.likes}} high fives ) <a routerLink="/blog/{{post.id}}">read</a></div>
   </div>
   <div class="sections">
-    <app-section-card *ngFor="let app of byCategory"></app-section-card>
+    <app-section-card *ngFor="let app of byCategory" [post]="app" ></app-section-card>
   </div>
 </div>

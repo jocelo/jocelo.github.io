@@ -1,0 +1,35 @@
+.main-container {
+	border: 1px solid lightgray;
+	border-radius: 5px;
+	width: 180px;
+	height: 120px;
+	text-align: center;
+	background: rgb(15, 113, 163);
+	color: white;
+	padding: 10px 5px;
+	margin: 15px 10px;
+	display: inline-block;
+
+	&:hover {
+		box-shadow: 3px 3px 4px black;
+		cursor: pointer;
+		position: relative;
+		top: -2px;
+		transition: all 0.2s;
+	}
+
+	& .bold {
+		font-weight: bold;
+		font-size: 1.2rem;
+	}
+
+	& .icon {
+		display: block;
+	}
+
+	& a {
+		color: white;
+		text-decoration: none;
+		color: greenyellow;
+	}
+}

@@ -26,7 +26,7 @@ export class PortfolioComponent implements OnInit {
   constructor() {
     this.projects = [{
       title: 'Homepage',
-      link: 'https://jocelowebsite.herokuapp.com',
+      link: 'https://jocelo.dev',
       desc: "Portfolio's website. Has all the professional information, certifications achieved, tech stack and contact information. Created with angular7 in 2019.",
       img: 'portfolio.png',
       techStack: [
@@ -38,6 +38,17 @@ export class PortfolioComponent implements OnInit {
         { name: 'heroku', icon: 'server'}
       ]
     },{
+      title: 'Bhuvi IT Solutions Hiring Website',
+      link: 'https://hiring.bhuviits.com/home',
+      desc: "Bhuvi IT solutions platform for new candidates, where they can track the hiring process and have all the resources they need.",
+      img: 'hiring.png',
+      techStack: [
+        { name: 'angular 8', icon: 'angular'},
+        { name: 'typescript', icon: 'code'},
+        { name: 'github', icon: 'github'},
+        { name: 'nodeJs', icon: 'node'},
+      ]
+    },{      
       title: 'JavaScript Mentor at Exercism Website',
       link: 'https://exercism.io/tracks/javascript/mentors',
       desc: "Non-profit project that help developer students to learn different languages. Working in JavaScript's language/track to mentor students in learning JavaScript's language.",

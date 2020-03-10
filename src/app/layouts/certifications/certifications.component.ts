@@ -10,6 +10,13 @@ export class CertificationsComponent implements OnInit {
 
   constructor() {
     this.certs = [{
+      obtainedDate: 'March 8, 2020',
+      desc: 'AWS: Certified Cloud Practitioner',
+      siteLink: 'https://www.certmetrics.com/amazon/public/transcript.aspx?transcript=N3EDK54122EQ1DC3',
+      site: 'AWS',
+      certLink: 'https://www.certmetrics.com/amazon/public/transcript.aspx?transcript=N3EDK54122EQ1DC3',
+      certImage: 'https://res.cloudinary.com/mycollections/image/upload/v1583810117/certificates/aws_ccp_pdf.png'
+    },{
       obtainedDate: 'June 03, 2019',
       desc: 'Interview Bootcamp: Algorithms + Data Structures',
       siteLink: 'https://www.udemy.com/',

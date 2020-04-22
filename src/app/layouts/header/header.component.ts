@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit {
     youtube: faYoutube
   }
   showMobileMenu: boolean = false;
+  showLinks: boolean = false;
   showHeader: boolean = true;
   selectedItem: string = '';
   mobileSectionTitle: string = 'Homepage';

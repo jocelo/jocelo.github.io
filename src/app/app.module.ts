@@ -18,6 +18,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/all', pathMatch: 'full' },
+  { path: 'home', redirectTo: '/all', pathMatch: 'full' },
   { path: 'index', redirectTo: '/all' },
   { path: 'all', component: PersonalComponent },
   { path: 'blog', component: BlogComponent },

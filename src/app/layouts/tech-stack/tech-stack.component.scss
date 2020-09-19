@@ -3,6 +3,10 @@
   width: 95%;
   margin: auto;
   display: table;
+
+  & img {
+    width: 90%;
+  }
 }
 
 .cell {
@@ -207,9 +211,6 @@
 }
 
 @media screen and (max-width: 700px) {
-  .main-container {
-    display: none;
-  }
 
   .main-container-mobile {
     display: block;

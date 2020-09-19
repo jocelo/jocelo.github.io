@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { faUserCircle, faCode, faServer, faLayerGroup } from '@fortawesome/free-solid-svg-icons';
-import { faAngular, faNodeJs, faFontAwesome, faSass, faGithub, faJs, faReact, faGoogle, faAws } from '@fortawesome/free-brands-svg-icons';
+import { faUserCircle, faCode, faServer, faLayerGroup, faCodeBranch, faDatabase } from '@fortawesome/free-solid-svg-icons';
+import { faAngular, faNodeJs, faFontAwesome, faSass, faGithub, faJs, faReact, faGoogle, faAws, faLaravel, faPhp } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-portfolio',
@@ -22,7 +22,11 @@ export class PortfolioComponent implements OnInit {
     server: faServer,
     firebase: faGoogle,
     materialDesign: faLayerGroup,
-    aws: faAws
+    aws: faAws,
+    laravel: faLaravel,
+    php: faPhp,
+    svn: faCodeBranch,
+    database: faDatabase
   }
 
   constructor() {
@@ -50,7 +54,18 @@ export class PortfolioComponent implements OnInit {
         { name: 'github', icon: 'github'},
         { name: 'nodeJs', icon: 'node'},
       ]
-    },{      
+    },{
+      title: 'Arafel International',
+      link: 'http://ysistemak.sytes.net:8081/BelcrilWebSite/public/',
+      desc: "Web Portal for Mexico localized shopping of clothing brand. Worked in the backend portion.",
+      img: 'arafel.png',
+      techStack: [
+        { name: 'php', icon: 'php'},
+        { name: 'laravel', icon: 'laravel'},
+        { name: 'mysql', icon: 'database'},
+        { name: 'svn', icon: 'svn'},
+      ]
+    },{
       title: 'JavaScript Mentor at Exercism Website',
       link: 'https://exercism.io/tracks/javascript/mentors',
       desc: "Non-profit project that help developer students to learn different languages. Working in JavaScript's language/track to mentor students in learning JavaScript's language.",

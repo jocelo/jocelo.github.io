@@ -137,6 +137,10 @@ hr {
   }
 }
 
+a.disabled {
+  color: gray;
+}
+
 @media screen and (max-width: 700px) {
   a {
     color: white;

@@ -1,10 +1,11 @@
 <div class="menu left-menu">
   <div *ngIf="!showLinks" class="floating-items">
     <a routerLink="/all" class="brand-icon" *ngIf="!showLinks">alfredo</a> 
+    <a class="disabled">Blog</a>
     <a routerLink="/portfolio" [ngClass]="{'active-item' : this.selectedItem === 'portfolio'}">Portfolio</a>
     <a routerLink="/certifications" [ngClass]="{'active-item' : this.selectedItem === 'certifications'}">Certifications</a>
     <a routerLink="/tech-stack" [ngClass]="{'active-item' : this.selectedItem === 'tech-stack'}">Tech Stack</a>
-    <a>Store</a>
+    <a class="disabled">Store</a>
     <a href="https://www.youtube.com/channel/UC547pgqomI0IcjOmltxQdAQ" target="_blank">Videos</a>
     <span class="mobile-title"> {{"<\/ "+mobileSectionTitle}} > </span>
   </div>

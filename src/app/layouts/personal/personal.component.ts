@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faPepperHot, faStar, faExternalLinkAlt, faUserCircle, faSearch, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faCanadianMapleLeaf, faGithub, faCodepen, faLinkedin, faYoutube, faTwitter, faInstagram, faJsSquare } from '@fortawesome/free-brands-svg-icons';
+import { faCanadianMapleLeaf, faGithub, faCodepen, faLinkedin, faYoutube, faTwitter, faInstagram, faJsSquare, faHackerrank } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-personal',
@@ -9,20 +9,21 @@ import { faCanadianMapleLeaf, faGithub, faCodepen, faLinkedin, faYoutube, faTwit
 })
 export class PersonalComponent implements OnInit {
   faIcons = {
-    pepperhot: faPepperHot,
-    leaf: faCanadianMapleLeaf,
-    star: faStar,
-    externallink: faExternalLinkAlt,
-    userCircle: faUserCircle,
-    search: faSearch,
-    envelope: faEnvelope,
-    github: faGithub,
     codepen: faCodepen,
-    linkedin: faLinkedin,
-    youtube: faYoutube,
-    twitter: faTwitter,
+    envelope: faEnvelope,
+    exercism: faJsSquare,
+    externallink: faExternalLinkAlt,
+    github: faGithub,
+    hackerrank: faHackerrank,
     instagram: faInstagram,
-    exercism: faJsSquare
+    leaf: faCanadianMapleLeaf,
+    linkedin: faLinkedin,
+    pepperhot: faPepperHot,
+    search: faSearch,
+    star: faStar,
+    twitter: faTwitter,
+    userCircle: faUserCircle,
+    youtube: faYoutube
   };
 
   

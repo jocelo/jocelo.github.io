@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faPepperHot, faStar, faExternalLinkAlt, faUserCircle, faSearch, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faPepperHot, faStar, faExternalLinkAlt, faUserCircle, faSearch, faEnvelope, faProjectDiagram } from '@fortawesome/free-solid-svg-icons';
 import { faCanadianMapleLeaf, faGithub, faCodepen, faLinkedin, faYoutube, faTwitter, faInstagram, faJsSquare, faHackerrank } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
@@ -19,6 +19,7 @@ export class PersonalComponent implements OnInit {
     leaf: faCanadianMapleLeaf,
     linkedin: faLinkedin,
     pepperhot: faPepperHot,
+    diagram: faProjectDiagram;
     search: faSearch,
     star: faStar,
     twitter: faTwitter,

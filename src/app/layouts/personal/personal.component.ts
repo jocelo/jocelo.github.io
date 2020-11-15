@@ -19,7 +19,7 @@ export class PersonalComponent implements OnInit {
     leaf: faCanadianMapleLeaf,
     linkedin: faLinkedin,
     pepperhot: faPepperHot,
-    diagram: faProjectDiagram;
+    diagram: faProjectDiagram,
     search: faSearch,
     star: faStar,
     twitter: faTwitter,

@@ -1,33 +1,49 @@
 <div class="menu left-menu">
   <div *ngIf="!showLinks" class="floating-items">
-    <a routerLink="/all" class="brand-icon" *ngIf="!showLinks">alfredo</a> 
+    <a routerLink="/all" class="brand-icon" *ngIf="!showLinks">alfredo</a>
     <a class="disabled">Blog</a>
     <a routerLink="/portfolio" [ngClass]="{'active-item' : this.selectedItem === 'portfolio'}">Portfolio</a>
-    <a routerLink="/certifications" [ngClass]="{'active-item' : this.selectedItem === 'certifications'}">Certifications</a>
-    <a routerLink="/tech-stack" [ngClass]="{'active-item' : this.selectedItem === 'tech-stack'}">Tech Stack</a>
+    <a routerLink="/certifications"
+      [ngClass]="{'active-item' : this.selectedItem === 'certifications'}">Certifications</a>
     <a class="disabled">Store</a>
     <a href="https://www.youtube.com/channel/UC547pgqomI0IcjOmltxQdAQ" target="_blank">Videos</a>
-    <span class="mobile-title"> {{"<\/ "+mobileSectionTitle}} > </span>
+    <span class="mobile-title"> {{"<\ / "+mobileSectionTitle}} > </span>
   </div>
 </div>
-<div class="menu right-menu">
-  <span class="icon">
-    <a href="https://github.com/jocelo" target="_blank"> <fa-icon [icon]="faIcons.github" size="2x"></fa-icon> </a>
-  </span>
-  <span class="icon">
-    <a href="https://www.linkedin.com/in/alfredoae/" target="_blank"> <fa-icon [icon]="faIcons.linkedin" size="2x"></fa-icon> </a>
-  </span>
-  <span class="hamburger">
-    <fa-icon [icon]="faIcons.bars" size="2x" (click)="toggleMenu()"></fa-icon>
-  </span>
-</div>
-<hr />
-<div *ngIf="showMobileMenu" class="navbar mobile-menu">
-  <a routerLink="/portfolio"> <fa-icon [icon]="faIcons.suitcase"></fa-icon> <span class="menu-option">Portfolio</span></a>
-  <a routerLink="/certifications"> <fa-icon [icon]="faIcons.award"></fa-icon> <span class="menu-option">Certifications</span></a>
-  <a routerLink="/tech-stack"> <fa-icon [icon]="faIcons.code"></fa-icon> <span class="menu-option">Tech Stack</span></a>
-  <a href="https://www.youtube.com/channel/UC547pgqomI0IcjOmltxQdAQ" target="_blank"> <fa-icon [icon]="faIcons.youtube"></fa-icon> <span class="menu-option">Videos</span></a>
-  <hr class="menu-divisor">
-  <a href="https://github.com/jocelo" target="_blank"> <fa-icon [icon]="faIcons.github"></fa-icon> <span class="menu-option">Github</span></a>
-  <a href="https://www.linkedin.com/in/alfredoae/" target="_blank"> <fa-icon [icon]="faIcons.linkedin"></fa-icon> <span class="menu-option">LinkedIn</span></a>
-</div>
+<div class=" menu right-menu">
+        <span class="icon">
+          <a href="https://github.com/jocelo" target="_blank">
+            <fa-icon [icon]="faIcons.github" size="2x"></fa-icon>
+          </a>
+        </span>
+        <span class="icon">
+          <a href="https://www.linkedin.com/in/alfredoae/" target="_blank">
+            <fa-icon [icon]="faIcons.linkedin" size="2x"></fa-icon>
+          </a>
+        </span>
+        <span class="hamburger">
+          <fa-icon [icon]="faIcons.bars" size="2x" (click)="toggleMenu()"></fa-icon>
+        </span>
+  </div>
+  <hr />
+  <div *ngIf="showMobileMenu" class="navbar mobile-menu">
+    <a routerLink="/portfolio">
+      <fa-icon [icon]="faIcons.suitcase"></fa-icon> <span class="menu-option">Portfolio</span>
+    </a>
+    <a routerLink="/certifications">
+      <fa-icon [icon]="faIcons.award"></fa-icon> <span class="menu-option">Certifications</span>
+    </a>
+    <a routerLink="/tech-stack">
+      <fa-icon [icon]="faIcons.code"></fa-icon> <span class="menu-option">Tech Stack</span>
+    </a>
+    <a href="https://www.youtube.com/channel/UC547pgqomI0IcjOmltxQdAQ" target="_blank">
+      <fa-icon [icon]="faIcons.youtube"></fa-icon> <span class="menu-option">Videos</span>
+    </a>
+    <hr class="menu-divisor">
+    <a href="https://github.com/jocelo" target="_blank">
+      <fa-icon [icon]="faIcons.github"></fa-icon> <span class="menu-option">Github</span>
+    </a>
+    <a href="https://www.linkedin.com/in/alfredoae/" target="_blank">
+      <fa-icon [icon]="faIcons.linkedin"></fa-icon> <span class="menu-option">LinkedIn</span>
+    </a>
+  </div>

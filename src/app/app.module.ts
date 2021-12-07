@@ -15,6 +15,10 @@ import { BlogComponent } from './layouts/blog/blog.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ChipComponent } from './components/chip/chip.component';
+import { BlogModule } from './blog/blog.module';
+
+import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/all', pathMatch: 'full' },
@@ -31,26 +35,34 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
+    BlogComponent,
     CertificationsComponent,
-    PortfolioComponent,
+    ChipComponent,
+    FooterComponent,
+    HeaderComponent,
     LandingComponent,
     PageNotFoundComponent,
-    TechStackComponent,
     PersonalComponent,
-    FooterComponent,
-    BlogComponent
+    PortfolioComponent,
+    TechStackComponent,
   ],
   imports: [
+    BlogModule,
     BrowserModule,
-    FormsModule,
     FontAwesomeModule,
+    FormsModule,
+    HighlightModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true }
     )
   ],
-  providers: [],
+  providers: [{
+    provide: HIGHLIGHT_OPTIONS,
+    useValue: {
+      fullLibraryLoader: () => import('highlight.js'),
+    }
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

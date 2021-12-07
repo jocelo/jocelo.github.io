@@ -1,6 +1,6 @@
 {
-  "name": "website",
-  "version": "0.6.19",
+  "name": "jocelo-dev",
+  "version": "0.12.7",
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
@@ -8,6 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "docker": "ng serve --host 0.0.0.0",
     "prod": "ng build --prod --output-hashing=all"
   },
   "private": true,
@@ -29,6 +30,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.8.2",
     "core-js": "^2.5.4",
     "express": "^4.17.1",
+    "ngx-highlightjs": "^6.1.0",
     "path": "^0.12.7",
     "rxjs": "~6.6.7",
     "tslib": "^1.9.0",

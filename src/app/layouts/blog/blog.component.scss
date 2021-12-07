@@ -1,0 +1,51 @@
+.blog-body {
+    margin: 0 200px;
+
+    article {
+        border: 1px solid gray;
+        margin-bottom: 20px;
+
+        .top-section {
+            display: flex;
+            flex-direction: row;
+
+            h2:hover {
+                cursor: pointer;
+            }
+
+            .published-date {
+                text-align: right;
+                margin-right: 15px;
+                font-size: 0.8rem;
+            }
+    
+            div:first-child {
+                flex: 1;
+                padding: 20px;
+            }
+    
+            div:last-child {
+                flex: 2;
+            }
+
+            .post-container {
+                display: flex;
+                flex-direction: column;
+
+                .post-body {
+                    flex: 2;
+                    margin: 0;
+                }
+            }
+        }
+
+        .bottom-section {
+            background: lightgray;
+            padding: 5px 10px;
+
+            span {
+                padding-right: 5px;
+            }
+        }
+    }
+}

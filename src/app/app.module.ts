@@ -53,7 +53,7 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true }
+      { enableTracing: true, relativeLinkResolution: 'legacy' }
     )
   ],
   providers: [],

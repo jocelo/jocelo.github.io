@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { BalanceoDeParentesisComponent } from './balanceo-de-parentesis.component';
 
@@ -6,7 +6,7 @@ describe('BalanceoDeParentesisComponent', () => {
   let component: BalanceoDeParentesisComponent;
   let fixture: ComponentFixture<BalanceoDeParentesisComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ BalanceoDeParentesisComponent ]
     })

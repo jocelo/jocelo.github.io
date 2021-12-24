@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AngularStackUpgradeDockerComponent } from './angular-stack-upgrade-docker.component';
 
@@ -6,7 +6,7 @@ describe('AngularStackUpgradeDockerComponent', () => {
   let component: AngularStackUpgradeDockerComponent;
   let fixture: ComponentFixture<AngularStackUpgradeDockerComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ AngularStackUpgradeDockerComponent ]
     })

@@ -26,7 +26,7 @@ const blogRoutes: Routes = [
     CodeBlockModule,
     RouterModule.forRoot(
       blogRoutes,
-      { enableTracing: true }
+      { enableTracing: true, relativeLinkResolution: 'legacy' }
     )
   ]
 })

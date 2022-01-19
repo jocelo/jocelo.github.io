@@ -16,25 +16,23 @@ export class BlogComponent implements OnInit {
 
   ngOnInit() {
     this.posts = [{
-      url: "2021/balanced-brackets",
-      img: "blog_balanced_brackets.png",
-      title: "Balanced Brackets",
-      desc: "How to solve the balanced brackets algorithm.",
-      publishedDate: "June 20, 2021",
+      url: 'balanced-brackets',
+      img: 'blog_balanced_brackets.png',
+      title: 'Balanced Brackets',
+      desc: 'How to solve the balanced brackets algorithm.',
+      publishedDate: 'June 20, 2021',
       topics: ['algorithm']
     }, {
-      url: "2021/balanceo-de-parentesis",
-      img: "blog_balanced_brackets.png",
-      title: "Balanceo de Parentesis",
-      desc: "Como resolver el problema del balanceo de parentesis.",
-      publishedDate: "Junio 20, 2021",
+      url: 'balanceo-de-parentesis',
+      img: 'blog_balanced_brackets.png',
+      title: 'Balanceo de Parentesis',
+      desc: 'Como resolver el problema del balanceo de parentesis.',
+      publishedDate: 'Junio 20, 2021',
       topics: ['algorithm']
     }];
   }
 
   openArticle(postURL: any): void {
-    console.log('open meeee');
-    console.log(postURL);
     this.router.navigate([`/blog/${postURL}`]);
   }
 

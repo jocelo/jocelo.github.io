@@ -1,0 +1,5 @@
+<mat-chip-list class="example-chip" cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="drop($event)">
+    <mat-chip class="example-box" color="primary" selected cdkDrag *ngFor="let site of data">
+        {{site.name}}
+    </mat-chip>
+</mat-chip-list>

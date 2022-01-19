@@ -15,10 +15,8 @@ import { BlogComponent } from './layouts/blog/blog.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { ChipComponent } from './components/chip/chip.component';
 import { BlogModule } from './blog/blog.module';
-
-// import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/all', pathMatch: 'full' },
@@ -37,7 +35,6 @@ const appRoutes: Routes = [
     AppComponent,
     BlogComponent,
     CertificationsComponent,
-    ChipComponent,
     FooterComponent,
     HeaderComponent,
     LandingComponent,
@@ -54,7 +51,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true, relativeLinkResolution: 'legacy' }
-    )
+    ),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

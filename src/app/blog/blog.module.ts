@@ -7,23 +7,31 @@ import { BalancedBracketsComponent } from './balanced-brackets/balanced-brackets
 import { BalanceoDeParentesisComponent } from './balanceo-de-parentesis/balanceo-de-parentesis.component';
 
 import { CodeBlockModule } from '../code-block/code-block.module';
+import { ChipsModule } from '../chips/chips.module';
+import { DockerizeAngularComponent } from './dockerize-angular/dockerize-angular.component';
+
+import { MatTabsModule } from '@angular/material/tabs';
 
 const blogRoutes: Routes = [
   { path: 'blog/', redirectTo: '/', pathMatch: 'full' },
   { path: 'index', redirectTo: '/' },
-  { path: 'blog/2021/balanced-brackets', component: BalancedBracketsComponent },
-  { path: 'blog/2021/balanceo-de-parentesis', component: BalanceoDeParentesisComponent },
+  { path: 'blog/balanced-brackets', component: BalancedBracketsComponent },
+  { path: 'blog/balanceo-de-parentesis', component: BalanceoDeParentesisComponent },
+  { path: 'blog/dockerize-angular', component: DockerizeAngularComponent }
 ];
 
 @NgModule({
   declarations: [
     AngularStackUpgradeDockerComponent,
     BalancedBracketsComponent,
-    BalanceoDeParentesisComponent
+    BalanceoDeParentesisComponent,
+    DockerizeAngularComponent
   ],
   imports: [
     CommonModule,
     CodeBlockModule,
+    ChipsModule,
+    MatTabsModule,
     RouterModule.forRoot(
       blogRoutes,
       { enableTracing: true, relativeLinkResolution: 'legacy' }

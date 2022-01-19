@@ -1,18 +1,29 @@
 <article>
   <h1>Balanceo de Parentesis</h1>
-  <p>En este articulo vamos a revisar como resolver el algoritmo de balanceo de parentesis.</p>
   <p>Este problema lo puedes encontrar en los siguientes sitios: </p>
-  <div>HackerRank | Leetcode</div>
+  <app-chips [data]="sites"></app-chips>
   <p>El problema requiere validar si una cadena de caracteres se considera balanceada si y solo si por cada parentesis
     de cierre ( ')' '' ']' ) existe un parentesis de apertura posicionado al lado izquierdo de la cadena.</p>
-  <p>El conjunto de caracteres valido es solamente el siguiente: () []</p>
+  <p>El conjunto de caracteres valido es solamente el siguiente: ( ) [ ] &lcub; &rcub; </p>
   <p>Siguiendo la logica anterior, se puede decir que una cadena de parentesis esta balanceada si cumple las siguientes
     condiciones:</p>
   <ul>
-    <li>Por cada parentesis de apertura, debera existir un parentesis de cierre.</li>
-    <li>Dicho parentesis de cierre, se debe encontrar a la derecha del parentesis de apertura.</li>
-    <li>Cuando se encuentre un parentesis de cierre, debera existir su par correspondiente de apertura.</li>
+    <li>por cada parentesis de apertura, debera existir un parentesis de cierre.</li>
+    <li>dicho parentesis de cierre, se debe encontrar hacua la derecha del parentesis de apertura y...</li>
+    <li>debera existir su par correspondiente de apertura localizado hacia la izquierda en la cadena.</li>
   </ul>
 
-  <app-code-block></app-code-block>
+  <mat-tab-group mat-align-tabs="start">
+    <mat-tab label="Javascript">
+      <app-code-block [code]="js_code"></app-code-block>
+    </mat-tab>
+    <mat-tab label="Python">
+      <app-code-block [code]="py_code"></app-code-block>
+    </mat-tab>
+    <mat-tab label="PHP">
+      <app-code-block [code]="php_code"></app-code-block>
+    </mat-tab>
+  </mat-tab-group>
+
+
 </article>

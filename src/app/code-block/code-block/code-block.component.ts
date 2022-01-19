@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-code-block',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./code-block.component.css']
 })
 export class CodeBlockComponent implements OnInit {
+  @Input()
+  code: string;
 
   constructor() { }
 

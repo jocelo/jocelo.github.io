@@ -1,0 +1,32 @@
+<h1>Docker y angular</h1>
+<p>Eres developer angular... bien! Te gusta estar al dia... felicidades!</p>
+<p>Tienes en tu maquina la ultima version disponible de angular (13 al dia de hoy) y tambien tienes la version de node
+    mas actualizada porque... te gusta estar actualizado... exelente!</p>
+<p>Un amigo me contacta y me pide ayuda con su aplicacion en angular 6... wtf! </p>
+<p>Estas en shock porque como es posible que aun hay gente que esta usando angular 6... bueno, le podemos echar la mano
+    pero... como ?</p>
+<p>Te ha pasado algo similar ? Has tenido que dar soporte a alguna version anterior de angular y tu ambiente esta
+    super actualizado ?</p>
+<p>En este articulo, vamos a explorar una herramienta muy interesante llamada <a href="https://www.docker.com/"
+        target="_blank">Docker</a>: nos permitira poder instalar
+    dentro de un <a>contenedor</a> la version especifica de Node y Angular que necesitamos, sin necesidad de modificar
+    nada en
+    nuestro ambiente local. Sin mas preambulo, let's do this!</p>
+<h2>Instalando Docker</h2>
+<p>Lo primero que necesitaremos es instalar docker, para lo cual necesitamos seguir los pasos en el sitio oficial <a
+        href="https://www.docker.com/get-started">aqui</a></p>
+<p>Una ves instalado, puedes verificar que lo tengas correctamente instalado, executando este comando (y su resultado):
+</p>
+<app-code-block [code]="'docker -v'"></app-code-block>
+<p>Ya que lo tengas, lo siguiente que debes hacer es crear un contenedor para poder instalar las versiones que necesites
+    de angular, sin tener que modificar tu ambiente local. Necesitas seleccionar una imagen, la cual es el punto de
+    partida para poder crear contenedores basados en dicha imagen.
+    Para que puedas proceder a actualizar tu app de manera mas rapida, puedes usar la imagen que nosotros hicimos y que
+    esta publicada en docker hub en esta liga. Este es el comando para crear tu container con dicha imagen:
+</p>
+<app-code-block [code]="'docker run -d centosng6'"></app-code-block>
+<p>Nota: esta imagen fue creada tomando como base la imagen oficial de centOS y solamente agregamos:</p>
+<ul>
+    <li>node 10</li>
+</ul>
+<p></p>

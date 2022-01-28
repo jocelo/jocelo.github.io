@@ -32,32 +32,84 @@ export class BalanceoDeParentesisComponent implements OnInit {
 
   ngOnInit() {
     this.js_code = `
-function main() {
-  const test: string: 1;
-  let uno: number 1:
+function balanceo(theString) {
+  const pila = [];
+  for (let par of theString) {
+    if (par == '(' || par == '{' || par == '[') {
+      pila.push(par);
+    }
 
-  for (let i=0 ; i<10 ; i++) {
-    // the first comment
-    let j = 0;
-    // the second comment
-    var g = 99;
+    if (par == ')') {
+      const parApertura = pila.pop();
+      if (parApertura != '(') {
+        return false;
+      }
+    }
+
+    if (par == '}') {
+      const parApertura = pila.pop();
+      if (parApertura != '{') {
+        return false;
+      }
+    }
+
+    if (par == ']') {
+      const parApertura = pila.pop();
+      if (parApertura != '[') {
+        return false;
+      }
+    }
   }
+
+  if (pila.length > 0) {
+    return false;
+  }
+
+  return true;
 }
     `;
 
     this.py_code = `
-class Test:
-  def __init__(self):
-    self.one = 1
-    self.two = True
-    self.obbj = [1, 2, 3]
+def balanceo(the_string):
+pila = []
 
-  # another new method
-  // with a js comment
-  def testing(self, second):
-    three = 3
-    return False
+for par in the_string:
+  if par == '(' or par == '{' or par == '[':
+    pila.append(par)
+
+  if par == ')':
+    try:
+      parApertura = pila.pop()
+    except:
+      return False
+
+    if parApertura != '(':
+      return False
+
+  if par == '}':
+    try:
+      parApertura = pila.pop()
+    except:
+      return False
+
+    if parApertura != '{':
+      return False
+
+  if par == ']':
+    try:
+      parApertura = pila.pop()
+    except:
+      return False
+
+    if parApertura != '[':
+      return False
+
+if len(pila) > 0:
+  return False
+
+return True
     `;
+
     this.php_code = `
     class Test:
       def __init__(self):

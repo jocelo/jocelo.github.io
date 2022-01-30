@@ -41,7 +41,7 @@ const appRoutes: Routes = [
     PageNotFoundComponent,
     PersonalComponent,
     PortfolioComponent,
-    TechStackComponent,
+    TechStackComponent
   ],
   imports: [
     BlogModule,

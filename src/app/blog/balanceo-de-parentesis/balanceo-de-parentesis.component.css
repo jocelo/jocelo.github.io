@@ -1,3 +1,7 @@
+article {
+  margin: 0 250px;
+}
+
 span.inline-code {
   background-color: lightgray;
   padding: 5px 8px;

@@ -1,4 +1,4 @@
-<article>
+<article class="blog-layout">
   <h1>Balanceo de Parentesis</h1>
   <p>Bienvenidos a este articulo donde estaremos resolviendo el ejercicio de balanceo de parentesis. Si deseas ver la
     version en ingles lo puedes hacer en esta liga.</p>
@@ -33,10 +33,15 @@
   </table>
   <p>En este ejercicio y su correspondiente solucion, se tocan los siguientes temas:</p>
   <section>
-    <p>Array</p>
-    <p>Pilas</p>
+    <mat-chip-list class="example-chip" cdkDropList cdkDropListOrientation="horizontal"
+      (cdkDropListDropped)="drop($event)">
+      <mat-chip class="example-box" color="primary" selected cdkDrag *ngFor="let topic of topics">
+        <fa-icon [icon]="icons[topic]" style="margin-right: 10px;"></fa-icon> {{topic}}
+      </mat-chip>
+    </mat-chip-list>
   </section>
   <h2>Solución</h2>
+
   <p>Note: Esta solucion se encuentra en video, para verlo sigue esta liga.</p>
   <p>Para resolver este problema, usaremos una pila, en la cual vamos a ir guardando cada parentesis de apertura que
     encontremos, recordando los parentesis de apertura es alguno de estos: &lcub;|[|(.
@@ -72,7 +77,7 @@
   </mat-tab-group>
   <p>Ver en modo linea a linea</p>
   <h2>Analisis de big O</h2>
-  <p>Los factores que afectan el analisis de la big O en cuanto a tiempo:</p>
+  <p appHighlight>Los factores que afectan el analisis de la big O en cuanto a tiempo:</p>
   <table>
     <tbody>
       <tr>

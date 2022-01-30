@@ -16,7 +16,8 @@ import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
   providers: [{
     provide: HIGHLIGHT_OPTIONS,
     useValue: {
-      fullLibraryLoader: () => import('highlight.js')
+      fullLibraryLoader: () => import('highlight.js'),
+      lineNumbersLoader: () => import('highlightjs-line-numbers.js'),
     }
   }]
 })

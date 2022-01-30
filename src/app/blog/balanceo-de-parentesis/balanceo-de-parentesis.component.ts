@@ -1,9 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 
+import { faSearch, faRulerHorizontal, faBatteryHalf } from '@fortawesome/free-solid-svg-icons';
+
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+
 export interface PostData {
   name: string;
   url?: string;
 }
+
+export interface Vegetable {
+  name: string;
+}
+
 
 @Component({
   selector: 'app-balanceo-de-parentesis',
@@ -11,6 +20,9 @@ export interface PostData {
   styleUrls: ['./balanceo-de-parentesis.component.css']
 })
 export class BalanceoDeParentesisComponent implements OnInit {
+  faSearch = faSearch;
+  faRulerHorizontal = faRulerHorizontal;
+  faBatteryHalf = faBatteryHalf;
   js_code: string;
   py_code: string;
   php_code: string;
@@ -28,45 +40,49 @@ export class BalanceoDeParentesisComponent implements OnInit {
     url: 'https://www.codechef.com/problems/RNT011'
   }];
 
+  topics: string[] = ['arrays', 'pilas'];
+
+  icons: any;
+
   constructor() { }
 
   ngOnInit() {
     this.js_code = `
-function balanceo(theString) {
-  const pila = [];
-  for (let par of theString) {
-    if (par == '(' || par == '{' || par == '[') {
-      pila.push(par);
-    }
+  function balanceo(theString) {
+    const pila = [];
+    for (let par of theString) {
+      if (par == '(' || par == '{' || par == '[') {
+        pila.push(par);
+      }
 
-    if (par == ')') {
-      const parApertura = pila.pop();
-      if (parApertura != '(') {
-        return false;
+      if (par == ')') {
+        const parApertura = pila.pop();
+        if (parApertura != '(') {
+          return false;
+        }
+      }
+
+      if (par == '}') {
+        const parApertura = pila.pop();
+        if (parApertura != '{') {
+          return false;
+        }
+      }
+
+      if (par == ']') {
+        const parApertura = pila.pop();
+        if (parApertura != '[') {
+          return false;
+        }
       }
     }
 
-    if (par == '}') {
-      const parApertura = pila.pop();
-      if (parApertura != '{') {
-        return false;
-      }
+    if (pila.length > 0) {
+      return false;
     }
 
-    if (par == ']') {
-      const parApertura = pila.pop();
-      if (parApertura != '[') {
-        return false;
-      }
-    }
+    return true;
   }
-
-  if (pila.length > 0) {
-    return false;
-  }
-
-  return true;
-}
     `;
 
     this.py_code = `
@@ -123,6 +139,15 @@ return True
         three = 3
         return False
         `;
+
+    this.icons = {
+      'arrays': faRulerHorizontal,
+      'pilas': faBatteryHalf
+    };
+  }
+
+  drop(event: CdkDragDrop<Vegetable[]>) {
+    moveItemInArray(this.sites, event.previousIndex, event.currentIndex);
   }
 
 }

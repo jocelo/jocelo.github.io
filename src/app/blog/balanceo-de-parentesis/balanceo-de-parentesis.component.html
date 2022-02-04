@@ -1,12 +1,15 @@
 <article class="blog-layout">
   <h1>Balanceo de Parentesis</h1>
-  <p>Bienvenidos a este articulo donde estaremos resolviendo el ejercicio de balanceo de parentesis. Si deseas ver la
-    version en ingles lo puedes hacer en <a [routerLink]="['/blog','balanced-brackets']">esta liga</a>.</p>
   <mat-card class="card-note">
     <fa-icon [icon]="faLanguage" style="margin-right: 10px;" size="lg"></fa-icon> For English version <a
       [routerLink]="['/blog','balanced-brackets']">click here.</a>
   </mat-card>
-  <p>Este problema lo encuentras en los siguientes sitios: </p>
+
+  <p>Bienvenidos a este articulo; al finalizar podras resolver el problema de balanceo de parentesis. Encontraras el
+    codigo en varios lenguajes de programacion. Lo hago de esta manera para que puedas ver y comparar las soluciones y
+    tambien para eliminar la barrera del "idioma".</p>
+
+  <p>Este problema se encuentra en los siguientes sitios: </p>
   <app-chips [data]="sites"></app-chips>
   <p>Puedes navegar a cualquier seccion de este articulo:</p>
   <ul>
@@ -19,7 +22,7 @@
   <hr />
 
   <h2 id="definition">Definicion</h2>
-  <p>Se requiere validar si una cadena de caracteres se considera <span>balanceada</span> si y solo si por cada
+  <p>Se requiere validar si una cadena de caracteres se considera <u>balanceada</u> si y solo si por cada
     parentesis
     de apertura <span class=" inline-code">(</span> <span class="inline-code">&lcub;</span><span
       class="inline-code">[</span> existe un parentesis de cierre <span class="inline-code">)</span><span
@@ -27,8 +30,8 @@
     correspondiente.</p>
   <p>Asi pues, una cadena de parentesis esta balanceada si cumple las siguientes condiciones:</p>
   <ul>
-    <li>por cada parentesis de apertura, debera existir un parentesis de cierre.</li>
-    <li>dicho parentesis de cierre, se debe encontrar hacia la derecha del parentesis de apertura.</li>
+    <li>Por cada parentesis de apertura, debera existir un parentesis de cierre.</li>
+    <li>Dicho parentesis de cierre, se debe encontrar hacia la derecha del parentesis de apertura.</li>
   </ul>
   <p>En caso de que la cadena provista este balanceada correctamente, nuestra funcion debera regresar el valor <span
       class="inline-code">true</span>, de

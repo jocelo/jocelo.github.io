@@ -2,7 +2,10 @@
   <h1>Balanceo de Parentesis</h1>
   <p>Bienvenidos a este articulo donde estaremos resolviendo el ejercicio de balanceo de parentesis. Si deseas ver la
     version en ingles lo puedes hacer en <a [routerLink]="['/blog','balanced-brackets']">esta liga</a>.</p>
-  <p>For english version go <a [routerLink]="['/blog','balanced-brackets']">here</a>.</p>
+  <mat-card class="card-note">
+    <fa-icon [icon]="faLanguage" style="margin-right: 10px;" size="lg"></fa-icon> For English version <a
+      [routerLink]="['/blog','balanced-brackets']">click here.</a>
+  </mat-card>
   <p>Este problema lo encuentras en los siguientes sitios: </p>
   <app-chips [data]="sites"></app-chips>
   <p>Puedes navegar a cualquier seccion de este articulo:</p>

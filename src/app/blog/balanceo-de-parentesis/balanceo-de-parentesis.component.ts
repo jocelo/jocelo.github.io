@@ -1,11 +1,11 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { ViewportScroller } from '@angular/common';
-import { Component, ElementRef, OnInit, ViewChildren } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, Scroll } from '@angular/router';
 
 import { filter } from 'rxjs/operators';
 
-import { faSearch, faRulerHorizontal, faBatteryHalf, faExpandArrowsAlt, faTimesCircle, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faRulerHorizontal, faBatteryHalf, faLanguage, faTimesCircle, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { faYoutube, faJsSquare, faPython, faPhp } from '@fortawesome/free-brands-svg-icons';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 
@@ -44,14 +44,13 @@ export interface InextPost {
   styleUrls: ['./balanceo-de-parentesis.component.css']
 })
 export class BalanceoDeParentesisComponent implements OnInit {
-  @ViewChildren('jscode') jscodeSection;
-
   faSearch = faSearch;
   faRulerHorizontal = faRulerHorizontal;
   faBatteryHalf = faBatteryHalf;
   faExclamationCircle = faYoutube;
   faPlusCircle = faPlusCircle;
   faTimesCircle = faTimesCircle;
+  faLanguage = faLanguage;
   faJsSquare = faJsSquare;
   faPython = faPython;
   faPhp = faPhp;

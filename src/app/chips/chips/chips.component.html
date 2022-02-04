@@ -1,5 +1,6 @@
 <mat-chip-list class="example-chip" cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="drop($event)">
-    <mat-chip class="example-box" color="primary" selected cdkDrag *ngFor="let site of data">
-        {{site.name}}
+    <mat-chip class="example-box hover-pointer" color="primary" [ngClass]="{'no-follow': site.url == ''}"
+        [disabled]="site.url == ''" selected cdkDrag *ngFor="let site of data" (click)="openLink(site.url)">
+        <fa-icon *ngIf="site.url != ''" [icon]="faExternalLinkAlt" style="margin-right: 10px;"></fa-icon> {{site.name}}
     </mat-chip>
 </mat-chip-list>

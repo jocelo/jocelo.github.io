@@ -1,0 +1,7 @@
+.hover-pointer {
+  cursor: pointer;
+}
+
+.hover-pointer.no-follow {
+  cursor: not-allowed;
+}

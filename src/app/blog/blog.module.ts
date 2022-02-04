@@ -12,8 +12,11 @@ import { DockerizeAngularComponent } from './dockerize-angular/dockerize-angular
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatTableModule } from '@angular/material/table';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatCardModule } from '@angular/material/card';
 import { HighlightDirective } from '../highlight.directive';
+
 
 const blogRoutes: Routes = [
   { path: 'blog/', redirectTo: '/', pathMatch: 'full' },
@@ -37,10 +40,17 @@ const blogRoutes: Routes = [
     ChipsModule,
     FontAwesomeModule,
     MatTabsModule,
+    MatTableModule,
     MatChipsModule,
+    MatCardModule,
     RouterModule.forRoot(
       blogRoutes,
-      { enableTracing: true, relativeLinkResolution: 'legacy' }
+      {
+        enableTracing: true,
+        anchorScrolling: 'enabled',
+        onSameUrlNavigation: 'reload',
+        relativeLinkResolution: 'legacy'
+      }
     )
   ]
 })

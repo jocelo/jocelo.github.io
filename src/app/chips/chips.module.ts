@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChipsComponent } from './chips/chips.component';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
@@ -13,7 +15,8 @@ import { MatChipsModule } from '@angular/material/chips';
   ],
   imports: [
     CommonModule,
-    MatChipsModule
+    MatChipsModule,
+    FontAwesomeModule
   ]
 })
 export class ChipsModule { }

@@ -1,8 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-
-import { faSearch, faRulerHorizontal, faBatteryHalf } from '@fortawesome/free-solid-svg-icons';
-
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { ViewportScroller } from '@angular/common';
+import { Component, ElementRef, OnInit, ViewChildren } from '@angular/core';
+import { Router, Scroll } from '@angular/router';
+
+import { filter } from 'rxjs/operators';
+
+import { faSearch, faRulerHorizontal, faBatteryHalf, faBell } from '@fortawesome/free-solid-svg-icons';
+import { faYoutube, faJsSquare } from '@fortawesome/free-brands-svg-icons';
 
 export interface PostData {
   name: string;
@@ -13,6 +17,25 @@ export interface Vegetable {
   name: string;
 }
 
+export interface RestrictElement {
+  nomenclatura: string;
+  desc: string;
+}
+
+export interface ICodeStep {
+  key: string;
+  codeLines: number[];
+}
+
+export interface IbigO {
+  tiempo: string;
+  desc: string;
+}
+
+export interface InextPost {
+  name: string;
+  url: string;
+}
 
 @Component({
   selector: 'app-balanceo-de-parentesis',
@@ -20,9 +43,16 @@ export interface Vegetable {
   styleUrls: ['./balanceo-de-parentesis.component.css']
 })
 export class BalanceoDeParentesisComponent implements OnInit {
+  @ViewChildren('jscode') jscodeSection;
+
   faSearch = faSearch;
   faRulerHorizontal = faRulerHorizontal;
   faBatteryHalf = faBatteryHalf;
+  faExclamationCircle = faYoutube;
+  faJsSquare = faJsSquare;
+  lineByLine: Boolean = false;
+  lblMode: String = '';
+
   js_code: string;
   py_code: string;
   php_code: string;
@@ -42,9 +72,53 @@ export class BalanceoDeParentesisComponent implements OnInit {
 
   topics: string[] = ['arrays', 'pilas'];
 
+  codeSteps: ICodeStep[];
+
   icons: any;
 
-  constructor() { }
+  displayedColumns: string[] = ['nomenclatura', 'desc'];
+  displayedColumnsBigO: string[] = ['tiempo', 'desc'];
+
+  restrictionDataSource = [
+    { nomenclatura: 'i >= 0', desc: 'Donde: <br> <span class="inline-code">i</span> es la longitud de la cadena' },
+    { nomenclatura: 'n[i] = { [ ( ) ] }', desc: 'Donde: <br> cada caracter <span class="inline-code">n[i]</span> puede ser solamente uno de los caracteres validos de la lista' }
+  ];
+
+  bigODataSource: IbigO[] = [{
+    tiempo: 'O(n)', desc: `Donde: <br> <span class="inline-code">n = longuitud del array.</span> <br> Debemos leer todo el array de inicio a fin.`
+  }, {
+    tiempo: 'O(1)', desc: `Usamos una pila para almacenar todas las ocurrencias de parentesis de apertura; como sabemos, usando esta estructura de datos podemos tener lectura y escritura de manera constante.`
+  }];
+
+  nextPosts: InextPost[] = [{
+    name: 'Balanced brackets',
+    url: 'balanced-brackets'
+  }, {
+    name: 'Docker + Angular',
+    url: 'dockerize-angular'
+  }];
+
+  constructor(
+    router: Router,
+    viewportScroller: ViewportScroller
+  ) {
+    viewportScroller.setOffset([0, 50]);
+    router.events.pipe(filter(e => e instanceof Scroll)).subscribe((e: Scroll) => {
+      if (e.anchor) {
+        // anchor navigation
+        /* setTimeout is the core line to solve the solution */
+        setTimeout(() => {
+          viewportScroller.scrollToAnchor(e.anchor);
+        })
+      } else if (e.position) {
+        // backward navigation
+        viewportScroller.scrollToPosition(e.position);
+      } else {
+        // forward navigation
+        viewportScroller.scrollToPosition([0, 0]);
+      }
+    });
+  }
 
   ngOnInit() {
     this.js_code = `
@@ -82,72 +156,151 @@ export class BalanceoDeParentesisComponent implements OnInit {
     }
 
     return true;
-  }
-    `;
+  }`;
 
     this.py_code = `
-def balanceo(the_string):
-pila = []
+  def balanceo(the_string):
+    pila = []
 
-for par in the_string:
-  if par == '(' or par == '{' or par == '[':
-    pila.append(par)
+    for par in the_string:
+      if par == '(' or par == '{' or par == '[':
+        pila.append(par)
 
-  if par == ')':
-    try:
-      parApertura = pila.pop()
-    except:
+      if par == ')':
+        try:
+          parApertura = pila.pop()
+        except:
+          return False
+
+        if parApertura != '(':
+          return False
+
+      if par == '}':
+        try:
+          parApertura = pila.pop()
+        except:
+          return False
+
+        if parApertura != '{':
+          return False
+
+      if par == ']':
+        try:
+          parApertura = pila.pop()
+        except:
+          return False
+
+        if parApertura != '[':
+          return False
+
+    if len(pila) > 0:
       return False
 
-    if parApertura != '(':
-      return False
-
-  if par == '}':
-    try:
-      parApertura = pila.pop()
-    except:
-      return False
-
-    if parApertura != '{':
-      return False
-
-  if par == ']':
-    try:
-      parApertura = pila.pop()
-    except:
-      return False
-
-    if parApertura != '[':
-      return False
-
-if len(pila) > 0:
-  return False
-
-return True
-    `;
+    return True`;
 
     this.php_code = `
-    class Test:
-      def __init__(self):
-        self.one = 1
-        self.two = True
-        self.obbj = [1, 2, 3]
+  function balanced($the_string) {
+    $stack = [];
+    $len = strlen($the_string);
 
-      # another new method
-      // with a js comment
-      def testing(self, second):
-        three = 3
-        return False
-        `;
+    for ($i=0 ; $i<$len ; $i++) {
+      $par = $the_string[$i];
+
+      if (in_array($par, ['(', '{', '['])) {
+        array_push($stack, $par);
+      }
+
+      if ($par == ')') {
+        $parOpen = array_pop($stack);
+        if ($parOpen != '(') {
+          return false;
+        }
+      }
+
+      if ($par == '}') {
+        $parOpen = array_pop($stack);
+        if ($parOpen != '{') {
+          return false;
+        }
+      }
+
+      if ($par == ']') {
+        $parOpen = array_pop($stack);
+        if ($parOpen != '[') {
+          return false;
+        }
+      }
+    }
+
+    if (count($stack) > 0) {
+      return false;
+    }
+
+    return true;
+  }`;
 
     this.icons = {
       'arrays': faRulerHorizontal,
       'pilas': faBatteryHalf
     };
+
+    this.codeSteps = [{
+      key: 'step1',
+      codeLines: [3]
+    }, {
+      key: 'step2',
+      codeLines: [4, 29]
+    }, {
+      key: 'step3',
+      codeLines: [5, 6, 7]
+    }, {
+      key: 'step4',
+      codeLines: [9, 10, 14, 16, 17, 21, 23, 24, 28]
+    }, {
+      key: 'step5',
+      codeLines: [11, 12, 13, 17, 18, 19, 25, 26, 27]
+    }, {
+      key: 'step6',
+      codeLines: [31, 32, 33]
+    }, {
+      key: 'step7',
+      codeLines: [35]
+    }];
   }
 
   drop(event: CdkDragDrop<Vegetable[]>) {
     moveItemInArray(this.sites, event.previousIndex, event.currentIndex);
+  }
+
+  public toggleLineByLine(): void {
+    this.lineByLine = !this.lineByLine;
+  }
+
+  public showNotes(): boolean {
+    if (this.lblMode === 'python') {
+      return true;
+    }
+    return false;
+  }
+
+  public showTheThing(event: MouseEvent): void {
+    const currentStep: string = event.target['id'];
+
+    this.codeSteps.forEach(step => {
+      if (step.key === currentStep) {
+        const selector = step.codeLines.map(line => `td[data-line-number='${line}']`).join();
+        const domelms = document.querySelectorAll(selector);
+        domelms.forEach(elm => {
+          elm.classList.add('hover-code-hightlight');
+        });
+      }
+    });
+  }
+
+  public hideTheThing(): void {
+    document.querySelectorAll('td.hover-code-hightlight').forEach(elm => {
+      elm.classList.remove('hover-code-hightlight');
+    });
   }
 
 }

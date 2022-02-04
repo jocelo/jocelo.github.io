@@ -1,5 +1,10 @@
 article {
   margin: 0 250px;
+  padding-bottom: 80px;
+}
+
+hr {
+  margin: 30px 100px;
 }
 
 span.inline-code {
@@ -17,4 +22,58 @@ span.inline-code {
   height: 120%;
   z-index: 40;
   position: absolute;
+}
+
+table.lg-table {
+  width: 80%;
+}
+
+table.sm-table {
+  width: 20%;
+}
+
+table.align-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+td.mat-cell {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.mat-column-nomenclatura, .mat-column-tiempo {
+  border-right: 1px solid #999;
+  padding-right: 24px;
+  text-align: left;
+}
+
+.mat-column-desc {
+  padding-left: 24px;
+}
+
+.mat-card.card-note {
+  margin: 15px 0;
+  background-color: lightskyblue;
+}
+
+.explain-section {
+  display: none;
+  padding: 0 20px;
+}
+
+.code-container.line-by-line {
+  display: flex;
+  position: relative;
+  left: -250px;
+  margin: 10px;
+  width: calc(100% + 480px);
+}
+
+.code-container.line-by-line div {
+  flex: 1;
+}
+
+.line-by-line .explain-section {
+  display: block;
 }

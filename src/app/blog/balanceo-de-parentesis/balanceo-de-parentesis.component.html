@@ -1,14 +1,27 @@
 <article class="blog-layout">
   <h1>Balanceo de Parentesis</h1>
   <p>Bienvenidos a este articulo donde estaremos resolviendo el ejercicio de balanceo de parentesis. Si deseas ver la
-    version en ingles lo puedes hacer en esta liga.</p>
+    version en ingles lo puedes hacer en <a [routerLink]="['/blog','balanced-brackets']">esta liga</a>.</p>
+  <p>For english version go <a [routerLink]="['/blog','balanced-brackets']">here</a>.</p>
   <p>Este problema lo encuentras en los siguientes sitios: </p>
   <app-chips [data]="sites"></app-chips>
-  <h2>Definicion</h2>
+  <p>Puedes navegar a cualquier seccion de este articulo:</p>
+  <ul>
+    <li> <a routerLink="." fragment="definition">Definición</a></li>
+    <li> <a routerLink="." fragment="solution">Solución</a></li>
+    <li> <a routerLink="." fragment="code">Código</a></li>
+    <li> <a routerLink="." fragment="bigo">Analisis de big O</a></li>
+    <li> <a routerLink="." fragment="conclusion">Conclusión</a></li>
+  </ul>
+  <hr />
+
+  <h2 id="definition">Definicion</h2>
   <p>Se requiere validar si una cadena de caracteres se considera <span>balanceada</span> si y solo si por cada
     parentesis
-    de apertura <span class="inline-code">(&lcub;[</span> existe un parentesis de cierre <span
-      class="inline-code">)&rcub;]</span> correspondiente.</p>
+    de apertura <span class=" inline-code">(</span> <span class="inline-code">&lcub;</span><span
+      class="inline-code">[</span> existe un parentesis de cierre <span class="inline-code">)</span><span
+      class="inline-code">&rcub;</span><span class="inline-code">]</span>
+    correspondiente.</p>
   <p>Asi pues, una cadena de parentesis esta balanceada si cumple las siguientes condiciones:</p>
   <ul>
     <li>por cada parentesis de apertura, debera existir un parentesis de cierre.</li>
@@ -17,20 +30,29 @@
   <p>En caso de que la cadena provista este balanceada correctamente, nuestra funcion debera regresar el valor <span
       class="inline-code">true</span>, de
     lo contrario regresara <span class="inline-code">false</span>.</p>
-  <h2>Restricciones</h2>
-  <table>
-    <tbody>
-      <tr>
-        <td>i >= 0</td>
-        <td>donde i es la longitud de la cadena</td>
-      </tr>
-      <tr>
-        <!-- TODO: agregar notacion de reg exp -->
-        <td>n[i] = ''|&lcub;|[|(|)|]|&rcub;</td>
-        <td>donde cada caracter n[i] puede ser solamente uno de los caracteres validos de la lista</td>
-      </tr>
-    </tbody>
+
+  <h3>Restricciones</h3>
+  <table mat-table [dataSource]="restrictionDataSource" class="mat-elevation-z8 hide-header lg-table align-center">
+    <!-- Code Column -->
+    <ng-container matColumnDef="nomenclatura">
+      <td mat-cell *matCellDef="let element"> {{element['nomenclatura']}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="desc">
+      <td mat-cell *matCellDef="let element"> <span [innerHTML]="element.desc"></span> </td>
+    </ng-container>
+
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+  <hr />
+
+  <h2 id="solution">Solución</h2>
+  <mat-card class="card-note">
+    <fa-icon [icon]="faExclamationCircle" style="margin-right: 10px;" size="lg"></fa-icon> Esta solucion se encuentra
+    en video, para verlo sigue <a href="https://www.youtube.com/channel/UC547pgqomI0IcjOmltxQdAQ" target="_blank">esta
+      liga</a>.
+  </mat-card>
   <p>En este ejercicio y su correspondiente solucion, se tocan los siguientes temas:</p>
   <section>
     <mat-chip-list class="example-chip" cdkDropList cdkDropListOrientation="horizontal"
@@ -40,14 +62,14 @@
       </mat-chip>
     </mat-chip-list>
   </section>
-  <h2>Solución</h2>
-
-  <p>Note: Esta solucion se encuentra en video, para verlo sigue esta liga.</p>
   <p>Para resolver este problema, usaremos una pila, en la cual vamos a ir guardando cada parentesis de apertura que
-    encontremos, recordando los parentesis de apertura es alguno de estos: &lcub;|[|(.
+    encontremos, recordando los parentesis de apertura es alguno de estos: <span class="inline-code">&lcub;</span><span
+      class="inline-code">[</span><span class="inline-code">(</span>.
   </p>
-  <p>Vamos a usar un ciclo para leer nuestra cadena caracter por caracter y tendremos un par de decisiones que tomar de
-    acuerdo a cada tipo de parentesis. Lo primero que tenemos que definir es que tendremos principalmente dos grupos de
+  <p>Vamos a usar un ciclo para leer nuestra cadena caracter por caracter y tendremos un par de decisiones que tomar
+    de
+    acuerdo a cada tipo de parentesis. Lo primero que tenemos que definir es que tendremos principalmente dos grupos
+    de
     parentesis: de apertura y de cierre.</p>
   <p>Si es un parentesis de apertura, vamos a almacenarlo en nuestra pila. Asi podremos leer primero el ultimo
     parentesis que almacenemos.</p>
@@ -62,54 +84,94 @@
     <li>Si el parentesis de cierre, no corresponde al ultimo de apertura que se guardo en la pila.</li>
   </ul>
   <p>Si terminamos de leer toda la cadena y nuestra pila esta vacia, significa que la cadena esta balanceada!</p>
+  <hr />
 
-  <h2>Código</h2>
-  <mat-tab-group mat-align-tabs="start">
-    <mat-tab label="Javascript">
-      <app-code-block [code]="js_code"></app-code-block>
-    </mat-tab>
-    <mat-tab label="Python">
-      <app-code-block [code]="py_code"></app-code-block>
-    </mat-tab>
-    <mat-tab label="PHP">
-      <app-code-block [code]="php_code"></app-code-block>
-    </mat-tab>
-  </mat-tab-group>
-  <p>Ver en modo linea a linea</p>
-  <h2>Analisis de big O</h2>
-  <p appHighlight>Los factores que afectan el analisis de la big O en cuanto a tiempo:</p>
-  <table>
-    <tbody>
-      <tr>
-        <td>O(n)</td>
-        <td>Donde <span class="inline-code">n = longuitud del array.</span> <br> Debemos leer al menos una ves todo el
-          array.</td>
-      </tr>
-      <tr>
-        <td>O(1)</td>
-        <td>Usamos una pila para almacenar los parentesis de apertura; como sabemos, usando esta estructura de datos
-          tenemos una constante para el tiempo en notacion big O.</td>
-      </tr>
-    </tbody>
+  <h2 id="code">Código</h2>
+  <section class="code-container" [ngClass]="{'line-by-line': lineByLine}">
+    <div class="code-section">
+      <mat-tab-group mat-align-tabs="start">
+        <mat-tab #jscode label="Javascript">
+          <app-code-block [code]="js_code"></app-code-block>
+        </mat-tab>
+        <mat-tab label="Python">
+          <app-code-block [code]="py_code"></app-code-block>
+        </mat-tab>
+        <mat-tab label="PHP">
+          <app-code-block [code]="php_code"></app-code-block>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+    <div class="explain-section">
+      <h3>Modo linea a linea</h3>
+      <mat-card>En este modo encontraras una explicacion line a linea del algoritmo. Pon tu cursor sobre cada linea de
+        abajo para que puedas analizar cada seccion del algoritmo.</mat-card>
+      <ol (mouseover)="showTheThing($event)" (mouseout)="hideTheThing()">
+        <li id="step1">Definimos nuestra pila (stack).</li>
+        <li id="step2">Iteramos sobre la cadena que
+          vamos a validar.
+        </li>
+        <li id="step3">Si el parentesis es de apertura, lo agregamos a la pila.</li>
+        <li id="step4">Si el parentesis es de cierre, sacamos el ultimo parentesis que insertamos en la pila.</li>
+        <li id="step5">Comparamos el parentesis que sacamos de la pila contra el parentesis que estamos processando. Si
+          no es igual a su correspondiente parentesis podemos regresar <span class="inline-code">false</span> y no es
+          necesario seguir validando.</li>
+        <li id="step6">Si hemos terminado de procesar nuestra cadena pero tenemos al menos un elemento en la pila,
+          significa que hay al menos un parentesis de apertura que no tiene su correspondiente parentesis de cierre.
+        </li>
+        <li id="step7">Si llegamos a este punto, podemos decir que todos los parentesis de cierre tienen su
+          correspondiente
+          parentesis de apertura, y que estan posicionados correctamente, por lo que regresamos <span
+            class="inline-code">true</span> </li>
+      </ol>
+      <div *ngIf="showNotes()">
+        <p>Para el algoritmo de Python, tenemos que poner un bloque <span class="inline-block">try</span>, ya que no
+          podemos sacar un elemento de una pila vacia.</p>
+      </div>
+    </div>
+  </section>
+
+  <p> <a (click)="toggleLineByLine()">Mostrar/ocultar modo linea a linea</a> </p>
+  <hr />
+
+  <h2 id="bigo">Analisis de big O</h2>
+  <p>Los factores que afectan el analisis de la big O en cuanto a <u>tiempo</u>, podemos analizar las siguientes
+    operaciones:</p>
+  <table mat-table [dataSource]="bigODataSource" class="mat-elevation-z8 lg-table align-center">
+    <!-- Time Column -->
+    <ng-container matColumnDef="tiempo">
+      <th mat-header-cell *matHeaderCellDef> Tiempo </th>
+      <td mat-cell *matCellDef="let element"> {{element.tiempo}} </td>
+    </ng-container>
+
+    <!-- Desc Column -->
+    <ng-container matColumnDef="desc">
+      <th mat-header-cell *matHeaderCellDef> Descripcion </th>
+      <td mat-cell *matCellDef="let element"> <span [innerHTML]="element.desc"></span> </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsBigO"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumnsBigO;"></tr>
   </table>
-  <p>En relacion a espacio, estamos usando una variable como pila para almacenar cada valor de nuestra cadena original;
+  <p>En relacion al <u>espacio</u>, estamos usando una variable como pila para almacenar cada valor de nuestra cadena
+    original;
     el peor escenario que podriamos tener es una cadena compuesta solamente por parentesis de apertura, lo que nos dar
-    una complejidad de O(n), donde n es la longitud de la cadena original.</p>
-  <p>Concluimos entonces que nuestra big O es:</p>
-  <table>
-    <thead>
-      <tr>
-        <th>Tiempo</th>
-        <th>Espacio</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>O(n)</td>
-        <td>O(n)</td>
-      </tr>
-    </tbody>
-  </table>
-  <h2>Conclusión</h2>
-  <p></p>
+    una complejidad de <span class="inline-code">O(n)</span>, donde n es la longitud de la cadena original.</p>
+  <p>Concluimos el analisis de la big O con:</p>
+  <p>Tiempo: <strong>O(n)</strong></p>
+  <p>Espacion: <strong>O(n)</strong></p>
+  <p>Donde <span class="inline-code">n</span> simboliza la longuitud de la cadena en cuestion.</p>
+  <hr />
+
+  <h2 id="conclusion">Conclusión</h2>
+  <p>Gracias por leer este articulo!</p>
+  <p>Hemos revisado el algoritmo de balanceo de parentesis en diversos lenguajes, espero te haya
+    ayudado. Deja tu comentario si has encontrado algun bug en el codigo o si conoces alguna otra manera de resolver
+    este problema.
+  </p>
+  <hr />
+
+  <p>Tal vez te podrian interesar estos otros articulos:</p>
+  <ul>
+    <li *ngFor="let post of nextPosts"> <a [routerLink]="['/blog',post.url]">{{ post.name }}</a> </li>
+  </ul>
 </article>

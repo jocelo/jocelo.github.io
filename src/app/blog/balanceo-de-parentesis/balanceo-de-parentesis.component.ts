@@ -5,8 +5,9 @@ import { Router, Scroll } from '@angular/router';
 
 import { filter } from 'rxjs/operators';
 
-import { faSearch, faRulerHorizontal, faBatteryHalf, faBell } from '@fortawesome/free-solid-svg-icons';
-import { faYoutube, faJsSquare } from '@fortawesome/free-brands-svg-icons';
+import { faSearch, faRulerHorizontal, faBatteryHalf, faExpandArrowsAlt, faTimesCircle, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { faYoutube, faJsSquare, faPython, faPhp } from '@fortawesome/free-brands-svg-icons';
+import { MatTabChangeEvent } from '@angular/material/tabs';
 
 export interface PostData {
   name: string;
@@ -49,9 +50,13 @@ export class BalanceoDeParentesisComponent implements OnInit {
   faRulerHorizontal = faRulerHorizontal;
   faBatteryHalf = faBatteryHalf;
   faExclamationCircle = faYoutube;
+  faPlusCircle = faPlusCircle;
+  faTimesCircle = faTimesCircle;
   faJsSquare = faJsSquare;
+  faPython = faPython;
+  faPhp = faPhp;
   lineByLine: Boolean = false;
-  lblMode: String = '';
+  lblMode: string;
 
   js_code: string;
   py_code: string;
@@ -72,7 +77,7 @@ export class BalanceoDeParentesisComponent implements OnInit {
 
   topics: string[] = ['arrays', 'pilas'];
 
-  codeSteps: ICodeStep[];
+  codeSteps: any;
 
   icons: any;
 
@@ -121,6 +126,8 @@ export class BalanceoDeParentesisComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.lblMode = 'javascript';
+
     this.js_code = `
   function balanceo(theString) {
     const pila = [];
@@ -244,28 +251,77 @@ export class BalanceoDeParentesisComponent implements OnInit {
       'pilas': faBatteryHalf
     };
 
-    this.codeSteps = [{
-      key: 'step1',
-      codeLines: [3]
-    }, {
-      key: 'step2',
-      codeLines: [4, 29]
-    }, {
-      key: 'step3',
-      codeLines: [5, 6, 7]
-    }, {
-      key: 'step4',
-      codeLines: [9, 10, 14, 16, 17, 21, 23, 24, 28]
-    }, {
-      key: 'step5',
-      codeLines: [11, 12, 13, 17, 18, 19, 25, 26, 27]
-    }, {
-      key: 'step6',
-      codeLines: [31, 32, 33]
-    }, {
-      key: 'step7',
-      codeLines: [35]
-    }];
+    this.codeSteps = {
+      'javascript': [{
+        key: 'step1',
+        codeLines: [3]
+      }, {
+        key: 'step2',
+        codeLines: [4, 29]
+      }, {
+        key: 'step3',
+        codeLines: [5, 6, 7]
+      }, {
+        key: 'step4',
+        codeLines: [9, 10, 14, 16, 17, 21, 23, 24, 28]
+      }, {
+        key: 'step5',
+        codeLines: [11, 12, 13, 17, 18, 19, 25, 26, 27]
+      }, {
+        key: 'step6',
+        codeLines: [31, 32, 33]
+      }, {
+        key: 'step7',
+        codeLines: [35]
+      }],
+      'python': [{
+        key: 'step1',
+        codeLines: [3]
+      }, {
+        key: 'step2',
+        codeLines: [5]
+      }, {
+        key: 'step3',
+        codeLines: [6, 7]
+      }, {
+        key: 'step4',
+        codeLines: [9, 11, 18, 20, 27, 29]
+      }, {
+        key: 'step4.1',
+        codeLines: [10, 11, 12, 13, 19, 20, 21, 22, 28, 29, 30, 31]
+      }, {
+        key: 'step5',
+        codeLines: [15, 16, 24, 25, 33, 34]
+      }, {
+        key: 'step6',
+        codeLines: [36, 37]
+      }, {
+        key: 'step7',
+        codeLines: [39]
+      }],
+      'php': [{
+        key: 'step1',
+        codeLines: [3]
+      }, {
+        key: 'step2',
+        codeLines: [6, 33]
+      }, {
+        key: 'step3',
+        codeLines: [9, 10, 11]
+      }, {
+        key: 'step4',
+        codeLines: [13, 14, 20, 21, 27, 28]
+      }, {
+        key: 'step5',
+        codeLines: [15, 16, 17, 22, 23, 24, 29, 30, 31]
+      }, {
+        key: 'step6',
+        codeLines: [35, 36, 37]
+      }, {
+        key: 'step7',
+        codeLines: [39]
+      }]
+    };
   }
 
   drop(event: CdkDragDrop<Vegetable[]>) {
@@ -285,8 +341,9 @@ export class BalanceoDeParentesisComponent implements OnInit {
 
   public showTheThing(event: MouseEvent): void {
     const currentStep: string = event.target['id'];
+    const codintSteps = this.codeSteps[this.lblMode];
 
-    this.codeSteps.forEach(step => {
+    codintSteps.forEach(step => {
       if (step.key === currentStep) {
         const selector = step.codeLines.map(line => `td[data-line-number='${line}']`).join();
         const domelms = document.querySelectorAll(selector);
@@ -301,6 +358,10 @@ export class BalanceoDeParentesisComponent implements OnInit {
     document.querySelectorAll('td.hover-code-hightlight').forEach(elm => {
       elm.classList.remove('hover-code-hightlight');
     });
+  }
+
+  public myTabFocusChange(changeEvent: MatTabChangeEvent): void {
+    this.lblMode = changeEvent.tab.textLabel;
   }
 
 }

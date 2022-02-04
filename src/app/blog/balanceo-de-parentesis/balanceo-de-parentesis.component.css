@@ -57,6 +57,19 @@ td.mat-cell {
   background-color: lightskyblue;
 }
 
+.code-section {
+  position: relative;
+}
+
+.code-section .miercoles {
+  position: absolute;
+  right: 15px;
+  top: 75px;
+  color: white;
+  z-index: 3;
+  cursor: pointer;
+}
+
 .explain-section {
   display: none;
   padding: 0 20px;
@@ -68,6 +81,8 @@ td.mat-cell {
   left: -250px;
   margin: 10px;
   width: calc(100% + 480px);
+  border-top: 3px solid lightsteelblue;
+  border-bottom: 3px solid lightsteelblue;
 }
 
 .code-container.line-by-line div {
@@ -76,4 +91,20 @@ td.mat-cell {
 
 .line-by-line .explain-section {
   display: block;
+  border-left: 3px solid lightsteelblue;
+}
+
+ol.steps li {
+  padding: 5px;
+  cursor: pointer;
+}
+
+ol.steps li:hover {
+  background-color: rgb(229, 255, 0);
+}
+
+.closelxl {
+  margin-top: -10px;
+  float: right;
+  cursor: pointer;
 }

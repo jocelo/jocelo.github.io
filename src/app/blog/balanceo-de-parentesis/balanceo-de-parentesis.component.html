@@ -50,8 +50,8 @@
   <h2 id="solution">Solución</h2>
   <mat-card class="card-note">
     <fa-icon [icon]="faExclamationCircle" style="margin-right: 10px;" size="lg"></fa-icon> Esta solucion se encuentra
-    en video, para verlo sigue <a href="https://www.youtube.com/channel/UC547pgqomI0IcjOmltxQdAQ" target="_blank">esta
-      liga</a>.
+    en video, para verlo <a href="https://www.youtube.com/channel/UC547pgqomI0IcjOmltxQdAQ" target="_blank">visita mi
+      canal</a>.
   </mat-card>
   <p>En este ejercicio y su correspondiente solucion, se tocan los siguientes temas:</p>
   <section>
@@ -71,47 +71,72 @@
     acuerdo a cada tipo de parentesis. Lo primero que tenemos que definir es que tendremos principalmente dos grupos
     de
     parentesis: de apertura y de cierre.</p>
-  <p>Si es un parentesis de apertura, vamos a almacenarlo en nuestra pila. Asi podremos leer primero el ultimo
+  <p>Si es un parentesis de apertura, vamos a almacenarlo en una pila. Asi podremos leer de forma mas rapida el ultimo
     parentesis que almacenemos.</p>
   <p>Si es un parentesis de cierre, lo vamos a comparar contra el último parentesis de apertura que insertamos en
-    nuestra pila</p>
-  <p>Si dichos parentesis de cierre y apertura es un par correspondiente, significa que se cumplen las condiciones
+    nuestra pila.</p>
+  <p>Si dichos parentesis de cierre y apertura son par correspondiente, significa que se cumplen las condiciones
     del ejercicio y podemos seguir procesando nuestra cadena.</p>
+  <p>Si encontramos que dicho par de partensis no son correspondientes, entonces simplemente nos salimos de la funcion,
+    ya que encontramos un par invalido y no es necesario seguir procesando.</p>
   <p>Las condiciones que hacen que la funcion regrese false son:</p>
   <ul>
     <li>Si estamos procesando un parentesis de cierre, y nuestra pila de parentesis de apertura esta vacía.</li>
     <li>Si al terminar de leer la cadena, nuestra pila aun tiene elementos.</li>
     <li>Si el parentesis de cierre, no corresponde al ultimo de apertura que se guardo en la pila.</li>
   </ul>
-  <p>Si terminamos de leer toda la cadena y nuestra pila esta vacia, significa que la cadena esta balanceada!</p>
+  <p>Si terminamos de leer toda la cadena y nuestra pila esta vacia, significa la cadena esta balanceada!</p>
   <hr />
 
   <h2 id="code">Código</h2>
+  <p>Maximiza la ventana del codigo para que actives el modo <b>linea-X-linea</b> (<fa-icon (click)="toggleLineByLine()"
+      [icon]="faPlusCircle">
+    </fa-icon>) y analizes el algoritmo paso a paso. </p>
   <section class="code-container" [ngClass]="{'line-by-line': lineByLine}">
     <div class="code-section">
-      <mat-tab-group mat-align-tabs="start">
-        <mat-tab #jscode label="Javascript">
+      <span class="miercoles" (click)="toggleLineByLine()" *ngIf="!lineByLine">
+        <fa-icon [icon]="faPlusCircle" size="3x"></fa-icon>
+      </span>
+      <mat-tab-group mat-align-tabs="start" (focusChange)="myTabFocusChange($event)">
+        <mat-tab label="javascript">
+          <ng-template mat-tab-label>
+            <fa-icon [icon]="faJsSquare" style="margin-right: 10px;" size="2x"></fa-icon> Javascript
+          </ng-template>
           <app-code-block [code]="js_code"></app-code-block>
         </mat-tab>
-        <mat-tab label="Python">
+        <mat-tab label="python">
+          <ng-template mat-tab-label>
+            <fa-icon [icon]="faPython" style="margin-right: 10px;" size="2x"></fa-icon> Python
+          </ng-template>
           <app-code-block [code]="py_code"></app-code-block>
         </mat-tab>
-        <mat-tab label="PHP">
+        <mat-tab label="php">
+          <ng-template mat-tab-label>
+            <fa-icon [icon]="faPhp" style="margin-right: 10px;" size="2x"></fa-icon> PHP
+          </ng-template>
           <app-code-block [code]="php_code"></app-code-block>
         </mat-tab>
       </mat-tab-group>
     </div>
     <div class="explain-section">
-      <h3>Modo linea a linea</h3>
-      <mat-card>En este modo encontraras una explicacion line a linea del algoritmo. Pon tu cursor sobre cada linea de
-        abajo para que puedas analizar cada seccion del algoritmo.</mat-card>
-      <ol (mouseover)="showTheThing($event)" (mouseout)="hideTheThing()">
+      <h3>Linea-X-Linea <span class="closelxl" (click)="toggleLineByLine()">
+          <fa-icon [icon]="faTimesCircle" style="margin-right: 10px;" size="2x"></fa-icon>
+        </span></h3>
+      <mat-card class="card-note">
+        <fa-icon [icon]="faSearch" size="lg"></fa-icon>
+        Mueve el cursor sobre cada instruccion de pseudocodigo abajo para que puedas analizar
+        cada seccion del algoritmo.
+      </mat-card>
+      <ol (mouseover)="showTheThing($event)" (mouseout)="hideTheThing()" class="steps">
         <li id="step1">Definimos nuestra pila (stack).</li>
-        <li id="step2">Iteramos sobre la cadena que
-          vamos a validar.
-        </li>
+        <li id="step2">Iteramos sobre la cadena que vamos a validar.</li>
         <li id="step3">Si el parentesis es de apertura, lo agregamos a la pila.</li>
         <li id="step4">Si el parentesis es de cierre, sacamos el ultimo parentesis que insertamos en la pila.</li>
+        <ul *ngIf="showNotes()">
+          <li id="step4.1">Para el algoritmo de Python, tenemos que poner un bloque <span
+              class="inline-block">try</span>, ya que no
+            podemos sacar un elemento de una pila vacia.</li>
+        </ul>
         <li id="step5">Comparamos el parentesis que sacamos de la pila contra el parentesis que estamos processando. Si
           no es igual a su correspondiente parentesis podemos regresar <span class="inline-code">false</span> y no es
           necesario seguir validando.</li>
@@ -123,14 +148,9 @@
           parentesis de apertura, y que estan posicionados correctamente, por lo que regresamos <span
             class="inline-code">true</span> </li>
       </ol>
-      <div *ngIf="showNotes()">
-        <p>Para el algoritmo de Python, tenemos que poner un bloque <span class="inline-block">try</span>, ya que no
-          podemos sacar un elemento de una pila vacia.</p>
-      </div>
     </div>
   </section>
 
-  <p> <a (click)="toggleLineByLine()">Mostrar/ocultar modo linea a linea</a> </p>
   <hr />
 
   <h2 id="bigo">Analisis de big O</h2>

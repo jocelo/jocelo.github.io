@@ -1,41 +1,48 @@
 <article class="blog-layout">
-  <h1>Balanceo de Parentesis</h1>
+  <h1>Balanceo de Paréntesis</h1>
+  <p class="text-gray">Por Alfredo Alonso ultima actualización: Febrero 2022</p>
   <mat-card class="card-note">
     <fa-icon [icon]="faLanguage" style="margin-right: 10px;" size="lg"></fa-icon> For English version <a
       [routerLink]="['/blog','balanced-brackets']">click here.</a>
   </mat-card>
 
-  <p>Bienvenidos a este articulo; al finalizar podras resolver el problema de balanceo de parentesis. Encontraras el
-    codigo en varios lenguajes de programacion. Lo hago de esta manera para que puedas ver y comparar las soluciones y
-    tambien para eliminar la barrera del "idioma".</p>
-
+  <p>Bienvenidos a este articulo donde revisaremos el algoritmo para resolver el problema de balanceo de paréntesis.
+    Encontraras el código en varios lenguajes de programación para eliminar la barrera del idioma/lenguaje.</p>
   <p>Este problema se encuentra en los siguientes sitios: </p>
   <app-chips [data]="sites"></app-chips>
-  <p>Puedes navegar a cualquier seccion de este articulo:</p>
+  <p>Aunque lo mas recomendable es que leas este articulo en orden, puedes usar el indice si deseas brincarte a
+    cualquier sección en especifico:</p>
   <ul>
     <li> <a routerLink="." fragment="definition">Definición</a></li>
     <li> <a routerLink="." fragment="solution">Solución</a></li>
     <li> <a routerLink="." fragment="code">Código</a></li>
-    <li> <a routerLink="." fragment="bigo">Analisis de big O</a></li>
+    <li> <a routerLink="." fragment="bigo">Análisis de big O</a></li>
     <li> <a routerLink="." fragment="conclusion">Conclusión</a></li>
   </ul>
   <hr />
 
-  <h2 id="definition">Definicion</h2>
-  <p>Se requiere validar si una cadena de caracteres se considera <u>balanceada</u> si y solo si por cada
-    parentesis
+  <h2 id="definition">Definición</h2>
+  <p>Dada una cadena de caracteres compuesta solamente por símbolos de paréntesis de apertura y cierre, se considera
+    <u>balanceada</u> si y solo si por cada
+    paréntesis
     de apertura <span class=" inline-code">(</span> <span class="inline-code">&lcub;</span><span
-      class="inline-code">[</span> existe un parentesis de cierre <span class="inline-code">)</span><span
+      class="inline-code">[</span> existe un paréntesis de cierre <span class="inline-code">)</span><span
       class="inline-code">&rcub;</span><span class="inline-code">]</span>
-    correspondiente.</p>
-  <p>Asi pues, una cadena de parentesis esta balanceada si cumple las siguientes condiciones:</p>
+    correspondiente.
+  </p>
+  <p>Asi pues, una cadena de paréntesis esta balanceada si cumple las siguientes condiciones:</p>
   <ul>
-    <li>Por cada parentesis de apertura, debera existir un parentesis de cierre.</li>
-    <li>Dicho parentesis de cierre, se debe encontrar hacia la derecha del parentesis de apertura.</li>
+    <li>Por cada paréntesis de apertura, deberá existir un paréntesis de cierre de su mismo tipo:
+      <ul>
+        <li> <span class="inline-code">()</span> </li>
+        <li> <span class="inline-code">&lcub;&rcub;</span> </li>
+        <li> <span class="inline-code">[]</span> </li>
+      </ul>
+    </li>
+    <li>Dicho paréntesis de cierre correspondiente se debe encontrar a la derecha del paréntesis de apertura.</li>
   </ul>
-  <p>En caso de que la cadena provista este balanceada correctamente, nuestra funcion debera regresar el valor <span
-      class="inline-code">true</span>, de
-    lo contrario regresara <span class="inline-code">false</span>.</p>
+  <p>En caso de que la cadena provista este balanceada correctamente, nuestra función deberá regresar el valor <span
+      class="inline-code">true</span>, de lo contrario regresara <span class="inline-code">false</span>.</p>
 
   <h3>Restricciones</h3>
   <table mat-table [dataSource]="restrictionDataSource" class="mat-elevation-z8 hide-header lg-table align-center">
@@ -55,11 +62,11 @@
 
   <h2 id="solution">Solución</h2>
   <mat-card class="card-note">
-    <fa-icon [icon]="faExclamationCircle" style="margin-right: 10px;" size="lg"></fa-icon> Esta solucion se encuentra
-    en video, para verlo <a href="https://www.youtube.com/channel/UC547pgqomI0IcjOmltxQdAQ" target="_blank">visita mi
-      canal</a>.
+    <fa-icon [icon]="faExclamationCircle" style="margin-right: 10px;" size="lg"></fa-icon> La solución también se
+    encuentra en video, para verlo <a href="https://www.youtube.com/channel/UC547pgqomI0IcjOmltxQdAQ"
+      target="_blank">visita mi canal</a>.
   </mat-card>
-  <p>En este ejercicio y su correspondiente solucion, se tocan los siguientes temas:</p>
+  <p>Este problema tiene relación con los siguientes temas:</p>
   <section>
     <mat-chip-list class="example-chip" cdkDropList cdkDropListOrientation="horizontal"
       (cdkDropListDropped)="drop($event)">
@@ -68,36 +75,32 @@
       </mat-chip>
     </mat-chip-list>
   </section>
-  <p>Para resolver este problema, usaremos una pila, en la cual vamos a ir guardando cada parentesis de apertura que
-    encontremos, recordando los parentesis de apertura es alguno de estos: <span class="inline-code">&lcub;</span><span
-      class="inline-code">[</span><span class="inline-code">(</span>.
-  </p>
-  <p>Vamos a usar un ciclo para leer nuestra cadena caracter por caracter y tendremos un par de decisiones que tomar
-    de
-    acuerdo a cada tipo de parentesis. Lo primero que tenemos que definir es que tendremos principalmente dos grupos
-    de
-    parentesis: de apertura y de cierre.</p>
-  <p>Si es un parentesis de apertura, vamos a almacenarlo en una pila. Asi podremos leer de forma mas rapida el ultimo
-    parentesis que almacenemos.</p>
-  <p>Si es un parentesis de cierre, lo vamos a comparar contra el último parentesis de apertura que insertamos en
+  <p>Vamos a usar un ciclo para leer nuestra cadena carácter por carácter y tendremos un par de decisiones que tomar
+    de acuerdo a cada tipo de paréntesis. Lo primero que tenemos que definir es que tendremos principalmente dos grupos
+    de paréntesis: de apertura y de cierre.</p>
+  <p>Si es un paréntesis de apertura, vamos a utilizar una pila para almacenarlo. Asi tendremos acceso inmediato y en
+    orden inverso todos aquellos paréntesis de apertura que vayamos procesando.</p>
+  <p>Si es un paréntesis de cierre, lo vamos a comparar contra el último paréntesis de apertura que insertamos en
     nuestra pila.</p>
-  <p>Si dichos parentesis de cierre y apertura son par correspondiente, significa que se cumplen las condiciones
-    del ejercicio y podemos seguir procesando nuestra cadena.</p>
-  <p>Si encontramos que dicho par de partensis no son correspondientes, entonces simplemente nos salimos de la funcion,
-    ya que encontramos un par invalido y no es necesario seguir procesando.</p>
-  <p>Las condiciones que hacen que la funcion regrese false son:</p>
+  <p>Si dichos paréntesis de cierre y apertura son par correspondiente, significa que se cumplen las condiciones
+    del ejercicio y podemos seguir procesando el siguiente paréntesis de la cadena.</p>
+  <p>Si encontramos que dicho par de paréntesis no son correspondientes, entonces sabemos que la cadena no esta
+    balanceada y no es necesario seguir procesando la cadena.</p>
+  <p>Las condiciones que hacen que nuestra lógica nos indique que la cadena no esta balanceada son:</p>
   <ul>
-    <li>Si estamos procesando un parentesis de cierre, y nuestra pila de parentesis de apertura esta vacía.</li>
+    <li>Si encontramos un paréntesis de cierre y nuestra pila de paréntesis de apertura esta vacía.</li>
     <li>Si al terminar de leer la cadena, nuestra pila aun tiene elementos.</li>
-    <li>Si el parentesis de cierre, no corresponde al ultimo de apertura que se guardo en la pila.</li>
+    <li>Si el paréntesis de cierre no es el correspondiente al ultimo de apertura que tenemos en la pila.</li>
   </ul>
-  <p>Si terminamos de leer toda la cadena y nuestra pila esta vacia, significa la cadena esta balanceada!</p>
+  <p>Después de las validaciones anteriores, si terminamos de leer toda la cadena y nuestra pila esta vacía, significa
+    la cadena esta balanceada!</p>
+  <p>Ahora vamos a transcribir todo esto a código:</p>
   <hr />
 
   <h2 id="code">Código</h2>
-  <p>Maximiza la ventana del codigo para que actives el modo <b>linea-X-linea</b> (<fa-icon (click)="toggleLineByLine()"
-      [icon]="faPlusCircle">
-    </fa-icon>) y analizes el algoritmo paso a paso. </p>
+  <p>Maximiza la ventana del código para que actives el modo <b>linea por linea</b> (<fa-icon
+      (click)="toggleLineByLine()" [icon]="faPlusCircle">
+    </fa-icon>) y analices el algoritmo paso a paso. </p>
   <section class="code-container" [ngClass]="{'line-by-line': lineByLine}">
     <div class="code-section">
       <span class="miercoles" (click)="toggleLineByLine()" *ngIf="!lineByLine">
@@ -130,37 +133,35 @@
         </span></h3>
       <mat-card class="card-note">
         <fa-icon [icon]="faSearch" size="lg"></fa-icon>
-        Mueve el cursor sobre cada instruccion de pseudocodigo abajo para que puedas analizar
-        cada seccion del algoritmo.
+        Mueve el cursor sobre cada instrucción de pseudo-código abajo para que puedas analizar
+        cada sección del algoritmo.
       </mat-card>
       <ol (mouseover)="showTheThing($event)" (mouseout)="hideTheThing()" class="steps">
         <li id="step1">Definimos nuestra pila (stack).</li>
         <li id="step2">Iteramos sobre la cadena que vamos a validar.</li>
-        <li id="step3">Si el parentesis es de apertura, lo agregamos a la pila.</li>
-        <li id="step4">Si el parentesis es de cierre, sacamos el ultimo parentesis que insertamos en la pila.</li>
+        <li id="step3">Si el paréntesis es de apertura, lo agregamos a la pila.</li>
+        <li id="step4">Si el paréntesis es de cierre, sacamos el ultimo paréntesis que insertamos en la pila.</li>
         <ul *ngIf="showNotes()">
           <li id="step4.1">Para el algoritmo de Python, tenemos que poner un bloque <span
               class="inline-block">try</span>, ya que no
-            podemos sacar un elemento de una pila vacia.</li>
+            podemos sacar un elemento de una pila vacía.</li>
         </ul>
-        <li id="step5">Comparamos el parentesis que sacamos de la pila contra el parentesis que estamos processando. Si
-          no es igual a su correspondiente parentesis podemos regresar <span class="inline-code">false</span> y no es
+        <li id="step5">Comparamos el paréntesis que sacamos de la pila contra el paréntesis que estamos procesando. Si
+          no es igual a su correspondiente paréntesis podemos regresar <span class="inline-code">false</span> y no es
           necesario seguir validando.</li>
         <li id="step6">Si hemos terminado de procesar nuestra cadena pero tenemos al menos un elemento en la pila,
-          significa que hay al menos un parentesis de apertura que no tiene su correspondiente parentesis de cierre.
+          significa que hay al menos un paréntesis de apertura que no tiene su correspondiente paréntesis de cierre.
         </li>
-        <li id="step7">Si llegamos a este punto, podemos decir que todos los parentesis de cierre tienen su
-          correspondiente
-          parentesis de apertura, y que estan posicionados correctamente, por lo que regresamos <span
+        <li id="step7">Si llegamos a este punto, podemos decir que todos los paréntesis de cierre tienen su
+          correspondiente paréntesis de apertura, y que están posicionados correctamente, por lo que regresamos <span
             class="inline-code">true</span> </li>
       </ol>
     </div>
   </section>
-
   <hr />
 
-  <h2 id="bigo">Analisis de big O</h2>
-  <p>Los factores que afectan el analisis de la big O en cuanto a <u>tiempo</u>, podemos analizar las siguientes
+  <h2 id="bigo">Análisis de big O</h2>
+  <p>Los factores que afectan el análisis de la big O en cuanto a <u>tiempo</u>, tenemos que analizar las siguientes
     operaciones:</p>
   <table mat-table [dataSource]="bigODataSource" class="mat-elevation-z8 lg-table align-center">
     <!-- Time Column -->
@@ -171,32 +172,33 @@
 
     <!-- Desc Column -->
     <ng-container matColumnDef="desc">
-      <th mat-header-cell *matHeaderCellDef> Descripcion </th>
+      <th mat-header-cell *matHeaderCellDef> Descripción </th>
       <td mat-cell *matCellDef="let element"> <span [innerHTML]="element.desc"></span> </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumnsBigO"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumnsBigO;"></tr>
   </table>
-  <p>En relacion al <u>espacio</u>, estamos usando una variable como pila para almacenar cada valor de nuestra cadena
-    original;
-    el peor escenario que podriamos tener es una cadena compuesta solamente por parentesis de apertura, lo que nos dar
-    una complejidad de <span class="inline-code">O(n)</span>, donde n es la longitud de la cadena original.</p>
-  <p>Concluimos el analisis de la big O con:</p>
+  <p>En relación al <u>espacio</u>, estamos usando una variable como pila para almacenar cada valor de nuestra cadena
+    original.</p>
+  <p>El peor escenario que podríamos tener es una cadena compuesta solamente por paréntesis de apertura, lo que nos
+    daría
+    una complejidad de <span class="inline-code">O(n)</span>.</p>
+  <p><u>Concluimos</u> el análisis de la big O para el problema de balanceo de paréntesis como:</p>
   <p>Tiempo: <strong>O(n)</strong></p>
-  <p>Espacion: <strong>O(n)</strong></p>
-  <p>Donde <span class="inline-code">n</span> simboliza la longuitud de la cadena en cuestion.</p>
+  <p>Espacio: <strong>O(n)</strong></p>
+  <p>Donde <span class="inline-code">n</span> representa la longitud de la cadena en cuestión.</p>
   <hr />
 
   <h2 id="conclusion">Conclusión</h2>
   <p>Gracias por leer este articulo!</p>
-  <p>Hemos revisado el algoritmo de balanceo de parentesis en diversos lenguajes, espero te haya
-    ayudado. Deja tu comentario si has encontrado algun bug en el codigo o si conoces alguna otra manera de resolver
+  <p>Hemos revisado el algoritmo de balanceo de paréntesis en diversos lenguajes, espero te haya
+    ayudado. Deja tu comentario si has encontrado algún bug en el código o si conoces alguna otra manera de resolver
     este problema.
   </p>
   <hr />
 
-  <p>Tal vez te podrian interesar estos otros articulos:</p>
+  <p>Tal vez te podrían interesar estos otros artículos:</p>
   <ul>
     <li *ngFor="let post of nextPosts"> <a [routerLink]="['/blog',post.url]">{{ post.name }}</a> </li>
   </ul>

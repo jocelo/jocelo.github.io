@@ -11,6 +11,10 @@ ul li {
   margin: 5px 0;
 }
 
+p.text-gray {
+  color: gray;
+}
+
 span.inline-code {
   background-color: lightgray;
   padding: 5px 8px;

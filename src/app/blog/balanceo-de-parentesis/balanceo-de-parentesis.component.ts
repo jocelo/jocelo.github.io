@@ -89,17 +89,14 @@ export class BalanceoDeParentesisComponent implements OnInit {
   ];
 
   bigODataSource: IbigO[] = [{
-    tiempo: 'O(n)', desc: `Donde: <br> <span class="inline-code">n = longuitud del array.</span> <br> Debemos leer todo el array de inicio a fin.`
+    tiempo: 'O(n)', desc: `Donde: <br> <span class="inline-code">n = longitud del array.</span> <br> Debemos leer todo el array de inicio a fin.`
   }, {
-    tiempo: 'O(1)', desc: `Usamos una pila para almacenar todas las ocurrencias de parentesis de apertura; como sabemos, usando esta estructura de datos podemos tener lectura y escritura de manera constante.`
+    tiempo: 'O(1)', desc: `Usamos una pila para almacenar todas las ocurrencias de paréntesis de apertura; esta estructura de datos nos permite tener lectura y escritura en tiempo constante.`
   }];
 
   nextPosts: InextPost[] = [{
     name: 'Balanced brackets',
     url: 'balanced-brackets'
-  }, {
-    name: 'Docker + Angular',
-    url: 'dockerize-angular'
   }];
 
   constructor(
@@ -340,22 +337,25 @@ export class BalanceoDeParentesisComponent implements OnInit {
 
   public showTheThing(event: MouseEvent): void {
     const currentStep: string = event.target['id'];
-    const codintSteps = this.codeSteps[this.lblMode];
+    if (!currentStep) {
+      return;
+    }
+    const codingSteps = this.codeSteps[this.lblMode];
 
-    codintSteps.forEach(step => {
+    codingSteps.forEach(step => {
       if (step.key === currentStep) {
         const selector = step.codeLines.map(line => `td[data-line-number='${line}']`).join();
-        const domelms = document.querySelectorAll(selector);
-        domelms.forEach(elm => {
-          elm.classList.add('hover-code-hightlight');
+        const domElms = document.querySelectorAll(selector);
+        domElms.forEach(elm => {
+          elm.classList.add('hover-code-highlight');
         });
       }
     });
   }
 
   public hideTheThing(): void {
-    document.querySelectorAll('td.hover-code-hightlight').forEach(elm => {
-      elm.classList.remove('hover-code-hightlight');
+    document.querySelectorAll('td.hover-code-highlight').forEach(elm => {
+      elm.classList.remove('hover-code-highlight');
     });
   }
 

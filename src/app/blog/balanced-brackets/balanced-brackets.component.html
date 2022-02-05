@@ -1,3 +1,200 @@
-<p>
-  balanced-brackets works!
-</p>
+<article class="blog-layout">
+  <h1>Balanced Brackets</h1>
+  <p class="text-gray">By Alfredo Alonso - last update: February 2022</p>
+  <mat-card class="card-note">
+    <fa-icon [icon]="faLanguage" style="margin-right: 10px;" size="lg"></fa-icon> Para la version en español <a
+      [routerLink]="['/blog','balanceo-de-parentesis']">da click aquí.</a>
+  </mat-card>
+
+  <p>Welcome to this article where we will solve the balanced brackets problem.
+    The code with the solution is written in different programming languages; with this I attempt to eliminate the
+    language barrier and you can get review the algorithm on the programming language you are more comfortable with.</p>
+  <p>You can find this problem in the following sites: </p>
+  <app-chips [data]="sites"></app-chips>
+  <p>While I think you will get more out of this article if you read it top to bottom, I'm leaving the index here, so
+    you can skip to whatever section you want:</p>
+  <ul>
+    <li> <a routerLink="." fragment="definition">Definition</a></li>
+    <li> <a routerLink="." fragment="solution">Solution</a></li>
+    <li> <a routerLink="." fragment="code">Code</a></li>
+    <li> <a routerLink="." fragment="bigo">Big O analysis</a></li>
+    <li> <a routerLink="." fragment="conclusion">Wrap up</a></li>
+  </ul>
+  <hr />
+
+  <h2 id="definition">Definition</h2>
+  <p>Given a string composed only by opening and closing symbols, you can say the string is
+    <u>balanced</u> if and only if for each opening bracket <span class=" inline-code">(</span> <span
+      class="inline-code">&lcub;</span><span class="inline-code">[</span> there is one closing bracket <span
+      class="inline-code">)</span><span class="inline-code">&rcub;</span><span class="inline-code">]</span>
+    of the same type.
+  </p>
+  <p>With this, we can say that the string is balanced if the following conditions are true:</p>
+  <ul>
+    <li>For each opening bracket the corresponding closing bracket has to exists, following this pairs:
+      <ul>
+        <li> <span class="inline-code">()</span> </li>
+        <li> <span class="inline-code">&lcub;&rcub;</span> </li>
+        <li> <span class="inline-code">[]</span> </li>
+      </ul>
+    </li>
+    <li>Such closing bracket must exists to the right side of the opening bracket.</li>
+  </ul>
+  <p>In case the given string is properly balanced our algorithm will return the value <span
+      class="inline-code">true</span>, otherwise it will return <span class="inline-code">false</span>.</p>
+
+  <h3>Restrictions</h3>
+  <table mat-table [dataSource]="restrictionDataSource" class="mat-elevation-z8 hide-header lg-table align-center">
+    <!-- Code Column -->
+    <ng-container matColumnDef="nomenclatura">
+      <td mat-cell *matCellDef="let element"> {{element['nomenclatura']}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="desc">
+      <td mat-cell *matCellDef="let element"> <span [innerHTML]="element.desc"></span> </td>
+    </ng-container>
+
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <hr />
+
+  <h2 id="solution">Solution</h2>
+  <mat-card class="card-note">
+    <fa-icon [icon]="faExclamationCircle" style="margin-right: 10px;" size="lg"></fa-icon> A video solution exists for
+    this problem, if you want to watch it <a href="https://www.youtube.com/channel/UC547pgqomI0IcjOmltxQdAQ"
+      target="_blank">visit mi YouTube Channel</a>.
+  </mat-card>
+  <p>This algorithm has the following topics:</p>
+  <section>
+    <mat-chip-list class="example-chip" cdkDropList cdkDropListOrientation="horizontal"
+      (cdkDropListDropped)="drop($event)">
+      <mat-chip class="example-box" color="primary" selected cdkDrag *ngFor="let topic of topics">
+        <fa-icon [icon]="icons[topic]" style="margin-right: 10px;"></fa-icon> {{topic}}
+      </mat-chip>
+    </mat-chip-list>
+  </section>
+  <p>We are using a <span class="inline-code">for loop</span> to read the given string one character at a time and we
+    will have to make some decisions according with the bracket it is. First thing is to define we will have two major
+    groups of brackets: opening and closing brackets.</p>
+  <p>If current char is an opening bracket, we are going to store it in a Stack. With this, we can assure immediate and
+    LIFO access to all opening brackets we are reading from the string.</p>
+  <p>If current char is a closing bracket, we are going to compare it against the top character from the stack, which by
+    definition it will be an opening bracket.</p>
+  <p>If these two brackets are a corresponding pair of opening and closing brackets, it means the conditions has been
+    met and we should continue processing the remainder of the string.</p>
+  <p>If at any point, we find the closing and opening brackets do not match their pair, then we know the string is not
+    balanced and there's no point continue processing the remainder of the string.</p>
+  <p>The conditions that makes our logic confirms the string is <u>not</u> balanced are:</p>
+  <ul>
+    <li>If we found a closing bracket and the opening bracket's stack is empty.</li>
+    <li>If when finishing reading the string, we have elements left in the stack.</li>
+    <li>If the closing bracket does not correspond to the last pushed opening bracket from the stack.</li>
+  </ul>
+  <p>After previous validations, if we end up processing the entire string and the stack is empty, the we can be sure
+    that the brackets are balanced.</p>
+  <p>Now it's time to put this into code:</p>
+  <hr />
+
+  <h2 id="code">Code</h2>
+  <p>Maximize the code window so you can toggle <b>line by line</b> (<fa-icon (click)="toggleLineByLine()"
+      [icon]="faPlusCircle">
+    </fa-icon>) mode. It might help you grasp the ideas behind the algorithm. </p>
+  <section class="code-container" [ngClass]="{'line-by-line': lineByLine}">
+    <div class="code-section">
+      <span class="miercoles" (click)="toggleLineByLine()" *ngIf="!lineByLine">
+        <fa-icon [icon]="faPlusCircle" size="3x"></fa-icon>
+      </span>
+      <mat-tab-group mat-align-tabs="start" (focusChange)="myTabFocusChange($event)">
+        <mat-tab label="javascript">
+          <ng-template mat-tab-label>
+            <fa-icon [icon]="faJsSquare" style="margin-right: 10px;" size="2x"></fa-icon> Javascript
+          </ng-template>
+          <app-code-block [code]="js_code"></app-code-block>
+        </mat-tab>
+        <mat-tab label="python">
+          <ng-template mat-tab-label>
+            <fa-icon [icon]="faPython" style="margin-right: 10px;" size="2x"></fa-icon> Python
+          </ng-template>
+          <app-code-block [code]="py_code"></app-code-block>
+        </mat-tab>
+        <mat-tab label="php">
+          <ng-template mat-tab-label>
+            <fa-icon [icon]="faPhp" style="margin-right: 10px;" size="2x"></fa-icon> PHP
+          </ng-template>
+          <app-code-block [code]="php_code"></app-code-block>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+    <div class="explain-section">
+      <h3>Line-by-Line <span class="closelxl" (click)="toggleLineByLine()">
+          <fa-icon [icon]="faTimesCircle" style="margin-right: 10px;" size="2x"></fa-icon>
+        </span></h3>
+      <mat-card class="card-note">
+        <fa-icon [icon]="faSearch" size="lg"></fa-icon>
+        Move the cursor over each numbered instructions from the pseudo-code so you can match up more easily the
+        pseudo-code and the real code.
+      </mat-card>
+      <ol (mouseover)="showTheThing($event)" (mouseout)="hideTheThing()" class="steps">
+        <li id="step1">Define the stack.</li>
+        <li id="step2">Iterating over Iteramos sobre la cadena que vamos a validar.</li>
+        <li id="step3">If the current character is an opening bracket, we push it to the stack.</li>
+        <li id="step4">If the current character is a closing bracket, we pop an element from the stack.</li>
+        <ul *ngIf="showNotes()">
+          <li id="step4.1">When using Python, we should include a <span class="inline-block">try</span> block since we
+            will get an error if we try to pop an element from an empty stack.</li>
+        </ul>
+        <li id="step5">We need to compare both brackets. If the closing bracket is not a matching pair with the opening
+          bracket, we should short circuit the process and return a <span class="inline-code">false</span> value.</li>
+        <li id="step6">If we are done processing the string, but we have at least one element remaining in the stack,
+          it means there's at least one opening bracket that does not have their corresponding pair.
+        </li>
+        <li id="step7">If we got to this point, we can be sure that all the brackets in the given string have their
+          corresponding pair and are positioned correctly, hence we return a <span class="inline-code">true</span>.
+        </li>
+      </ol>
+    </div>
+  </section>
+  <hr />
+
+  <h2 id="bigo">Big O Analysis</h2>
+  <p>The operations that influence the Big O in terms of <u>time</u> are contained in the following table:</p>
+  <table mat-table [dataSource]="bigODataSource" class="mat-elevation-z8 lg-table align-center">
+    <!-- Time Column -->
+    <ng-container matColumnDef="tiempo">
+      <th mat-header-cell *matHeaderCellDef> Time </th>
+      <td mat-cell *matCellDef="let element"> {{element.tiempo}} </td>
+    </ng-container>
+
+    <!-- Desc Column -->
+    <ng-container matColumnDef="desc">
+      <th mat-header-cell *matHeaderCellDef> Details </th>
+      <td mat-cell *matCellDef="let element"> <span [innerHTML]="element.desc"></span> </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsBigO"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumnsBigO;"></tr>
+  </table>
+  <p>In terms of <u>space</u> we are using a stack variable to store each opening bracket.</p>
+  <p>Worst case scenario would be that all the characters in the given string are opening brackets; this will make our
+    stack grow to be the same size as the length of the given string. That will give us a space complexity of <span
+      class="inline-code">O(n)</span>.</p>
+  <p><u>In conclusion</u> the results of the Big O analysis for the balanced brackets problem is:</p>
+  <p>Time: <strong>O(n)</strong></p>
+  <p>Space: <strong>O(n)</strong></p>
+  <p>Where <span class="inline-code">n</span> is the length of the given string.</p>
+  <hr />
+
+  <h2 id="conclusion">Wrap Up</h2>
+  <p>Many thanks for reading this article!</p>
+  <p>We went through the balanced brackets algorithm+solution in different programming languages, I really hope this has
+    helped you. Leave your comments if you have found a bug in the code, or if you have any other way of solving this
+    problem.
+  </p>
+  <hr />
+
+  <p>You might be interested in checking out this other articles:</p>
+  <ul>
+    <li *ngFor="let post of nextPosts"> <a [routerLink]="['/blog',post.url]">{{ post.name }}</a> </li>
+  </ul>
+</article>

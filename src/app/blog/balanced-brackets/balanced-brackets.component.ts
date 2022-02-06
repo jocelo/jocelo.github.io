@@ -41,7 +41,7 @@ export interface InextPost {
 @Component({
   selector: 'app-balanced-brackets',
   templateUrl: './balanced-brackets.component.html',
-  styleUrls: ['./balanced-brackets.component.css']
+  styleUrls: ['./balanced-brackets.component.scss']
 })
 export class BalancedBracketsComponent implements OnInit {
   faSearch = faSearch;

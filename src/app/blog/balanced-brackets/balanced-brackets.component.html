@@ -1,5 +1,5 @@
 <article class="blog-layout">
-  <h1>Balanced Brackets</h1>
+  <h1 id="article-top">Balanced Brackets</h1>
   <p class="text-gray">By Alfredo Alonso - last update: February 2022</p>
   <mat-card class="card-note">
     <fa-icon [icon]="faLanguage" style="margin-right: 10px;" size="lg"></fa-icon> Para la version en español <a
@@ -18,7 +18,7 @@
     <li> <a routerLink="." fragment="solution">Solution</a></li>
     <li> <a routerLink="." fragment="code">Code</a></li>
     <li> <a routerLink="." fragment="bigo">Big O analysis</a></li>
-    <li> <a routerLink="." fragment="conclusion">Wrap up</a></li>
+    <li> <a routerLink="." fragment="conclusion">Wrapping up</a></li>
   </ul>
   <hr />
 
@@ -57,6 +57,9 @@
 
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Back to top</a>
+  </div>
   <hr />
 
   <h2 id="solution">Solution</h2>
@@ -94,6 +97,9 @@
   <p>After previous validations, if we end up processing the entire string and the stack is empty, the we can be sure
     that the brackets are balanced.</p>
   <p>Now it's time to put this into code:</p>
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Back to top</a>
+  </div>
   <hr />
 
   <h2 id="code">Code</h2>
@@ -137,7 +143,7 @@
       </mat-card>
       <ol (mouseover)="showTheThing($event)" (mouseout)="hideTheThing()" class="steps">
         <li id="step1">Define the stack.</li>
-        <li id="step2">Iterating over Iteramos sobre la cadena que vamos a validar.</li>
+        <li id="step2">Iterating over the string we are validating.</li>
         <li id="step3">If the current character is an opening bracket, we push it to the stack.</li>
         <li id="step4">If the current character is a closing bracket, we pop an element from the stack.</li>
         <ul *ngIf="showNotes()">
@@ -155,6 +161,9 @@
       </ol>
     </div>
   </section>
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Back to top</a>
+  </div>
   <hr />
 
   <h2 id="bigo">Big O Analysis</h2>
@@ -183,10 +192,13 @@
   <p>Time: <strong>O(n)</strong></p>
   <p>Space: <strong>O(n)</strong></p>
   <p>Where <span class="inline-code">n</span> is the length of the given string.</p>
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Back to top</a>
+  </div>
   <hr />
 
-  <h2 id="conclusion">Wrap Up</h2>
-  <p>Many thanks for reading this article!</p>
+  <h2 id="conclusion">Wrapping Up</h2>
+  <p>Thank you for reading this article!</p>
   <p>We went through the balanced brackets algorithm+solution in different programming languages, I really hope this has
     helped you. Leave your comments if you have found a bug in the code, or if you have any other way of solving this
     problem.

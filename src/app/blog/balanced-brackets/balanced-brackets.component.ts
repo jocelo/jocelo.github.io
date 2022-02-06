@@ -1,7 +1,8 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { ViewportScroller } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router, Scroll } from '@angular/router';
+import { MediaMatcher } from '@angular/cdk/layout';
 
 import { filter } from 'rxjs/operators';
 
@@ -98,8 +99,14 @@ export class BalancedBracketsComponent implements OnInit {
     url: 'balanceo-de-parentesis'
   }];
 
+  mobileQuery: MediaQueryList;
+  private _mobileQueryListener: () => void;
+  navbarStatus: boolean;
+
   constructor(
     router: Router,
+    private changeDetectorRef: ChangeDetectorRef,
+    private media: MediaMatcher,
     viewportScroller: ViewportScroller
   ) {
     viewportScroller.setOffset([0, 50]);
@@ -118,6 +125,10 @@ export class BalancedBracketsComponent implements OnInit {
         viewportScroller.scrollToPosition([0, 0]);
       }
     });
+
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
   }
   ngOnInit() {
     this.lblMode = 'javascript';

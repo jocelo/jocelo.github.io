@@ -1,7 +1,8 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { ViewportScroller } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router, Scroll } from '@angular/router';
+import { MediaMatcher } from '@angular/cdk/layout';
 
 import { filter } from 'rxjs/operators';
 
@@ -41,7 +42,7 @@ export interface InextPost {
 @Component({
   selector: 'app-balanceo-de-parentesis',
   templateUrl: './balanceo-de-parentesis.component.html',
-  styleUrls: ['./balanceo-de-parentesis.component.css']
+  styleUrls: ['./balanceo-de-parentesis.component.scss']
 })
 export class BalanceoDeParentesisComponent implements OnInit {
   faSearch = faSearch;
@@ -99,8 +100,14 @@ export class BalanceoDeParentesisComponent implements OnInit {
     url: 'balanced-brackets'
   }];
 
+  mobileQuery: MediaQueryList;
+  private _mobileQueryListener: () => void;
+  navbarStatus: boolean;
+
   constructor(
     router: Router,
+    private changeDetectorRef: ChangeDetectorRef,
+    private media: MediaMatcher,
     viewportScroller: ViewportScroller
   ) {
     viewportScroller.setOffset([0, 50]);
@@ -119,6 +126,10 @@ export class BalanceoDeParentesisComponent implements OnInit {
         viewportScroller.scrollToPosition([0, 0]);
       }
     });
+
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
   ngOnInit() {

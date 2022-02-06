@@ -116,3 +116,25 @@ ol.steps li:hover {
   float: right;
   cursor: pointer;
 }
+
+@media screen and (max-width: 600px) {
+  article {
+    margin: 0 10px;
+    padding-bottom: 80px;
+  }
+
+  table.lg-table {
+    width: 100%;
+  }
+  
+  table.sm-table {
+    width: 100%;
+  }
+
+  .code-container.line-by-line {
+    flex-direction: column;
+    left: 0px;
+    margin: 0px;
+    width: 100%;
+  }
+}

@@ -3,6 +3,10 @@ article {
   padding-bottom: 80px;
 }
 
+.back-to-top {
+  text-align: right;
+}
+
 hr {
   margin: 30px 100px;
 }
@@ -30,6 +34,10 @@ span.inline-code {
   height: 120%;
   z-index: 40;
   position: absolute;
+}
+
+table {
+  margin-bottom: 20px;
 }
 
 table.lg-table {

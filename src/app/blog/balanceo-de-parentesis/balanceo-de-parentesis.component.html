@@ -1,5 +1,5 @@
 <article class="blog-layout">
-  <h1>Balanceo de Paréntesis</h1>
+  <h1 id="article-top">Balanceo de Paréntesis</h1>
   <p class="text-gray">Por Alfredo Alonso ultima actualización: Febrero 2022</p>
   <mat-card class="card-note">
     <fa-icon [icon]="faLanguage" style="margin-right: 10px;" size="lg"></fa-icon> For English version <a
@@ -58,6 +58,9 @@
 
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Regresar al inicio</a>
+  </div>
   <hr />
 
   <h2 id="solution">Solución</h2>
@@ -95,6 +98,9 @@
   <p>Después de las validaciones anteriores, si terminamos de leer toda la cadena y nuestra pila esta vacía, significa
     la cadena esta balanceada!</p>
   <p>Ahora vamos a transcribir todo esto a código:</p>
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Regresar al inicio</a>
+  </div>
   <hr />
 
   <h2 id="code">Código</h2>
@@ -157,6 +163,9 @@
       </ol>
     </div>
   </section>
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Regresar al inicio</a>
+  </div>
   <hr />
 
   <h2 id="bigo">Análisis de big O</h2>
@@ -187,6 +196,9 @@
   <p>Tiempo: <strong>O(n)</strong></p>
   <p>Espacio: <strong>O(n)</strong></p>
   <p>Donde <span class="inline-code">n</span> representa la longitud de la cadena en cuestión.</p>
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Regresar al inicio</a>
+  </div>
   <hr />
 
   <h2 id="conclusion">Conclusión</h2>

@@ -16,11 +16,13 @@ import { MatTableModule } from '@angular/material/table';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatCardModule } from '@angular/material/card';
 import { HighlightDirective } from '../highlight.directive';
+import { SearchByTopicComponent } from './search-by-topic/search-by-topic.component';
 
 
 const blogRoutes: Routes = [
   { path: 'blog/', redirectTo: '/', pathMatch: 'full' },
   { path: 'index', redirectTo: '/' },
+  { path: 'blog/topic/:token', component: SearchByTopicComponent },
   { path: 'blog/balanced-brackets', component: BalancedBracketsComponent },
   { path: 'blog/balanceo-de-parentesis', component: BalanceoDeParentesisComponent },
   { path: 'blog/dockerize-angular', component: DockerizeAngularComponent }
@@ -33,6 +35,7 @@ const blogRoutes: Routes = [
     BalanceoDeParentesisComponent,
     DockerizeAngularComponent,
     HighlightDirective,
+    SearchByTopicComponent,
   ],
   imports: [
     CommonModule,

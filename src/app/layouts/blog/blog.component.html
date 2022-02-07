@@ -1,15 +1,13 @@
 <div class="main-body">
-  <p>
-    Search posts:
-    <input type="text">
-  </p>
-  <!-- <pre>
-    <code highlight="code">
-    test 1
-    test 2
-    for
-  </code></pre> -->
+  <div *ngIf="false" class="search-area">
+    <input type="text" class="search-input" [(ngModel)]="searchToken" name="searchToken"
+      (keydown.enter)="goSearch($event)">
+    <fa-icon class="search-icon" (click)="goSearch($event)" [icon]="faSearch" style="margin-left: 10px;" size="lg">
+    </fa-icon>
+    <p *ngIf="invalidSearchToken" class="invalid-search-token">Enter a valid search token.</p>
+  </div>
   <section class="blog-body">
+    <h1>Latest Posts</h1>
     <section *ngFor="let post of posts">
       <article>
         <div class="top-section">

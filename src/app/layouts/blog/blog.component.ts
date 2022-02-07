@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-blog',
@@ -9,12 +11,16 @@ import { Router } from '@angular/router';
 export class BlogComponent implements OnInit {
   fruits: string[] = ['docker', 'angular', 'devops'];
   posts: object[];
+  faSearch = faSearch;
+  searchToken: string;
+  invalidSearchToken: boolean;
 
   constructor(
     private router: Router
   ) { }
 
   ngOnInit() {
+    this.invalidSearchToken = false;
     this.posts = [{
       url: 'balanced-brackets',
       img: 'blog_balanced_brackets.png',
@@ -32,8 +38,18 @@ export class BlogComponent implements OnInit {
     }];
   }
 
-  openArticle(postURL: any): void {
+  public openArticle(postURL: any): void {
     this.router.navigate([`/blog/${postURL}`]);
+  }
+
+  public goSearch(event) {
+    this.invalidSearchToken = false;
+    if (!this.searchToken || this.searchToken.trim() === '') {
+      this.invalidSearchToken = true;
+      return;
+    }
+
+    this.router.navigate(['/blog/topic/', this.searchToken]);
   }
 
 }

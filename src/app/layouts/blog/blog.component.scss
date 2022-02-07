@@ -70,3 +70,23 @@ input.search-input {
 .invalid-search-token {
     color: red;
 }
+
+@media screen and (max-width: 600px) {
+    .blog-body {
+        margin: 0 20px;
+    }
+
+    .picture-section {
+        display: none;
+    }
+
+    .post-container {
+        h2 {
+            margin: 10px 15px;
+        }
+    }
+
+    .post-body {
+        padding: 10px;
+    }
+}

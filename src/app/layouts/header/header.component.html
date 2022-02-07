@@ -22,20 +22,24 @@
           </a>
         </span>
         <span class="hamburger">
-          <fa-icon [icon]="faIcons.bars" size="2x" (click)="toggleMenu()"></fa-icon>
+          <fa-icon *ngIf="!showMobileMenu" [icon]="faIcons.faCaretSquareDown" size="2x" (click)="toggleMenu()">
+          </fa-icon>
+          <fa-icon *ngIf="showMobileMenu" [icon]="faIcons.faCaretSquareUp" size="2x" (click)="toggleMenu()"></fa-icon>
         </span>
   </div>
   <hr />
+
   <div *ngIf="showMobileMenu" class="navbar mobile-menu">
+    <a routerLink="/blog">
+      <fa-icon [icon]="faIcons.faRss"></fa-icon> <span class="menu-option">Blog</span>
+    </a>
     <a routerLink="/portfolio">
       <fa-icon [icon]="faIcons.suitcase"></fa-icon> <span class="menu-option">Portfolio</span>
     </a>
     <a routerLink="/certifications">
       <fa-icon [icon]="faIcons.award"></fa-icon> <span class="menu-option">Certifications</span>
     </a>
-    <a routerLink="/tech-stack">
-      <fa-icon [icon]="faIcons.code"></fa-icon> <span class="menu-option">Tech Stack</span>
-    </a>
+
     <a href="https://www.youtube.com/channel/UC547pgqomI0IcjOmltxQdAQ" target="_blank">
       <fa-icon [icon]="faIcons.youtube"></fa-icon> <span class="menu-option">Videos</span>
     </a>

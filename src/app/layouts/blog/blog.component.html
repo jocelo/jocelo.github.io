@@ -11,14 +11,13 @@
     <section *ngFor="let post of posts">
       <article>
         <div class="top-section">
-          <div>
+          <div class="picture-section">
             <img src="assets/{{post.img}}">
           </div>
           <div class="post-container">
             <h2 (click)="openArticle(post.url)">{{post.title}}</h2>
             <p class="post-body">{{post.desc}}</p>
-            <p class="published-date">Posted on: <i>{{post.publishedDate}}</i> - <span>Updated: <i>June 25,
-                  2021</i></span> </p>
+            <p class="published-date">Last Update: <i>{{post.publishedDate}}</i> </p>
           </div>
         </div>
 

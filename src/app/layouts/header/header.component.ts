@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 
 import { faGithub, faLinkedin, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import { faBars, faSuitcase, faAward, faCode, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faSuitcase, faAward, faCode, faShoppingCart, faRss } from '@fortawesome/free-solid-svg-icons';
+import { faCaretSquareDown, faCaretSquareUp } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -13,11 +14,13 @@ export class HeaderComponent implements OnInit {
   faIcons = {
     github: faGithub,
     linkedin: faLinkedin,
-    bars: faBars,
+    faCaretSquareDown: faCaretSquareDown,
+    faCaretSquareUp: faCaretSquareUp,
     suitcase: faSuitcase,
     award: faAward,
     code: faCode,
-    youtube: faYoutube
+    youtube: faYoutube,
+    faRss: faRss
   }
   showMobileMenu: boolean = false;
   showLinks: boolean = false;
@@ -28,10 +31,10 @@ export class HeaderComponent implements OnInit {
   constructor(private route: Router) {
     this.routeEvent(this.route);
   }
- 
+
   routeEvent(router: Router) {
     router.events.subscribe(
-      event=>{
+      event => {
         if (event instanceof NavigationEnd) {
           this.showHeader = ['/', '/index'].indexOf(event.url) !== -1;
           this.selectedItem = event.url.split('/')[1];
@@ -47,8 +50,8 @@ export class HeaderComponent implements OnInit {
   }
 
   formatTitle(title) {
-    let midFormat = title.replace('-',' ');
-    midFormat = midFormat.split(' ').map(item=>item[0].toUpperCase()+item.substr(1)).join(' ');
+    let midFormat = title.replace('-', ' ');
+    midFormat = midFormat.split(' ').map(item => item[0].toUpperCase() + item.substr(1)).join(' ');
     return midFormat;
   }
 

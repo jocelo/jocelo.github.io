@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, ROUTER_CONFIGURATION } from '@angular/router';
 
 import { faGithub, faLinkedin, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { faBars, faSuitcase, faAward, faCode, faShoppingCart, faRss } from '@fortawesome/free-solid-svg-icons';
@@ -21,41 +21,44 @@ export class HeaderComponent implements OnInit {
     code: faCode,
     youtube: faYoutube,
     faRss: faRss
-  }
-  showMobileMenu: boolean = false;
-  showLinks: boolean = false;
-  showHeader: boolean = true;
-  selectedItem: string = '';
-  mobileSectionTitle: string = 'Homepage';
+  };
+  showHeader: boolean;
+  selectedItem: string;
+  mobileSectionTitle: string;
 
-  constructor(private route: Router) {
-    this.routeEvent(this.route);
+  constructor(private router: Router) {
+    this.routeEvent(this.router);
   }
 
-  routeEvent(router: Router) {
+  public routeEvent(router: Router): void {
     router.events.subscribe(
       event => {
         if (event instanceof NavigationEnd) {
           this.showHeader = ['/', '/index'].indexOf(event.url) !== -1;
           this.selectedItem = event.url.split('/')[1];
           this.mobileSectionTitle = this.formatTitle(this.selectedItem);
-          this.showMobileMenu = false;
         }
       }
-    )
+    );
   }
 
-  toggleMenu() {
-    this.showMobileMenu = !this.showMobileMenu;
-  }
-
-  formatTitle(title) {
+  public formatTitle(title): string {
+    console.log(`the title: |${title}|`);
+    if (!title || title === '/' || title === 'all') {
+      return '';
+    }
     let midFormat = title.replace('-', ' ');
     midFormat = midFormat.split(' ').map(item => item[0].toUpperCase() + item.substr(1)).join(' ');
     return midFormat;
   }
 
   ngOnInit() {
+    this.showHeader = true;
+    this.selectedItem = '';
+  }
+
+  public openSection(section: string): void {
+    this.router.navigate(['/', section]);
   }
 
 }

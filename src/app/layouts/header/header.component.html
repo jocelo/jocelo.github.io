@@ -1,3 +1,42 @@
+<section>
+  <mat-toolbar color="primary">
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon"
+      aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="openSection('blog')">
+        <mat-icon>rss_feed</mat-icon>
+        <span>Blog</span>
+      </button>
+      <button mat-menu-item (click)="openSection('portfolio')">
+        <mat-icon>work_outline</mat-icon>
+        <span>Proyects</span>
+      </button>
+      <button mat-menu-item (click)="openSection('certifications')">
+        <mat-icon>card_membership</mat-icon>
+        <span>Certifications</span>
+      </button>
+      <!-- <button mat-menu-item (click)="openSection('videos')">
+        <mat-icon>video_library</mat-icon>
+        <span>Videos</span>
+      </button> -->
+    </mat-menu>
+    <span class="pointer" (click)="openSection('/')">Jocelo </span>
+    <span *ngIf="selectedItem" class="sub-header">/</span>
+    <span>{{selectedItem | titlecase}}</span>
+    <span class="example-spacer"></span>
+
+    <a href="https://github.com/jocelo" class="icon_width" target="_blank">
+      <fa-icon [icon]="faIcons.github" size="lg"></fa-icon>
+    </a>
+
+    <a href="https://www.linkedin.com/in/alfredoae/" target="_blank">
+      <fa-icon [icon]="faIcons.linkedin" size="lg"></fa-icon>
+    </a>
+  </mat-toolbar>
+</section>
+<!-- 
 <div class="menu left-menu">
   <div *ngIf="!showLinks" class="floating-items">
     <a routerLink="/all" class="brand-icon" *ngIf="!showLinks">alfredo</a>
@@ -50,4 +89,4 @@
     <a href="https://www.linkedin.com/in/alfredoae/" target="_blank">
       <fa-icon [icon]="faIcons.linkedin"></fa-icon> <span class="menu-option">LinkedIn</span>
     </a>
-  </div>
+  </div> -->

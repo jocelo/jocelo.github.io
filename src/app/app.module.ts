@@ -17,6 +17,11 @@ import { FooterComponent } from './layouts/footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BlogModule } from './blog/blog.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/all', pathMatch: 'full' },
@@ -44,6 +49,10 @@ const appRoutes: Routes = [
     TechStackComponent
   ],
   imports: [
+    MatMenuModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
     BlogModule,
     BrowserModule,
     FontAwesomeModule,

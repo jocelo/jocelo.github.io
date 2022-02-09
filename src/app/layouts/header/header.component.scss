@@ -7,6 +7,10 @@ nav a {
   margin: 0 5px;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 .personal-icon {
   position: absolute;
   right: 10px;
@@ -202,4 +206,18 @@ a.disabled {
   hr {
     margin-bottom: 0;
   }
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar a {
+  width: 30px;
+  margin-left: 10px;
+  color: white;
+}
+
+.sub-header {
+  margin: 0 10px;
 }

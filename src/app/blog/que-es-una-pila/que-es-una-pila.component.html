@@ -1,0 +1,140 @@
+<article class="blog-layout">
+  <h1 id="article-top">Que es una Pila?</h1>
+  <p class="text-gray">Por Alfredo Alonso ultima actualización: Febrero 2022</p>
+
+  <!-- <mat-card class="card-note">
+    <fa-icon [icon]="faLanguage" style="margin-right: 10px;" size="lg"></fa-icon> For English version <a
+      [routerLink]="['/blog','balanced-brackets']">click here.</a>
+  </mat-card> -->
+
+  <p>Bienvenidos a este articulo donde platicaremos acerca de una de las estructuras de datos mas usadas, al menos
+    cuando estamos resolviendo ejercicios de programacion.</p>
+  <p>Aunque lo mas recomendable es que leas este articulo en orden, puedes usar el indice si deseas brincarte a
+    cualquier sección en especifico:</p>
+  <ul>
+    <li> <a routerLink="." fragment="definition">Definición</a></li>
+    <li> <a routerLink="." fragment="code">Código</a></li>
+    <li> <a routerLink="." fragment="bigo">Análisis de complejidad (bigO)</a></li>
+    <li> <a routerLink="." fragment="conclusion">Conclusión</a></li>
+  </ul>
+  <hr />
+
+  <h2 id="definition">Definición</h2>
+  <p>La Pila (o stack) es una estructura de datos o tipo de datos abstracto que implementa el principio LIFO</p>
+  <p>LIFO significa Last Input First Output; en otras palabras el ultimo elemento que entra, es el primero que sale.</p>
+  <p>Una analogía que sirve para comprender mejor este concepto, seria sacar una papa de un tubo de Pringles... La
+    ultima papa que metieron al contenedor, es la primera que sale cuando queremos comernos una.</p>
+  <p>Otro ejemplo es el historial de un navegador web (Firefox, Chrome) donde cada vez que das click a un link, te lleva
+    a esa pagina, y te pone en el historial la pagina que estas abandonando.
+    De esta manera, cuando presionas el botos de "back", te regresa a la ultima pagina que habías visitado, y si
+    continuas dando click en el botón, vas navegando "hacia atrás"</p>
+  <p>O bien, el ejemplo clásico... una pila de platos, los cuales solo puedes tomar el plato que esta mas arriba de la
+    pila, (siempre y cuando no quieras tomar también la escoba y el recogedor).</p>
+  <p>Las operaciones basicas de una pila son la de <u>insercion</u> de un nuevo element y la
+    <u>obtencion</u> de un elemento. Estas dos operaciones generalmente se les llama push y pop respectivamente.
+  </p>
+  <p>Para la implementacion, todo dependera del lenguaje de programacion y es probable que algun lenguaje tenga este
+    tipo de dato previamente programado, y solo tengamos que aprender a utilizarlo, sin embargo en general, podemos usar
+    un array para operarlo como una pila.</p>
+
+  <p>En la siguiente sección revisamos las diferencias entre cada lenguaje de programación y como usar la pila.</p>
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Regresar al inicio</a>
+  </div>
+  <hr />
+
+  <h2 id="code">Código</h2>
+  <p>Maximiza la ventana del código para que actives el modo <b>linea por linea</b> (<fa-icon
+      (click)="toggleLineByLine()" [icon]="faPlusCircle">
+    </fa-icon>). </p>
+  <section class="code-container" [ngClass]="{'line-by-line': lineByLine}">
+    <div class="code-section">
+      <span class="miercoles" (click)="toggleLineByLine()" *ngIf="!lineByLine">
+        <fa-icon [icon]="faPlusCircle" size="3x"></fa-icon>
+      </span>
+      <mat-tab-group mat-align-tabs="start" (focusChange)="myTabFocusChange($event)">
+        <mat-tab label="javascript">
+          <ng-template mat-tab-label>
+            <fa-icon [icon]="faJsSquare" style="margin-right: 10px;" size="2x"></fa-icon> Javascript
+          </ng-template>
+          <app-code-block [code]="js_code"></app-code-block>
+        </mat-tab>
+        <mat-tab label="python">
+          <ng-template mat-tab-label>
+            <fa-icon [icon]="faPython" style="margin-right: 10px;" size="2x"></fa-icon> Python
+          </ng-template>
+          <app-code-block [code]="py_code"></app-code-block>
+        </mat-tab>
+        <mat-tab label="php">
+          <ng-template mat-tab-label>
+            <fa-icon [icon]="faPhp" style="margin-right: 10px;" size="2x"></fa-icon> PHP
+          </ng-template>
+          <app-code-block [code]="php_code"></app-code-block>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+    <div class="explain-section">
+      <h3>Linea-X-Linea <span class="closelxl" (click)="toggleLineByLine()">
+          <fa-icon [icon]="faTimesCircle" style="margin-right: 10px;" size="2x"></fa-icon>
+        </span></h3>
+      <mat-card class="card-note">
+        <fa-icon [icon]="faSearch" size="lg"></fa-icon>
+        Mueve el cursor sobre cada instrucción de pseudo-código abajo para que puedas analizar
+        cada sección del algoritmo.
+      </mat-card>
+      <ol (mouseover)="showTheThing($event)" (mouseout)="hideTheThing()" class="steps">
+        <li id="step1">Definimos nuestra pila (stack).</li>
+        <li id="step2">Iteramos sobre la cadena que vamos a validar.</li>
+        <li id="step3">Si el paréntesis es de apertura, lo agregamos a la pila.</li>
+        <li id="step4">Si el paréntesis es de cierre, sacamos el ultimo paréntesis que insertamos en la pila.</li>
+        <ul *ngIf="showNotes()">
+          <li id="step4.1">Usando Python, tenemos que poner un bloque <span class="inline-block">try</span>, ya que no
+            podemos sacar un elemento de una pila vacía.</li>
+        </ul>
+        <li id="step5">Comparamos el paréntesis que sacamos de la pila contra el paréntesis que estamos procesando. Si
+          no es igual a su correspondiente paréntesis podemos regresar <span class="inline-code">false</span> y no es
+          necesario seguir validando.</li>
+        <li id="step6">Si hemos terminado de procesar nuestra cadena pero tenemos al menos un elemento en la pila,
+          significa que hay al menos un paréntesis de apertura que no tiene su correspondiente paréntesis de cierre.
+        </li>
+        <li id="step7">Si llegamos a este punto, podemos decir que todos los paréntesis de cierre tienen su
+          correspondiente paréntesis de apertura, y que están posicionados correctamente, por lo que regresamos <span
+            class="inline-code">true</span> </li>
+      </ol>
+    </div>
+  </section>
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Regresar al inicio</a>
+  </div>
+  <hr />
+
+  <h2 id="bigo">Análisis de big O</h2>
+  <p>Los factores que afectan el análisis de la big O en cuanto a <u>tiempo</u>, tenemos que analizar las siguientes
+    operaciones:</p>
+  <p>En relación al <u>espacio</u>, estamos usando una variable como pila para almacenar cada valor de nuestra cadena
+    original.</p>
+  <p>El peor escenario que podríamos tener es una cadena compuesta solamente por paréntesis de apertura, lo que nos
+    daría
+    una complejidad de <span class="inline-code">O(n)</span>.</p>
+  <p><u>Concluimos</u> el análisis de la big O para el problema de balanceo de paréntesis como:</p>
+  <p>Tiempo: <strong>O(n)</strong></p>
+  <p>Espacio: <strong>O(n)</strong></p>
+  <p>Donde <span class="inline-code">n</span> representa la longitud de la cadena en cuestión.</p>
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Regresar al inicio</a>
+  </div>
+  <hr />
+
+  <h2 id="conclusion">Conclusión</h2>
+  <p>Gracias por leer este articulo!</p>
+  <p>Hemos revisado el algoritmo de balanceo de paréntesis en diversos lenguajes, espero te haya
+    ayudado. Deja tu comentario si has encontrado algún bug en el código o si conoces alguna otra manera de resolver
+    este problema.
+  </p>
+  <hr />
+
+  <p>Tal vez te podrían interesar estos otros artículos:</p>
+  <ul>
+    <li *ngFor="let post of nextPosts"> <a [routerLink]="['/blog',post.url]">{{ post.name }}</a> </li>
+  </ul>
+</article>

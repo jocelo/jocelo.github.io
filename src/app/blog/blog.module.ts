@@ -9,6 +9,8 @@ import { SearchByTopicComponent } from './search-by-topic/search-by-topic.compon
 import { QueEsUnaPilaComponent } from './que-es-una-pila/que-es-una-pila.component';
 
 import { CodeBlockModule } from '../code-block/code-block.module';
+import { WriterComponent } from '../writer/writer.component';
+import { ReadNextComponent } from '../read-next/read-next.component';
 import { ChipsModule } from '../chips/chips.module';
 import { DockerizeAngularComponent } from './dockerize-angular/dockerize-angular.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -18,8 +20,10 @@ import { MatTableModule } from '@angular/material/table';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatCardModule } from '@angular/material/card';
 import { HighlightDirective } from '../highlight.directive';
-
-
+import { UrlsConPalabrasClaveComponent } from './urls-con-palabras-clave/urls-con-palabras-clave.component';
+import { WhatIsAStackComponent } from './what-is-a-stack/what-is-a-stack.component';
+import { QueEsUnaColaComponent } from './que-es-una-cola/que-es-una-cola.component';
+import { WhatIsAQueueComponent } from './what-is-a-queue/what-is-a-queue.component';
 
 const blogRoutes: Routes = [
   { path: 'blog/', redirectTo: '/', pathMatch: 'full' },
@@ -28,7 +32,10 @@ const blogRoutes: Routes = [
   { path: 'blog/balanced-brackets', component: BalancedBracketsComponent },
   { path: 'blog/balanceo-de-parentesis', component: BalanceoDeParentesisComponent },
   { path: 'blog/dockerize-angular', component: DockerizeAngularComponent },
-  { path: 'blog/que-es-una-pila', component: QueEsUnaPilaComponent }
+  { path: 'blog/que-es-una-pila', component: QueEsUnaPilaComponent },
+  { path: 'blog/what-is-a-stack', component: WhatIsAStackComponent },
+  { path: 'blog/que-es-una-cola', component: QueEsUnaColaComponent },
+  { path: 'blog/what-is-a-queue', component: WhatIsAQueueComponent },
 ];
 
 @NgModule({
@@ -40,6 +47,12 @@ const blogRoutes: Routes = [
     HighlightDirective,
     SearchByTopicComponent,
     QueEsUnaPilaComponent,
+    UrlsConPalabrasClaveComponent,
+    WriterComponent,
+    ReadNextComponent,
+    WhatIsAStackComponent,
+    QueEsUnaColaComponent,
+    WhatIsAQueueComponent
   ],
   imports: [
     CommonModule,

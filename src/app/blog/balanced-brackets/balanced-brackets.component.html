@@ -1,6 +1,6 @@
 <article class="blog-layout">
   <h1 id="article-top">Balanced Brackets</h1>
-  <p class="text-gray">By Alfredo Alonso - last update: February 2022</p>
+  <app-writer></app-writer>
   <mat-card class="card-note">
     <fa-icon [icon]="faLanguage" style="margin-right: 10px;" size="lg"></fa-icon> Para la version en español <a
       [routerLink]="['/blog','balanceo-de-parentesis']">da click aquí.</a>
@@ -102,65 +102,10 @@
   </div>
   <hr />
 
+  <script src="https://gist.github.com/jocelo/76dcae2d25d7e5d7fb66e7e45aa0513c.js"></script>
+
   <h2 id="code">Code</h2>
-  <p>Maximize the code window so you can toggle <b>line by line</b> (<fa-icon (click)="toggleLineByLine()"
-      [icon]="faPlusCircle">
-    </fa-icon>) mode. It might help you grasp the ideas behind the algorithm. </p>
-  <section class="code-container" [ngClass]="{'line-by-line': lineByLine}">
-    <div class="code-section">
-      <span class="miercoles" (click)="toggleLineByLine()" *ngIf="!lineByLine">
-        <fa-icon [icon]="faPlusCircle" size="3x"></fa-icon>
-      </span>
-      <mat-tab-group mat-align-tabs="start" (focusChange)="myTabFocusChange($event)">
-        <mat-tab label="javascript">
-          <ng-template mat-tab-label>
-            <fa-icon [icon]="faJsSquare" style="margin-right: 10px;" size="2x"></fa-icon> Javascript
-          </ng-template>
-          <app-code-block [code]="js_code"></app-code-block>
-        </mat-tab>
-        <mat-tab label="python">
-          <ng-template mat-tab-label>
-            <fa-icon [icon]="faPython" style="margin-right: 10px;" size="2x"></fa-icon> Python
-          </ng-template>
-          <app-code-block [code]="py_code"></app-code-block>
-        </mat-tab>
-        <mat-tab label="php">
-          <ng-template mat-tab-label>
-            <fa-icon [icon]="faPhp" style="margin-right: 10px;" size="2x"></fa-icon> PHP
-          </ng-template>
-          <app-code-block [code]="php_code"></app-code-block>
-        </mat-tab>
-      </mat-tab-group>
-    </div>
-    <div class="explain-section">
-      <h3>Line-by-Line <span class="closelxl" (click)="toggleLineByLine()">
-          <fa-icon [icon]="faTimesCircle" style="margin-right: 10px;" size="2x"></fa-icon>
-        </span></h3>
-      <mat-card class="card-note">
-        <fa-icon [icon]="faSearch" size="lg"></fa-icon>
-        Move the cursor over each numbered instructions from the pseudo-code so you can match up more easily the
-        pseudo-code and the real code.
-      </mat-card>
-      <ol (mouseover)="showTheThing($event)" (mouseout)="hideTheThing()" class="steps">
-        <li id="step1">Define the stack.</li>
-        <li id="step2">Iterating over the string we are validating.</li>
-        <li id="step3">If the current character is an opening bracket, we push it to the stack.</li>
-        <li id="step4">If the current character is a closing bracket, we pop an element from the stack.</li>
-        <ul *ngIf="showNotes()">
-          <li id="step4.1">When using Python, we should include a <span class="inline-block">try</span> block since we
-            will get an error if we try to pop an element from an empty stack.</li>
-        </ul>
-        <li id="step5">We need to compare both brackets. If the closing bracket is not a matching pair with the opening
-          bracket, we should short circuit the process and return a <span class="inline-code">false</span> value.</li>
-        <li id="step6">If we are done processing the string, but we have at least one element remaining in the stack,
-          it means there's at least one opening bracket that does not have their corresponding pair.
-        </li>
-        <li id="step7">If we got to this point, we can be sure that all the brackets in the given string have their
-          corresponding pair and are positioned correctly, hence we return a <span class="inline-code">true</span>.
-        </li>
-      </ol>
-    </div>
-  </section>
+
   <div class="back-to-top">
     <a routerLink="." fragment="article-top">Back to top</a>
   </div>
@@ -205,8 +150,5 @@
   </p>
   <hr />
 
-  <p>You might be interested in checking out this other articles:</p>
-  <ul>
-    <li *ngFor="let post of nextPosts"> <a [routerLink]="['/blog',post.url]">{{ post.name }}</a> </li>
-  </ul>
+  <app-read-next></app-read-next>
 </article>

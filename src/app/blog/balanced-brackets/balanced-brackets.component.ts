@@ -94,11 +94,6 @@ export class BalancedBracketsComponent implements OnInit {
     tiempo: 'O(1)', desc: `We are using a stack to store all the opening brackets; this Data Structure gives us a read/write constant access time.`
   }];
 
-  nextPosts: InextPost[] = [{
-    name: 'Balanceo de Paréntesis',
-    url: 'balanceo-de-parentesis'
-  }];
-
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
   navbarStatus: boolean;

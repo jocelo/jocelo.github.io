@@ -1,6 +1,6 @@
 <article class="blog-layout">
   <h1 id="article-top">Balanceo de Paréntesis</h1>
-  <p class="text-gray">Por Alfredo Alonso ultima actualización: Febrero 2022</p>
+  <app-writer lang="es"></app-writer>
   <mat-card class="card-note">
     <fa-icon [icon]="faLanguage" style="margin-right: 10px;" size="lg"></fa-icon> For English version <a
       [routerLink]="['/blog','balanced-brackets']">click here.</a>
@@ -209,8 +209,5 @@
   </p>
   <hr />
 
-  <p>Tal vez te podrían interesar estos otros artículos:</p>
-  <ul>
-    <li *ngFor="let post of nextPosts"> <a [routerLink]="['/blog',post.url]">{{ post.name }}</a> </li>
-  </ul>
+  <app-read-next lang="es"></app-read-next>
 </article>

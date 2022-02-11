@@ -41,7 +41,7 @@ export interface InextPost {
 @Component({
   selector: 'app-balanceo-de-parentesis',
   templateUrl: './balanceo-de-parentesis.component.html',
-  styleUrls: ['./balanceo-de-parentesis.component.css']
+  styleUrls: ['./balanceo-de-parentesis.component.scss']
 })
 export class BalanceoDeParentesisComponent implements OnInit {
   faSearch = faSearch;

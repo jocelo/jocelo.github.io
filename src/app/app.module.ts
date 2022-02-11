@@ -22,7 +22,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 
-
 const appRoutes: Routes = [
   { path: '', redirectTo: '/all', pathMatch: 'full' },
   { path: 'home', redirectTo: '/all', pathMatch: 'full' },

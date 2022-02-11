@@ -1,0 +1,7 @@
+<section>
+  <p *ngIf="lang=='es'">Tal vez te podrían interesar estos artículos:</p>
+  <p *ngIf="lang=='en'">You might be interested in checking out this other articles:</p>
+  <ul>
+    <li *ngFor="let post of nextPosts"> <a [routerLink]="['/blog',post.url]">{{ post.title }}</a> </li>
+  </ul>
+</section>

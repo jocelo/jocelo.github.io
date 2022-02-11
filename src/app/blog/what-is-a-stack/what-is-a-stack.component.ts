@@ -12,11 +12,11 @@ export interface InextPost {
 }
 
 @Component({
-  selector: 'app-que-es-una-pila',
-  templateUrl: './que-es-una-pila.component.html',
-  styleUrls: ['./que-es-una-pila.component.scss']
+  selector: 'app-what-is-a-stack',
+  templateUrl: './what-is-a-stack.component.html',
+  styleUrls: ['./what-is-a-stack.component.scss']
 })
-export class QueEsUnaPilaComponent implements OnInit {
+export class WhatIsAStackComponent implements OnInit {
   lineByLine: Boolean = false;
   lblMode: string;
   faJsSquare = faJsSquare;
@@ -33,7 +33,6 @@ export class QueEsUnaPilaComponent implements OnInit {
   codeSteps: any;
 
   nextPosts: InextPost[] = [];
-
   constructor(
     private service: BlogService,
     private router: Router
@@ -180,4 +179,5 @@ export class QueEsUnaPilaComponent implements OnInit {
   public myTabFocusChange(changeEvent: MatTabChangeEvent): void {
     this.lblMode = changeEvent.tab.textLabel;
   }
+
 }

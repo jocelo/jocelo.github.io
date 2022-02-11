@@ -1,43 +1,49 @@
 <article class="blog-layout">
   <h1 id="article-top">Que es una Pila?</h1>
-  <p class="text-gray">Por Alfredo Alonso ultima actualización: Febrero 2022</p>
+  <app-writer lang="es"></app-writer>
 
-  <!-- <mat-card class="card-note">
+  <mat-card class="card-note">
     <fa-icon [icon]="faLanguage" style="margin-right: 10px;" size="lg"></fa-icon> For English version <a
-      [routerLink]="['/blog','balanced-brackets']">click here.</a>
-  </mat-card> -->
+      [routerLink]="['/blog','what-is-a-stack']">click here.</a>
+  </mat-card>
 
-  <p>Bienvenidos a este articulo donde platicaremos acerca de una de las estructuras de datos mas usadas, al menos
-    cuando estamos resolviendo ejercicios de programacion.</p>
+  <p>Bienvenidos a este articulo donde platicaremos acerca de una de las estructuras de datos mas recurridas cuando
+    estamos resolviendo ejercicios de programación.</p>
   <p>Aunque lo mas recomendable es que leas este articulo en orden, puedes usar el indice si deseas brincarte a
     cualquier sección en especifico:</p>
   <ul>
     <li> <a routerLink="." fragment="definition">Definición</a></li>
     <li> <a routerLink="." fragment="code">Código</a></li>
-    <li> <a routerLink="." fragment="bigo">Análisis de complejidad (bigO)</a></li>
+    <li> <a routerLink="." fragment="bigo">Análisis de complejidad (big O)</a></li>
     <li> <a routerLink="." fragment="conclusion">Conclusión</a></li>
   </ul>
   <hr />
 
   <h2 id="definition">Definición</h2>
-  <p>La Pila (o stack) es una estructura de datos o tipo de datos abstracto que implementa el principio LIFO</p>
-  <p>LIFO significa Last Input First Output; en otras palabras el ultimo elemento que entra, es el primero que sale.</p>
-  <p>Una analogía que sirve para comprender mejor este concepto, seria sacar una papa de un tubo de Pringles... La
-    ultima papa que metieron al contenedor, es la primera que sale cuando queremos comernos una.</p>
-  <p>Otro ejemplo es el historial de un navegador web (Firefox, Chrome) donde cada vez que das click a un link, te lleva
+  <p>La Pila (o stack) es una estructura de datos o tipo de datos abstracto que implementa el principio <u>LIFO</u>.</p>
+  <p>LIFO significa <i>Last Input First Output</i>; en otras palabras es <b>el ultimo elemento que entra, es el primero
+      que sale.</b></p>
+  <p>Una analogía que sirve para comprender mejor este concepto seria sacar una papa de un tubo de Pringles... cuando
+    queremos comernos una papa, la primera papa que tomamos es la ultima papa que metieron al contenedor.</p>
+  <p>Otro ejemplo es el historial de un navegador web (Firefox, Chrome, etc) en donde cada vez que das click a un link,
+    te
+    lleva
     a esa pagina, y te pone en el historial la pagina que estas abandonando.
     De esta manera, cuando presionas el botos de "back", te regresa a la ultima pagina que habías visitado, y si
     continuas dando click en el botón, vas navegando "hacia atrás"</p>
   <p>O bien, el ejemplo clásico... una pila de platos, los cuales solo puedes tomar el plato que esta mas arriba de la
-    pila, (siempre y cuando no quieras tomar también la escoba y el recogedor).</p>
-  <p>Las operaciones basicas de una pila son la de <u>insercion</u> de un nuevo element y la
-    <u>obtencion</u> de un elemento. Estas dos operaciones generalmente se les llama push y pop respectivamente.
+    pila (siempre y cuando no quieras tomar también la escoba y el recogedor).</p>
+  <p>Asi pues, las operaciones básicas que se pueden ejecutar en una pila son la <u>inserción</u> de un nuevo
+    elemento y la <u>obtención</u> de un elemento. Estas dos operaciones generalmente se les llama <span
+      class="inline-code">push</span> y <span class="inline-code">pop</span> respectivamente.
   </p>
-  <p>Para la implementacion, todo dependera del lenguaje de programacion y es probable que algun lenguaje tenga este
-    tipo de dato previamente programado, y solo tengamos que aprender a utilizarlo, sin embargo en general, podemos usar
+  <p>Para su implementación todo depende del lenguaje de programación y es probable que algún lenguaje tenga este
+    tipo de dato previamente programado y solo tengamos que aprender a utilizarlo, sin embargo, en general usaremos
     un array para operarlo como una pila.</p>
+  <p>Las operaciones de una pila siempre son efectuadas sobre <u>el tope de la pila</u> ó <u>la cabeza de la pila</u>.
+    Termino que se utiliza para referirse a el <i>final</i> de la lista.</p>
 
-  <p>En la siguiente sección revisamos las diferencias entre cada lenguaje de programación y como usar la pila.</p>
+  <p>En la siguiente sección revisamos las diferencias entre cada lenguaje de programación y su uso.</p>
   <div class="back-to-top">
     <a routerLink="." fragment="article-top">Regresar al inicio</a>
   </div>
@@ -49,8 +55,8 @@
     </fa-icon>). </p>
   <section class="code-container" [ngClass]="{'line-by-line': lineByLine}">
     <div class="code-section">
-      <span class="miercoles" (click)="toggleLineByLine()" *ngIf="!lineByLine">
-        <fa-icon [icon]="faPlusCircle" size="3x"></fa-icon>
+      <span class="line-x-line" (click)="toggleLineByLine()" *ngIf="!lineByLine">
+        <fa-icon [icon]="faPlusCircle" size="2x"></fa-icon>
       </span>
       <mat-tab-group mat-align-tabs="start" (focusChange)="myTabFocusChange($event)">
         <mat-tab label="javascript">
@@ -75,7 +81,7 @@
     </div>
     <div class="explain-section">
       <h3>Linea-X-Linea <span class="closelxl" (click)="toggleLineByLine()">
-          <fa-icon [icon]="faTimesCircle" style="margin-right: 10px;" size="2x"></fa-icon>
+          <fa-icon [icon]="faTimesCircle" style="margin-right: 10px;" size="lg"></fa-icon>
         </span></h3>
       <mat-card class="card-note">
         <fa-icon [icon]="faSearch" size="lg"></fa-icon>
@@ -84,23 +90,19 @@
       </mat-card>
       <ol (mouseover)="showTheThing($event)" (mouseout)="hideTheThing()" class="steps">
         <li id="step1">Definimos nuestra pila (stack).</li>
-        <li id="step2">Iteramos sobre la cadena que vamos a validar.</li>
-        <li id="step3">Si el paréntesis es de apertura, lo agregamos a la pila.</li>
-        <li id="step4">Si el paréntesis es de cierre, sacamos el ultimo paréntesis que insertamos en la pila.</li>
-        <ul *ngIf="showNotes()">
-          <li id="step4.1">Usando Python, tenemos que poner un bloque <span class="inline-block">try</span>, ya que no
-            podemos sacar un elemento de una pila vacía.</li>
-        </ul>
-        <li id="step5">Comparamos el paréntesis que sacamos de la pila contra el paréntesis que estamos procesando. Si
-          no es igual a su correspondiente paréntesis podemos regresar <span class="inline-code">false</span> y no es
-          necesario seguir validando.</li>
-        <li id="step6">Si hemos terminado de procesar nuestra cadena pero tenemos al menos un elemento en la pila,
-          significa que hay al menos un paréntesis de apertura que no tiene su correspondiente paréntesis de cierre.
-        </li>
-        <li id="step7">Si llegamos a este punto, podemos decir que todos los paréntesis de cierre tienen su
-          correspondiente paréntesis de apertura, y que están posicionados correctamente, por lo que regresamos <span
-            class="inline-code">true</span> </li>
+        <li id="step2">Insertamos el primer elemento a la pila, cuando la pila esta vacía.</li>
+        <li id="step3">Insertamos más elementos a la pila. Vemos como se van insertando al final / <u>tope de la
+            pila</u> </li>
+        <li id="step4">Cuando sacamos un elemento de la pila, obtenemos el último que fue insertado.</li>
+        <li id="step5">Sacamos mas elementos de la pila y seguimos obteniendo el último insertado previamente. Como si
+          estuviéramos navegando hacia <u>atrás</u> en el tiempo.</li>
       </ol>
+      <p *ngIf="showNotes()">
+        Algo a considerar con Python es que si tratamos de sacar un elemento de una pila vacía,
+        obtendremos un error, por lo que en general se debe usar un bloque <span class="inline-code">try
+          catch</span> para evitar dicha excepción (o bien hacer un conteo de los elementos restantes en la pila o algún
+        otro método para evitar hacer un <span class="inline-block">pop</span> a una lista vacía ).
+      </p>
     </div>
   </section>
   <div class="back-to-top">
@@ -108,18 +110,11 @@
   </div>
   <hr />
 
-  <h2 id="bigo">Análisis de big O</h2>
-  <p>Los factores que afectan el análisis de la big O en cuanto a <u>tiempo</u>, tenemos que analizar las siguientes
-    operaciones:</p>
-  <p>En relación al <u>espacio</u>, estamos usando una variable como pila para almacenar cada valor de nuestra cadena
-    original.</p>
-  <p>El peor escenario que podríamos tener es una cadena compuesta solamente por paréntesis de apertura, lo que nos
-    daría
-    una complejidad de <span class="inline-code">O(n)</span>.</p>
-  <p><u>Concluimos</u> el análisis de la big O para el problema de balanceo de paréntesis como:</p>
-  <p>Tiempo: <strong>O(n)</strong></p>
-  <p>Espacio: <strong>O(n)</strong></p>
-  <p>Donde <span class="inline-code">n</span> representa la longitud de la cadena en cuestión.</p>
+  <h2 id="bigo">Análisis Complejidad (big O)</h2>
+  <p>La pila es un tipo de dato abstracto muy usado en programación. El tiempo de lectura y escritura en cuestión de
+    complejidad es constante ya que todas las operaciones (inserción y obtención) son realizadas sobre el tope de la
+    pila; esto hace que la complejidad sea <b>constante: O(1)</b>.</p>
+  <p></p>
   <div class="back-to-top">
     <a routerLink="." fragment="article-top">Regresar al inicio</a>
   </div>
@@ -127,14 +122,17 @@
 
   <h2 id="conclusion">Conclusión</h2>
   <p>Gracias por leer este articulo!</p>
-  <p>Hemos revisado el algoritmo de balanceo de paréntesis en diversos lenguajes, espero te haya
-    ayudado. Deja tu comentario si has encontrado algún bug en el código o si conoces alguna otra manera de resolver
-    este problema.
+  <p>La pila es un tipo de dato abstracto que es muy recurrida cuando estamos resolviendo problemas de optimización.
+    <i>Generalmente</i> es muy sencilla de implementar y el tipo de dato <span class="inline-code">array</span> (o una
+    lista en Python) en los lenguajes de programación usualmente ya cuentan con métodos para usar el array como si fuera
+    una pila.
   </p>
+  <p>Este es el tipo de dato perfecto para resolver problemas de programación como el del <a
+      [routerLink]="['/blog','balanceo-de-parentesis']">balanceo de paréntesis</a>.
+  </p>
+  <!-- <p>Es común también, que las pilas sean vistas o implementadas como listas enlazadas simples.</p> -->
+  <p>Listo! ya conoces acerca de este tipo de dato abstracto que puedes usar cuando estés programando.</p>
   <hr />
 
-  <p>Tal vez te podrían interesar estos otros artículos:</p>
-  <ul>
-    <li *ngFor="let post of nextPosts"> <a [routerLink]="['/blog',post.url]">{{ post.name }}</a> </li>
-  </ul>
+  <app-read-next lang="es"></app-read-next>
 </article>

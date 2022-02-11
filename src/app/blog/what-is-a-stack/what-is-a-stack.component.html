@@ -1,0 +1,139 @@
+<article class="blog-layout">
+  <h1 id="article-top">What is a stack?</h1>
+  <app-writer></app-writer>
+
+  <mat-card class="card-note">
+    <fa-icon [icon]="faLanguage" style="margin-right: 10px;" size="lg"></fa-icon> Para la version en español <a
+      [routerLink]="['/blog','que-es-una-pila']">da click aquí.</a>
+  </mat-card>
+
+  <p>Welcome to this article where we will discuss about one of the most useful data structures when it comes to solve
+    programming exercises, specially when finding optimal solutions.</p>
+  <p>I would recommend you to read the article top-bottom, however if you are super curious about the implementation, or
+    the Big O analysis, you can skip to that section using the index below:</p>
+  <ul>
+    <li> <a routerLink="." fragment="definition">Definition</a></li>
+    <li> <a routerLink="." fragment="code">Code</a></li>
+    <li> <a routerLink="." fragment="bigo">Complexity analysis (big O)</a></li>
+    <li> <a routerLink="." fragment="conclusion">Wrapping up</a></li>
+  </ul>
+  <hr />
+
+  <h2 id="definition">Definition</h2>
+  <p>The Stack: is a data structure or also an abstract data type that iplements the <u>LIFO</u> principle.</p>
+  <p>LIFO stands for <i>Last Input First Output</i>; in simpler terms <b>The last element that was pushed is the first
+      element that comes out.</b></p>
+  <p>A simple analogy to grasp this concept: just think about a can of Pringles... when getting your hand in to get one
+    chip, you are <i>first</i> grabbing the <i>last</i> chip that was put into the can.</p>
+  <p>Other example: Think about the browser history on Firefox/Chrome, etc: every time you click a link and a new page
+    loads, the page you are leaving is inserted into the <b>stack</b>. So whenever you click on the back button, you are
+    actually retieving the last element you inserted... until you reach the <u>bottom</u> or <u>end</u> of the stack.
+  </p>
+  <p>Or the classical example... a stack of dished, from where you can only pick the dish from the top of the stack
+    (unless you would also want to pick up a broom).</p>
+  <p>Ok now, the basic operations you can perform on a stack are <u>inserting</u> a new element and <u>retrieving</u> an
+    element. These both basic operations are usually called <span class="inline-code">push</span> and <span
+      class="inline-code">pop</span> respectively.
+  </p>
+  <p>To implement these, it's all up to the programming language of your choice and it most likely the language already
+    have this abstract data type in it's features so you just have to learn how to use it. In general, an array or list
+    is used to implement and use a stack.</p>
+  <p>Push and pop operations are always executed over the <u>top of the stack</u>. This term is used to define the
+    <i>end</i> of the list.
+  </p>
+
+  <p>In the next section, we will review the differences of the stack implementation in a couple of programing languages
+    and the usage of the stack.</p>
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Back to top</a>
+  </div>
+  <hr />
+
+  <h2 id="code">Código</h2>
+  <p>Maximize the code window so you can toggle <b>line by line</b> (<fa-icon (click)="toggleLineByLine()"
+      [icon]="faPlusCircle">
+    </fa-icon>) mode.</p>
+  <section class="code-container" [ngClass]="{'line-by-line': lineByLine}">
+    <div class="code-section">
+      <span class="line-x-line" (click)="toggleLineByLine()" *ngIf="!lineByLine">
+        <fa-icon [icon]="faPlusCircle" size="2x"></fa-icon>
+      </span>
+      <mat-tab-group mat-align-tabs="start" (focusChange)="myTabFocusChange($event)">
+        <mat-tab label="javascript">
+          <ng-template mat-tab-label>
+            <fa-icon [icon]="faJsSquare" style="margin-right: 10px;" size="2x"></fa-icon> Javascript
+          </ng-template>
+          <app-code-block [code]="js_code"></app-code-block>
+        </mat-tab>
+        <mat-tab label="python">
+          <ng-template mat-tab-label>
+            <fa-icon [icon]="faPython" style="margin-right: 10px;" size="2x"></fa-icon> Python
+          </ng-template>
+          <app-code-block [code]="py_code"></app-code-block>
+        </mat-tab>
+        <mat-tab label="php">
+          <ng-template mat-tab-label>
+            <fa-icon [icon]="faPhp" style="margin-right: 10px;" size="2x"></fa-icon> PHP
+          </ng-template>
+          <app-code-block [code]="php_code"></app-code-block>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+    <div class="explain-section">
+      <h3>Linea-X-Linea <span class="closelxl" (click)="toggleLineByLine()">
+          <fa-icon [icon]="faTimesCircle" style="margin-right: 10px;" size="lg"></fa-icon>
+        </span></h3>
+      <mat-card class="card-note">
+        <fa-icon [icon]="faSearch" size="lg"></fa-icon>
+        Move the cursor over each numbered instructions from the pseudo-code so you can match up more easily the
+        pseudo-code and the real code.
+      </mat-card>
+      <ol (mouseover)="showTheThing($event)" (mouseout)="hideTheThing()" class="steps">
+        <li id="step1">Define the stack.</li>
+        <li id="step2">Inserting the first element into the stack, when stack is empty.</li>
+        <li id="step3">Pushing additional elements to the stack, we notice how they are being appended to the <u>top of
+            the stack</u>.</li>
+        <li id="step4">Popping elements out of the stack, we get the last element.</li>
+        <li id="step5">Keep popping, we still get the latest element that was inserted, kind of going <u>back</u> on the
+          history.</li>
+      </ol>
+      <p *ngIf="showNotes()">
+        A quick note when working with Python: If we try to <span class="inline-code">pop</span> an empty stack, we will
+        get an exception (it's just the way Python works). Usually we will wrap the <span class="inline-code">pop</span>
+        operation in a <span class="inline-code">try catch</span> block to avoid this exception. You could also check
+        for the length of the stack before attempting a <span class="inline-code">pop</span> operation.
+      </p>
+    </div>
+  </section>
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Back to top</a>
+  </div>
+  <hr />
+
+  <h2 id="bigo">Complexity analysis (big O)</h2>
+  <p>The stack is an abstract data type with tons of implementations in programming. In terms of time complexity while
+    reading and writing is <b>constant</b> <b>O(1)</b>. That is because all the operations are done in the <u>top of the
+      stack</u>; we don't have to reorder or move any other elements of the stack.</p>
+  <p></p>
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Back to top</a>
+  </div>
+  <hr />
+
+  <h2 id="conclusion">Wrapping up</h2>
+  <p>Thanks for reading through this article!</p>
+  <p>The stack is an abstract data type highly used in optimization problems.
+    <i>In general</i> is already implemented in most of programing languages. Frequently an <span
+      class="inline-code">array</span> (a list in Python) already have the corresponding <span
+      class="inline-code">push</span> and <span class="inline-code">pop</span> methods we need to work with stacks.
+  </p>
+  <p>This is the perfect data type to solve problems like: <a [routerLink]="['/blog','balanceo-de-parentesis']">balanced
+      brackets</a>.
+  </p>
+  <!-- <p>Es común también, que las pilas sean vistas o implementadas como listas enlazadas simples.</p> -->
+  <p>It's a wrap folks! Now you have under your belt the basics knowledge of a stack and you can and should start using
+    it in your code whenever you see fit.</p>
+  <hr />
+
+  <app-read-next></app-read-next>
+</article>

@@ -1,0 +1,21 @@
+.writter {
+  display: flex;
+
+  .profile-picture {
+    width: 40px;
+  }
+
+  div.image-section {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  div.writer-section p {
+    margin: 0.5rem 1rem;
+
+    &.text-gray {
+      color: gray;
+      font-size: 0.8rem;
+    }
+  }
+}

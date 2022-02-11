@@ -1,0 +1,17 @@
+<section class="writter">
+  <div class="image-section">
+    <img class="profile-picture" src="assets/profile.png" alt="profile picture" />
+  </div>
+  <div class="writer-section">
+    <p class="text-gray">
+      <span *ngIf="lang=='en'">By: </span>
+      <span *ngIf="lang=='es'">Por: </span>
+      <b>Alfredo Alonso</b>
+    </p>
+    <p class="text-gray">
+      <span *ngIf="lang=='en'">Last update: </span>
+      <span *ngIf="lang=='es'">Ultima actualización: </span>
+      <b>{{publishedDate}}</b>
+    </p>
+  </div>
+</section>

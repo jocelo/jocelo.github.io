@@ -6,9 +6,10 @@ import { MediaMatcher } from '@angular/cdk/layout';
 
 import { filter } from 'rxjs/operators';
 
-import { faSearch, faRulerHorizontal, faBatteryHalf, faLanguage, faTimesCircle, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
-import { faYoutube, faJsSquare, faPython, faPhp } from '@fortawesome/free-brands-svg-icons';
-import { MatTabChangeEvent } from '@angular/material/tabs';
+import { faSearch, faLanguage, faRulerHorizontal, faBatteryHalf } from '@fortawesome/free-solid-svg-icons';
+import { faYoutube } from '@fortawesome/free-brands-svg-icons';
+
+import * as code from './code.json';
 
 export interface PostData {
   name: string;
@@ -19,25 +20,11 @@ export interface Vegetable {
   name: string;
 }
 
-export interface RestrictElement {
-  nomenclatura: string;
-  desc: string;
-}
-
-export interface ICodeStep {
-  key: string;
-  codeLines: number[];
-}
-
 export interface IbigO {
   tiempo: string;
   desc: string;
 }
 
-export interface InextPost {
-  name: string;
-  url: string;
-}
 @Component({
   selector: 'app-balanced-brackets',
   templateUrl: './balanced-brackets.component.html',
@@ -48,18 +35,9 @@ export class BalancedBracketsComponent implements OnInit {
   faRulerHorizontal = faRulerHorizontal;
   faBatteryHalf = faBatteryHalf;
   faExclamationCircle = faYoutube;
-  faPlusCircle = faPlusCircle;
-  faTimesCircle = faTimesCircle;
   faLanguage = faLanguage;
-  faJsSquare = faJsSquare;
-  faPython = faPython;
-  faPhp = faPhp;
-  lineByLine: Boolean = false;
-  lblMode: string;
 
-  js_code: string;
-  py_code: string;
-  php_code: string;
+  the_code: any;
   sites: PostData[] = [{
     name: 'Leetcode',
     url: 'https://leetcode.com/problems/valid-parentheses/'
@@ -77,8 +55,8 @@ export class BalancedBracketsComponent implements OnInit {
   topics: string[] = ['arrays', 'pilas'];
 
   codeSteps: any;
-
   icons: any;
+  jsonData: any;
 
   displayedColumns: string[] = ['nomenclatura', 'desc'];
   displayedColumnsBigO: string[] = ['tiempo', 'desc'];
@@ -126,245 +104,26 @@ export class BalancedBracketsComponent implements OnInit {
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
   ngOnInit() {
-    this.lblMode = 'javascript';
-
-    this.js_code = `
-  function balanced(theString) {
-    const stack = [];
-    for (let par of theString) {
-      if (par == '(' || par == '{' || par == '[') {
-        stack.push(par);
-      }
-
-      if (par == ')') {
-        const parApertura = stack.pop();
-        if (parApertura != '(') {
-          return false;
-        }
-      }
-
-      if (par == '}') {
-        const parApertura = stack.pop();
-        if (parApertura != '{') {
-          return false;
-        }
-      }
-
-      if (par == ']') {
-        const parApertura = stack.pop();
-        if (parApertura != '[') {
-          return false;
-        }
-      }
-    }
-
-    if (stack.length > 0) {
-      return false;
-    }
-
-    return true;
-  }`;
-
-    this.py_code = `
-  def balanced(the_string):
-    stack = []
-
-    for par in the_string:
-      if par == '(' or par == '{' or par == '[':
-        stack.append(par)
-
-      if par == ')':
-        try:
-          parApertura = stack.pop()
-        except:
-          return False
-
-        if parApertura != '(':
-          return False
-
-      if par == '}':
-        try:
-          parApertura = stack.pop()
-        except:
-          return False
-
-        if parApertura != '{':
-          return False
-
-      if par == ']':
-        try:
-          parApertura = stack.pop()
-        except:
-          return False
-
-        if parApertura != '[':
-          return False
-
-    if len(stack) > 0:
-      return False
-
-    return True`;
-
-    this.php_code = `
-  function balanced($the_string) {
-    $stack = [];
-    $len = strlen($the_string);
-
-    for ($i=0 ; $i<$len ; $i++) {
-      $par = $the_string[$i];
-
-      if (in_array($par, ['(', '{', '['])) {
-        array_push($stack, $par);
-      }
-
-      if ($par == ')') {
-        $parOpen = array_pop($stack);
-        if ($parOpen != '(') {
-          return false;
-        }
-      }
-
-      if ($par == '}') {
-        $parOpen = array_pop($stack);
-        if ($parOpen != '{') {
-          return false;
-        }
-      }
-
-      if ($par == ']') {
-        $parOpen = array_pop($stack);
-        if ($parOpen != '[') {
-          return false;
-        }
-      }
-    }
-
-    if (count($stack) > 0) {
-      return false;
-    }
-
-    return true;
-  }`;
+    this.jsonData = code;
 
     this.icons = {
       'arrays': faRulerHorizontal,
       'pilas': faBatteryHalf
     };
 
+    this.the_code = {
+      js_code: this.jsonData.javascript.code.join('\n'),
+      py_code: this.jsonData.python.code.join('\n'),
+      php_code: this.jsonData.php.code.join('\n')
+    };
     this.codeSteps = {
-      'javascript': [{
-        key: 'step1',
-        codeLines: [3]
-      }, {
-        key: 'step2',
-        codeLines: [4, 29]
-      }, {
-        key: 'step3',
-        codeLines: [5, 6, 7]
-      }, {
-        key: 'step4',
-        codeLines: [9, 10, 14, 16, 17, 21, 23, 24, 28]
-      }, {
-        key: 'step5',
-        codeLines: [11, 12, 13, 17, 18, 19, 25, 26, 27]
-      }, {
-        key: 'step6',
-        codeLines: [31, 32, 33]
-      }, {
-        key: 'step7',
-        codeLines: [35]
-      }],
-      'python': [{
-        key: 'step1',
-        codeLines: [3]
-      }, {
-        key: 'step2',
-        codeLines: [5]
-      }, {
-        key: 'step3',
-        codeLines: [6, 7]
-      }, {
-        key: 'step4',
-        codeLines: [9, 11, 18, 20, 27, 29]
-      }, {
-        key: 'step4.1',
-        codeLines: [10, 11, 12, 13, 19, 20, 21, 22, 28, 29, 30, 31]
-      }, {
-        key: 'step5',
-        codeLines: [15, 16, 24, 25, 33, 34]
-      }, {
-        key: 'step6',
-        codeLines: [36, 37]
-      }, {
-        key: 'step7',
-        codeLines: [39]
-      }],
-      'php': [{
-        key: 'step1',
-        codeLines: [3]
-      }, {
-        key: 'step2',
-        codeLines: [6, 33]
-      }, {
-        key: 'step3',
-        codeLines: [9, 10, 11]
-      }, {
-        key: 'step4',
-        codeLines: [13, 14, 20, 21, 27, 28]
-      }, {
-        key: 'step5',
-        codeLines: [15, 16, 17, 22, 23, 24, 29, 30, 31]
-      }, {
-        key: 'step6',
-        codeLines: [35, 36, 37]
-      }, {
-        key: 'step7',
-        codeLines: [39]
-      }]
+      'javascript': this.jsonData.javascript.steps,
+      'python': this.jsonData.python.steps,
+      'php': this.jsonData.php.steps
     };
   }
 
   drop(event: CdkDragDrop<Vegetable[]>) {
     moveItemInArray(this.sites, event.previousIndex, event.currentIndex);
   }
-
-  public toggleLineByLine(): void {
-    this.lineByLine = !this.lineByLine;
-  }
-
-  public showNotes(): boolean {
-    if (this.lblMode === 'python') {
-      return true;
-    }
-    return false;
-  }
-
-  public showTheThing(event: MouseEvent): void {
-    const currentStep: string = event.target['id'];
-    if (!currentStep) {
-      return;
-    }
-    const codingSteps = this.codeSteps[this.lblMode];
-
-    codingSteps.forEach(step => {
-      if (step.key === currentStep) {
-        const selector = step.codeLines.map(line => `td[data-line-number='${line}']`).join();
-        const domElms = document.querySelectorAll(selector);
-        domElms.forEach(elm => {
-          elm.classList.add('hover-code-highlight');
-        });
-      }
-    });
-  }
-
-  public hideTheThing(): void {
-    document.querySelectorAll('td.hover-code-highlight').forEach(elm => {
-      elm.classList.remove('hover-code-highlight');
-    });
-  }
-
-  public myTabFocusChange(changeEvent: MatTabChangeEvent): void {
-    this.lblMode = changeEvent.tab.textLabel;
-  }
-
 }

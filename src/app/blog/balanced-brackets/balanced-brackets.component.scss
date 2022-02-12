@@ -36,6 +36,10 @@ span.inline-code {
   position: absolute;
 }
 
+table {
+  margin-bottom: 20px;
+}
+
 table.lg-table {
   width: 80%;
 }
@@ -67,58 +71,6 @@ td.mat-cell {
 .mat-card.card-note {
   margin: 15px 0;
   background-color: lightskyblue;
-}
-
-.code-section {
-  position: relative;
-}
-
-.code-section .miercoles {
-  position: absolute;
-  right: 15px;
-  top: 75px;
-  color: white;
-  z-index: 3;
-  cursor: pointer;
-}
-
-.explain-section {
-  display: none;
-  padding: 0 20px;
-}
-
-.code-container.line-by-line {
-  display: flex;
-  position: relative;
-  left: -250px;
-  margin: 10px;
-  width: calc(100% + 480px);
-  border-top: 3px solid lightsteelblue;
-  border-bottom: 3px solid lightsteelblue;
-}
-
-.code-container.line-by-line div {
-  flex: 1;
-}
-
-.line-by-line .explain-section {
-  display: block;
-  border-left: 3px solid lightsteelblue;
-}
-
-ol.steps li {
-  padding: 5px;
-  cursor: pointer;
-}
-
-ol.steps li:hover {
-  background-color: rgb(229, 255, 0);
-}
-
-.closelxl {
-  margin-top: -10px;
-  float: right;
-  cursor: pointer;
 }
 
 @media screen and (max-width: 600px) {

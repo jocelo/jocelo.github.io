@@ -50,61 +50,13 @@
   <hr />
 
   <h2 id="code">Código</h2>
-  <p>Maximiza la ventana del código para que actives el modo <b>linea por linea</b> (<fa-icon
-      (click)="toggleLineByLine()" [icon]="faPlusCircle">
-    </fa-icon>). </p>
-  <section class="code-container" [ngClass]="{'line-by-line': lineByLine}">
-    <div class="code-section">
-      <span class="line-x-line" (click)="toggleLineByLine()" *ngIf="!lineByLine">
-        <fa-icon [icon]="faPlusCircle" size="2x"></fa-icon>
-      </span>
-      <mat-tab-group mat-align-tabs="start" (focusChange)="myTabFocusChange($event)">
-        <mat-tab label="javascript">
-          <ng-template mat-tab-label>
-            <fa-icon [icon]="faJsSquare" style="margin-right: 10px;" size="2x"></fa-icon> Javascript
-          </ng-template>
-          <app-code-block [code]="js_code"></app-code-block>
-        </mat-tab>
-        <mat-tab label="python">
-          <ng-template mat-tab-label>
-            <fa-icon [icon]="faPython" style="margin-right: 10px;" size="2x"></fa-icon> Python
-          </ng-template>
-          <app-code-block [code]="py_code"></app-code-block>
-        </mat-tab>
-        <mat-tab label="php">
-          <ng-template mat-tab-label>
-            <fa-icon [icon]="faPhp" style="margin-right: 10px;" size="2x"></fa-icon> PHP
-          </ng-template>
-          <app-code-block [code]="php_code"></app-code-block>
-        </mat-tab>
-      </mat-tab-group>
-    </div>
-    <div class="explain-section">
-      <h3>Linea-X-Linea <span class="closelxl" (click)="toggleLineByLine()">
-          <fa-icon [icon]="faTimesCircle" style="margin-right: 10px;" size="lg"></fa-icon>
-        </span></h3>
-      <mat-card class="card-note">
-        <fa-icon [icon]="faSearch" size="lg"></fa-icon>
-        Mueve el cursor sobre cada instrucción de pseudo-código abajo para que puedas analizar
-        cada sección del algoritmo.
-      </mat-card>
-      <ol (mouseover)="showTheThing($event)" (mouseout)="hideTheThing()" class="steps">
-        <li id="step1">Definimos nuestra pila (stack).</li>
-        <li id="step2">Insertamos el primer elemento a la pila, cuando la pila esta vacía.</li>
-        <li id="step3">Insertamos más elementos a la pila. Vemos como se van insertando al final / <u>tope de la
-            pila</u> </li>
-        <li id="step4">Cuando sacamos un elemento de la pila, obtenemos el último que fue insertado.</li>
-        <li id="step5">Sacamos mas elementos de la pila y seguimos obteniendo el último insertado previamente. Como si
-          estuviéramos navegando hacia <u>atrás</u> en el tiempo.</li>
-      </ol>
-      <p *ngIf="showNotes()">
-        Algo a considerar con Python es que si tratamos de sacar un elemento de una pila vacía,
-        obtendremos un error, por lo que en general se debe usar un bloque <span class="inline-code">try
-          catch</span> para evitar dicha excepción (o bien hacer un conteo de los elementos restantes en la pila o algún
-        otro método para evitar hacer un <span class="inline-block">pop</span> a una lista vacía ).
-      </p>
-    </div>
-  </section>
+  <app-code-block 
+    language="es"
+    [code]="theCode" 
+    [codeSteps]="codeSteps"
+    [pseudoCode]="pseudoCode"
+    [pseudoNotes]="pseudoNotes">
+  </app-code-block>
   <div class="back-to-top">
     <a routerLink="." fragment="article-top">Regresar al inicio</a>
   </div>

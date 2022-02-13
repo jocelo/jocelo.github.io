@@ -13,9 +13,9 @@ import { MatTabChangeEvent } from '@angular/material/tabs';
 export class CodeBlockComponent implements OnInit {
   @Input() code: any;
   @Input() codeSteps: any;
-
-  @Input()
-  language = 'en';
+  @Input() pseudoCode: any;
+  @Input() pseudoNotes: any;
+  @Input() language = 'en';
 
   lineByLine: Boolean = false;
   lblMode: string;
@@ -32,6 +32,7 @@ export class CodeBlockComponent implements OnInit {
 
   ngOnInit() {
     this.lblMode = 'javascript';
+    console.log('do you have anu notes?', this.pseudoNotes);
   }
 
   public toggleLineByLine(): void {
@@ -46,7 +47,7 @@ export class CodeBlockComponent implements OnInit {
   }
 
   public showTheThing(event: MouseEvent): void {
-    const currentStep: string = event.target['id'];
+    const currentStep: string = event.currentTarget['id'];
     if (!currentStep) {
       return;
     }

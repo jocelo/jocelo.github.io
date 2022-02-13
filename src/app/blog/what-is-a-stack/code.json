@@ -1,0 +1,131 @@
+{
+  "pseudocode": [
+    {
+      "stepNo": "step1",
+      "desc": "Define the stack."
+    }, {
+      "stepNo": "step2",
+      "desc": "Inserting the first element into the stack, when stack is empty."
+    }, {
+      "stepNo": "step3",
+      "desc": "Pushing additional elements to the stack, we notice how they are being appended to the <u>top of the stack</u>."
+    }, {
+      "stepNo": "step4",
+      "desc": "Popping elements out of the stack, we get the last element."
+    }, {
+      "stepNo": "step5",
+      "desc": "Keep popping, we still get the latest element that was inserted, kind of going <u>back</u> on the history."
+    }
+  ],
+  "pseudonotes": {
+    "python": [
+      "A quick note when working with Python: If we try to <span class=\"inline-code\">pop</span> an empty stack, we will get an exception (it's just the way Python works). Usually we will wrap the <span class=\"inline-code\">pop</span> operation in a <span class=\"inline-code\">try catch</span> block to avoid this exception. You could also check for the length of the stack before attempting a <span class=\"inline-code\">pop</span> operation."
+    ]
+  },
+  "javascript": {
+    "code": [
+      "",
+      "  let pila = []; // []",
+      "",
+      "  pila.push(1); // [1]",
+      "  pila.push(2); // [1, 2]",
+      "  pila.push(3); // [1, 2, 3]",
+      "  pila.push(4); // [1, 2, 3, 4]",
+      "",
+      "  pila.pop(); // [1, 2, 3] => 4",
+      "  pila.pop(); // [1, 2] => 3",
+      "  pila.pop(); // [1] => 2",
+      "  pila.pop(); // [0] => 1",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [2]
+      }, {
+        "key": "step2",
+        "codeLines": [4]
+      }, {
+        "key": "step3",
+        "codeLines": [5, 6, 7]
+      }, {
+        "key": "step4",
+        "codeLines": [9]
+      }, {
+        "key": "step5",
+        "codeLines": [10, 11, 12]
+      }
+    ]
+  },
+  "python": {
+    "code": [
+      "",
+      "  stack = [] # []",
+      "",
+      "  stack.append(4) # [4]",
+      "  stack.append(3) # [4, 3]",
+      "  stack.append(2) # [4, 3, 2]",
+      "  stack.append(1) # [4, 3, 2, 1]",
+      "",
+      "  stack.pop() # [4, 3, 2] => 1",
+      "  stack.pop() # [4, 3] => 2",
+      "  stack.pop() # [4] => 3",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [2]
+      }, {
+        "key": "step2",
+        "codeLines": [4]
+      }, {
+        "key": "step3",
+        "codeLines": [5, 6, 7]
+      }, {
+        "key": "step4",
+        "codeLines": [9]
+      }, {
+        "key": "step5",
+        "codeLines": [10, 11]
+      }
+    ]
+  },
+  "php": {
+    "code": [
+      "",
+      "  $stack = []; // []",
+      "",
+      "  array_push($stack, 1); // [1]",
+      "  array_push($stack, 2); // [1, 2]",
+      "  array_push($stack, 3); // [1, 2, 3]",
+      "  array_push($stack, 5); // [1, 2, 3, 5]",
+      "  array_push($stack, 8); // [1, 2, 3, 5, 8]",
+      "",
+      "  $current_element = array_pop($stack); // [1, 2, 3, 5] => 8",
+      "  $current_element = array_pop($stack); // [1, 2, 3] => 5",
+      "  $current_element = array_pop($stack); // [1, 2] => 3",
+      "  $current_element = array_pop($stack); // [1] => 2",
+      "  $current_element = array_pop($stack); // [0] => 1",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [2]
+      }, {
+        "key": "step2",
+        "codeLines": [4]
+      }, {
+        "key": "step3",
+        "codeLines": [5, 6, 7, 8]
+      }, {
+        "key": "step4",
+        "codeLines": [10]
+      }, {
+        "key": "step5",
+        "codeLines": [11, 12, 13, 14]
+      }
+    ]
+  }
+}

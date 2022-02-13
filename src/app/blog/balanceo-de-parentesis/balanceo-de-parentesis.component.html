@@ -104,7 +104,15 @@
   <hr />
 
   <h2 id="code">Código</h2>
-  <p>Maximiza la ventana del código para que actives el modo <b>linea por linea</b> (<fa-icon
+
+  <app-code-block 
+    language="es"
+    [code]="the_code" 
+    [codeSteps]="codeSteps" 
+    [pseudoCode]="pseudoCode">
+  </app-code-block>
+
+  <!-- <p>Maximiza la ventana del código para que actives el modo <b>linea por linea</b> (<fa-icon
       (click)="toggleLineByLine()" [icon]="faPlusCircle">
     </fa-icon>) y analices el algoritmo paso a paso. </p>
   <section class="code-container" [ngClass]="{'line-by-line': lineByLine}">
@@ -162,7 +170,7 @@
             class="inline-code">true</span> </li>
       </ol>
     </div>
-  </section>
+  </section> -->
   <div class="back-to-top">
     <a routerLink="." fragment="article-top">Regresar al inicio</a>
   </div>

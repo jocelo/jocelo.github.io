@@ -37,7 +37,6 @@ export class BalancedBracketsComponent implements OnInit {
   faExclamationCircle = faYoutube;
   faLanguage = faLanguage;
 
-  the_code: any;
   sites: PostData[] = [{
     name: 'Leetcode',
     url: 'https://leetcode.com/problems/valid-parentheses/'
@@ -54,9 +53,11 @@ export class BalancedBracketsComponent implements OnInit {
 
   topics: string[] = ['arrays', 'pilas'];
 
-  codeSteps: any;
   icons: any;
+  the_code: any;
+  codeSteps: any;
   jsonData: any;
+  pseudoCode: any;
 
   displayedColumns: string[] = ['nomenclatura', 'desc'];
   displayedColumnsBigO: string[] = ['tiempo', 'desc'];
@@ -67,7 +68,7 @@ export class BalancedBracketsComponent implements OnInit {
   ];
 
   bigODataSource: IbigO[] = [{
-    tiempo: 'O(n)', desc: `Where: <br> <span class="inline-code">n = length of the string.</span> <br> Debemos leer todo el array de inicio a fin.`
+    tiempo: 'O(n)', desc: `Where: <br> <span class="inline-code">n = length of the string.</span> <br> We have to read the entire array.`
   }, {
     tiempo: 'O(1)', desc: `We are using a stack to store all the opening brackets; this Data Structure gives us a read/write constant access time.`
   }];
@@ -121,6 +122,7 @@ export class BalancedBracketsComponent implements OnInit {
       'python': this.jsonData.python.steps,
       'php': this.jsonData.php.steps
     };
+    this.pseudoCode = this.jsonData.pseudocode;
   }
 
   drop(event: CdkDragDrop<Vegetable[]>) {

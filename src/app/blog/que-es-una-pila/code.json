@@ -1,0 +1,130 @@
+{
+  "pseudocode": [
+    {
+      "stepNo": "step1",
+      "desc": "Definimos nuestra pila (stack)."
+    }, {
+      "stepNo": "step2",
+      "desc": "Insertamos el primer elemento a la pila, cuando la pila esta vacía."
+    }, {
+      "stepNo": "step3",
+      "desc": "Insertamos más elementos a la pila. Vemos como se van insertando al final / <u>tope de la pila</u> "
+    }, {
+      "stepNo": "step4",
+      "desc": "Cuando sacamos un elemento de la pila, obtenemos el último que fue insertado."
+    }, {
+      "stepNo": "step5",
+      "desc": "Sacamos mas elementos de la pila y seguimos obteniendo el último insertado previamente. Como si estuviéramos navegando hacia <u>atrás</u> en el tiempo."
+    }
+  ],
+  "pseudonotes": {
+    "python": ["Algo a considerar con Python es que si tratamos de sacar un elemento de una pila vacía, obtendremos un error, por lo que en general se debe usar un bloque <span class=\"inline-code\">try catch</span> para evitar dicha excepción (o bien hacer un conteo de los elementos restantes en la pila o algún otro método para evitar hacer un <span class=\"inline-block\">pop</span> a una lista vacía )."
+    ]
+  },
+  "javascript": {
+    "code": [
+      "",
+      "  let pila = []; // []",
+      "",
+      "  pila.push(1); // [1]",
+      "  pila.push(2); // [1, 2]",
+      "  pila.push(3); // [1, 2, 3]",
+      "  pila.push(4); // [1, 2, 3, 4]",
+      "",
+      "  pila.pop(); // [1, 2, 3] => 4",
+      "  pila.pop(); // [1, 2] => 3",
+      "  pila.pop(); // [1] => 2",
+      "  pila.pop(); // [0] => 1",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [2]
+      }, {
+        "key": "step2",
+        "codeLines": [4]
+      }, {
+        "key": "step3",
+        "codeLines": [5, 6, 7]
+      }, {
+        "key": "step4",
+        "codeLines": [9]
+      }, {
+        "key": "step5",
+        "codeLines": [10, 11, 12]
+      }
+    ]
+  },
+  "python": {
+    "code": [
+      "",
+      "  pila = [] # []",
+      "",
+      "  pila.append(4) # [4]",
+      "  pila.append(3) # [4, 3]",
+      "  pila.append(2) # [4, 3, 2]",
+      "  pila.append(1) # [4, 3, 2, 1]",
+      "",
+      "  pila.pop() # [4, 3, 2] => 1",
+      "  pila.pop() # [4, 3] => 2",
+      "  pila.pop() # [4] => 3",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [2]
+      }, {
+        "key": "step2",
+        "codeLines": [4]
+      }, {
+        "key": "step3",
+        "codeLines": [5, 6, 7]
+      }, {
+        "key": "step4",
+        "codeLines": [9]
+      }, {
+        "key": "step5",
+        "codeLines": [9, 10, 11]
+      }
+    ]
+  },
+  "php": {
+    "code": [
+      "",
+      "  $pila = []; // []",
+      "",
+      "  array_push($pila, 1); // [1]",
+      "  array_push($pila, 2); // [1, 2]",
+      "  array_push($pila, 3); // [1, 2, 3]",
+      "  array_push($pila, 5); // [1, 2, 3, 5]",
+      "  array_push($pila, 8); // [1, 2, 3, 5, 8]",
+      "",
+      "  $current_element = array_pop($pila); // [1, 2, 3, 5] => 8",
+      "  $current_element = array_pop($pila); // [1, 2, 3] => 5",
+      "  $current_element = array_pop($pila); // [1, 2] => 3",
+      "  $current_element = array_pop($pila); // [1] => 2",
+      "  $current_element = array_pop($pila); // [] => 1",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [2]
+      }, {
+        "key": "step2",
+        "codeLines": [4]
+      }, {
+        "key": "step3",
+        "codeLines": [5, 6, 7, 8]
+      }, {
+        "key": "step4",
+        "codeLines": [10]
+      }, {
+        "key": "step5",
+        "codeLines": [11, 12, 13, 14]
+      }
+    ]
+  }
+}

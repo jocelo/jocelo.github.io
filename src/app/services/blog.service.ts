@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 import datesJson from '../../assets/blog/article-dates.json';
 import readMoreJson from '../../assets/blog/article-read-more.json';
+import articlesJson from '../../assets/blog/article.json';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,7 @@ import readMoreJson from '../../assets/blog/article-read-more.json';
 export class BlogService {
   articleDates = datesJson;
   articlesRelated = readMoreJson;
+  articles = articlesJson;
 
   constructor() { }
 
@@ -38,5 +40,21 @@ export class BlogService {
     }
 
     return [];
+  }
+
+  public getArticleTopics(article: string): any {
+    if (article in this.articles) {
+      return this.articles[article];
+    }
+
+    return [];
+  }
+
+  public getArticlesFiltered(keyword: string): any {
+    const articles = Object.entries(this.articles).filter(article => article[1].topics.indexOf(keyword) > -1);
+    articles.forEach(article => {
+      article[1]['lastUpdate'] = this.getPostDate(article[0]);
+    });
+    return articles;
   }
 }

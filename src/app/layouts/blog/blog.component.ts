@@ -28,30 +28,30 @@ export class BlogComponent implements OnInit {
       img: 'dishes.png',
       title: 'What is a stack ?',
       desc: 'Brief introduction to the concept of a Stack. Heavily used when optimizing algorithms.',
-      publishedDate: this.service.getPostDate('what-is-a-stack'),
-      topics: ['algoritmos', 'pila', 'estructuras de datos']
+      publishedDate: this.service.getPostDate('what-is-a-stack')
     }, {
       url: 'que-es-una-pila',
       img: 'dishes.png',
       title: 'Que es una pila ?',
       desc: 'Breve introducción al concepto de pila en estructuras de datos para resolver algoritmos.',
-      publishedDate: this.service.getPostDate('que-es-una-pila'),
-      topics: ['algoritmos', 'pila', 'estructuras de datos']
+      publishedDate: this.service.getPostDate('que-es-una-pila')
     }, {
       url: 'balanced-brackets',
       img: 'blog_balanced_brackets.png',
       title: 'Balanced Brackets',
       desc: 'How to solve the balanced brackets algorithm.',
-      publishedDate: this.service.getPostDate('balanced-brackets'),
-      topics: ['algorithm', 'stack']
+      publishedDate: this.service.getPostDate('balanced-brackets')
     }, {
       url: 'balanceo-de-parentesis',
       img: 'blog_balanced_brackets.png',
       title: 'Balanceo de Parentesis',
       desc: 'Como resolver el problema del balanceo de paréntesis.',
-      publishedDate: this.service.getPostDate('balanceo-de-parentesis'),
-      topics: ['algoritmos', 'pila']
+      publishedDate: this.service.getPostDate('balanceo-de-parentesis')
     }];
+
+    this.posts.forEach(post=>{
+      post['topics'] = this.service.getArticleTopics(post['url']);
+    });
   }
 
   public openArticle(postURL: any): void {

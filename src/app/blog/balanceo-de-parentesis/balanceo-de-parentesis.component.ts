@@ -5,11 +5,12 @@ import { Router, Scroll } from '@angular/router';
 
 import { filter } from 'rxjs/operators';
 
-import { faSearch, faRulerHorizontal, faBatteryHalf, faLanguage } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faLanguage } from '@fortawesome/free-solid-svg-icons';
 import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 
 import * as code from './code.json';
+import { BlogService } from 'src/app/services/blog.service';
 
 export interface PostData {
   name: string;
@@ -37,8 +38,6 @@ export interface InextPost {
 })
 export class BalanceoDeParentesisComponent implements OnInit {
   faSearch = faSearch;
-  faRulerHorizontal = faRulerHorizontal;
-  faBatteryHalf = faBatteryHalf;
   faExclamationCircle = faYoutube;
   faLanguage = faLanguage;
 
@@ -56,9 +55,8 @@ export class BalanceoDeParentesisComponent implements OnInit {
     url: 'https://www.codechef.com/problems/RNT011'
   }];
 
-  icons: any;
   the_code: any;
-  topics: string[] = ['arrays', 'pilas'];
+  topics: string[];
   codeSteps: any;
   jsonData: any;
   pseudoCode: any;
@@ -83,223 +81,24 @@ export class BalanceoDeParentesisComponent implements OnInit {
   }];
 
   constructor(
-    router: Router,
-    viewportScroller: ViewportScroller
+    private router: Router,
+    private service: BlogService,
+    private viewportScroller: ViewportScroller
   ) {
-    viewportScroller.setOffset([0, 50]);
-    router.events.pipe(filter(e => e instanceof Scroll)).subscribe((e: Scroll) => {
+    this.viewportScroller.setOffset([0, 50]);
+    this.router.events.pipe(filter(e => e instanceof Scroll)).subscribe((e: Scroll) => {
+      console.log(e);
       if (e.anchor) {
-        // anchor navigation
-        /* setTimeout is the core line to solve the solution */
         setTimeout(() => {
-          viewportScroller.scrollToAnchor(e.anchor);
-        })
-      } else if (e.position) {
-        // backward navigation
-        viewportScroller.scrollToPosition(e.position);
+          this.viewportScroller.scrollToAnchor(e.anchor);
+        });
       } else {
-        // forward navigation
-        viewportScroller.scrollToPosition([0, 0]);
+        this.viewportScroller.scrollToPosition([0, 0]);
       }
     });
   }
 
   ngOnInit() {
-    this.icons = {
-      'arrays': faRulerHorizontal,
-      'pilas': faBatteryHalf
-    };
-
-  //   this.js_code = `
-  // function balanceo(theString) {
-  //   const pila = [];
-  //   for (let par of theString) {
-  //     if (par == '(' || par == '{' || par == '[') {
-  //       pila.push(par);
-  //     }
-
-  //     if (par == ')') {
-  //       const parApertura = pila.pop();
-  //       if (parApertura != '(') {
-  //         return false;
-  //       }
-  //     }
-
-  //     if (par == '}') {
-  //       const parApertura = pila.pop();
-  //       if (parApertura != '{') {
-  //         return false;
-  //       }
-  //     }
-
-  //     if (par == ']') {
-  //       const parApertura = pila.pop();
-  //       if (parApertura != '[') {
-  //         return false;
-  //       }
-  //     }
-  //   }
-
-  //   if (pila.length > 0) {
-  //     return false;
-  //   }
-
-  //   return true;
-  // }`;
-
-  //   this.py_code = `
-  // def balanceo(the_string):
-  //   pila = []
-
-  //   for par in the_string:
-  //     if par == '(' or par == '{' or par == '[':
-  //       pila.append(par)
-
-  //     if par == ')':
-  //       try:
-  //         parApertura = pila.pop()
-  //       except:
-  //         return False
-
-  //       if parApertura != '(':
-  //         return False
-
-  //     if par == '}':
-  //       try:
-  //         parApertura = pila.pop()
-  //       except:
-  //         return False
-
-  //       if parApertura != '{':
-  //         return False
-
-  //     if par == ']':
-  //       try:
-  //         parApertura = pila.pop()
-  //       except:
-  //         return False
-
-  //       if parApertura != '[':
-  //         return False
-
-  //   if len(pila) > 0:
-  //     return False
-
-  //   return True`;
-
-  //   this.php_code = `
-  // function balanced($the_string) {
-  //   $stack = [];
-  //   $len = strlen($the_string);
-
-  //   for ($i=0 ; $i<$len ; $i++) {
-  //     $par = $the_string[$i];
-
-  //     if (in_array($par, ['(', '{', '['])) {
-  //       array_push($stack, $par);
-  //     }
-
-  //     if ($par == ')') {
-  //       $parOpen = array_pop($stack);
-  //       if ($parOpen != '(') {
-  //         return false;
-  //       }
-  //     }
-
-  //     if ($par == '}') {
-  //       $parOpen = array_pop($stack);
-  //       if ($parOpen != '{') {
-  //         return false;
-  //       }
-  //     }
-
-  //     if ($par == ']') {
-  //       $parOpen = array_pop($stack);
-  //       if ($parOpen != '[') {
-  //         return false;
-  //       }
-  //     }
-  //   }
-
-  //   if (count($stack) > 0) {
-  //     return false;
-  //   }
-
-  //   return true;
-  // }`;
-
-    // this.codeSteps = {
-    //   'javascript': [{
-    //     key: 'step1',
-    //     codeLines: [3]
-    //   }, {
-    //     key: 'step2',
-    //     codeLines: [4, 29]
-    //   }, {
-    //     key: 'step3',
-    //     codeLines: [5, 6, 7]
-    //   }, {
-    //     key: 'step4',
-    //     codeLines: [9, 10, 14, 16, 17, 21, 23, 24, 28]
-    //   }, {
-    //     key: 'step5',
-    //     codeLines: [11, 12, 13, 17, 18, 19, 25, 26, 27]
-    //   }, {
-    //     key: 'step6',
-    //     codeLines: [31, 32, 33]
-    //   }, {
-    //     key: 'step7',
-    //     codeLines: [35]
-    //   }],
-    //   'python': [{
-    //     key: 'step1',
-    //     codeLines: [3]
-    //   }, {
-    //     key: 'step2',
-    //     codeLines: [5]
-    //   }, {
-    //     key: 'step3',
-    //     codeLines: [6, 7]
-    //   }, {
-    //     key: 'step4',
-    //     codeLines: [9, 11, 18, 20, 27, 29]
-    //   }, {
-    //     key: 'step4.1',
-    //     codeLines: [10, 11, 12, 13, 19, 20, 21, 22, 28, 29, 30, 31]
-    //   }, {
-    //     key: 'step5',
-    //     codeLines: [15, 16, 24, 25, 33, 34]
-    //   }, {
-    //     key: 'step6',
-    //     codeLines: [36, 37]
-    //   }, {
-    //     key: 'step7',
-    //     codeLines: [39]
-    //   }],
-    //   'php': [{
-    //     key: 'step1',
-    //     codeLines: [3]
-    //   }, {
-    //     key: 'step2',
-    //     codeLines: [6, 33]
-    //   }, {
-    //     key: 'step3',
-    //     codeLines: [9, 10, 11]
-    //   }, {
-    //     key: 'step4',
-    //     codeLines: [13, 14, 20, 21, 27, 28]
-    //   }, {
-    //     key: 'step5',
-    //     codeLines: [15, 16, 17, 22, 23, 24, 29, 30, 31]
-    //   }, {
-    //     key: 'step6',
-    //     codeLines: [35, 36, 37]
-    //   }, {
-    //     key: 'step7',
-    //     codeLines: [39]
-    //   }]
-    // };
-
     this.jsonData = code;
 
     this.the_code = {
@@ -313,50 +112,11 @@ export class BalanceoDeParentesisComponent implements OnInit {
       'php': this.jsonData.php.steps
     };
     this.pseudoCode = this.jsonData.pseudocode;
-    console.log(this.jsonData.pseudocode);
+
+    this.topics = this.service.getArticleTopics('balanceo-de-parentesis');
   }
 
   drop(event: CdkDragDrop<Vegetable[]>) {
     moveItemInArray(this.sites, event.previousIndex, event.currentIndex);
   }
-
-  // public toggleLineByLine(): void {
-  //   this.lineByLine = !this.lineByLine;
-  // }
-
-  // public showNotes(): boolean {
-  //   if (this.lblMode === 'python') {
-  //     return true;
-  //   }
-  //   return false;
-  // }
-
-  // public showTheThing(event: MouseEvent): void {
-  //   const currentStep: string = event.target['id'];
-  //   if (!currentStep) {
-  //     return;
-  //   }
-  //   const codingSteps = this.codeSteps[this.lblMode];
-
-  //   codingSteps.forEach(step => {
-  //     if (step.key === currentStep) {
-  //       const selector = step.codeLines.map(line => `td[data-line-number='${line}']`).join();
-  //       const domElms = document.querySelectorAll(selector);
-  //       domElms.forEach(elm => {
-  //         elm.classList.add('hover-code-highlight');
-  //       });
-  //     }
-  //   });
-  // }
-
-  // public hideTheThing(): void {
-  //   document.querySelectorAll('td.hover-code-highlight').forEach(elm => {
-  //     elm.classList.remove('hover-code-highlight');
-  //   });
-  // }
-
-  // public myTabFocusChange(changeEvent: MatTabChangeEvent): void {
-  //   this.lblMode = changeEvent.tab.textLabel;
-  // }
-
 }

@@ -71,12 +71,7 @@
   </mat-card>
   <p>Este problema tiene relación con los siguientes temas:</p>
   <section>
-    <mat-chip-list class="example-chip" cdkDropList cdkDropListOrientation="horizontal"
-      (cdkDropListDropped)="drop($event)">
-      <mat-chip class="example-box" color="primary" selected cdkDrag *ngFor="let topic of topics">
-        <fa-icon [icon]="icons[topic]" style="margin-right: 10px;"></fa-icon> {{topic}}
-      </mat-chip>
-    </mat-chip-list>
+    <app-chips [data]="topics" [blogLinks]="true"></app-chips>
   </section>
   <p>Vamos a usar un ciclo para leer nuestra cadena carácter por carácter y tendremos un par de decisiones que tomar
     de acuerdo a cada tipo de paréntesis. Lo primero que tenemos que definir es que tendremos principalmente dos grupos

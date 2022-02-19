@@ -43,7 +43,6 @@ export class HeaderComponent implements OnInit {
   }
 
   public formatTitle(title): string {
-    console.log(`the title: |${title}|`);
     if (!title || title === '/' || title === 'all') {
       return '';
     }

@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { ViewportScroller } from '@angular/common';
+
+import { filter } from 'rxjs/operators';
 
 import { faSearch, faLanguage, faTimesCircle, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { faJsSquare, faPython, faPhp } from '@fortawesome/free-brands-svg-icons';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 import { BlogService } from 'src/app/services/blog.service';
-import { Router } from '@angular/router';
+import { Router, Scroll } from '@angular/router';
 
 import * as code from './code.json';
 
@@ -19,11 +22,6 @@ export interface InextPost {
   styleUrls: ['./what-is-a-stack.component.scss']
 })
 export class WhatIsAStackComponent implements OnInit {
-  lineByLine: Boolean = false;
-  lblMode: string;
-  faJsSquare = faJsSquare;
-  faPython = faPython;
-  faPhp = faPhp;
   faLanguage = faLanguage;
   faTimesCircle = faTimesCircle;
   faPlusCircle = faPlusCircle;
@@ -38,8 +36,26 @@ export class WhatIsAStackComponent implements OnInit {
   nextPosts: InextPost[] = [];
   constructor(
     private service: BlogService,
-    private router: Router
-  ) { }
+    private router: Router,
+    viewportScroller: ViewportScroller
+  ) {
+    viewportScroller.setOffset([0, 50]);
+    router.events.pipe(filter(e => e instanceof Scroll)).subscribe((e: Scroll) => {
+      if (e.anchor) {
+        // anchor navigation
+        /* setTimeout is the core line to solve the solution */
+        setTimeout(() => {
+          viewportScroller.scrollToAnchor(e.anchor);
+        })
+      } else if (e.position) {
+        // backward navigation
+        viewportScroller.scrollToPosition(e.position);
+      } else {
+        // forward navigation
+        viewportScroller.scrollToPosition([0, 0]);
+      }
+    });
+  }
 
   ngOnInit(): void {
     // todo move steps and pseudocode to code.json

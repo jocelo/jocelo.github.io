@@ -29,21 +29,19 @@
     loads, the page you are leaving is inserted into the <b>stack</b>. So whenever you click on the back button, you are
     actually retrieving the last element you inserted... until you reach the <u>bottom</u> or <u>end</u> of the stack.
   </p>
-  <p>Or the classical example... a stack of dished, from where you can only pick the dish from the top of the stack
+  <p>Or the classical example... a stack of dishes, from where you can only pick the dish from the top of the stack
     (unless you would also want to pick up a broom).</p>
-  <p>Ok now, the basic operations you can perform on a stack are <u>inserting</u> a new element and <u>retrieving</u> an
-    element. These both basic operations are usually called <span class="inline-code">push</span> and <span
-      class="inline-code">pop</span> respectively.
+  <p>Ok now that we understand what is a stack, the basic operations you can perform on a stack are <u>inserting</u> a new element and <u>retrieving</u> one
+    element. These two basic operations are usually called <span class="inline-code">push</span> and <span class="inline-code">pop</span> respectively.
   </p>
-  <p>To implement these, it's all up to the programming language of your choice and it most likely the language already
-    have this abstract data type in it's features so you just have to learn how to use it. In general, an array or list
-    is used to implement and use a stack.</p>
-  <p>Push and pop operations are always executed over the <u>top of the stack</u>. This term is used to define the
+  <p>To implement these, it's all up to the programming language of your choice and its most likely the language already
+    has this abstract data type included and ready to be used in it's core features so you just have to learn how to use it. In general, an array or list
+    is used to implement a stack.</p>
+  <p>Push and pop operations are always executed on the <u>top of the stack</u>; This term is used to define the
     <i>end</i> of the list.
   </p>
 
-  <p>In the next section, we will review the differences of the stack implementation in a couple of programing languages
-    and the usage of the stack.</p>
+  <p>In the next section, we will review the implementation and usage of a stack in a couple of programing languages. You will find it's pretty similar.</p>
   <div class="back-to-top">
     <a routerLink="." fragment="article-top">Back to top</a>
   </div>
@@ -62,10 +60,9 @@
   <hr />
 
   <h2 id="bigo">Complexity analysis (big O)</h2>
-  <p>The stack is an abstract data type with tons of implementations in programming. In terms of time complexity while
-    reading and writing is <b>constant</b> <b>O(1)</b>. That is because all the operations are done in the <u>top of the
-      stack</u>; we don't have to reorder or move any other elements of the stack.</p>
-  <p></p>
+  <p>The stack is an abstract data type with tons of different use cases. In terms of time complexity while
+    reading and writing is <b>constant</b> or <b>O(1)</b>. That is because all the operations are done at the <u>top of the
+      stack</u>; we don't have to reorder or move any other elements of the stack while performing push and pop operations.</p>
   <div class="back-to-top">
     <a routerLink="." fragment="article-top">Back to top</a>
   </div>
@@ -76,14 +73,14 @@
   <p>The stack is an abstract data type highly used in optimization problems.
     <i>In general</i> is already implemented in most of programing languages. Frequently an <span
       class="inline-code">array</span> (a list in Python) already have the corresponding <span
-      class="inline-code">push</span> and <span class="inline-code">pop</span> methods we need to work with stacks.
+      class="inline-code">push</span> and <span class="inline-code">pop</span> methods we need to work with the stack.
   </p>
-  <p>This is the perfect data type to solve problems like: <a [routerLink]="['/blog','balanceo-de-parentesis']">balanced
+  <p>A stack is perfect data type to solve problems like: <a [routerLink]="['/blog','balanced-brackets']">balanced
       brackets</a>.
   </p>
   <!-- <p>Es común también, que las pilas sean vistas o implementadas como listas enlazadas simples.</p> -->
-  <p>It's a wrap folks! Now you have under your belt the basics knowledge of a stack and you can and should start using
-    it in your code whenever you see fit.</p>
+  <p>It's a wrap folks! Now you have the basic knowledge of a stack and you can and should start using
+    it in your code whenever you see it fit.</p>
   <hr />
 
   <app-read-next></app-read-next>

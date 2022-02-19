@@ -5,7 +5,7 @@
   <ul *ngIf="articles.length > 0">
     <li *ngFor="let article of articles">
       <a [routerLink]="['/blog', article[0]]">{{article[1].title}}</a> ( <img [src]="langImg(article[1].language)" width="15px">
-      English) - Last update: {{article[1].lastUpdate}} February 7, 2022
+      {{langLabel(article[1].language)}}) - Last update: {{article[1].lastUpdate}}
     </li>
   </ul>
   <hr />

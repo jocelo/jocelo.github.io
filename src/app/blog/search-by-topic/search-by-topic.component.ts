@@ -29,4 +29,12 @@ export class SearchByTopicComponent implements OnInit {
     }
   }
 
+  public langLabel(lang: string): string {
+    if (lang === 'es') {
+      return 'Español';
+    } else {
+      return 'English';
+    }
+  }
+
 }

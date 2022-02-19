@@ -32,7 +32,9 @@ export class ChipsComponent implements OnInit {
     this.icons = {
       'arrays': faRulerHorizontal,
       'stack': faBatteryHalf,
-      'algorithms': faFileCode
+      'pilas': faBatteryHalf,
+      'algorithms': faFileCode,
+      'algoritmos': faFileCode
     };
   }
 

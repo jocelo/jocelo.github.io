@@ -64,17 +64,12 @@
 
   <h2 id="solution">Solution</h2>
   <mat-card class="card-note">
-    <fa-icon [icon]="faExclamationCircle" style="margin-right: 10px;" size="lg"></fa-icon> A video solution exists for
-    this problem, head to my <a href="https://www.youtube.com/channel/UC547pgqomI0IcjOmltxQdAQ" target="_blank">      YouTube Channel</a> to watch it.
+    <fa-icon [icon]="faYoutube" style="margin-right: 10px;" size="lg"></fa-icon> A video solution exists for
+    this problem, head to my <a href="https://www.youtube.com/channel/UC547pgqomI0IcjOmltxQdAQ" target="_blank"> YouTube Channel</a> to watch it.
   </mat-card>
   <p>This algorithm has the following topics:</p>
   <section>
-    <mat-chip-list class="example-chip" cdkDropList cdkDropListOrientation="horizontal"
-      (cdkDropListDropped)="drop($event)">
-      <mat-chip class="example-box" color="primary" selected cdkDrag *ngFor="let topic of topics">
-        <fa-icon [icon]="icons[topic]" style="margin-right: 10px;"></fa-icon> {{topic}}
-      </mat-chip>
-    </mat-chip-list>
+    <app-chips [data]="topics" [blogLinks]="true"></app-chips>
   </section>
   <p>We are using a <span class="inline-code">for loop</span> to read the given string one character at a time and we
     will have to make some decisions according with the bracket it is. First thing is to define we will have two major

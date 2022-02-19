@@ -6,10 +6,11 @@ import { MediaMatcher } from '@angular/cdk/layout';
 
 import { filter } from 'rxjs/operators';
 
-import { faSearch, faLanguage, faRulerHorizontal, faBatteryHalf } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faLanguage } from '@fortawesome/free-solid-svg-icons';
 import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 import * as code from './code.json';
+import { BlogService } from 'src/app/services/blog.service';
 
 export interface PostData {
   name: string;
@@ -32,9 +33,7 @@ export interface IbigO {
 })
 export class BalancedBracketsComponent implements OnInit {
   faSearch = faSearch;
-  faRulerHorizontal = faRulerHorizontal;
-  faBatteryHalf = faBatteryHalf;
-  faExclamationCircle = faYoutube;
+  faYoutube = faYoutube;
   faLanguage = faLanguage;
 
   sites: PostData[] = [{
@@ -51,9 +50,8 @@ export class BalancedBracketsComponent implements OnInit {
     url: 'https://www.codechef.com/problems/RNT011'
   }];
 
-  topics: string[] = ['arrays', 'pilas'];
+  topics: string[];
 
-  icons: any;
   the_code: any;
   codeSteps: any;
   jsonData: any;
@@ -78,13 +76,14 @@ export class BalancedBracketsComponent implements OnInit {
   navbarStatus: boolean;
 
   constructor(
-    router: Router,
+    private router: Router,
+    private service: BlogService,
     private changeDetectorRef: ChangeDetectorRef,
     private media: MediaMatcher,
     viewportScroller: ViewportScroller
   ) {
     viewportScroller.setOffset([0, 50]);
-    router.events.pipe(filter(e => e instanceof Scroll)).subscribe((e: Scroll) => {
+    this.router.events.pipe(filter(e => e instanceof Scroll)).subscribe((e: Scroll) => {
       if (e.anchor) {
         // anchor navigation
         /* setTimeout is the core line to solve the solution */
@@ -107,11 +106,6 @@ export class BalancedBracketsComponent implements OnInit {
   ngOnInit() {
     this.jsonData = code;
 
-    this.icons = {
-      'arrays': faRulerHorizontal,
-      'pilas': faBatteryHalf
-    };
-
     this.the_code = {
       js_code: this.jsonData.javascript.code.join('\n'),
       py_code: this.jsonData.python.code.join('\n'),
@@ -123,9 +117,6 @@ export class BalancedBracketsComponent implements OnInit {
       'php': this.jsonData.php.steps
     };
     this.pseudoCode = this.jsonData.pseudocode;
-  }
-
-  drop(event: CdkDragDrop<Vegetable[]>) {
-    moveItemInArray(this.sites, event.previousIndex, event.currentIndex);
+    this.topics = this.service.getArticleTopics('balanced-brackets');
   }
 }

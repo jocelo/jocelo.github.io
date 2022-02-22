@@ -4,6 +4,7 @@ import { ViewportScroller } from '@angular/common';
 import { filter } from 'rxjs/operators';
 
 import { faSearch, faLanguage, faTimesCircle, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { faPython } from '@fortawesome/free-brands-svg-icons';
 import { BlogService } from 'src/app/services/blog.service';
 import { Router, Scroll } from '@angular/router';
 
@@ -23,6 +24,7 @@ export class QueEsUnaColaComponent implements OnInit {
   faTimesCircle = faTimesCircle;
   faPlusCircle = faPlusCircle;
   faSearch = faSearch;
+  faPython = faPython;
 
   theCode: any;
   codeSteps: any;

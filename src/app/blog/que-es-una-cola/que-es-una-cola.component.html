@@ -33,8 +33,7 @@
   <p>Para su implementación todo depende del lenguaje de programación y gran parte de los lenguajes tenga este
     tipo de dato previamente programado y solo tengamos que aprender a utilizarlo; dichos métodos son definidos como 
     parte de un array (o un Lista en Python).</p>
-  <p>Las operaciones de una cola siempre son efectuadas sobre <u>el inicio de la cola</u> ó <u>la cabeza de la cola</u>.
-    Termino que se utiliza para referirse a el <i>inicio</i> de la lista.</p>
+  <p>Las operaciones de una cola son efectuadas de manera diferente: las obtención se realiza sobre <u>el inicio de la cola</u> y la inserción sobre <u>el final de la cola</u>.</p>
 
   <p>En la siguiente sección revisamos las diferencias entre cada lenguaje de programación y su uso.</p>
   <div class="back-to-top">
@@ -65,7 +64,7 @@
     Por cierto, dicho método ( <span class="inline-code">peek</span> ) tiene una complejidad constante O(1), ya que solamente se esta 
     <b>leyendo</b> el elemento en el tope de la cola, lo cual no requiere recorrer ningún otro elemento de la misma.
     Este método (o alguna variante) para trabajar con colas existe en algunas implementaciones o clases incluidas en algunos lenguajes de programación.
-    Usando estas clases, ayudan a reducir la complejidad hasta que sea constante O(1). Por ejemplo, python (python2.7 y superiores) cuentan con un 
+    Usando estas clases, ayudan a reducir la complejidad hasta que sea constante O(1). Por ejemplo <fa-icon [icon]="faPython"></fa-icon> python (python2.7 y superiores) cuenta con un 
     objeto llamado <span class="inline-code">deque</span> (double-ended queue) que es parte del modulo collections; el cual ofrece aproximadamente
     el mismo comportamiento de complejidad constante O(1) en operaciones de inserción y obtención. Puedes leer mas acerca de este objecto en 
     la <a href="https://docs.python.org/2.7/library/collections.html#collections.deque" target="_blank"> documentacion oficial</a>.

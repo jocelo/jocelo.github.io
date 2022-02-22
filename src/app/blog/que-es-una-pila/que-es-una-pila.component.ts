@@ -36,22 +36,22 @@ export class QueEsUnaPilaComponent implements OnInit {
   constructor(
     private service: BlogService,
     private router: Router,
-    viewportScroller: ViewportScroller
+    private viewportScroller: ViewportScroller
   ) {
-    viewportScroller.setOffset([0, 50]);
+    this.viewportScroller.setOffset([0, 50]);
     router.events.pipe(filter(e => e instanceof Scroll)).subscribe((e: Scroll) => {
       if (e.anchor) {
         // anchor navigation
         /* setTimeout is the core line to solve the solution */
         setTimeout(() => {
-          viewportScroller.scrollToAnchor(e.anchor);
+          this.viewportScroller.scrollToAnchor(e.anchor);
         })
       } else if (e.position) {
         // backward navigation
-        viewportScroller.scrollToPosition(e.position);
+        this.viewportScroller.scrollToPosition(e.position);
       } else {
         // forward navigation
-        viewportScroller.scrollToPosition([0, 0]);
+        this.viewportScroller.scrollToPosition([0, 0]);
       }
     });
   }

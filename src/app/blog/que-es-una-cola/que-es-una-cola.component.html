@@ -27,8 +27,8 @@
     tortillas... La primera persona que llego es la primera en ser atendida cuando comienzan a pasar al cine o a 
     vender las tortillas.</p>
   <p>Las operaciones básicas que se pueden ejecutar en una pila son la <u>inserción</u> de un nuevo
-    elemento y la <u>obtención</u> de un elemento. Estas dos operaciones generalmente se les llama <span
-      class="inline-code">push</span> y <span class="inline-code">pop</span> respectivamente.
+    elemento y la <u>obtención</u> de un elemento. Estas dos operaciones <i>generalmente</i> se les llama <span
+      class="inline-code">push</span> y <span class="inline-code">shift</span> respectivamente.
   </p>
   <p>Para su implementación todo depende del lenguaje de programación y gran parte de los lenguajes tenga este
     tipo de dato previamente programado y solo tengamos que aprender a utilizarlo; dichos métodos son definidos como 
@@ -60,9 +60,9 @@
     <b>lectura</b> y <b>escritura</b> de O(n); donde <span class="inline-code">n</span> es el tamaño de la cola. Esta 
     complejidad esta basada en que cada vez que se saque o inserte un elemento de la cola, la operación se realiza sobre 
     el tope de la cola y  todos los elementos restantes tienen que <i>recorrerse</i> hacia la izquierda o derecha, respectivamente.</p>
-  <p><b>Nota:</b> El termino <i>lectura</i> en el párrafo anterior se refiere a la operación <span class="inline-code">pop</span>.
+  <p><b>Nota:</b> El termino <i>lectura</i> en el párrafo anterior se refiere a la operación <span class="inline-code">shift</span>.
     El termino no debe confundirse con algún otro método u operación de lectura ( <span class="inline-code">peek</span> por ejemplo ).
-    Por cierto, dicho método ( <span class="inline-code">seek</span> ) tiene una complejidad constante O(1), ya que solamente se esta 
+    Por cierto, dicho método ( <span class="inline-code">peek</span> ) tiene una complejidad constante O(1), ya que solamente se esta 
     <b>leyendo</b> el elemento en el tope de la cola, lo cual no requiere recorrer ningún otro elemento de la misma.
     Este método (o alguna variante) para trabajar con colas existe en algunas implementaciones o clases incluidas en algunos lenguajes de programación.
     Usando estas clases, ayudan a reducir la complejidad hasta que sea constante O(1). Por ejemplo, python (python2.7 y superiores) cuentan con un 

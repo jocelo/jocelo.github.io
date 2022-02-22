@@ -18,7 +18,7 @@
     }
   ],
   "pseudonotes": {
-    "python": ["Algo a considerar con Python es que si tratamos de sacar un elemento de una cola vacía obtendremos un error, por lo que en general se debe usar un bloque <span class=\"inline-code\">try catch</span> para evitar dicha excepción (o bien hacer un conteo de los elementos restantes en la cola o algún otro método para evitar hacer <span class=\"inline-block\">pop</span> a una lista vacía )."
+    "python": ["Algo a considerar con Python es que si tratamos de sacar un elemento de una cola vacía obtendremos un error, por lo que en general se debe usar un bloque <span class=\"inline-code\">try catch</span> para evitar dicha excepción (o bien hacer un conteo de los elementos restantes en la cola o algún otro método para evitar hacer <span class=\"inline-block\">shift</span> a una lista vacía )."
     ]
   },
   "javascript": {
@@ -66,9 +66,9 @@
       "  cola.append(2) # [4, 3, 2]",
       "  cola.append(1) # [4, 3, 2, 1]",
       "",
-      "  cola.pop() # [4, 3, 2] => 1",
-      "  cola.pop() # [4, 3] => 2",
-      "  cola.pop() # [4] => 3",
+      "  cola.pop(0) # [3, 2, 1] => 4",
+      "  cola.pop(0) # [2, 1] => 3",
+      "  cola.pop(0) # [1] => 2",
       "", ""
     ],
     "steps": [
@@ -95,10 +95,10 @@
       "",
       "  cola = [] # []",
       "",
-      "  cola.append(4) # [4]",
-      "  cola.append(3) # [4, 3]",
-      "  cola.append(2) # [4, 3, 2]",
-      "  cola.append(1) # [4, 3, 2, 1]",
+      "  cola.append(1) # [1]",
+      "  cola.append(2) # [4, 3]",
+      "  cola.append(3) # [4, 3, 2]",
+      "  cola.append() # [4, 3, 2, 1]",
       "",
       "  cola.pop() # [4, 3, 2] => 1",
       "  cola.pop() # [4, 3] => 2",
@@ -135,11 +135,11 @@
       "  array_push($cola, 5); // [1, 2, 3, 5]",
       "  array_push($cola, 8); // [1, 2, 3, 5, 8]",
       "",
-      "  $current_element = array_pop($cola); // [1, 2, 3, 5] => 8",
-      "  $current_element = array_pop($cola); // [1, 2, 3] => 5",
-      "  $current_element = array_pop($cola); // [1, 2] => 3",
-      "  $current_element = array_pop($cola); // [1] => 2",
-      "  $current_element = array_pop($cola); // [] => 1",
+      "  $current_element = array_shift($cola); // [2, 3, 5, 8] => 1",
+      "  $current_element = array_shift($cola); // [3, 5, 8] => 2",
+      "  $current_element = array_shift($cola); // [5, 8] => 3",
+      "  $current_element = array_shift($cola); // [5] => 5",
+      "  $current_element = array_shift($cola); // [] => 8",
       "", ""
     ],
     "steps": [

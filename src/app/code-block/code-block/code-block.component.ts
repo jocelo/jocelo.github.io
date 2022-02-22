@@ -32,7 +32,6 @@ export class CodeBlockComponent implements OnInit {
 
   ngOnInit() {
     this.lblMode = 'javascript';
-    console.log('do you have anu notes?', this.pseudoNotes);
   }
 
   public toggleLineByLine(): void {

@@ -13,18 +13,46 @@
         <fa-icon [icon]="faPlusCircle" size="3x"></fa-icon>
       </span>
       <mat-tab-group mat-align-tabs="start" (focusChange)="myTabFocusChange($event)">
+        
+        <!-- Javascript -->
         <mat-tab label="javascript">
           <ng-template mat-tab-label>
             <fa-icon [icon]="faJsSquare" style="margin-right: 10px;" size="2x"></fa-icon> Javascript
           </ng-template>
           <pre><code [highlight]="code.js_code" [lineNumbers]="true"></code></pre>
         </mat-tab>
-        <mat-tab label="python">
-          <ng-template mat-tab-label>
-            <fa-icon [icon]="faPython" style="margin-right: 10px;" size="2x"></fa-icon> Python
-          </ng-template>
-          <pre><code [highlight]="code.py_code" [lineNumbers]="true"></code></pre>
-        </mat-tab>
+
+        <!-- Python -->
+        <ng-template [ngIf]="code['py_code']">
+          <mat-tab *ngIf="code['py_code']" label="python">
+            <ng-template mat-tab-label>
+              <fa-icon [icon]="faPython" style="margin-right: 10px;" size="2x"></fa-icon> Python
+            </ng-template>
+            <pre><code [highlight]="code.py_code" [lineNumbers]="true"></code></pre>
+          </mat-tab>
+        </ng-template>
+
+        <!-- Python 2 -->
+        <ng-template [ngIf]="code['py2_code']">
+          <mat-tab label="python2">
+            <ng-template mat-tab-label>
+              <fa-icon [icon]="faPython" style="margin-right: 10px;" size="2x"></fa-icon> Python
+            </ng-template>
+            <pre><code [highlight]="code.py2_code" [lineNumbers]="true"></code></pre>
+          </mat-tab>
+        </ng-template>
+
+        <!-- Python 3 -->
+        <ng-template [ngIf]="code['py3_code']">
+          <mat-tab *ngIf="code['py3_code']" label="python3">
+            <ng-template mat-tab-label>
+              <fa-icon [icon]="faPython" style="margin-right: 10px;" size="2x"></fa-icon> Python
+            </ng-template>
+            <pre><code [highlight]="code.py3_code" [lineNumbers]="true"></code></pre>
+          </mat-tab>
+        </ng-template>
+        
+        <!-- PHP  -->
         <mat-tab label="php">
           <ng-template mat-tab-label>
             <fa-icon [icon]="faPhp" style="margin-right: 10px;" size="2x"></fa-icon> PHP

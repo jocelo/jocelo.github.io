@@ -29,6 +29,7 @@ span.inline-code {
 }
 
 .code-container.line-by-line {
+  background: #FFFFFF;
   display: flex;
   position: relative;
   left: -250px;
@@ -36,6 +37,17 @@ span.inline-code {
   width: calc(100% + 480px);
   border-top: 3px solid lightsteelblue;
   border-bottom: 3px solid lightsteelblue;
+}
+
+.bg-shadow {
+  content: " ";
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .code-container.line-by-line div {

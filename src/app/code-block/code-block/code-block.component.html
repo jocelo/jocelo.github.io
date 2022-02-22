@@ -1,4 +1,5 @@
 <section class="code-container">
+  <div class="bg-shadow" (click)="toggleLineByLine()" *ngIf="lineByLine"></div>
   <p *ngIf="language=='en'">Maximize the code window so you can toggle <b>line by line</b> (<fa-icon
       (click)="toggleLineByLine()" [icon]="faPlusCircle">
     </fa-icon>) mode. It might help you grasp the ideas behind the algorithm.

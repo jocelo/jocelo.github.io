@@ -2,3 +2,147 @@ article {
   margin: 0 250px;
   padding-bottom: 80px;
 }
+
+.back-to-top {
+  text-align: right;
+}
+
+hr {
+  margin: 30px 100px;
+}
+
+ul li {
+  margin: 5px 0;
+}
+
+span.inline-code {
+  background-color: lightgray;
+  padding: 5px 8px;
+  font-family: monospace;
+  border-radius: 5px;
+}
+
+.code-highlight {
+  background: rgba(255,0,0,0.5);
+  top: -1px;
+  left: -6px;
+  width: 500px;
+  height: 120%;
+  z-index: 40;
+  position: absolute;
+}
+
+table {
+  margin-bottom: 20px;
+}
+
+table.lg-table {
+  width: 90%;
+}
+
+table.sm-table {
+  width: 20%;
+}
+
+table.align-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+td.mat-cell {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.mat-column-nomenclatura, .mat-column-tiempo {
+  border-right: 1px solid #999;
+  padding-right: 24px;
+  text-align: left;
+}
+
+.mat-column-desc {
+  padding-left: 24px;
+}
+
+.mat-card.card-note {
+  margin: 15px 0;
+  background-color: lightskyblue;
+}
+
+.code-section {
+  position: relative;
+  
+  .line-x-line {
+    position: absolute;
+    right: 15px;
+    top: 75px;
+    color: white;
+    z-index: 3;
+    cursor: pointer;
+  }
+  
+  .line-x-line:hover {
+    color: yellow;
+  }
+}
+
+.explain-section {
+  display: none;
+  padding: 0 20px;
+}
+
+.code-container.line-by-line {
+  display: flex;
+  position: relative;
+  left: -250px;
+  margin: 10px;
+  width: calc(100% + 480px);
+  border-top: 3px solid lightsteelblue;
+  border-bottom: 3px solid lightsteelblue;
+}
+
+.code-container.line-by-line div {
+  flex: 1;
+}
+
+.line-by-line .explain-section {
+  display: block;
+  border-left: 3px solid lightsteelblue;
+}
+
+ol.steps li {
+  padding: 5px;
+  cursor: pointer;
+}
+
+ol.steps li:hover {
+  background-color: rgb(229, 255, 0);
+}
+
+.closelxl {
+  margin-top: -10px;
+  float: right;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  article {
+    margin: 0 10px;
+    padding-bottom: 80px;
+  }
+
+  table.lg-table {
+    width: 100%;
+  }
+  
+  table.sm-table {
+    width: 100%;
+  }
+
+  .code-container.line-by-line {
+    flex-direction: column;
+    left: 0px;
+    margin: 0px;
+    width: 100%;
+  }
+}

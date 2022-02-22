@@ -1,0 +1,164 @@
+{
+  "pseudocode": [
+    {
+      "stepNo": "step1",
+      "desc": "Definimos nuestra cola (queue)."
+    }, {
+      "stepNo": "step2",
+      "desc": "Insertamos el primer elemento a la cola, cuando esta vacía."
+    }, {
+      "stepNo": "step3",
+      "desc": "Insertamos más elementos a la cola. Vemos como se van insertando al inicio / <u>tope de la pila</u> "
+    }, {
+      "stepNo": "step4",
+      "desc": "Cuando sacamos un elemento de la cola, obtenemos el primero que fue insertado."
+    }, {
+      "stepNo": "step5",
+      "desc": "Sacamos mas elementos de la cola y seguimos obteniendo elementos de los primeros que fueron insertados."
+    }
+  ],
+  "pseudonotes": {
+    "python": ["Algo a considerar con Python es que si tratamos de sacar un elemento de una cola vacía obtendremos un error, por lo que en general se debe usar un bloque <span class=\"inline-code\">try catch</span> para evitar dicha excepción (o bien hacer un conteo de los elementos restantes en la cola o algún otro método para evitar hacer <span class=\"inline-block\">pop</span> a una lista vacía )."
+    ]
+  },
+  "javascript": {
+    "code": [
+      "",
+      "  let cola = []; // []",
+      "",
+      "  cola.push(1); // [1]",
+      "  cola.push(2); // [1, 2]",
+      "  cola.push(3); // [1, 2, 3]",
+      "  cola.push(4); // [1, 2, 3, 4]",
+      "",
+      "  cola.shift(); // [2, 3, 4] => 1",
+      "  cola.shift(); // [3, 4] => 2",
+      "  cola.shift(); // [4] => 3",
+      "  cola.shift(); // [] => 4",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [2]
+      }, {
+        "key": "step2",
+        "codeLines": [4]
+      }, {
+        "key": "step3",
+        "codeLines": [5, 6, 7]
+      }, {
+        "key": "step4",
+        "codeLines": [9]
+      }, {
+        "key": "step5",
+        "codeLines": [10, 11, 12]
+      }
+    ]
+  },
+  "python": {
+    "code": [
+      "",
+      "  cola = [] # []",
+      "",
+      "  cola.append(4) # [4]",
+      "  cola.append(3) # [4, 3]",
+      "  cola.append(2) # [4, 3, 2]",
+      "  cola.append(1) # [4, 3, 2, 1]",
+      "",
+      "  cola.pop() # [4, 3, 2] => 1",
+      "  cola.pop() # [4, 3] => 2",
+      "  cola.pop() # [4] => 3",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [2]
+      }, {
+        "key": "step2",
+        "codeLines": [4]
+      }, {
+        "key": "step3",
+        "codeLines": [5, 6, 7]
+      }, {
+        "key": "step4",
+        "codeLines": [9]
+      }, {
+        "key": "step5",
+        "codeLines": [9, 10, 11]
+      }
+    ]
+  },
+  "python3": {
+    "code": [
+      "",
+      "  cola = [] # []",
+      "",
+      "  cola.append(4) # [4]",
+      "  cola.append(3) # [4, 3]",
+      "  cola.append(2) # [4, 3, 2]",
+      "  cola.append(1) # [4, 3, 2, 1]",
+      "",
+      "  cola.pop() # [4, 3, 2] => 1",
+      "  cola.pop() # [4, 3] => 2",
+      "  cola.pop() # [4] => 3",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [2]
+      }, {
+        "key": "step2",
+        "codeLines": [4]
+      }, {
+        "key": "step3",
+        "codeLines": [5, 6, 7]
+      }, {
+        "key": "step4",
+        "codeLines": [9]
+      }, {
+        "key": "step5",
+        "codeLines": [9, 10, 11]
+      }
+    ]
+  },
+  "php": {
+    "code": [
+      "",
+      "  $cola = []; // []",
+      "",
+      "  array_push($cola, 1); // [1]",
+      "  array_push($cola, 2); // [1, 2]",
+      "  array_push($cola, 3); // [1, 2, 3]",
+      "  array_push($cola, 5); // [1, 2, 3, 5]",
+      "  array_push($cola, 8); // [1, 2, 3, 5, 8]",
+      "",
+      "  $current_element = array_pop($cola); // [1, 2, 3, 5] => 8",
+      "  $current_element = array_pop($cola); // [1, 2, 3] => 5",
+      "  $current_element = array_pop($cola); // [1, 2] => 3",
+      "  $current_element = array_pop($cola); // [1] => 2",
+      "  $current_element = array_pop($cola); // [] => 1",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [2]
+      }, {
+        "key": "step2",
+        "codeLines": [4]
+      }, {
+        "key": "step3",
+        "codeLines": [5, 6, 7, 8]
+      }, {
+        "key": "step4",
+        "codeLines": [10]
+      }, {
+        "key": "step5",
+        "codeLines": [11, 12, 13, 14]
+      }
+    ]
+  }
+}

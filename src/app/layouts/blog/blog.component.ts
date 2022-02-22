@@ -24,6 +24,18 @@ export class BlogComponent implements OnInit {
   ngOnInit() {
     this.invalidSearchToken = false;
     this.posts = [{
+      url: 'what-is-a-queue',
+      img: 'queue.png',
+      title: 'What is a queue ?',
+      desc: 'Brief introduction to the concept of a Queue. Heavily used when optimizing algorithms. Also briefly discussed a more optimal implementation.',
+      publishedDate: this.service.getPostDate('what-is-a-queue')
+    }, {
+      url: 'que-es-una-cola',
+      img: 'queue.png',
+      title: 'Que es una cola ?',
+      desc: 'Breve introducción al concepto de colas en estructuras de datos para resolver algoritmos. Incluye una breve discusión acerca de una implementación mas optima',
+      publishedDate: this.service.getPostDate('que-es-una-cola')
+    }, {
       url: 'what-is-a-stack',
       img: 'dishes.png',
       title: 'What is a stack ?',

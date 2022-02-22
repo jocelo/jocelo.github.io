@@ -1,8 +1,96 @@
 <article class="blog-layout">
-  <h1 id="article-top">What is a Queue?</h1>
+  <h1 id="article-top">What is a queue?</h1>
   <app-writer></app-writer>
 
-  <p>Work in progress... please come back later.</p>
+  <mat-card class="card-note">
+    <fa-icon [icon]="faLanguage" style="margin-right: 10px;" size="lg"></fa-icon> Para la version en español <a
+      [routerLink]="['/blog','que-es-una-cola']">da click aqui.</a>
+  </mat-card>
+
+  <p>Welcome to this article where we will briefly discuss about one of the most used data structures when you are 
+    working on algorithms or solving optimization problems: such data structures is called a <b>queue</b>.</p>
+  <p>You will want to read this article top to bottom, but in case you are really excited to see the code or the bigO 
+    analysis you can jump to such section using the index below:</p>
+  <ul>
+    <li> <a routerLink="." fragment="definition">Definition</a></li>
+    <li> <a routerLink="." fragment="code">Code</a></li>
+    <li> <a routerLink="." fragment="bigo">Complexity analysis (big O)</a></li>
+    <li> <a routerLink="." fragment="conclusion">Wrapping up</a></li>
+  </ul>
+  <hr />
+
+  <h2 id="definition">Definition</h2>
+  <p>The queue is a data structure, even more specific, is an abstract data type that implements the <u>FIFO</u> principle.</p>
+  <p>FIFO stands for <i>First Input First Output</i>; in other words, <b>the first element that is inserted is the first 
+    element that gets out.</b></p>
+  <p>A quick analogy that helps with understanding this concept is: Imagine the line of people outside the movie
+    theater... The first person that got into the line is the first person that gets inside the theater. Given
+    that everybody is respectful.</p>
+  <p>Basic operations that you can perform on a queue are pretty similar as those you can do on a stack: <u>insert</u> of
+    a new element/data and the <u>retrieve</u> of an element/data. These two operations are <i>usually</i> called <span
+      class="inline-code">push</span> and <span class="inline-code">shift</span> respectively.</p>
+  <p>We said usually, because they might be called different in another programming language, but the idea
+    is the same.
+  </p>
+  <p>To implement this data type, as usual, it depends on the programming language of our choice, and it must likely that
+    you will have these operations already part of the methods available to from the base code, so you just
+    have to learn how to use them. These methods are part of the <span class="inline-code">array</span> object (or a list on python).</p>
+  <p>The operations you perform on a queue are in the different <u>ends</u> of the queue: retrieving is performed at <u>the beginning of the queue</u> and insertion is made at <u>the bottom of the queue</u>.</p>
+
+  <p>Next section we will see some code, and review the differences between programming languages.</p>
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Back to top</a>
+  </div>
+  <hr />
+
+  <h2 id="code">Code</h2>
+  <app-code-block 
+    [code]="theCode" 
+    [codeSteps]="codeSteps"
+    [pseudoCode]="pseudoCode"
+    [pseudoNotes]="pseudoNotes">
+  </app-code-block>
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Back to top</a>
+  </div>
+  <hr />
+
+  <h2 id="bigo">Complexity analysis (big O)</h2>
+  <p>The queue is an abstract data type with tons of uses in coding. On it's basic implementation, the complexity for  <b>read</b> and <b>write</b> 
+    is of linear time O(n); where <span class="inline-code">n</span> is the size of the queue. We get this time complexity because whenever we
+    insert or retrieve an element from the queue, we neeed to shift all the remainder elements from the list. This is, we need to shift all elements
+    to the right when inserting a new element, and shift all elements to the left, when retrieving an element.</p>
+  <p><b>Note:</b> The term <i>read</i> used above, is used in context of the <span class="inline-code">shift</span> operation.
+    This usage of the term <i>read</i> must not be confused with other read operations executed in the queue ( <span class="inline-code">peek</span> is the most 
+    common term for actually reading the top of the queue... just read, not extracting a value ).
+    Speaking of which, the <span class="inline-code">peek</span> operation has a constant time complexity O(1) because we are only <u>reading</u> the element,
+    we do not have to shift the position of any elements.
+    There's another way to work with queues that help us reduce the time complexity, this discussion was left out of this article to reduce the complexity,
+    however there are some programing languages that have some modules/objects that are part of the code base and let us work with queues in a more
+    efficient way.
+    One example is <fa-icon [icon]="faPython"></fa-icon> python (python2.7 and above). Python has an object called <span class="inline-code">deque</span> (double-ended queue) 
+    that is part of the collections module; this one offers a constant time complexity O(1) in insert and retrieve operations. You can read more about this object
+    in the <a href="https://docs.python.org/2.7/library/collections.html#collections.deque" target="_blank">official documentation</a>.
+  </p>
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Back to top</a>
+  </div>
+  <hr />
+
+  <h2 id="conclusion">Wrapping up</h2>
+  <p>Thanks for reading this article!</p>
+  <p>The queue ( and her relative <a [routerLink]="['/blog/','que-es-una-pila']">the stack</a> ) is an abstract data type
+    highly used in optimization problems and when solving algorithms. <i>In general</i> is pretty simple to implement
+    and the <span class="inline-code">array</span> data type (or list on python) already have the <span class="inline-code">push</span>
+    and <span class="inline-code">shift</span> methods we need to work with the list as a queue.
+  </p>
+  <p>As seen before, some programming languages allow us to create an object that is already levering the functionality of a queue and 
+    provide us with a more optimal way of working with such abstract data type.
+  </p>
+  <p>Or even... you can implement a queue on your own! It's a fun project that will help in your understanding of this and other
+    data structures and it will also help you understand the importance of code optimization.</p>
+  <p>It's a wrap ladies and gents! Now you have under your belt the basic knowledge about this data structure/abstract data type. Remember about it next time you need to work with arrays. It might help you to solve some of your problems.</p>
+  <hr />
 
   <app-read-next></app-read-next>
 </article>

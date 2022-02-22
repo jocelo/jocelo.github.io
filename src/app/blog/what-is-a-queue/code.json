@@ -1,0 +1,164 @@
+{
+  "pseudocode": [
+    {
+      "stepNo": "step1",
+      "desc": "Define the array to behave like a queue."
+    }, {
+      "stepNo": "step2",
+      "desc": "Insert the first element."
+    }, {
+      "stepNo": "step3",
+      "desc": "Insert more elements to the queue, We observe the new elements are being appended at the bottom of the stack."
+    }, {
+      "stepNo": "step4",
+      "desc": "When we 'pop' an element from the queue, we get the first one that was inserted."
+    }, {
+      "stepNo": "step5",
+      "desc": "We keep 'poping' elements out, and we get them the same order they were inserted."
+    }
+  ],
+  "pseudonotes": {
+    "python": ["A quick note when working with Python: If we try to <span class=\"inline-code\">shift</span> an empty queue, we will get an exception (it's just the way Python works). Usually we will wrap the <span class=\"inline-code\">pop</span> operation in a <span class=\"inline-code\">try catch</span> block to avoid this exception. You could also check for the length of the queue before attempting a <span class=\"inline-code\">pop</span> operation. Check the time complexity analysis for a brief discussion on what other alternatives you have."
+    ]
+  },
+  "javascript": {
+    "code": [
+      "",
+      "  let queue = []; // []",
+      "",
+      "  queue.push(1); // [1]",
+      "  queue.push(2); // [1, 2]",
+      "  queue.push(3); // [1, 2, 3]",
+      "  queue.push(4); // [1, 2, 3, 4]",
+      "",
+      "  queue.shift(); // [2, 3, 4] => 1",
+      "  queue.shift(); // [3, 4] => 2",
+      "  queue.shift(); // [4] => 3",
+      "  queue.shift(); // [] => 4",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [2]
+      }, {
+        "key": "step2",
+        "codeLines": [4]
+      }, {
+        "key": "step3",
+        "codeLines": [5, 6, 7]
+      }, {
+        "key": "step4",
+        "codeLines": [9]
+      }, {
+        "key": "step5",
+        "codeLines": [10, 11, 12]
+      }
+    ]
+  },
+  "python": {
+    "code": [
+      "",
+      "  queue = [] # []",
+      "",
+      "  queue.append(4) # [4]",
+      "  queue.append(3) # [4, 3]",
+      "  queue.append(2) # [4, 3, 2]",
+      "  queue.append(1) # [4, 3, 2, 1]",
+      "",
+      "  queue.pop(0) # [3, 2, 1] => 4",
+      "  queue.pop(0) # [2, 1] => 3",
+      "  queue.pop(0) # [1] => 2",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [2]
+      }, {
+        "key": "step2",
+        "codeLines": [4]
+      }, {
+        "key": "step3",
+        "codeLines": [5, 6, 7]
+      }, {
+        "key": "step4",
+        "codeLines": [9]
+      }, {
+        "key": "step5",
+        "codeLines": [9, 10, 11]
+      }
+    ]
+  },
+  "python3": {
+    "code": [
+      "",
+      "  cola = [] # []",
+      "",
+      "  cola.append(1) # [1]",
+      "  cola.append(2) # [4, 3]",
+      "  cola.append(3) # [4, 3, 2]",
+      "  cola.append() # [4, 3, 2, 1]",
+      "",
+      "  cola.pop() # [4, 3, 2] => 1",
+      "  cola.pop() # [4, 3] => 2",
+      "  cola.pop() # [4] => 3",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [2]
+      }, {
+        "key": "step2",
+        "codeLines": [4]
+      }, {
+        "key": "step3",
+        "codeLines": [5, 6, 7]
+      }, {
+        "key": "step4",
+        "codeLines": [9]
+      }, {
+        "key": "step5",
+        "codeLines": [9, 10, 11]
+      }
+    ]
+  },
+  "php": {
+    "code": [
+      "",
+      "  $queue = []; // []",
+      "",
+      "  array_push($queue, 1); // [1]",
+      "  array_push($queue, 2); // [1, 2]",
+      "  array_push($queue, 3); // [1, 2, 3]",
+      "  array_push($queue, 5); // [1, 2, 3, 5]",
+      "  array_push($queue, 8); // [1, 2, 3, 5, 8]",
+      "",
+      "  $current_element = array_shift($queue); // [2, 3, 5, 8] => 1",
+      "  $current_element = array_shift($queue); // [3, 5, 8] => 2",
+      "  $current_element = array_shift($queue); // [5, 8] => 3",
+      "  $current_element = array_shift($queue); // [5] => 5",
+      "  $current_element = array_shift($queue); // [] => 8",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [2]
+      }, {
+        "key": "step2",
+        "codeLines": [4]
+      }, {
+        "key": "step3",
+        "codeLines": [5, 6, 7, 8]
+      }, {
+        "key": "step4",
+        "codeLines": [10]
+      }, {
+        "key": "step5",
+        "codeLines": [11, 12, 13, 14]
+      }
+    ]
+  }
+}

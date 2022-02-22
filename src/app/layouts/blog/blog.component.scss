@@ -72,7 +72,20 @@ input.search-input {
     color: red;
 }
 
+.mobile-picture-section {
+    text-align: center;
+    display: none;
+
+    & img {
+        width: 50%;
+    }
+}
+
 @media screen and (max-width: 600px) {
+    .mobile-picture-section {
+        display: block;
+    }
+
     .blog-body {
         margin: 0 20px;
     }
@@ -90,4 +103,6 @@ input.search-input {
     .post-body {
         padding: 10px;
     }
+
+    
 }

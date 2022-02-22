@@ -16,6 +16,9 @@
           </div>
           <div class="post-container">
             <h2 (click)="openArticle(post.url)">{{post.title}}</h2>
+            <div class="mobile-picture-section">
+              <img src="assets/{{post.img}}">
+            </div>
             <p class="post-body">{{post.desc}}</p>
             <p class="published-date">Last Update: <i>{{post.publishedDate}}</i> </p>
           </div>

@@ -1,0 +1,43 @@
+article {
+  margin: 0 250px;
+  padding-bottom: 80px;
+}
+
+.video-section {
+  text-align: center;
+
+  video {
+    width: 50%;
+  }
+}
+
+hr {
+  margin: 30px 100px;
+}
+
+ul li, ol li {
+  margin: 5px 0;
+}
+
+.mat-card.card-note {
+  margin: 15px 0;
+  background-color: lightskyblue;
+}
+
+span.inline-code {
+  background-color: lightgray;
+  padding: 5px 8px;
+  font-family: monospace;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 600px) {
+  article {
+    margin: 0 10px;
+    padding-bottom: 80px;
+  }
+
+  .video-section video {
+    width: 100%;
+  }
+}

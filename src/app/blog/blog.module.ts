@@ -24,6 +24,7 @@ import { UrlsConPalabrasClaveComponent } from './urls-con-palabras-clave/urls-co
 import { WhatIsAStackComponent } from './what-is-a-stack/what-is-a-stack.component';
 import { QueEsUnaColaComponent } from './que-es-una-cola/que-es-una-cola.component';
 import { WhatIsAQueueComponent } from './what-is-a-queue/what-is-a-queue.component';
+import { VscodeFormatOnSaveComponent } from './vscode-format-on-save/vscode-format-on-save.component';
 
 const blogRoutes: Routes = [
   { path: 'blog/', redirectTo: '/', pathMatch: 'full' },
@@ -36,6 +37,7 @@ const blogRoutes: Routes = [
   { path: 'blog/what-is-a-stack', component: WhatIsAStackComponent },
   { path: 'blog/que-es-una-cola', component: QueEsUnaColaComponent },
   { path: 'blog/what-is-a-queue', component: WhatIsAQueueComponent },
+  { path: 'blog/format-on-save-vscode', component: VscodeFormatOnSaveComponent },
 ];
 
 @NgModule({
@@ -52,7 +54,8 @@ const blogRoutes: Routes = [
     ReadNextComponent,
     WhatIsAStackComponent,
     QueEsUnaColaComponent,
-    WhatIsAQueueComponent
+    WhatIsAQueueComponent,
+    VscodeFormatOnSaveComponent
   ],
   imports: [
     CommonModule,

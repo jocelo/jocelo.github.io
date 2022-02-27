@@ -1,0 +1,102 @@
+<article class="blog-layout">
+  <h1>Formatting source files with VSCode</h1>
+  <app-writer lang="es"></app-writer>
+
+  <mat-card class="card-note">
+    <fa-icon [icon]="faLaptopCode" size="lg"></fa-icon>
+    <span> The following was tested using <a href="https://code.visualstudio.com/">VSCode</a>
+      version 1.64.1.</span>
+  </mat-card>
+
+  <p>Do you know about the super useful "Format on Save" settings on VSCode? With it, you can automatically apply the
+    default formats and prettifiers that come with VSCode as soon as you save a file.</p>
+  <p>It's a pretty handy tool that used correctly, can save you a bunch of time. It's like wearing the same outfit
+    everyday for work... you can worry about more important things and leave the mundane things to others.
+  </p>
+  <p>To enable it, you just have to:</p>
+
+  <ol>
+    <li>Click on <i>Preferences</i> > <i>Settings</i></li>
+    <li>Type in the search bar "formatonsave" and click the checkmark</li>
+  </ol>
+  <p>And viola! from this moment on, whenever you work on a file and save it, you will get the swift hand of VSCode
+    massaging your code to make it look pretty!!</p>
+
+  <section class="video-section">
+    <video controls preload="none" autoplay="false" poster="https://s3.amazonaws.com/aws.jocelo.dev/formatonsave.jpg">
+      <source src="https://s3.amazonaws.com/aws.jocelo.dev/formatonsave_720.mp4" muted="true" type="video/mp4">
+      <p>Your browser doesn't support HTML5 video. Here is
+        a <a href="https://s3.amazonaws.com/aws.jocelo.dev/formatonsave_720.mp4">link to the video</a> instead.</p>
+    </video>
+  </section>
+  <p>But wait, there's more...</p>
+  <hr>
+
+  <h2>VSCode Default Formatters</h2>
+  <p>By default, VSCode have installed formatters for many programming languages. If you want to take a look at all the
+    default formatters and support that VScode has, you can go click on extensions, on the left menu, click the filter
+    icon on the top of the screen (next to EXTENSIONS) and type "language".</p>
+
+  <p>For some languages you can edit some of the settings directly on the settings screen. Just open the settings screen
+    (same way we did above) and scroll down to the extension options, expand it and search for whatever file settings
+    you want to configure.</p>
+
+  <p>i.e. You can edit HTML formatting options to include a new line before the end of file; define column width after
+    line break (default to 120 characters); enable/disable documentation of HTML tags while hovering over a tag; and
+    more cool stuff!</p>
+
+  <section class="video-section">
+    <video controls width="50%" preload="none" autoplay="false"
+      poster="https://s3.amazonaws.com/aws.jocelo.dev/codesettings.jpg">
+      <source src="https://s3.amazonaws.com/aws.jocelo.dev/codesettings_720.mp4" muted="true" type="video/mp4">
+      <p>Your browser doesn't support HTML5 video. Here is
+        a <a href="https://s3.amazonaws.com/aws.jocelo.dev/codesettings_720.mp4">link to the video</a> instead.</p>
+    </video>
+  </section>
+  <hr>
+
+  <h2>Exclude files from autoFormat</h2>
+
+  <p>Ok now we are cruising at full speed formatting our files on save but... suddenly you noticed that your JSON files
+    are also being formatted. Maybe you do not want to format JSON files (in one of my projects, this was a curse rather
+    than a blessing) or another type of file. You can exclude files from the reach of the magic wand of VSCode.
+    You just have to disable the auto format for that specific file, follow this steps: </p>
+  <ol>
+    <li>Open command pallete:
+      <ul>
+        <li><b>mac:</b> <i>Cmd + Shift + P</i></li>
+        <li><b>linux:</b> <i>Ctrl + Shift + P</i></li>
+        <li><b>win:</b> <i>Ctrl + Shift + P</i></li>
+      </ul>
+    </li>
+    <li>Type "configure language specific settings" > select (or search) JSON file type > press enter.
+      <p>With this the <span class="inline-code">settings.json</span> file will open on edit mode, and the cursor will
+        be located inside a section with a tag for the language you selected.</p>
+    </li>
+    <li>You just have to disable the formatonsave option, adding this:
+      <span class="inline-code">"editor.formatOnSave": false</span>
+    </li>
+  </ol>
+
+  <section class="video-section">
+    <video controls width="50%" preload="none" autoplay="false"
+      poster="https://s3.amazonaws.com/aws.jocelo.dev/jsonsettings.jpg">
+      <source src="https://s3.amazonaws.com/aws.jocelo.dev/jsonsettings_720.mp4" muted="true" type="video/mp4">
+      <p>Your browser doesn't support HTML5 video. Here is
+        a <a href="https://s3.amazonaws.com/aws.jocelo.dev/jsonsettings_720.mp4">link to the video</a> instead.</p>
+    </video>
+  </section>
+
+  <p>That's all you have to do... now JSON files will not be auto-formatted when saved.</p>
+
+  <p>Of course you can do things the opposite way... disable <span class="inline-code">formatonsave</span> by default,
+    and just enable it for whatever file you want, following the steps above for each file language as needed.</p>
+
+  <p>Hope you find this useful (for sure I did) and keep in the loop for more productivity tips, tricks and
+    hacks articles for VSCode.
+  </p>
+  <hr>
+
+  <app-read-next></app-read-next>
+
+</article>

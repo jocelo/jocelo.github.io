@@ -2,7 +2,7 @@
   <div class="image-section">
     <img class="profile-picture" src="assets/profile.png" alt="profile picture" />
   </div>
-  <div class="writer-section">
+  <div class="writer-section" [ngClass]="{'draft': publishedDate == 'not published'}">
     <p class="text-gray">
       <span *ngIf="lang=='en'">By: </span>
       <span *ngIf="lang=='es'">Por: </span>

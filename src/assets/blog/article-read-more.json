@@ -66,5 +66,11 @@
       "title": "What is a Queue",
       "url": "what-is-a-queue"
     }
+  ],
+  "format-on-save-vscode": [
+    {
+      "title": "Balanced brackets",
+      "url": "balanced-brackets"
+    }
   ]
 }

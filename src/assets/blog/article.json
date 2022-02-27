@@ -34,5 +34,10 @@
     "language": "en",
     "title": "Balanced Brackets",
     "topics": ["algorithms", "stack", "arrays"]
+  },
+  "format-on-save-vscode": {
+    "language": "en",
+    "title": "VSCode format on save",
+    "topics": ["vscode", "productivity", "tips"]
   }
 }

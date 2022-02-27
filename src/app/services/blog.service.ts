@@ -43,8 +43,10 @@ export class BlogService {
   }
 
   public getArticleTopics(article: string): any {
-    if (article in this.articles) {
-      return this.articles[article].topics;
+    const article_url = this.stripPostFromURL(article);
+
+    if (article_url in this.articles) {
+      return this.articles[article_url].topics;
     }
 
     return [];

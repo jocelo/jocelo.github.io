@@ -24,6 +24,12 @@ export class BlogComponent implements OnInit {
   ngOnInit() {
     this.invalidSearchToken = false;
     this.posts = [{
+      url: 'format-on-save-vscode',
+      img: 'vscode_tip.png',
+      title: 'VSCode tip: Format files on Save.',
+      desc: 'Auto-format your files every time you save will help you increase your productivity. You can forget about those small things when coding and focus on your main logic.',
+      publishedDate: this.service.getPostDate('format-on-save-vscode')
+    }, {
       url: 'what-is-a-queue',
       img: 'queue.png',
       title: 'What is a queue ?',
@@ -61,7 +67,7 @@ export class BlogComponent implements OnInit {
       publishedDate: this.service.getPostDate('balanceo-de-parentesis')
     }];
 
-    this.posts.forEach(post=>{
+    this.posts.forEach(post => {
       post['topics'] = this.service.getArticleTopics(post['url']);
     });
   }

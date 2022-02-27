@@ -2,5 +2,35 @@
   <h1>URLS con palabras clave</h1>
   <app-writer lang="es"></app-writer>
 
+  <mat-card class="card-note">
+    <fa-icon [icon]="faLanguage" style="margin-right: 10px;" size="lg"></fa-icon> Para la version en español <a
+      [routerLink]="['/blog','que-es-una-cola']">da click aquí.</a>
+  </mat-card>
+
+  <p>Bienvenido a este articulo!.</p>
+  <p>Cuantas veces a la semana necesitas entrar a sitios en los que solo quieres cambiar solo una parte de la URL y
+    terminas siempre entrando a una liga que tu navegador <i>recuerda</i> y solo cambias la ultima parte de la URL?</p>
+  <p>Como ejemplo, varios botones:</p>
+  <h3>Github</h3>
+
+  <h3>Jira</h3>
+
+  <h3>Linkedin</h3>
+  <p>https://www.linkedin.com/in/%s</p>
+
+  <h3>MDN Web Docs</h3>
+  <p>https://developer.mozilla.org/en-US/search?q=%s</p>
+
+  <h3>Can I Use?</h3>
+  <p>https://caniuse.com/?search=%s</p>
+
+
+  <h3>Duckduckgo</h3>
+  <p>Aun cuando hay otras formas de definir tu motor de busqueda por default, puedes crear un bookmark para este fin.
+    Como ejemplo, vamos a guardar un bookmark para realizar busquedas en DuckDuckGo</p>
+  <p>https://duckduckgo.com/?q=testubg</p>
+
+  <p>Como vez, este pequeño hack de productividad es bastante útil y solo tienes que encontrar la mejor forma de
+    utilizarlo para poder obtener su maximo beneficio. En lo personal me sirve bastante</p>
   <app-read-next lang="es"></app-read-next>
 </article>

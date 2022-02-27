@@ -4,4 +4,9 @@
   <ul>
     <li *ngFor="let post of nextPosts"> <a [routerLink]="['/blog',post.url]">{{ post.title }}</a> </li>
   </ul>
+  <p>Topics:</p>
+  <section class="tags">
+    <span *ngFor="let topic of topics">
+      <a [routerLink]="['/blog/topic',topic]">{{topic}}</a></span>
+  </section>
 </section>

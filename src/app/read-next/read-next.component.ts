@@ -12,6 +12,7 @@ export class ReadNextComponent implements OnInit {
   lang = 'en';
 
   nextPosts: any;
+  topics: any;
 
   constructor(
     private service: BlogService,
@@ -20,6 +21,8 @@ export class ReadNextComponent implements OnInit {
 
   ngOnInit(): void {
     this.nextPosts = this.service.getRelatedArticles(this.router.url);
+    this.topics = this.service.getArticleTopics(this.router.url);
+    console.log(this.topics);
   }
 
 }

@@ -14,7 +14,7 @@
       "desc": "When we 'pop' an element from the queue, we get the first one that was inserted."
     }, {
       "stepNo": "step5",
-      "desc": "We keep 'poping' elements out, and we get them the same order they were inserted."
+      "desc": "We keep 'popping' elements out, and we get them the same order they were inserted."
     }
   ],
   "pseudonotes": {

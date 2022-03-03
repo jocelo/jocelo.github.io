@@ -36,7 +36,7 @@ export class PortfolioComponent implements OnInit {
       desc: "Website created for sharing resources, videos and games of math topics. Built for helping elementary and mid school students and supporting teachers.",
       img: 'portfolio.png',
       techStack: [
-        { name: 'angular 8', icon: 'angular' },
+        { name: 'angular 12', icon: 'angular' },
         { name: 'typescript', icon: 'code' },
         { name: 'material design', icon: 'materialDesign' },
         { name: 'nodeJs', icon: 'node' },
@@ -79,7 +79,7 @@ export class PortfolioComponent implements OnInit {
     }, {
       title: 'Snake Game',
       link: 'https://jocelo.github.io/snake-game/',
-      desc: 'Simple vanilla JS game that replicates the funcionality of the snake game where you move a snake over a board with the only objective to eat apples.',
+      desc: 'Simple vanilla JS game that replicates the functionality of the snake game where you move a snake over a board with the only objective to eat apples.',
       img: 'snake.png',
       techStack: [
         { name: 'javascript', icon: 'js' },

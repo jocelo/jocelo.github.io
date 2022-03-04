@@ -11,6 +11,7 @@ import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 import * as code from './code.json';
 import { BlogService } from 'src/app/services/blog.service';
+import { Title } from '@angular/platform-browser';
 
 export interface PostData {
   name: string;
@@ -35,6 +36,7 @@ export class BalancedBracketsComponent implements OnInit {
   faSearch = faSearch;
   faYoutube = faYoutube;
   faLanguage = faLanguage;
+  postTitle = 'Balanced Brackets';
 
   sites: PostData[] = [{
     name: 'Leetcode',
@@ -78,6 +80,7 @@ export class BalancedBracketsComponent implements OnInit {
   constructor(
     private router: Router,
     private service: BlogService,
+    private titleService: Title,
     private changeDetectorRef: ChangeDetectorRef,
     private media: MediaMatcher,
     viewportScroller: ViewportScroller
@@ -104,6 +107,7 @@ export class BalancedBracketsComponent implements OnInit {
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
   ngOnInit() {
+    this.titleService.setTitle(this.postTitle + ' - Alfredo blog');
     this.jsonData = code;
 
     this.the_code = {

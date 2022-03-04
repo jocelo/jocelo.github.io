@@ -10,6 +10,7 @@ import { BlogService } from 'src/app/services/blog.service';
 import { Router, Scroll } from '@angular/router';
 
 import * as code from './code.json';
+import { Title } from '@angular/platform-browser';
 
 export interface InextPost {
   title: string;
@@ -34,9 +35,12 @@ export class WhatIsAStackComponent implements OnInit {
   pseudoNotes: any;
 
   nextPosts: InextPost[] = [];
+  postTitle = 'Data Structures: What is a stack?';
+
   constructor(
     private service: BlogService,
     private router: Router,
+    private titleService: Title,
     viewportScroller: ViewportScroller
   ) {
     viewportScroller.setOffset([0, 50]);
@@ -59,7 +63,8 @@ export class WhatIsAStackComponent implements OnInit {
 
   ngOnInit(): void {
     // todo move steps and pseudocode to code.json
-// maia
+    this.titleService.setTitle(this.postTitle + ' - Alfredo blog');
+    // maia
     this.jsonData = code;
 
     this.theCode = {

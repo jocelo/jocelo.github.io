@@ -1,5 +1,5 @@
 <article class="blog-layout">
-  <h1 id="article-top">Balanceo de Paréntesis</h1>
+  <h1 id="article-top">{{postTitle}}</h1>
   <app-writer lang="es"></app-writer>
   <mat-card class="card-note">
     <fa-icon [icon]="faLanguage" style="margin-right: 10px;" size="lg"></fa-icon> For English version <a
@@ -100,11 +100,7 @@
 
   <h2 id="code">Código</h2>
 
-  <app-code-block 
-    language="es"
-    [code]="the_code" 
-    [codeSteps]="codeSteps" 
-    [pseudoCode]="pseudoCode">
+  <app-code-block language="es" [code]="the_code" [codeSteps]="codeSteps" [pseudoCode]="pseudoCode">
   </app-code-block>
 
   <!-- <p>Maximiza la ventana del código para que actives el modo <b>linea por linea</b> (<fa-icon

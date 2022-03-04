@@ -1,5 +1,5 @@
 <article class="blog-layout">
-  <h1 id="article-top">Balanced Brackets</h1>
+  <h1 id="article-top">{{postTitle}}</h1>
   <app-writer></app-writer>
   <mat-card class="card-note">
     <fa-icon [icon]="faLanguage" style="margin-right: 10px;" size="lg"></fa-icon> Para la version en español <a
@@ -65,7 +65,8 @@
   <h2 id="solution">Solution</h2>
   <mat-card class="card-note">
     <fa-icon [icon]="faYoutube" style="margin-right: 10px;" size="lg"></fa-icon> A video solution exists for
-    this problem, head to my <a href="https://www.youtube.com/channel/UC547pgqomI0IcjOmltxQdAQ" target="_blank"> YouTube Channel</a> to watch it.
+    this problem, head to my <a href="https://www.youtube.com/channel/UC547pgqomI0IcjOmltxQdAQ" target="_blank"> YouTube
+      Channel</a> to watch it.
   </mat-card>
   <p>This algorithm has the following topics:</p>
   <section>
@@ -98,10 +99,7 @@
 
   <!-- <script src="https://gist.github.com/jocelo/76dcae2d25d7e5d7fb66e7e45aa0513c.js"></script> -->
   <h2 id="code">Code</h2>
-  <app-code-block 
-    [code]="the_code" 
-    [codeSteps]="codeSteps"
-    [pseudoCode]="pseudoCode">
+  <app-code-block [code]="the_code" [codeSteps]="codeSteps" [pseudoCode]="pseudoCode">
   </app-code-block>
   <div class="back-to-top">
     <a routerLink="." fragment="article-top">Back to top</a>

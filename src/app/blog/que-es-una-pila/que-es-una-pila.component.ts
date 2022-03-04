@@ -8,6 +8,7 @@ import { BlogService } from 'src/app/services/blog.service';
 import { Router, Scroll } from '@angular/router';
 
 import * as code from './code.json';
+import { Title } from '@angular/platform-browser';
 
 export interface InextPost {
   title: string;
@@ -33,9 +34,12 @@ export class QueEsUnaPilaComponent implements OnInit {
 
   nextPosts: InextPost[] = [];
 
+  postTitle = 'Estructuras de Datos: Que es una Pila?';
+
   constructor(
     private service: BlogService,
     private router: Router,
+    private titleService: Title,
     private viewportScroller: ViewportScroller
   ) {
     this.viewportScroller.setOffset([0, 50]);
@@ -57,6 +61,7 @@ export class QueEsUnaPilaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.titleService.setTitle(this.postTitle + ' - Alfredo blog');
     this.jsonData = code;
     this.theCode = {
       js_code: this.jsonData.javascript.code.join('\n'),

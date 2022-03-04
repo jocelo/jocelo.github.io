@@ -9,6 +9,7 @@ import { BlogService } from 'src/app/services/blog.service';
 import { Router, Scroll } from '@angular/router';
 
 import * as code from './code.json';
+import { Title } from '@angular/platform-browser';
 export interface InextPost {
   title: string;
   url: string;
@@ -34,9 +35,12 @@ export class QueEsUnaColaComponent implements OnInit {
 
   nextPosts: InextPost[] = [];
 
+  postTitle = 'Estructuras de Datos: Que es una Cola?';
+
   constructor(
     private service: BlogService,
     private router: Router,
+    private titleService: Title,
     private viewportScroller: ViewportScroller
   ) {
     this.viewportScroller.setOffset([0, 50]);
@@ -58,6 +62,7 @@ export class QueEsUnaColaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.titleService.setTitle(this.postTitle + ' - Alfredo blog');
     this.jsonData = code;
     this.theCode = {
       js_code: this.jsonData.javascript.code.join('\n'),

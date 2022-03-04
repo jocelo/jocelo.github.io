@@ -11,6 +11,7 @@ import { MatTabChangeEvent } from '@angular/material/tabs';
 
 import * as code from './code.json';
 import { BlogService } from 'src/app/services/blog.service';
+import { Title } from '@angular/platform-browser';
 
 export interface PostData {
   name: string;
@@ -80,9 +81,12 @@ export class BalanceoDeParentesisComponent implements OnInit {
     url: 'balanced-brackets'
   }];
 
+  postTitle = 'Balanceo de Paréntesis';
+
   constructor(
     private router: Router,
     private service: BlogService,
+    private titleService: Title,
     private viewportScroller: ViewportScroller
   ) {
     this.viewportScroller.setOffset([0, 50]);
@@ -99,6 +103,7 @@ export class BalanceoDeParentesisComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.titleService.setTitle(this.postTitle + ' - Alfredo blog');
     this.jsonData = code;
 
     this.the_code = {

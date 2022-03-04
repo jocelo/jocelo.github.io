@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 import { faLaptopCode } from '@fortawesome/free-solid-svg-icons';
 
@@ -8,12 +9,13 @@ import { faLaptopCode } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./vscode-format-on-save.component.scss']
 })
 export class VscodeFormatOnSaveComponent implements OnInit {
-
   faLaptopCode = faLaptopCode;
+  postTitle = 'Formatting source files with VSCode';
 
-  constructor() { }
+  constructor(private titleService: Title) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle(this.postTitle + ' - Alfredo blog');
   }
 
 }

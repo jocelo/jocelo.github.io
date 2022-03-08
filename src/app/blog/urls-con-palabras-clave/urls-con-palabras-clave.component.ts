@@ -29,7 +29,7 @@ export class UrlsConPalabrasClaveComponent implements OnInit {
   faFirefox = faFirefox;
 
   nextPosts: InextPost[] = [];
-  postTitle = 'URLS con palabras clave';
+  postTitle = 'URLS Dinámicos';
   postPicture: {
     src: string;
     desc: string;

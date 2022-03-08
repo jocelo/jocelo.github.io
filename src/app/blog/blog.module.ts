@@ -40,7 +40,7 @@ const blogRoutes: Routes = [
   { path: 'blog/que-es-una-cola', component: QueEsUnaColaComponent },
   { path: 'blog/what-is-a-queue', component: WhatIsAQueueComponent },
   { path: 'blog/format-on-save-vscode', component: VscodeFormatOnSaveComponent },
-  { path: 'blog/urls-con-palabras-clave', component: UrlsConPalabrasClaveComponent },
+  { path: 'blog/urls-dinamicos', component: UrlsConPalabrasClaveComponent },
 ];
 
 @NgModule({

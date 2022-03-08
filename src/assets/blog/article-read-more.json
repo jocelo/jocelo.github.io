@@ -47,7 +47,7 @@
       "url": "que-es-una-pila"
     }
   ],
-  "urls-con-palabras-clave": [
+  "urls-dinamicos": [
     {
       "title": "VS Code: Formatting files on save",
       "url": "format-on-save-vscode"

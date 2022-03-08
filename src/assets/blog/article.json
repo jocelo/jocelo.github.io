@@ -22,12 +22,12 @@
   },
   "balanceo-de-parentesis": {
     "language": "es",
-    "title": "Balanceo de Parentesis",
+    "title": "Balanceo de Paréntesis",
     "topics": ["algoritmos", "pilas", "arrays"]
   },
-  "urls-con-palabras-clave": {
+  "urls-dinamicos": {
     "language": "es",
-    "title": "URLs con Palabras Clave",
+    "title": "URLs Dinámicos",
     "topics": ["browser hacks", "tips", "productivity"]
   },
   "balanced-brackets": {

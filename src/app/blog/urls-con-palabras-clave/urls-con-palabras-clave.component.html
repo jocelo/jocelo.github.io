@@ -1,36 +1,167 @@
 <article>
-  <h1>URLS con palabras clave</h1>
+  <h1>{{postTitle}}</h1>
   <app-writer lang="es"></app-writer>
 
-  <mat-card class="card-note">
+  <!-- <mat-card class="card-note">
     <fa-icon [icon]="faLanguage" style="margin-right: 10px;" size="lg"></fa-icon> Para la version en español <a
       [routerLink]="['/blog','que-es-una-cola']">da click aquí.</a>
+  </mat-card> -->
+
+  <p>Cuantas veces al dia necesitas entrar a sitios con casi la misma URL y que solo cambia una pequeña parte (un ID, o
+    un parámetro) y terminas siempre entrando a una liga <i>vieja</i> o <i>anterior</i> en tu navegador y solo cambias
+    esa pequeña parte de la URL?</p>
+
+  <app-post-image [src]="postPicture.src" [desc]="postPicture.desc"></app-post-image>
+
+  <p>El primer ejemplo que viene a la mente es el software que usamos para el Project Tracking (como
+    <fa-icon [icon]="faJira" size="lg"></fa-icon> Jira); en donde para poder ver bugs o stories, casi siempre es la
+    misma URL y solo cambia el número del bug o de la story que estas trabajando.
+  </p>
+
+  <p>Otro ejemplo es <fa-icon [icon]="faGithubSquare" size="lg"></fa-icon> github, cuando trabajas en diferentes
+    repositorios y necesitas brincar de uno a otro varias veces en un periodo corto de tiempo; o bien cuando vas a
+    aprobar Pull Requests.</p>
+
+  <p>Inclusive si entre tus responsabilidades esta revisar perfiles de personas en redes sociales o de trabajo, como
+    linkedIn, también puedes usar este tip para localizar el perfil que estas buscando mucho mas rápido.</p>
+
+  <p>Este proceso de "abre la pagina, cambia el pedacito, carga la pagina de nuevo" es muy recurrente en el dia a dia de
+    un desarrollador y mi ecologista interno que desea evitar el desperdicio (del servidor, del tiempo, del teclado, de
+    la pila de la lap... ya tu sabes) me llevo a preguntarme si habría alguna manera de evitar esta constante repetición
+    ? Y vaya que lo hay! En este articulo vamos a revisar como puedes usar tu navegador para mejorar la manera de
+    acceder a este tipo de URLs que denominaremos como: URL's con palabras clave.
+  </p>
+
+  <p>Bien ya sabemos que tenemos que hacer, ahora el como; Depende completamente del navegador que estés usando, asi
+    que vamos por partes.</p>
+  <hr />
+
+  <h2>Chrome</h2>
+
+  <mat-card class="card-note">
+    <fa-icon [icon]="faChrome" style="margin-right: 10px;" size="lg"></fa-icon> Version al momento de escribir esto:
+    98.0.4758.80
   </mat-card>
 
-  <p>Bienvenido a este articulo!.</p>
-  <p>Cuantas veces a la semana necesitas entrar a sitios en los que solo quieres cambiar solo una parte de la URL y
-    terminas siempre entrando a una liga que tu navegador <i>recuerda</i> y solo cambias la ultima parte de la URL?</p>
-  <p>Como ejemplo, varios botones:</p>
-  <h3>Github</h3>
+  <p>Para poder configurar chrome, necesitamos agregar un nuevo motor de búsqueda; debes hacer lo siguiente:</p>
 
-  <h3>Jira</h3>
+  <ol>
+    <li>Da click en el icono de configuración ( <fa-icon [icon]="faEllipsisV"></fa-icon> ) en la parte superior derecha
+      de la ventana.</li>
+    <li>Selecciona <i>settings</i>.</li>
+    <li>En la ventana de configuración, selecciona <i>search engine</i> en el menu izquierdo.</li>
+    <li>Expande la sección <i>manage search engines</i>.</li>
+    <li>Da click en el botón <i>add</i> para que aparezca una ventana modal en la que
+      ingresaras la configuración de cada sitio que quieras agregar.</li>
+  </ol>
 
-  <h3>Linkedin</h3>
-  <p>https://www.linkedin.com/in/%s</p>
+  <p>Por ejemplo, podemos agregar el repositorio de angular en <fa-icon [icon]="faGithubSquare" size="lg"></fa-icon>
+    github, específicamente la URL para revisar los Pull Requests; la idea es
+    que solamente escribiendo en el URL la palabra clave <span class="inline-code">github</span> un espacio y el
+    <i>numero</i> del Pull Request, te lleve directamente a la URL correcta. La configuración para lograr esto es:
+  </p>
+  <ul>
+    <li> <b>Search engine:</b> https://github.com/ </li>
+    <li> <b>Keyword:</b> ghpr </li>
+    <li> <b>URL with %s in place of query:</b> https://github.com/angular/angular/pull/%s</li>
+  </ul>
 
-  <h3>MDN Web Docs</h3>
-  <p>https://developer.mozilla.org/en-US/search?q=%s</p>
+  <p><b>Nota:</b> La keyword de esta configuración es una abreviación de <b>g</b>it<b>h</b>ub <b>p</b>ull
+    <b>r</b>equest; puedes poner la palabra clave que te haga mas sentido a ti y claro, tu propio repositorio.
+  </p>
 
-  <h3>Can I Use?</h3>
-  <p>https://caniuse.com/?search=%s</p>
+  <img src="" alt="configuración de motor de búsqueda en chrome para sitio web github">
 
+  <p>Guardando los cambios, es momento de probar nuestra configuración: Abre una pestaña nueva en Chrome y en la barra
+    de navegación tecleamos <span class="inline-code">github 45269</span> y al dar enter, observaremos la URL se
+    convierte a <span class="inline-code">https://github.com/angular/angular/pull/45269</span>... excelente!
+  </p>
 
-  <h3>Duckduckgo</h3>
-  <p>Aun cuando hay otras formas de definir tu motor de busqueda por default, puedes crear un bookmark para este fin.
-    Como ejemplo, vamos a guardar un bookmark para realizar busquedas en DuckDuckGo</p>
-  <p>https://duckduckgo.com/?q=testubg</p>
+  <hr appLightDivider>
 
-  <p>Como vez, este pequeño hack de productividad es bastante útil y solo tienes que encontrar la mejor forma de
-    utilizarlo para poder obtener su maximo beneficio. En lo personal me sirve bastante</p>
+  <p>Otro ejemplo, podemos configurar la URL para MDN WebDocs (previamente conocido como Mozilla Developer Network) y
+    realizar búsquedas directamente sobre su sitio web y no tener que pasar primero por algún buscador. Para esto la
+    configuración que agregaremos es la siguiente:</p>
+  <ul>
+    <li> <b>Search engine:</b> https://developer.mozilla.org </li>
+    <li> <b>Keyword:</b> mdn </li>
+    <li> <b>URL with %s in place of query:</b> https://developer.mozilla.org/en-US/search?q=%s</li>
+  </ul>
+
+  <p>Para usarlo, solo debes escribir <span class="inline-code">mdn array foreach</span> </p>
+
+  <hr appLightDivider>
+
+  <p>Si trabajas con <fa-icon [icon]="faFontAwesome" size="lg"></fa-icon> FontAwesome, seguro seguido entras a su pagina
+    web para buscar un icono en especifico. Aquí te dejo la configuración que necesitas para optimizar esta búsqueda:
+  </p>
+  <ul>
+    <li> <b>Search engine:</b> https://fontawesome.com/ </li>
+    <li> <b>Keyword:</b> fa </li>
+    <li> <b>URL with %s in place of query:</b> https://fontawesome.com/search?q=%s&s=solid</li>
+  </ul>
+
+  <p>Ahora ya solo deberás escribir <span class="inline-code">fa angular</span> para ver directamente el icono de
+    angular.</p>
+  <hr />
+
+  <h2>Firefox</h2>
+
+  <mat-card class="card-note">
+    <fa-icon [icon]="faFirefox" style="margin-right: 10px;" size="lg"></fa-icon> Version al momento de escribir esto:
+    97.0.2
+  </mat-card>
+
+  <p>En el caso de Firefox, el proceso es un poco mas sencillo; solo debes agregar un nuevo marcador (bookmark):</p>
+
+  <ol>
+    <li>Damos click en el menu de configuración ( <fa-icon [icon]="faBars"></fa-icon> ).</li>
+    <li>Selecciona <i>bookmarks</i> y <i>Manage bookmarks</i>.</li>
+    <li>Dentro de la ventana de librería de marcadores solo debes dar click en la opción de <i>Organize</i> y
+      <i>Add Bookmark</i>.
+    </li>
+  </ol>
+
+  <p>Ahora tomaremos como ejemplo (entre mis favoritos) a Jira, para este caso los datos que debes ingresar son:</p>
+
+  <ul>
+    <li> <b>Name:</b> https://yourproject.atlassian.net </li>
+    <li> <b>URL:</b> https://yourproject.atlassian.net/browse/BUG-%s </li>
+    <li> <b>keyword:</b> bug</li>
+  </ul>
+
+  <p><b>Nota:</b> Deberás cambiar la parte de la URL que hace referencia a tu propio proyecto, y es muy probable que en
+    la configuración de Jira, a los bugs se les ponga el prefijo <span class="inline-code">bug</span>. Si este no es tu
+    caso, también deberás modificar la URL del ejemplo para que refleje el prefijo correcto.</p>
+  <hr />
+
+  <h2>Brave</h2>
+
+  <mat-card class="card-note">
+    <fa-icon [icon]="faChrome" style="margin-right: 10px;" size="lg"></fa-icon> Version al momento de escribir esto:
+    1.36.111
+  </mat-card>
+
+  <ol>
+    <li>Da click en el icono de configuración ( <fa-icon [icon]="faBars"></fa-icon> ) en la parte superior derecha
+      de la ventana.</li>
+    <li>Selecciona <i>settings</i>.</li>
+    <li>En la ventana de configuración y menu izquierdo selecciona <i>search engine</i>.</li>
+    <li>Expande la sección <i>other search engines</i>.</li>
+    <li>Da click en el botón <i>add</i> para que aparezca una ventana modal en la que
+      ingresaras la configuración de cada sitio que quieras agregar.</li>
+  </ol>
+
+  <p>Los campos que debes llenar son similares a los de Chrome (ya que Brave se basa en Chromium).</p>
+  <hr />
+
+  <h2>Conclusión</h2>
+  <p>Como puedes observar, las partes mas importantes son los keywords y reemplazar la parte <i>dinámica</i> de la URL
+    con el símbolo <b>%s</b>. Puedes reemplazar la parte dinámica en cualquier parte de la URL, no solo el final.</p>
+  <p>Espero este articulo haya sido de tu agrado. Estoy seguro que ya pensaste en mas sitios donde puedes
+    aplicar este pequeño pero poderoso hack de productividad, solo tienes que encontrar la mejor forma de segmentar las
+    URL's para insertar el símbolo y obtener el máximo beneficio.</p>
+  <hr />
+
   <app-read-next lang="es"></app-read-next>
 </article>

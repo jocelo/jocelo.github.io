@@ -49,12 +49,8 @@
   ],
   "urls-con-palabras-clave": [
     {
-      "title": "Que es una pila?",
-      "url": "que-es-una-pila"
-    },
-    {
-      "title": "Que es una cola?",
-      "url": "que-es-una-cola"
+      "title": "VS Code: Formatting files on save",
+      "url": "format-on-save-vscode"
     }
   ],
   "urls-with-keywords": [

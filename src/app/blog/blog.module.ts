@@ -25,6 +25,8 @@ import { WhatIsAStackComponent } from './what-is-a-stack/what-is-a-stack.compone
 import { QueEsUnaColaComponent } from './que-es-una-cola/que-es-una-cola.component';
 import { WhatIsAQueueComponent } from './what-is-a-queue/what-is-a-queue.component';
 import { VscodeFormatOnSaveComponent } from './vscode-format-on-save/vscode-format-on-save.component';
+import { LightDividerDirective } from '../directives/light-divider.directive';
+import { PostImageComponent } from '../components/post-image/post-image.component';
 
 const blogRoutes: Routes = [
   { path: 'blog/', redirectTo: '/', pathMatch: 'full' },
@@ -38,6 +40,7 @@ const blogRoutes: Routes = [
   { path: 'blog/que-es-una-cola', component: QueEsUnaColaComponent },
   { path: 'blog/what-is-a-queue', component: WhatIsAQueueComponent },
   { path: 'blog/format-on-save-vscode', component: VscodeFormatOnSaveComponent },
+  { path: 'blog/urls-con-palabras-clave', component: UrlsConPalabrasClaveComponent },
 ];
 
 @NgModule({
@@ -55,7 +58,9 @@ const blogRoutes: Routes = [
     WhatIsAStackComponent,
     QueEsUnaColaComponent,
     WhatIsAQueueComponent,
-    VscodeFormatOnSaveComponent
+    VscodeFormatOnSaveComponent,
+    LightDividerDirective,
+    PostImageComponent
   ],
   imports: [
     CommonModule,

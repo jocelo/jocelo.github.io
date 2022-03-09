@@ -62,13 +62,13 @@ export class BlogComponent implements OnInit {
     }, {
       url: 'balanced-brackets',
       img: 'blog/blog_balanced_brackets.png',
-      title: 'Balanced Brackets',
+      title: 'Balanced Brackets.',
       desc: 'How to solve the balanced brackets algorithm.',
       publishedDate: this.service.getPostDate('balanced-brackets')
     }, {
       url: 'balanceo-de-parentesis',
       img: 'blog/blog_balanced_brackets.png',
-      title: 'Balanceo de Parentesis',
+      title: 'Balanceo de Parentesis.',
       desc: 'Como resolver el problema del balanceo de paréntesis.',
       publishedDate: this.service.getPostDate('balanceo-de-parentesis')
     }];

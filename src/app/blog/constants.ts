@@ -1,0 +1,1 @@
+export const s3VideoURL = 'https://s3.amazonaws.com/aws.jocelo.dev/';

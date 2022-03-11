@@ -58,7 +58,7 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true, relativeLinkResolution: 'legacy' }
+      { relativeLinkResolution: 'legacy' }
     ),
     BrowserAnimationsModule
   ],

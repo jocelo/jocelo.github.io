@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+
+import { s3VideoURL } from '../constants';
 
 import { faLaptopCode } from '@fortawesome/free-solid-svg-icons';
 
@@ -9,6 +11,10 @@ import { faLaptopCode } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./vscode-format-on-save.component.scss']
 })
 export class VscodeFormatOnSaveComponent implements OnInit {
+  @ViewChild('formatonsave') formatonsave: ElementRef;
+  @ViewChild('codesettings') codesettings: ElementRef;
+  @ViewChild('jsonsettings') jsonsettings: ElementRef;
+
   faLaptopCode = faLaptopCode;
   postTitle = 'Formatting source files with VSCode';
 
@@ -16,6 +22,25 @@ export class VscodeFormatOnSaveComponent implements OnInit {
 
   ngOnInit(): void {
     this.titleService.setTitle(this.postTitle + ' - Alfredo blog');
+  }
+
+  public onVisible(videoId: string) {
+    const videoName = `${videoId}_720.mp4`;
+    const fullUrl = `${s3VideoURL}${videoName}`;
+
+    let videoElement: HTMLVideoElement;
+
+    if (videoId === 'formatonsave') {
+      videoElement = this.formatonsave.nativeElement;
+    } else if (videoId === 'codesettings') {
+      videoElement = this.codesettings.nativeElement;
+    } else if (videoId === 'jsonsettings') {
+      videoElement = this.jsonsettings.nativeElement;
+    }
+
+    videoElement.src = fullUrl;
+    videoElement.load();
+    videoElement.play();
   }
 
 }

@@ -22,9 +22,9 @@
   <p>And viola! from this moment on, whenever you work on a file and save it, you will get the swift hand of VSCode
     massaging your code to make it look pretty!!</p>
 
-  <section class="video-section">
-    <video controls preload="none" autoplay="false" poster="https://s3.amazonaws.com/aws.jocelo.dev/formatonsave.jpg">
-      <source src="https://s3.amazonaws.com/aws.jocelo.dev/formatonsave_720.mp4" muted="true" type="video/mp4">
+  <section class="video-section" appIntersectionObserver [debounceTime]="300" (visible)="onVisible('formatonsave')">
+    <video #formatonsave controls preload="none" autoplay="false"
+      poster="https://s3.amazonaws.com/aws.jocelo.dev/formatonsave.jpg">
       <p>Your browser doesn't support HTML5 video. Here is
         a <a href="https://s3.amazonaws.com/aws.jocelo.dev/formatonsave_720.mp4">link to the video</a> instead.</p>
     </video>
@@ -45,10 +45,9 @@
     line break (default to 120 characters); enable/disable documentation of HTML tags while hovering over a tag; and
     more cool stuff!</p>
 
-  <section class="video-section">
-    <video controls width="50%" preload="none" autoplay="false"
+  <section class="video-section" appIntersectionObserver [debounceTime]="300" (visible)="onVisible('codesettings')">
+    <video #codesettings controls width="50%" preload="none" autoplay="false" loop="true"
       poster="https://s3.amazonaws.com/aws.jocelo.dev/codesettings.jpg">
-      <source src="https://s3.amazonaws.com/aws.jocelo.dev/codesettings_720.mp4" muted="true" type="video/mp4">
       <p>Your browser doesn't support HTML5 video. Here is
         a <a href="https://s3.amazonaws.com/aws.jocelo.dev/codesettings_720.mp4">link to the video</a> instead.</p>
     </video>
@@ -78,10 +77,9 @@
     </li>
   </ol>
 
-  <section class="video-section">
-    <video controls width="50%" preload="none" autoplay="false"
+  <section class="video-section" appIntersectionObserver [debounceTime]="300" (visible)="onVisible('jsonsettings')">
+    <video #jsonsettings controls width="50%" preload="none" autoplay="false"
       poster="https://s3.amazonaws.com/aws.jocelo.dev/jsonsettings.jpg">
-      <source src="https://s3.amazonaws.com/aws.jocelo.dev/jsonsettings_720.mp4" muted="true" type="video/mp4">
       <p>Your browser doesn't support HTML5 video. Here is
         a <a href="https://s3.amazonaws.com/aws.jocelo.dev/jsonsettings_720.mp4">link to the video</a> instead.</p>
     </video>

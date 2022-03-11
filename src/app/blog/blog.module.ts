@@ -27,6 +27,7 @@ import { WhatIsAQueueComponent } from './what-is-a-queue/what-is-a-queue.compone
 import { VscodeFormatOnSaveComponent } from './vscode-format-on-save/vscode-format-on-save.component';
 import { LightDividerDirective } from '../directives/light-divider.directive';
 import { PostImageComponent } from '../components/post-image/post-image.component';
+import { IntersectionObserverDirective } from '../directives/intersection-observer.directive';
 
 const blogRoutes: Routes = [
   { path: 'blog/', redirectTo: '/', pathMatch: 'full' },
@@ -60,7 +61,8 @@ const blogRoutes: Routes = [
     WhatIsAQueueComponent,
     VscodeFormatOnSaveComponent,
     LightDividerDirective,
-    PostImageComponent
+    PostImageComponent,
+    IntersectionObserverDirective
   ],
   imports: [
     CommonModule,
@@ -74,7 +76,6 @@ const blogRoutes: Routes = [
     RouterModule.forRoot(
       blogRoutes,
       {
-        enableTracing: true,
         anchorScrolling: 'enabled',
         onSameUrlNavigation: 'reload',
         relativeLinkResolution: 'legacy'

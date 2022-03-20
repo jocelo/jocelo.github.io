@@ -73,13 +73,8 @@ const blogRoutes: Routes = [
     MatTableModule,
     MatChipsModule,
     MatCardModule,
-    RouterModule.forRoot(
-      blogRoutes,
-      {
-        anchorScrolling: 'enabled',
-        onSameUrlNavigation: 'reload',
-        relativeLinkResolution: 'legacy'
-      }
+    RouterModule.forChild(
+      blogRoutes
     )
   ]
 })

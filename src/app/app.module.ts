@@ -22,6 +22,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 
+import { HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
+
 const appRoutes: Routes = [
   { path: 'index', redirectTo: '/home' },
   { path: 'home', component: PersonalComponent },
@@ -67,7 +69,13 @@ const appRoutes: Routes = [
     ),
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [{
+    provide: HIGHLIGHT_OPTIONS,
+    useValue: {
+      fullLibraryLoader: () => import('highlight.js'),
+      lineNumbersLoader: () => import('highlightjs-line-numbers.js'),
+    }
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

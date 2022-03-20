@@ -1,11 +1,3 @@
-article {
-  margin-left: auto;
-  margin-right: auto;
-  width: 900px;
-  max-width: 900px;
-  padding-bottom: 80px;
-}
-
 .video-section {
   text-align: center;
 
@@ -14,32 +6,7 @@ article {
   }
 }
 
-hr {
-  margin: 30px 100px;
-}
-
-ul li, ol li {
-  margin: 5px 0;
-}
-
-.mat-card.card-note {
-  margin: 15px 0;
-  background-color: lightskyblue;
-}
-
-span.inline-code {
-  background-color: lightgray;
-  padding: 5px 8px;
-  font-family: monospace;
-  border-radius: 5px;
-}
-
 @media screen and (max-width: 600px) {
-  article {
-    margin: 0 10px;
-    padding-bottom: 80px;
-  }
-
   .video-section video {
     width: 100%;
   }

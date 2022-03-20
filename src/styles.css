@@ -25,6 +25,7 @@ input {
 html, body { 
   height: 100%;
   scroll-behavior: smooth;
+  background-color: whitesmoke;
 }
 body { margin: 0; }
 
@@ -42,4 +43,9 @@ span.inline-code {
 .mat-table {
   font-family: 'Work Sans', sans-serif;
   line-height: 1.4rem;
+}
+
+.mat-card.card-note {
+  margin: 15px 0;
+  background-color: lightskyblue;
 }

@@ -1,4 +1,4 @@
-<article class="blog-layout">
+<app-simple-article>
   <h1>{{postTitle}}</h1>
   <app-writer></app-writer>
 
@@ -46,7 +46,7 @@
     more cool stuff!</p>
 
   <section class="video-section" appIntersectionObserver [debounceTime]="300" (visible)="onVisible('codesettings')">
-    <video #codesettings controls width="50%" preload="none" autoplay="false" loop="true"
+    <video #codesettings controls preload="none" autoplay="false" loop="true"
       poster="https://s3.amazonaws.com/aws.jocelo.dev/codesettings.jpg">
       <p>Your browser doesn't support HTML5 video. Here is
         a <a href="https://s3.amazonaws.com/aws.jocelo.dev/codesettings_720.mp4">link to the video</a> instead.</p>
@@ -78,7 +78,7 @@
   </ol>
 
   <section class="video-section" appIntersectionObserver [debounceTime]="300" (visible)="onVisible('jsonsettings')">
-    <video #jsonsettings controls width="50%" preload="none" autoplay="false"
+    <video #jsonsettings controls preload="none" autoplay="false"
       poster="https://s3.amazonaws.com/aws.jocelo.dev/jsonsettings.jpg">
       <p>Your browser doesn't support HTML5 video. Here is
         a <a href="https://s3.amazonaws.com/aws.jocelo.dev/jsonsettings_720.mp4">link to the video</a> instead.</p>
@@ -96,5 +96,4 @@
   <hr>
 
   <app-read-next></app-read-next>
-
-</article>
+</app-simple-article>

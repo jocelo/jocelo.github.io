@@ -23,14 +23,17 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/all', pathMatch: 'full' },
-  { path: 'home', redirectTo: '/all', pathMatch: 'full' },
-  { path: 'index', redirectTo: '/all' },
-  { path: 'all', component: PersonalComponent },
-  { path: 'blog', component: BlogComponent },
+  { path: 'index', redirectTo: '/home' },
+  { path: 'home', component: PersonalComponent },
   { path: 'portfolio', component: PortfolioComponent },
   { path: 'certifications', component: CertificationsComponent },
   { path: 'tech-stack', component: TechStackComponent },
+  { path: 'latest', component: BlogComponent },
+  {
+    path: 'blog',
+    loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule)
+  },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -52,13 +55,15 @@ const appRoutes: Routes = [
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    BlogModule,
     BrowserModule,
     FontAwesomeModule,
     FormsModule,
     RouterModule.forRoot(
       appRoutes,
-      { relativeLinkResolution: 'legacy' }
+      {
+        relativeLinkResolution: 'legacy',
+        enableTracing: false
+      }
     ),
     BrowserAnimationsModule
   ],

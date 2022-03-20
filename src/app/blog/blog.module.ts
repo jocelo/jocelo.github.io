@@ -28,20 +28,19 @@ import { VscodeFormatOnSaveComponent } from './vscode-format-on-save/vscode-form
 import { LightDividerDirective } from '../directives/light-divider.directive';
 import { PostImageComponent } from '../components/post-image/post-image.component';
 import { IntersectionObserverDirective } from '../directives/intersection-observer.directive';
+import { SimpleArticleComponent } from './components/simple-article/simple-article.component';
 
 const blogRoutes: Routes = [
-  { path: 'blog/', redirectTo: '/', pathMatch: 'full' },
-  { path: 'index', redirectTo: '/' },
-  { path: 'blog/topic/:token', component: SearchByTopicComponent },
-  { path: 'blog/balanced-brackets', component: BalancedBracketsComponent },
-  { path: 'blog/balanceo-de-parentesis', component: BalanceoDeParentesisComponent },
-  { path: 'blog/dockerize-angular', component: DockerizeAngularComponent },
-  { path: 'blog/que-es-una-pila', component: QueEsUnaPilaComponent },
-  { path: 'blog/what-is-a-stack', component: WhatIsAStackComponent },
-  { path: 'blog/que-es-una-cola', component: QueEsUnaColaComponent },
-  { path: 'blog/what-is-a-queue', component: WhatIsAQueueComponent },
-  { path: 'blog/format-on-save-vscode', component: VscodeFormatOnSaveComponent },
-  { path: 'blog/urls-dinamicos', component: UrlsConPalabrasClaveComponent },
+  { path: 'topic/:token', component: SearchByTopicComponent },
+  { path: 'balanceo-de-parentesis', component: BalanceoDeParentesisComponent },
+  { path: 'balanced-brackets', component: BalancedBracketsComponent },
+  { path: 'dockerize-angular', component: DockerizeAngularComponent },
+  { path: 'que-es-una-pila', component: QueEsUnaPilaComponent },
+  { path: 'what-is-a-stack', component: WhatIsAStackComponent },
+  { path: 'que-es-una-cola', component: QueEsUnaColaComponent },
+  { path: 'what-is-a-queue', component: WhatIsAQueueComponent },
+  { path: 'format-on-save-vscode', component: VscodeFormatOnSaveComponent },
+  { path: 'urls-dinamicos', component: UrlsConPalabrasClaveComponent },
 ];
 
 @NgModule({
@@ -62,7 +61,8 @@ const blogRoutes: Routes = [
     VscodeFormatOnSaveComponent,
     LightDividerDirective,
     PostImageComponent,
-    IntersectionObserverDirective
+    IntersectionObserverDirective,
+    SimpleArticleComponent
   ],
   imports: [
     CommonModule,

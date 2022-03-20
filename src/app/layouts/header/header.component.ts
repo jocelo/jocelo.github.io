@@ -4,6 +4,7 @@ import { Router, NavigationEnd, ROUTER_CONFIGURATION } from '@angular/router';
 import { faGithub, faLinkedin, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { faBars, faSuitcase, faAward, faCode, faShoppingCart, faRss } from '@fortawesome/free-solid-svg-icons';
 import { faCaretSquareDown, faCaretSquareUp } from '@fortawesome/free-regular-svg-icons';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-header',
@@ -26,7 +27,10 @@ export class HeaderComponent implements OnInit {
   selectedItem: string;
   mobileSectionTitle: string;
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private titleService: Title
+  ) {
     this.routeEvent(this.router);
   }
 
@@ -35,16 +39,20 @@ export class HeaderComponent implements OnInit {
       event => {
         if (event instanceof NavigationEnd) {
           this.showHeader = ['/', '/index'].indexOf(event.url) !== -1;
-          this.selectedItem = event.url.split('/')[1];
+          this.selectedItem = this.formatTitle(event.url.split('/')[1]);
           this.mobileSectionTitle = this.formatTitle(this.selectedItem);
+          this.titleService.setTitle(`${this.selectedItem} - Alfredo Alonso`);
         }
       }
     );
   }
 
-  public formatTitle(title): string {
+  private formatTitle(title): string {
     if (!title || title === '/' || title === 'all') {
       return '';
+    }
+    if (title === 'latest') {
+      return 'Latest Articles';
     }
     let midFormat = title.replace('-', ' ');
     midFormat = midFormat.split(' ').map(item => item[0].toUpperCase() + item.substr(1)).join(' ');

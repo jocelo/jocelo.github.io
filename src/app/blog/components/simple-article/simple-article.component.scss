@@ -1,0 +1,47 @@
+article {
+  margin-left: auto;
+  margin-right: auto;
+  width: 900px;
+  max-width: 900px;
+  padding-bottom: 80px;
+
+  border: 1px solid whitesmoke;
+  background: white;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  padding: 10px 40px 50px;
+}
+
+hr {
+  margin: 30px 100px;
+}
+
+ul li, ol li {
+  margin: 5px 0;
+}
+
+.mat-card.card-note {
+  margin: 15px 0;
+  background-color: lightskyblue;
+}
+
+.mat-column-desc {
+  padding-left: 24px;
+}
+
+.mat-card.card-note {
+  margin: 15px 0;
+  background-color: lightskyblue;
+}
+
+ol.steps li {
+  padding: 5px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  article {
+    margin: 0 10px;
+    padding-bottom: 80px;
+  }
+}

@@ -31,6 +31,7 @@ export class CodeBlockComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log('why is not loaded?');
     this.lblMode = 'javascript';
   }
 

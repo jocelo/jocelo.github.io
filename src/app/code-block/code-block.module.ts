@@ -5,7 +5,9 @@ import { CodeBlockComponent } from './code-block/code-block.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
-
+// console.log('why jere?');
+// console.log(HighlightModule);
+// console.log(HIGHLIGHT_OPTIONS);
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 

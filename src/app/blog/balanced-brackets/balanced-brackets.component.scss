@@ -19,13 +19,6 @@ p.text-gray {
   color: gray;
 }
 
-span.inline-code {
-  background-color: lightgray;
-  padding: 5px 8px;
-  font-family: monospace;
-  border-radius: 5px;
-}
-
 .code-highlight {
   background: rgba(255,0,0,0.5);
   top: -1px;
@@ -66,11 +59,6 @@ td.mat-cell {
 
 .mat-column-desc {
   padding-left: 24px;
-}
-
-.mat-card.card-note {
-  margin: 15px 0;
-  background-color: lightskyblue;
 }
 
 @media screen and (max-width: 600px) {

@@ -1,4 +1,4 @@
-<article class="blog-layout">
+<app-simple-article>
   <h1 id="article-top">{{postTitle}}</h1>
   <app-writer></app-writer>
 
@@ -40,7 +40,8 @@
     have to learn how to use them. These methods are part of the <span class="inline-code">array</span> object (or a
     list on python).</p>
   <p>The operations you perform on a queue are in the different <u>ends</u> of the queue: retrieving is performed at
-    <u>the beginning of the queue</u> and insertion is made at <u>the bottom of the queue</u>.</p>
+    <u>the beginning of the queue</u> and insertion is made at <u>the bottom of the queue</u>.
+  </p>
 
   <p>Next section we will see some code, and review the differences between programming languages.</p>
   <div class="back-to-top">
@@ -63,7 +64,8 @@
     complexity because whenever we
     insert or retrieve an element from the queue, we neeed to shift all the remainder elements from the list. This is,
     we need to shift all elements
-    to the right when inserting a new element, and shift all elements to the left, when retrieving an element.</p>
+    to the right when inserting a new element, and shift all elements to the left, when retrieving an element.
+  </p>
   <p><b>Note:</b> The term <i>read</i> used above, is used in context of the <span class="inline-code">shift</span>
     operation.
     This usage of the term <i>read</i> must not be confused with other read operations executed in the queue ( <span
@@ -111,4 +113,4 @@
   <hr />
 
   <app-read-next></app-read-next>
-</article>
+</app-simple-article>

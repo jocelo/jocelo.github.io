@@ -50,7 +50,7 @@
   "urls-dinamicos": [
     {
       "title": "VS Code: Formatting files on save",
-      "url": "format-on-save-vscode"
+      "url": "format-documents-on-save"
     }
   ],
   "urls-with-keywords": [
@@ -63,7 +63,7 @@
       "url": "what-is-a-queue"
     }
   ],
-  "format-on-save-vscode": [
+  "format-documents-on-save": [
     {
       "title": "Balanced brackets",
       "url": "balanced-brackets"

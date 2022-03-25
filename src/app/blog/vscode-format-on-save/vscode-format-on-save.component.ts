@@ -16,7 +16,7 @@ export class VscodeFormatOnSaveComponent implements OnInit {
   @ViewChild('jsonsettings') jsonsettings: ElementRef;
 
   faLaptopCode = faLaptopCode;
-  postTitle = 'Formatting source files with VSCode';
+  postTitle = 'Format Documents on Save with VSCode';
 
   constructor(private titleService: Title) { }
 

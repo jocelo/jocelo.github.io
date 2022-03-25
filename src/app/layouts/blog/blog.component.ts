@@ -30,11 +30,11 @@ export class BlogComponent implements OnInit {
       desc: 'Tip de productividad para que le saques el máximo provecho a los sitios que visitas frecuentemente y solo cambia una pequeña parte de la URL. Revisamos las configuraciones necesarias para usarse en Chrome, Firefox y Brave.',
       publishedDate: this.service.getPostDate('urls-dinamicos')
     }, {
-      url: 'format-on-save-vscode',
+      url: 'format-documents-on-save',
       img: 'blog/vscode_tip.png',
       title: 'VSCode tip: Format files on Save.',
       desc: 'Auto-format your files every time you save will help you increase your productivity. You can forget about those small things when coding and focus on your main logic.',
-      publishedDate: this.service.getPostDate('format-on-save-vscode')
+      publishedDate: this.service.getPostDate('format-documents-on-save')
     }, {
       url: 'what-is-a-queue',
       img: 'blog/queue.png',

@@ -39,7 +39,7 @@ const blogRoutes: Routes = [
   { path: 'what-is-a-stack', component: WhatIsAStackComponent },
   { path: 'que-es-una-cola', component: QueEsUnaColaComponent },
   { path: 'what-is-a-queue', component: WhatIsAQueueComponent },
-  { path: 'format-on-save-vscode', component: VscodeFormatOnSaveComponent },
+  { path: 'format-documents-on-save', component: VscodeFormatOnSaveComponent },
   { path: 'urls-dinamicos', component: UrlsConPalabrasClaveComponent },
 ];
 

@@ -10,6 +10,13 @@ export class CertificationsComponent implements OnInit {
 
   constructor() {
     this.certs = [{
+      obtainedDate: 'March 26, 2022',
+      desc: 'The Fundamentals of Digital Marketing',
+      siteLink: 'https://learndigital.withgoogle.com/digitalgarage/',
+      site: 'Google Digital Garage',
+      certLink: 'https://learndigital.withgoogle.com/link/1qsdpcedm9s',
+      certImage: 'https://res.cloudinary.com/mycollections/image/upload/v1648274930/certificates/fundamentals_digital_marketing.png'
+    }, {
       obtainedDate: 'January 8, 2022',
       desc: 'Javascript (Basic)',
       siteLink: 'https://www.hackerrank.com/jocelohere',

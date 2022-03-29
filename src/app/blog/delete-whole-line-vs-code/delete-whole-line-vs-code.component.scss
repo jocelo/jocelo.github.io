@@ -1,0 +1,13 @@
+.video-section {
+  text-align: center;
+
+  video {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .video-section video {
+    width: 100%;
+  }
+}

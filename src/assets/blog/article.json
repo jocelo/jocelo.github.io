@@ -39,5 +39,10 @@
     "language": "en",
     "title": "Format documents on save",
     "topics": ["vscode", "productivity", "tips"]
+  },
+  "delete-code-line": {
+    "language": "en",
+    "title": "Deleting code lines in VS Code",
+    "topics": ["vscode", "productivity", "tips"]
   }
 }

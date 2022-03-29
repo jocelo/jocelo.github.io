@@ -24,6 +24,12 @@ export class BlogComponent implements OnInit {
   ngOnInit() {
     this.invalidSearchToken = false;
     this.posts = [{
+      url: 'delete-code-line',
+      img: 'blog/nubelson-fernandes-UcYBL5V0xWQ-unsplash.jpg',
+      title: 'Deleting code, one line at a time.',
+      desc: 'Tip on how to delete code in VS Code: The shortest way to delete a single line of code in VS Code.',
+      publishedDate: this.service.getPostDate('urls-dinamicos')
+    }, {
       url: 'urls-dinamicos',
       img: 'blog/christian-wiediger-WkfDrhxDMC8-unsplash.jpg',
       title: 'URL\s dinámicos.',

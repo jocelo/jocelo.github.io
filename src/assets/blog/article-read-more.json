@@ -63,10 +63,15 @@
       "url": "what-is-a-queue"
     }
   ],
-  "format-documents-on-save": [
-    {
-      "title": "Balanced brackets",
-      "url": "balanced-brackets"
-    }
-  ]
+  "format-documents-on-save": [{
+    "title": "Balanced brackets",
+    "url": "balanced-brackets"
+  },{
+    "title": "Deleting Code lines in VS Code",
+    "url": "delete-code-line"
+  }],
+  "delete-code-line": [{
+    "title": "VS Code: Formatting files on save",
+    "url": "format-documents-on-save"
+  }]
 }

@@ -1,0 +1,52 @@
+<app-simple-article>
+  <h1>{{postTitle}}</h1>
+  <app-writer></app-writer>
+
+  <mat-card class="card-note">
+    <fa-icon [icon]="faLaptopCode" size="lg"></fa-icon>
+    <span> The following was tested using <a href="https://code.visualstudio.com/">VSCode</a>
+      version 1.64.1.</span>
+  </mat-card>
+
+  <p>Have you ever needed to delete some code? No? Why not? Try it out... is therapeutic!</p>
+  <p>Once you are in need to delete some code, you have two scenarios:</p>
+  <ol>
+    <li>Multi line deletion.</li>
+    <li>Single line deletion.</li>
+  </ol>
+  <p>Scenario #1: Easy peasy, right?: go to the end of the last line you want to delete, hold shift key, move the
+    cursor to the beginning of the line that wraps all you want to delete and hit delete key. Done and done!</p>
+  <p>Now, if you are doing the same thing for deleting <b>single lines</b>,let me tell you a little secret: there's an
+    <u>easier and faster way.</u>
+  </p>
+
+  <p>Just, place the cursor in the line you want to nuke; make sure you are not selecting <i>anything</i>... I mean your
+    cursor should be just blinking normally, and then press the keyboard shortcut for <b>cut</b> and voila! line will
+    disappear.</p>
+  <ul>
+    <li><b>Mac OS:</b> <i> cmd + x</i></li>
+    <li><b>Linux & Windows:</b> <i> ctrl + x</i></li>
+  </ul>
+  <p><b>Note:</b> If you are selecting something, the outcome should be no surprise to you... you will cut whatever you
+    are selecting which is fine, but not what we intended to do.</p>
+  <p>Check this short video if you want to see it in action:</p>
+  <section class="video-section" appIntersectionObserver [debounceTime]="300" (visible)="onVisible()">
+    <video #deletecodeline controls preload="none" autoplay="false"
+      poster="https://s3.amazonaws.com/aws.jocelo.dev/delete_code_line_720.jpg">
+      <p>Your browser doesn't support HTML5 video. Here is
+        a <a href="https://s3.amazonaws.com/aws.jocelo.dev/delete_code_line_720.mp4">link to the video</a> instead.</p>
+    </video>
+  </section>
+
+  <p>Hope you find this tip useful and keep in the loop for more productivity tips, tricks and hacks articles for VS
+    Code and other IDE's.
+  </p>
+  <hr>
+
+  <app-read-next></app-read-next>
+</app-simple-article>
+
+Photo by <a
+  href="https://unsplash.com/@nublson?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Nubelson
+  Fernandes</a> on <a
+  href="https://unsplash.com/s/photos/developer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>

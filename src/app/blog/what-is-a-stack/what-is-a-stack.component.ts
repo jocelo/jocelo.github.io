@@ -63,7 +63,7 @@ export class WhatIsAStackComponent implements OnInit {
 
   ngOnInit(): void {
     // todo move steps and pseudocode to code.json
-    this.titleService.setTitle(this.postTitle + ' - Alfredo blog');
+    this.titleService.setTitle(this.postTitle + ' - Jocelo blog');
     // maia
     this.jsonData = code;
 

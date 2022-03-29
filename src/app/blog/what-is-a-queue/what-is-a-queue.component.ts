@@ -62,7 +62,7 @@ export class WhatIsAQueueComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.titleService.setTitle(this.postTitle + ' - Alfredo blog');
+    this.titleService.setTitle(this.postTitle + ' - Jocelo blog');
     this.jsonData = code;
     this.theCode = {
       js_code: this.jsonData.javascript.code.join('\n'),

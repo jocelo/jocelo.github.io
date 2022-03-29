@@ -103,7 +103,7 @@ export class BalanceoDeParentesisComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.titleService.setTitle(this.postTitle + ' - Alfredo blog');
+    this.titleService.setTitle(this.postTitle + ' - Jocelo blog');
     this.jsonData = code;
 
     this.the_code = {

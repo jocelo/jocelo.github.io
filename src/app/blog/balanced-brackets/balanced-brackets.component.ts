@@ -107,7 +107,7 @@ export class BalancedBracketsComponent implements OnInit {
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
   ngOnInit() {
-    this.titleService.setTitle(this.postTitle + ' - Alfredo blog');
+    this.titleService.setTitle(this.postTitle + ' - Jocelo blog');
     this.jsonData = code;
 
     this.the_code = {

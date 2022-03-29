@@ -21,7 +21,7 @@ export class VscodeFormatOnSaveComponent implements OnInit {
   constructor(private titleService: Title) { }
 
   ngOnInit(): void {
-    this.titleService.setTitle(this.postTitle + ' - Alfredo blog');
+    this.titleService.setTitle(this.postTitle + ' - Jocelo blog');
   }
 
   public onVisible(videoId: string) {

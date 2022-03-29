@@ -45,7 +45,7 @@ export class UrlsConPalabrasClaveComponent implements OnInit {
   ngOnInit(): void {
     this.nextPosts = this.service.getRelatedArticles(this.router.url);
 
-    this.titleService.setTitle(this.postTitle + ' - Alfredo blog');
+    this.titleService.setTitle(this.postTitle + ' - Jocelo blog');
     this.metaService.addTag(
       { name: 'description', content: 'Tip de productividad para que le saques el máximo provecho a los sitios que visitas frecuentemente y solo cambia una pequeña parte de la URL. Revisamos las configuraciones necesarias para usarse en Chrome, Firefox y Brave.' }
     );

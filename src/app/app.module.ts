@@ -63,8 +63,9 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       {
+        enableTracing: false,
         relativeLinkResolution: 'legacy',
-        enableTracing: false
+        scrollPositionRestoration: 'enabled'
       }
     ),
     BrowserAnimationsModule

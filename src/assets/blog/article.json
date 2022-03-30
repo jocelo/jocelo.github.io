@@ -44,5 +44,10 @@
     "language": "en",
     "title": "Deleting code lines in VS Code",
     "topics": ["vscode", "productivity", "tips"]
+  },
+  "eliminar-linea-codigo": {
+    "language": "es",
+    "title": "Eliminar linease de código en VS Code",
+    "topics": ["vscode", "productivity", "tips"]
   }
 }

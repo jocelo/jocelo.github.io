@@ -47,10 +47,12 @@
       "url": "que-es-una-pila"
     }
   ],
-  "urls-dinamicos": [
-    {
+  "urls-dinamicos": [{
       "title": "VS Code: Formatting files on save",
       "url": "format-documents-on-save"
+    },{
+      "title": "VS Code: Como eliminar lineas de código",
+      "url": "eliminar-linea-codigo"
     }
   ],
   "urls-with-keywords": [
@@ -73,5 +75,12 @@
   "delete-code-line": [{
     "title": "VS Code: Formatting files on save",
     "url": "format-documents-on-save"
+  }],
+  "eliminar-linea-codigo": [{
+    "title": "Balanceo de Paréntesis",
+    "url": "balanceo-de-parentesis"
+  },{
+    "title": "URL's dinámicos",
+    "url": "urls-dinamicos"
   }]
 }

@@ -1,0 +1,56 @@
+<app-simple-article>
+  <h1>{{postTitle}}</h1>
+  <app-writer lang="es"></app-writer>
+
+  <mat-card class="card-note">
+    <fa-icon [icon]="faLanguage" style="margin-right: 10px;" size="lg"></fa-icon> For English version <a
+      [routerLink]="['/blog','delete-code-line']">click here.</a>
+  </mat-card>
+
+  <mat-card class="card-note">
+    <fa-icon [icon]="faLaptopCode" size="lg"></fa-icon>
+    <span> El siguiente articulo fue escrito usando <a href="https://code.visualstudio.com/">VSCode</a>
+      version 1.64.1</span>
+  </mat-card>
+
+  <p>Alguna ves has tenido que eliminar lineas de código? No? En serio? Intentalo de ves en cuando... es terapéutico!
+  </p>
+  <p>Cuando tengas la necesidad de hacerlo, te darás cuenta que hay dos escenarios:</p>
+  <ol>
+    <li>Eliminación de multiples lineas.</li>
+    <li>Eliminación de una sola linea.</li>
+  </ol>
+  <p>Escenario #1: super fácil verdad?: solo necesitas ir al final de la ultima linea que deseas borrar, presionar y
+    mantener la tecla shift, mover tu cursor hacia arriba hasta llegar al inicio de la primera linea que deseas borrar y
+    simplemente presionar la tecla de borrar... y listo! (O bien viceversa, empezando al inicio).</p>
+  <p>Ahora, si cuando necesitas borrar <b>una sola linea</b> estas haciendo los mismos pasos de arriba, dejame te
+    comparto un secreto: hay una forma mas <u>rápida</u> de hacerlo:
+  </p>
+
+  <p>Solo necesitas poner tu cursor en cualquier parte (columna) de la linea que deseas borrar; asegurate que <i>no
+      estés seleccionando nada</i>... Con esto quiero decir que tu cursor debe estar parpadeando normalmente, y ahora
+    solo debes presionar la combinación de teclas para <b>cortar</b> y magia! la linea desaparece!</p>
+  <p>Como referencia, la combinación de teclas para <b>cortar</b> es: </p>
+  <ul>
+    <li><b>Mac OS:</b> <i> cmd + x</i></li>
+    <li><b>Linux & Windows:</b> <i> ctrl + x</i></li>
+  </ul>
+  <p><b>Nota:</b> Si tu cursor esta seleccionando algo, el resultado de cuando presiones la combinacion de teclas no
+    sera ninguna sorpresa: vas a cortar lo que tengas seleccionado, lo cual es 100% correcto, pero no es el
+    comportamiento que estamos buscando.</p>
+  <p>Para ver este tip en acción, puedes ver el siguiente video:</p>
+  <section class="video-section" appIntersectionObserver [debounceTime]="300" (visible)="onVisible()">
+    <video #deletecodeline controls preload="none" autoplay="false"
+      poster="https://s3.amazonaws.com/aws.jocelo.dev/delete_code_line_720.jpg">
+      <p>Your browser doesn't support HTML5 video. Here is
+        a <a href="https://s3.amazonaws.com/aws.jocelo.dev/delete_code_line_720.mp4">link to the video</a> instead.</p>
+    </video>
+  </section>
+
+  <p>Espero que encuentres valor en este tip y no olvides regresar para mas tips de productividad en VS Code y otros
+    IDE's.
+  </p>
+  <hr>
+
+  <app-read-next lang="es"></app-read-next>
+</app-simple-article>

@@ -30,6 +30,7 @@ import { PostImageComponent } from '../components/post-image/post-image.componen
 import { IntersectionObserverDirective } from '../directives/intersection-observer.directive';
 import { SimpleArticleComponent } from './components/simple-article/simple-article.component';
 import { DeleteWholeLineVsCodeComponent } from './delete-whole-line-vs-code/delete-whole-line-vs-code.component';
+import { BorrarLineasVsCodeComponent } from './borrar-lineas-vs-code/borrar-lineas-vs-code.component';
 
 const blogRoutes: Routes = [
   { path: 'topic/:token', component: SearchByTopicComponent },
@@ -42,7 +43,8 @@ const blogRoutes: Routes = [
   { path: 'what-is-a-queue', component: WhatIsAQueueComponent },
   { path: 'format-documents-on-save', component: VscodeFormatOnSaveComponent },
   { path: 'urls-dinamicos', component: UrlsConPalabrasClaveComponent },
-  { path: 'delete-code-line', component: DeleteWholeLineVsCodeComponent }
+  { path: 'delete-code-line', component: DeleteWholeLineVsCodeComponent },
+  { path: 'eliminar-linea-codigo', component: BorrarLineasVsCodeComponent },
 ];
 
 @NgModule({
@@ -65,7 +67,8 @@ const blogRoutes: Routes = [
     PostImageComponent,
     IntersectionObserverDirective,
     SimpleArticleComponent,
-    DeleteWholeLineVsCodeComponent
+    DeleteWholeLineVsCodeComponent,
+    BorrarLineasVsCodeComponent
   ],
   imports: [
     CommonModule,

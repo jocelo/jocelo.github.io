@@ -3,7 +3,7 @@ import { Title } from '@angular/platform-browser';
 
 import { s3VideoURL } from '../constants';
 
-import { faLaptopCode } from '@fortawesome/free-solid-svg-icons';
+import { faLanguage, faLaptopCode } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-delete-whole-line-vs-code',
@@ -14,7 +14,8 @@ export class DeleteWholeLineVsCodeComponent implements OnInit {
   @ViewChild('deletecodeline') deletecodeline: ElementRef;
 
   faLaptopCode = faLaptopCode;
-  postTitle = 'Deleting code lines in VSCode';
+  faLanguage = faLanguage;
+  postTitle = 'Deleting code lines in VS Code';
 
   constructor(private titleService: Title) { }
 

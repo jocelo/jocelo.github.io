@@ -41,7 +41,10 @@ ol.steps li {
 
 @media screen and (max-width: 600px) {
   article {
-    margin: 0 10px;
-    padding-bottom: 80px;
+    border: 0;
+    width: calc(100% - 20px);
+    margin: 0;
+    padding: 10px;
+    padding-bottom: 50px;
   }
 }

@@ -1,0 +1,174 @@
+{
+  "pseudocode": [
+    {
+      "stepNo": "step1",
+      "desc": "Declaramos una variable que nos servirá como un <span class=\"inline-code\">hashtable</span>. Este tipo de dato abstracto nos sirve para almacenar pares de datos: un ID y un valor. En este problema, el ID sera el valor (numero) de cada elemento de la lista (lo podemos hacer, ya que los valores son únicos de acuerdo a la definición y restricciones del problema) y el valor sera el índice del elemento correspondiente de la lista.",
+      "notes":[{
+        "noteNo": "step1.1",
+        "lang": "javascript",
+        "desc": "En javascript, creamos un objeto del tipo <span class=\"inline-code\">Map()</span>, lo cual nos da acceso a los métodos <span class=\"inline-code\">.get()</span> y <span class=\"inline-code\">.set()</span> para leer e insertar nuevos datos."
+      }, {
+        "noteNo": "step1.1",
+        "lang": "php",
+        "desc": "En PHP usamos un array asociativo para llevar el control del hashmap."
+      }]
+    }, {
+      "stepNo": "step2",
+      "desc": "Iteramos sobre la lista de números."
+    }, {
+      "stepNo": "step3",
+      "desc": "Declaramos una variable temporal que nos va a servir para almacenar la diferencia entre el valor objetivo y el valor actual de la lista. Este valor que resulta de la diferencia es nuestro 'sumando derecho'."
+    }, {
+      "stepNo": "step4",
+      "desc": "Aquí la parte mas importante de nuestro algoritmo: Si el valor temporal (sumando derecho) que calculamos en el paso anterior se encuentra en el hashmap, significa que hemos encontrado los dos números que necesitamos, ya que el número actual <span class=\"inline-code\">listaNumeros[i]</span> es el 'sumando izquierdo'.",
+      "notes": [{
+        "noteNo": "step4.1",
+        "lang": "php",
+        "desc": "Para encontrar un valor previo en nuestro array asociativo, debemos usar <a href='https://php/net'>in_array()</a> en conjunto con <a href='https://php.net'>array_keys()</a> para realizar la búsqueda sobre las llaves del array asociativo."
+      }]
+    }, {
+      "stepNo": "step5",
+      "desc": "Si el valor temporal (sumando derecho) no se encuentra en el hashmap, entonces almacenamos el numero actual (sumando izquierdo) en nuestro hashmap y continuamos evaluando el siguiente elemento de la lista."
+    }, {
+      "stepNo": "step6",
+      "desc": "Como tenemos la certeza de que existe exactamente una solución, con la lógica anterior debemos encontrar la combinación correcta, asi que no tenemos que validar ningún otro escenario."
+    }
+  ],
+  "javascript": {
+    "code": [
+      "",
+      "  var twoSum = function (listaNumeros, objetivo) {",
+      "    const tablaHash = new Map();",
+      "",
+      "    for (let i = 0; i < listaNumeros.length; i++) {",
+      "      let objetivoTemporal = objetivo - listaNumeros[i];",
+      "      if (tablaHash.has(objetivoTemporal)) {",
+      "        return [i, tablaHash.get(objetivoTemporal)];",
+      "      }",
+      "",
+      "      tablaHash.set(listaNumeros[i], i);",
+      "    }",
+      "    return;",
+      "  }",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [3]
+      },
+      {
+        "key": "step1.1",
+        "codeLines": [3]
+      },
+      {
+        "key": "step2",
+        "codeLines": [5, 12]
+      },
+      {
+        "key": "step3",
+        "codeLines": [6]
+      },
+      {
+        "key": "step4",
+        "codeLines": [7, 8, 9]
+      },
+      {
+        "key": "step5",
+        "codeLines": [11]
+      },
+      {
+        "key": "step6",
+        "codeLines": [13]
+      }
+    ]
+  },
+  "python": {
+    "code": [
+      "",
+      "def two_sum(lista_numeros, objetivo):",
+      "  tabla_hash = {}",
+      "",
+      "  for i in range(len(lista_numeros)):",
+      "    sumando_derecho = objetivo - lista_numeros[i]",
+      "",
+      "    if sumando_derecho in tabla_hash:",
+      "      return [i, tabla_hash[sumando_derecho]]",
+      "",
+      "    tabla_hash[lista_numeros[i]] = i",
+      "",
+      "  return",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [3]
+      },
+      {
+        "key": "step2",
+        "codeLines": [5]
+      },
+      {
+        "key": "step3",
+        "codeLines": [6]
+      },
+      {
+        "key": "step4",
+        "codeLines": [8, 9]
+      },
+      {
+        "key": "step5",
+        "codeLines": [11]
+      },
+      {
+        "key": "step6",
+        "codeLines": [13]
+      }
+    ]
+  },
+  "php": {
+    "code": [
+      "",
+      "  function two_sum($lista_numeros, $objetivo) {",
+      "    $tabla_hash = array();",
+      "  ",
+      "    foreach ($lista_numeros as $key => $value) {",
+      "      $sumando_derecho = $objetivo - $value;",
+      "      if (in_array($sumando_derecho, array_keys($tabla_hash))) {",
+      "        return array($key, $tabla_hash[$sumando_derecho]);",
+      "      }",
+      "      $tabla_hash += array($value => $key);",
+      "    }",
+      "    return;",
+      "  }",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [3]
+      },
+      {
+        "key": "step2",
+        "codeLines": [5, 11]
+      },
+      {
+        "key": "step3",
+        "codeLines": [6]
+      },
+      {
+        "key": "step4",
+        "codeLines": [7, 8, 9]
+      },
+      {
+        "key": "step5",
+        "codeLines": [10]
+      },
+      {
+        "key": "step6",
+        "codeLines": [12]
+      }
+    ]
+  }
+}

@@ -82,5 +82,12 @@
   },{
     "title": "URL's dinámicos",
     "url": "urls-dinamicos"
+  }],
+  "suma-dos-numeros": [{
+    "title": "Balanceo de Paréntesis",
+    "url": "balanceo-de-parentesis"
+  },{
+    "title": "URL's dinámicos",
+    "url": "urls-dinamicos"
   }]
 }

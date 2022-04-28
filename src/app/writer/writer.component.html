@@ -13,5 +13,10 @@
       <span *ngIf="lang=='es'">Ultima actualización: </span>
       <b>{{publishedDate}}</b>
     </p>
+    <p class="text-gray">
+      <span *ngIf="lang=='en'">Read time: </span>
+      <span *ngIf="lang=='es'">Tiempo de lectura: </span>
+      <b>{{readTime}} mins</b>
+    </p>
   </div>
 </section>

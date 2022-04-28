@@ -12,6 +12,12 @@
             cursor: pointer;
         }
 
+        .time-to-read {
+            color: darkslategray;
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+
         .top-section {
             display: flex;
             flex-direction: row;
@@ -25,12 +31,12 @@
                 margin-right: 15px;
                 font-size: 0.8rem;
             }
-    
+
             div:first-child {
                 flex: 1;
                 padding: 20px;
             }
-    
+
             div:last-child {
                 flex: 2;
             }
@@ -57,12 +63,17 @@
 
         .picture-section {
             text-align: center;
-            
+
             .post-image {
                 max-width: 310px;
             }
+
+            .photo-desc {
+                font-size: 0.8rem;
+                color: darkslategray;
+            }
         }
-        
+
     }
 }
 
@@ -118,5 +129,5 @@ input.search-input {
         padding: 10px;
     }
 
-    
+
 }

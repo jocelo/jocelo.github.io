@@ -46,7 +46,7 @@ export class LandingComponent implements OnInit {
     event.preventDefault();
     event.stopPropagation();
 
-    if (event.keyCode == 8) {
+    if (event.keyCode === 8) {
       this.wordSearched = this.wordSearched.slice(0, -1);
       this.killAnimation();
 
@@ -56,13 +56,13 @@ export class LandingComponent implements OnInit {
     } else if (this.wordSearched.length < this.topicSelected.length) {
       this.wordSearched += this.topicSelected[this.wordSearched.length];
       this.killAnimation();
-    } else if (this.wordSearched.length == this.topicSelected.length) {
+    } else if (this.wordSearched.length === this.topicSelected.length) {
       this.animate();
     }
   }
 
   log(msg = 'default msg') {
-    console.log(msg);
+    //console.log(msg);
   }
 
   handleKeyUp(event): void {

@@ -6,7 +6,7 @@
   </p>
   <p *ngIf="language=='es'">Maximiza la ventana del código para que actives el modo <b>linea por linea</b> (<fa-icon
       (click)="toggleLineByLine()" [icon]="faPlusCircle">
-    </fa-icon>) y analices el algoritmo paso a paso.
+    </fa-icon>); podrás ver comentarios por cada linea de código y analizaras el algoritmo paso a paso.
   </p>
   <section class="code-container" [ngClass]="{'line-by-line': lineByLine}">
     <div class="code-section">
@@ -69,16 +69,18 @@
         </span></h3>
       <mat-card class="card-note">
         <fa-icon [icon]="faSearch" size="lg"></fa-icon>
-        <span *ngIf="language=='en'">Move the cursor over each numbered instructions from the pseudo-code so you can
-          match up more easily the pseudo-code and the real code.</span>
+        <span *ngIf="language=='en'">Move the cursor over each numbered instructions from the pseudo-code below so you
+          can match up more easily the pseudo-code and the real code.</span>
         <span *ngIf="language=='es'">Mueve el cursor sobre cada instrucción de pseudo-código abajo para que puedas
           analizar cada sección del algoritmo.</span>
       </mat-card>
       <ol class="steps">
         <li *ngFor="let s of pseudoCode" [id]="s.stepNo" (mouseover)="showTheThing($event)" (mouseout)="hideTheThing()">
           <span [innerHTML]="s.desc"></span>
-          <ul *ngIf="s.notes && showNotes()">
-            <li [id]="s.notes.noteNo"> <span [innerHTML]="s.notes.desc"></span></li>
+          <ul *ngIf="s.notes">
+            <span *ngFor="let note of s.notes">
+              <li *ngIf="showNotes(note)" [id]="note.noteNo"> <span [innerHTML]="note.desc"></span></li>
+            </span>
           </ul>
         </li>
         <section *ngIf="pseudoNotes && pseudoNotes[lblMode]">

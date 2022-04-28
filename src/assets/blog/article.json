@@ -49,5 +49,10 @@
     "language": "es",
     "title": "Eliminar linease de código en VS Code",
     "topics": ["vscode", "productivity", "tips"]
+  },
+  "suma-dos-numeros": {
+    "language": "es",
+    "title": "Algoritmo: Suma de dos numeros",
+    "topics": ["algoritmos", "hashtable", "blind_75"]
   }
 }

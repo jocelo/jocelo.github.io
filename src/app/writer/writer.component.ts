@@ -11,8 +11,8 @@ import { BlogService } from '../services/blog.service';
 export class WriterComponent implements OnInit {
   publishedDate: string;
 
-  @Input()
-  lang = 'en';
+  @Input() lang = 'en';
+  @Input() readTime = '5';
 
   constructor(
     private service: BlogService,

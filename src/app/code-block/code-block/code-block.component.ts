@@ -31,7 +31,6 @@ export class CodeBlockComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('why is not loaded?');
     this.lblMode = 'javascript';
   }
 
@@ -39,8 +38,8 @@ export class CodeBlockComponent implements OnInit {
     this.lineByLine = !this.lineByLine;
   }
 
-  public showNotes(): boolean {
-    if (this.lblMode === 'python') {
+  public showNotes(theNote): boolean {
+    if (this.lblMode === theNote.lang) {
       return true;
     }
     return false;

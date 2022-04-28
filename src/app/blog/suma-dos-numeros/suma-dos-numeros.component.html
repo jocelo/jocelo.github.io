@@ -1,0 +1,191 @@
+<app-simple-article>
+  <h1 id="article-top">{{postTitle}}</h1>
+  <app-writer lang="es" readTime="6"></app-writer>
+  <mat-card class="card-note" *ngif="false">
+    <fa-icon [icon]="faLanguage" style="margin-right: 10px;" size="lg"></fa-icon> For English version <a
+      [routerLink]="['/blog','balanced-brackets']">click here.</a>
+  </mat-card>
+
+  <p>Bienvenidos a este articulo donde revisaremos el algoritmo para resolver el problema de Suma de dos números. Como
+    es costumbre, el código lo encontraras en varios lenguajes de programación.</p>
+
+  <app-post-image [src]="postPicture.src" [desc]="postPicture.desc">
+  </app-post-image>
+
+  <p>Este problema se encuentra en los siguientes sitios: </p>
+  <app-chips [data]="sites"></app-chips>
+  <p>Este problema forma parte de la famosa lista de <a
+      href="https://www.teamblind.com/post/New-Year-Gift---Curated-List-of-Top-75-LeetCode-Questions-to-Save-Your-Time-OaM1orEU"
+      target="_blank">Blind Curated 75 Leetcode questions</a>. Este articulo cubre la primera pregunta y tenemos 74
+    mas por recorrer asi que... comencemos!</p>
+  <p>Aunque lo mas recomendable es que leas este articulo en orden, si tu ansia por leer código es muy grande, puedes
+    usar el indice y brincarte a la sección que mas te interese:</p>
+  <ul>
+    <li> <a routerLink="." fragment="definition">Definición</a></li>
+    <li> <a routerLink="." fragment="solution">Solución</a></li>
+    <li> <a routerLink="." fragment="code">Código</a></li>
+    <li> <a routerLink="." fragment="bigo">Análisis de big O</a></li>
+    <li> <a routerLink="." fragment="conclusion">Conclusión</a></li>
+  </ul>
+  <hr />
+
+  <h2 id="definition">Definición</h2>
+  <p>El problema nos dan los siguientes datos:</p>
+  <ul>
+    <li>Lista de números diferentes, no consecutivos; ejm: <span class="inline-code">[2, 7, 11, 15]</span> </li>
+    <li>Numero objetivo: Es el resultado de sumar dos números diferentes de la lista anterior; ejm: <span
+        class="inline-code">9</span> </li>
+  </ul>
+  <p>El objetivo es buscar dos números de la lista que sumados te den como resultado el numero dado. Estos
+    dos números no pueden ser el mismo numero y hay solo dos números que cumplen el objetivo; asi que como podrás
+    asumir, solo hay un resultado correcto.
+  </p>
+  <p>El algoritmo debe regresar una lista con dos elementos; los indices de los dos números que sumados nos dan
+    como resultado el numero objetivo.</p>
+  <hr />
+
+  <h3>Restricciones</h3>
+  <table mat-table [dataSource]="restrictionDataSource" class="mat-elevation-z8 hide-header lg-table align-center">
+    <!-- Code Column -->
+    <ng-container matColumnDef="nomenclatura">
+      <td mat-cell class="nowrap" *matCellDef="let element"> <span [innerHTML]="element.nomenclatura"></span> </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="desc">
+      <td mat-cell *matCellDef="let element"> <span [innerHTML]="element.desc"></span> </td>
+    </ng-container>
+
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Regresar al inicio</a>
+  </div>
+  <hr />
+
+  <h2 id="solution">Solución</h2>
+  <mat-card *ngIf="false" class="card-note">
+    <fa-icon [icon]="faExclamationCircle" style="margin-right: 10px;" size="lg"></fa-icon> La solución también se
+    encuentra en video, para verlo <a href="https://www.youtube.com/channel/UC547pgqomI0IcjOmltxQdAQ"
+      target="_blank">visita mi canal</a>.
+  </mat-card>
+  <p>Este problema tiene relación con los siguientes temas:</p>
+  <section>
+    <app-chips [data]="topics" [blogLinks]="true"></app-chips>
+  </section>
+
+  <p>Sigamos con el ejemplo de la sección de definición del problema: <span class="inline-code">[2, 7, 11, 15]</span> y
+    <span class="inline-code">9</span>.
+  </p>
+  <p>Los números que sumados nos dan <span class="inline-code">9</span> son el <span class="inline-code">2</span> y el
+    <span class="inline-code">7</span>,
+    asi que el resultado de nuestro algoritmo sera: <span class="inline-code">[0,1]</span> siendo estos los indices de
+    los elementos 2 y 7.
+  </p>
+  <p>Podemos ver que para encontrar la solución involucramos 3 números: el <span class="inline-code">sumando
+      izquierdo</span>, el <span class="inline-code">sumando derecho</span> y el numero <span
+      class="inline-code">objetivo</span>. Es importante definir y poner nombre a cada uno de estos números ahora, para
+    que en la descripción paso a paso del algoritmo, sea mas sencillo entender de donde salen y que esta pasando con
+    cada uno de dichos números.</p>
+
+  <app-post-image src="assets/blog/two_sum_sumandos.png" desc="Descripción de sumandos" size="normal"></app-post-image>
+
+  <p>Ahora, como llegamos a esta solución? Estoy seguro que lo resolviste casi inmediatamente en tu cabeza... Pero como
+    lo hiciste?</p>
+  <p>En mi interpretación de las posibles soluciones, veo al menos dos posibilidades:</p>
+  <ol>
+    <li>Revisar visualmente todos los números (o pares de números) en la lista y tratar de encontrar cuales dos suman el
+      numero objetivo.</li>
+    <li>Tomar algún elemento al azar y restarlo del numero objetivo... Después revisar la lista en busca
+      de ese "otro" numero. Si no se encuentra, guardamos en la memoria el numero que ya fue "probado" y realizar la
+      operación con otro numero al azar. Repetir la operación hasta que se encuentren los dos números que nos dan la
+      solución, tal ves repitiendo números mientras se van probando varias combinaciones, o tal vez tomando algún numero
+      mayor o menor, de acuerdo a los resultados que vayamos obteniendo.</li>
+  </ol>
+  <p>Estas dos <b>muy validas</b> opciones las podemos convertir a código y resolverían este problema, sin embargo una
+    de ellas es mas óptima: la segunda opción. Asi que vamos a resolver el problema con una implementación del segundo
+    método.
+  </p>
+  <mat-card class="card-note mocca-color">
+    <fa-icon [icon]="faLightbulb" style="margin-right: 5px;" size="lg"></fa-icon>
+    Usualmente, al primer método mencionado anteriormente se le llama "fuerza bruta", porque se tienen que
+    comprobar/procesar todas las posibles opciones <u>una a una</u>. <i>Usualmente</i> estas soluciones son las mas
+    fáciles de llegar a ellas, relativamente fáciles de codificar (aunque no siempre) y funcionan bastante bien para la
+    mayoría de los problemas del dia a dia. El problema esta que cuando el numero de datos que tenemos que procesar
+    crece a miles o millones de datos, ahi es cuando las soluciones de fuerza bruta se tienen que reemplazar con
+    algoritmos mas eficientes.
+  </mat-card>
+
+  <p>Bien ahora, vamos a escupir algo de código:</p>
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Regresar al inicio</a>
+  </div>
+  <hr />
+
+  <h2 id="code">Código</h2>
+
+  <app-code-block language="es" [code]="the_code" [codeSteps]="codeSteps" [pseudoCode]="pseudoCode">
+  </app-code-block>
+
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Regresar al inicio</a>
+  </div>
+  <hr />
+
+  <h2 id="bigo">Análisis de big O</h2>
+  <h3>Tiempo</h3>
+  <p>En cuestiones de tiempo, las operaciones principales de nuestro algoritmo son:</p>
+  <table mat-table [dataSource]="bigODataSource" class="mat-elevation-z8 lg-table align-center">
+    <!-- Time Column -->
+    <ng-container matColumnDef="tiempo">
+      <th mat-header-cell *matHeaderCellDef> Tiempo </th>
+      <td mat-cell *matCellDef="let element"> {{element.tiempo}} </td>
+    </ng-container>
+
+    <!-- Desc Column -->
+    <ng-container matColumnDef="desc">
+      <th mat-header-cell *matHeaderCellDef> Descripción </th>
+      <td mat-cell *matCellDef="let element"> <span [innerHTML]="element.desc"></span> </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsBigO"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumnsBigO;"></tr>
+  </table>
+  <p>Podemos ver que la complejidad en tiempo es lineal <span class="inline-code">O(n)</span>, directamente relacionada
+    con el tamaño de la lista de números.</p>
+
+  <h3>Espacio</h3>
+  <p>En relación al <u>espacio</u>, estamos usando una variable como hashmap para almacenar cada valor de nuestra cadena
+    original y una variable temporal.</p>
+  <p>El peor escenario que podríamos tener es que el último numero de la lista sea parte de la solución y dado que los
+    números de la lista son diferentes, el tamaño máximo del hashmap sería igual
+    a la longitud de la lista de números, asi que la complejidad también sería <span class="inline-code">O(n)</span>.
+  </p>
+  <p><u>Concluimos</u> el análisis de la big O para el problema de balanceo de paréntesis como:</p>
+  <section class="complexity-summary">
+    <div>Tiempo: <strong>O(n)</strong></div>
+    <div>Espacio: <strong>O(n)</strong></div>
+  </section>
+
+  <p>Donde <span class="inline-code">n</span> representa la longitud de la lista de números.</p>
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Regresar al inicio</a>
+  </div>
+  <hr />
+
+  <h2 id="conclusion">Conclusión</h2>
+  <p>Gracias por leer este articulo!</p>
+  <p>Empezamos esta serie de posts donde revisaremos la famosa lista de algoritmos de blind, este es solo el primero de
+    muchos mas por venir... Exactamente quedan 74!</p>
+  <p>En este post analizamos el algoritmo de two sums, y una de sus soluciones optimas involucra el uso de
+    el tipo de dato abstracto llamado <strong>hash map</strong> o <strong>hash table</strong>; el cual tiene un gran
+    campo de uso en bastantes algoritmos. Es muy importante que conozcas sus ventajas y desventajas para que lo puedas
+    usar en tu código. Espero te haya ayudado y hayas aprendido algo nuevo.
+  </p>
+  <p>Dejame saber tienes dudas, comentarios, sugerencias o conoces otro algoritmo para resolver este problema. Me puedes
+    contactar en mis redes sociales: <a href="https://twitter.com/jocelodev" target="_blank">twitter</a></p>
+
+  <hr />
+
+  <app-read-next lang="es"></app-read-next>
+</app-simple-article>

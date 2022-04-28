@@ -13,13 +13,17 @@
         <div class="top-section">
           <div class="picture-section">
             <img (click)="openArticle(post.url)" class="post-image pointer" src="assets/{{post.img}}">
+            <span class="photo-desc"><span [innerHTML]="post.imgDesc"></span> </span>
           </div>
           <div class="post-container">
             <h2 (click)="openArticle(post.url)" class="pointer">{{post.title}}</h2>
             <div class="mobile-picture-section">
               <img src="assets/{{post.img}}" class="pointer" (click)="openArticle(post.url)">
             </div>
-            <p class="post-body pointer" (click)="openArticle(post.url)">{{post.desc}}</p>
+            <p class="post-body pointer" (click)="openArticle(post.url)">{{post.desc}}
+              <span *ngIf="post.readTime" class="time-to-read"> -
+                {{post.readTime}} min read</span>
+            </p>
             <p class="published-date">Last Update: <i>{{post.publishedDate}}</i> </p>
           </div>
         </div>

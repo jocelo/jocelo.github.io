@@ -32,13 +32,12 @@ export interface InextPost {
   name: string;
   url: string;
 }
-
 @Component({
-  selector: 'app-suma-dos-numeros',
-  templateUrl: './suma-dos-numeros.component.html',
-  styleUrls: ['./suma-dos-numeros.component.scss']
+  selector: 'app-two-sum',
+  templateUrl: './two-sum.component.html',
+  styleUrls: ['./two-sum.component.scss']
 })
-export class SumaDosNumerosComponent implements OnInit {
+export class TwoSumComponent implements OnInit {
   faSearch = faSearch;
   faExclamationCircle = faYoutube;
   faLanguage = faLanguage;
@@ -68,16 +67,15 @@ export class SumaDosNumerosComponent implements OnInit {
   displayedColumnsBigO: string[] = ['tiempo', 'desc'];
 
   restrictionDataSource = [
-    { nomenclatura: '2 <= nums.length <= 10<sup>4</sup>', desc: 'Donde: <br> <span class="inline-code">nums</span> es la lista de números validos (elementos) y el numero máximo de elementos en la lista esta entre 2 y 10^4. En otras palabras, puedes estar seguro que la lista nunca estará vacía; consistirá de al menos dos elementos' },
-    { nomenclatura: '-10<sup>9</sup> <= nums[i] <= 10<sup>9</sup>', desc: 'Donde: <br> cada elemento de la lista <span class="inline-code">nums[i]</span> puede tener un valor entre -10<sup>9</sup> y 10<sup>9</sup>, en la practica, el rango de valores se define por el valor negativo mínimo y positivo máximo del lenguaje de programación que estés usando.' },
-    { nomenclatura: '2 <= target <= 10<sup>4</sup>', desc: 'Donde: <br> <span class="inline-code">target</span> es el numero objetivo que estamos evaluando' },
+    { nomenclatura: '2 <= nums.length <= 10<sup>4</sup>', desc: 'Where: <br> <span class="inline-code">nums</span> represents the list of numbers (or elements) and the maximum size of elements is between 2 and 10<sup>4</sup>. In other words, you can rest assure that the list will never be empty, will have at least two elements.' },
+    { nomenclatura: '-10<sup>9</sup> <= nums[i] <= 10<sup>9</sup>', desc: 'Where: <br> Each element on the list <span class="inline-code">nums[i]</span> will have a value between -10<sup>9</sup> and 10<sup>9</sup>, in practice, this range is delimited by the lowest and greatest safe integer value in the language you are using.' },
+    { nomenclatura: '2 <= target <= 10<sup>4</sup>', desc: 'Where: <br> <span class="inline-code">target</span> is the target number we are evaluating against.' },
   ];
 
   bigODataSource: IbigO[] = [{
-    tiempo: 'O(n)', desc: `Donde <br> <span class="inline-code">n = longitud de la lista de números.</span> <br />Tenemos que recorrer la lista de números al menos una vez; y en el peor de los casos, alguno de los sumandos es el ultimo numero de la lista.`
+    tiempo: 'O(n)', desc: `Where <br> <span class="inline-code">n = length of the list.</span> <br />We need to go over the entire list at least once.`
   }, {
-    tiempo: 'O(1)', desc: `
-    Como usamos un hashmap para leer/escribir. Esta estructura de datos nos permite tener tiempos de ejecución lineales asi que esto no aumenta nuestros tiempo de ejecución.`
+    tiempo: 'O(1)', desc: `Since we use a hashmap to write/read. This data structure allows us to have averaged linear time write and read operations so, this will not increment our overall execution time.`
   }];
 
   nextPosts: InextPost[] = [{
@@ -85,7 +83,7 @@ export class SumaDosNumerosComponent implements OnInit {
     url: 'balanced-brackets'
   }];
 
-  postTitle = 'Suma de dos números';
+  postTitle = 'Two sum';
   postPicture: {
     src: string;
     desc: string;
@@ -129,10 +127,11 @@ export class SumaDosNumerosComponent implements OnInit {
     };
     this.pseudoCode = this.jsonData.pseudocode;
 
-    this.topics = this.service.getArticleTopics('suma-dos-numeros');
+    this.topics = this.service.getArticleTopics('two-sum');
   }
 
   drop(event: CdkDragDrop<Vegetable[]>) {
     moveItemInArray(this.sites, event.previousIndex, event.currentIndex);
   }
+
 }

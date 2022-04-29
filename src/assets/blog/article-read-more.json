@@ -86,8 +86,21 @@
   "suma-dos-numeros": [{
     "title": "Balanceo de Paréntesis",
     "url": "balanceo-de-parentesis"
-  },{
-    "title": "URL's dinámicos",
-    "url": "urls-dinamicos"
-  }]
+  }, {
+    "title": "Que es una pila?",
+    "url": "que-es-una-pila"
+  }, {
+    "title": "Que es una cola?",
+    "url": "que-es-una-cola"
+  }],
+  "two-sum": [{
+      "title": "Balanced brackets",
+      "url": "balanced-brackets"
+    }, {
+      "title": "What is a queue?",
+      "url": "what-is-a-queue"
+    },{
+      "title": "What is a stack?",
+      "url": "what-is-a-stack"
+    }]
 }

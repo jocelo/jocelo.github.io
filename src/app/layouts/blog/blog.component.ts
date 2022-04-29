@@ -24,6 +24,14 @@ export class BlogComponent implements OnInit {
   ngOnInit() {
     this.invalidSearchToken = false;
     this.posts = [{
+      url: 'two-sum',
+      img: 'blog/michal-matlon-4ApmfdVo32Q-unsplash.jpg',
+      imgDesc: 'Photo by <a href="https://unsplash.com/@michalmatlon?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Michal Matlon</a> on <a href="https://unsplash.com/s/photos/math?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>',
+      title: 'Two Sum: Blind 75 - 1/75',
+      desc: 'We analyze the solution for solving the Two Sum problem using a hashtable; an abstract data type with many use cases. This is the first article of a series dedicated to Blind 75 leetcode algorithms.',
+      readTime: '6',
+      publishedDate: this.service.getPostDate('two-sum')
+    }, {
       url: 'suma-dos-numeros',
       img: 'blog/michal-matlon-4ApmfdVo32Q-unsplash.jpg',
       imgDesc: 'Photo by <a href="https://unsplash.com/@michalmatlon?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Michal Matlon</a> on <a href="https://unsplash.com/s/photos/math?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>',

@@ -1,0 +1,174 @@
+{
+  "pseudocode": [
+    {
+      "stepNo": "step1",
+      "desc": "We declare a variable of 'type' <span class=\"inline-code\">hashtable</span>. This is an abstract data type that will help us to store blocks of pairs of data: an ID and a value. In this particular problem, the ID is the actual value (the number) from the list, and the value will be the index of such number. We can do this, because all the numbers are unique, according with our problem constraints",
+      "notes":[{
+        "noteNo": "step1.1",
+        "lang": "javascript",
+        "desc": "On javascript land (ES6), we instantiate a <span class=\"inline-code\">Map()</span> variable, which give us access to handy methods like <span class=\"inline-code\">.get()</span> and <span class=\"inline-code\">.set()</span> to read and write pairs of data."
+      }, {
+        "noteNo": "step1.1",
+        "lang": "php",
+        "desc": "On PHP land, we can use an associative array for the hashmap."
+      }]
+    }, {
+      "stepNo": "step2",
+      "desc": "We iterate over the list of numbers."
+    }, {
+      "stepNo": "step3",
+      "desc": "We declare a temporary variable that will help us store the result of subtracting the current number of the list from the target number. This temporary value is key to our logic and we will name it as the 'right addend'."
+    }, {
+      "stepNo": "step4",
+      "desc": "Here's the magic of our algorithm; If the temporary value calculated in the previous step (right addend) exists in the hashmap, that means we have found the solution to the problem, because the current number we are processing (<span class=\"inline-code\">nums[i]</span>) is the 'left addend'.",
+      "notes": [{
+        "noteNo": "step4.1",
+        "lang": "php",
+        "desc": "To find if a key exists in an associative array, on PHP we need to do a little heavy lifting: we can use <a href='https://php/net'>in_array()</a> along with <a href='https://php.net'>array_keys()</a> so we can find a key within the list of keys of the associative array."
+      }]
+    }, {
+      "stepNo": "step5",
+      "desc": "If the temporary value (right addend) is not in the hashmap, then we store the current value 'left addend' in the hashmap and continue to process the next element from the list."
+    }, {
+      "stepNo": "step6",
+      "desc": "As we are positive that there's a solution for this problem, we can just add a return after finishing the loop to be a 'good coding citizen'."
+    }
+  ],
+  "javascript": {
+    "code": [
+      "",
+      "  var twoSum = function(nums, target) {",
+      "    const hashTable = new Map();",
+      "",
+      "    for (let i = 0; i < nums.length; i++) {",
+      "      let rightAddend = target - nums[i];",
+      "      if (hashTable.has(rightAddend)) {",
+      "        return [i, hashTable.get(rightAddend)];",
+      "      }",
+      "",
+      "      hashTable.set(nums[i], i);",
+      "    }",
+      "    return;",
+      "  }",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [3]
+      },
+      {
+        "key": "step1.1",
+        "codeLines": [3]
+      },
+      {
+        "key": "step2",
+        "codeLines": [5, 12]
+      },
+      {
+        "key": "step3",
+        "codeLines": [6]
+      },
+      {
+        "key": "step4",
+        "codeLines": [7, 8, 9]
+      },
+      {
+        "key": "step5",
+        "codeLines": [11]
+      },
+      {
+        "key": "step6",
+        "codeLines": [13]
+      }
+    ]
+  },
+  "python": {
+    "code": [
+      "",
+      "def two_sum(nums, target):",
+      "  hash_table = {}",
+      "",
+      "  for i in range(len(nums)):",
+      "    right_addend = target - nums[i]",
+      "",
+      "    if right_addend in hash_table:",
+      "      return [i, hash_table[right_addend]]",
+      "",
+      "    hash_table[nums[i]] = i",
+      "",
+      "  return",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [3]
+      },
+      {
+        "key": "step2",
+        "codeLines": [5]
+      },
+      {
+        "key": "step3",
+        "codeLines": [6]
+      },
+      {
+        "key": "step4",
+        "codeLines": [8, 9]
+      },
+      {
+        "key": "step5",
+        "codeLines": [11]
+      },
+      {
+        "key": "step6",
+        "codeLines": [13]
+      }
+    ]
+  },
+  "php": {
+    "code": [
+      "",
+      "  function two_sum($nums, $target) {",
+      "    $hash_table = array();",
+      "  ",
+      "    foreach ($nums as $key => $value) {",
+      "      $right_addend = $target - $value;",
+      "      if (in_array($right_addend, array_keys($hash_table))) {",
+      "        return array($key, $hash_table[$right_addend]);",
+      "      }",
+      "      $hash_table += array($value => $key);",
+      "    }",
+      "    return;",
+      "  }",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [3]
+      },
+      {
+        "key": "step2",
+        "codeLines": [5, 11]
+      },
+      {
+        "key": "step3",
+        "codeLines": [6]
+      },
+      {
+        "key": "step4",
+        "codeLines": [7, 8, 9]
+      },
+      {
+        "key": "step5",
+        "codeLines": [10]
+      },
+      {
+        "key": "step6",
+        "codeLines": [12]
+      }
+    ]
+  }
+}

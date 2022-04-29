@@ -1,7 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
-import { faExternalLinkAlt, faRulerHorizontal, faBatteryHalf, faFileCode, faTable, faBook } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBatteryHalf,
+  faBook,
+  faCubes,
+  faExternalLinkAlt,
+  faFileCode,
+  faRulerHorizontal,
+  faTable
+} from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 
 export interface Vegetable {
@@ -19,6 +27,7 @@ export class ChipsComponent implements OnInit {
 
   icons: any;
 
+  faCubes = faCubes;
   faExternalLinkAlt = faExternalLinkAlt;
   faRulerHorizontal = faRulerHorizontal;
   faBatteryHalf = faBatteryHalf;
@@ -38,7 +47,8 @@ export class ChipsComponent implements OnInit {
       'algorithms': faFileCode,
       'algoritmos': faFileCode,
       'hashtable': faTable,
-      'blind_75': faBook
+      'blind_75': faBook,
+      'data structures': faCubes
     };
   }
 

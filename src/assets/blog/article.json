@@ -53,6 +53,11 @@
   "suma-dos-numeros": {
     "language": "es",
     "title": "Algoritmo: Suma de dos numeros",
-    "topics": ["algoritmos", "hashtable", "blind_75"]
+    "topics": ["algoritmos", "estructuras de datos", "hashtable", "blind_75"]
+  },
+  "two-sum": {
+    "language": "en",
+    "title": "Algorithm: Two Sum",
+    "topics": ["algorithms", "data structures", "hashtable", "blind_75"]
   }
 }

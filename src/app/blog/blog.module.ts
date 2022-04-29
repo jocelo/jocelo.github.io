@@ -32,6 +32,7 @@ import { SimpleArticleComponent } from './components/simple-article/simple-artic
 import { DeleteWholeLineVsCodeComponent } from './delete-whole-line-vs-code/delete-whole-line-vs-code.component';
 import { BorrarLineasVsCodeComponent } from './borrar-lineas-vs-code/borrar-lineas-vs-code.component';
 import { SumaDosNumerosComponent } from './suma-dos-numeros/suma-dos-numeros.component';
+import { TwoSumComponent } from './two-sum/two-sum.component';
 
 const blogRoutes: Routes = [
   { path: 'topic/:token', component: SearchByTopicComponent },
@@ -47,6 +48,7 @@ const blogRoutes: Routes = [
   { path: 'delete-code-line', component: DeleteWholeLineVsCodeComponent },
   { path: 'eliminar-linea-codigo', component: BorrarLineasVsCodeComponent },
   { path: 'suma-dos-numeros', component: SumaDosNumerosComponent },
+  { path: 'two-sum', component: TwoSumComponent }
 ];
 
 @NgModule({
@@ -71,7 +73,8 @@ const blogRoutes: Routes = [
     SimpleArticleComponent,
     DeleteWholeLineVsCodeComponent,
     BorrarLineasVsCodeComponent,
-    SumaDosNumerosComponent
+    SumaDosNumerosComponent,
+    TwoSumComponent
   ],
   imports: [
     CommonModule,

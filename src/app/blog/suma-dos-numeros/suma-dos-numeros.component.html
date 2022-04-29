@@ -1,9 +1,9 @@
 <app-simple-article>
   <h1 id="article-top">{{postTitle}}</h1>
   <app-writer lang="es" readTime="6"></app-writer>
-  <mat-card class="card-note" *ngif="false">
+  <mat-card class="card-note">
     <fa-icon [icon]="faLanguage" style="margin-right: 10px;" size="lg"></fa-icon> For English version <a
-      [routerLink]="['/blog','balanced-brackets']">click here.</a>
+      [routerLink]="['/blog','two-sum']">click here.</a>
   </mat-card>
 
   <p>Bienvenidos a este articulo donde revisaremos el algoritmo para resolver el problema de Suma de dos números. Como
@@ -32,8 +32,8 @@
   <h2 id="definition">Definición</h2>
   <p>El problema nos dan los siguientes datos:</p>
   <ul>
-    <li>Lista de números diferentes, no consecutivos; ejm: <span class="inline-code">[2, 7, 11, 15]</span> </li>
-    <li>Numero objetivo: Es el resultado de sumar dos números diferentes de la lista anterior; ejm: <span
+    <li>Una lista de números diferentes, no consecutivos; ejm: <span class="inline-code">[2, 7, 11, 15]</span> </li>
+    <li>Un numero objetivo: Es el resultado de sumar dos números diferentes de la lista anterior; ejm: <span
         class="inline-code">9</span> </li>
   </ul>
   <p>El objetivo es buscar dos números de la lista que sumados te den como resultado el numero dado. Estos

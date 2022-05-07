@@ -54,3 +54,7 @@ span.inline-code {
   margin: 15px 0;
   background-color: lightskyblue;
 }
+
+.center {
+  text-align: center;
+}

@@ -1,0 +1,18 @@
+.big-label {
+  font-size: 100px;
+  color: gray;
+
+  .big-smaller {
+    font-size: 70px;
+    margin: 0 10px;
+  }
+}
+
+.recomendations {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.four-o-four {
+  padding: 0 15px;
+}

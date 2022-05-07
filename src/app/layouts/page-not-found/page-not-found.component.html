@@ -1,1 +1,21 @@
-<h2>Page not found</h2>
+<section class="four-o-four">
+  <h2 class="center">Error: 404 Page Not Found</h2>
+
+  <div class="big-label center">
+    <span>4</span>
+    <fa-icon [icon]="faGhost" size="lg" class="big-smaller"></fa-icon>
+    <span>4</span>
+  </div>
+
+  <p>Sorry, the page you are looking for is not found.</p>
+
+  <p>Please try again or go to the
+    <a [routerLink]="['/latest']">blog's main page</a> to find something that might pick your interest.
+  </p>
+
+  <p>Or even better! try some popular searches:</p>
+  <div class="recomendations">
+    <p><a routerLink="/blog/topic/blind_75">Blind 75 Leetcode Questions</a></p>
+    <p><a routerLink="/blog/topic/productivity">Productivity tips</a></p>
+  </div>
+</section>

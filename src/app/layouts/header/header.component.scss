@@ -1,3 +1,29 @@
+.desktop-bar {
+  border-bottom: 2px solid rgba(15, 113, 163, 0.3);
+  display: flex;
+
+  .main-header {
+    font-size: 2rem;
+    font-family: monospace;
+  }
+
+  .sub-header {
+    font-size: 1rem;
+  }
+
+  span {
+    flex-grow: 1;
+  }
+
+  span:nth-of-type(2) {
+    text-align: center;
+  }
+
+  span:nth-of-type(3) {
+    text-align: right;
+  }
+}
+
 nav {
   margin-top: 14px;
   height: 30px;
@@ -54,7 +80,7 @@ nav a {
   border-top-right-radius: 10px;
   border-bottom-left-radius: 10px;
 
-  &:hover{
+  &:hover {
     background-color: orangered;
   }
 }
@@ -94,7 +120,7 @@ nav a {
     padding: 4px 10px;
     width: 250px;
   }
-  
+
   & .icon-container {
     position: absolute;
     right: 7px;
@@ -148,7 +174,7 @@ a.disabled {
 @media screen and (max-width: 700px) {
   a {
     color: white;
-    
+
     & .ng-fa-icon {
       display: inline-block;
       width: 20px;
@@ -179,7 +205,7 @@ a.disabled {
     font-size: 20px;
     padding: 4px 20px;
   }
-  
+
   .menu {
     &.left-menu {
       width: 75%;
@@ -215,7 +241,7 @@ a.disabled {
 mat-toolbar a {
   width: 30px;
   margin-left: 10px;
-  color: white;
+  color: #0F71A3;
 }
 
 .sub-header {

@@ -112,12 +112,17 @@ input.search-input {
 }
 
 @media screen and (max-width: 600px) {
+
     .mobile-picture-section {
         display: block;
     }
 
     .blog-body {
         margin: 0 20px;
+
+        section.articles {
+            column-count: 1;
+        }
     }
 
     .picture-section {

@@ -1,5 +1,6 @@
 .personal-section {
-	min-height: 100vh;
+	min-height: 80vh;
+	margin: 0 100px;
 }
 
 h3 {
@@ -12,8 +13,7 @@ h3 {
 	font-size: 25px;
 	padding: 0;
 	padding-bottom: 5px;
-	color: #0F71A3;
-	border-bottom: 2px solid rgba(15, 113, 163, 0.3);
+	border-bottom: 2px solid lightgray;
 }
 
 .section-container {
@@ -57,7 +57,7 @@ h3 {
 .lang-section {
 	width: 20%;
 	display: inline-block;
-	text-align: center;	
+	text-align: center;
 
 	& p:nth-child(1) {
 		font-size: 25px;

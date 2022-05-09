@@ -1,4 +1,48 @@
 <div class="footer">
-  <span class="float-left"> v2.0.0207 </span>
-  <span class="float-right"> powered by <a href="mailto:info@jocelo.dev">jocelo</a> </span>
+  <section class="icons-section">
+    <div class="right-divisor">
+      <a href="https://www.instagram.com/joceloae/" target="_blank">
+        <fa-icon [icon]="faIcons.instagram" size="2x"></fa-icon>
+      </a>
+      <p class="title-icon"><a href="https://www.linkedin.com/in/alfredoae/" target="_blank">Instagram</a></p>
+    </div>
+
+    <div class="right-divisor">
+      <a href="https://twitter.com">
+        <fa-icon [icon]="faTwitter" size="2x"></fa-icon>
+      </a>
+      <p class="title-icon"><a href="https://www.linkedin.com/in/alfredoae/" target="_blank">LinkedIn</a></p>
+    </div>
+
+    <div class="right-divisor">
+      <a href="https://github.com/jocelo" target="_blank">
+        <fa-icon [icon]="faIcons.github" size="2x"></fa-icon>
+      </a>
+      <p class="title-icon"><a href="https://github.com/jocelo" target="_blank">Github</a></p>
+    </div>
+
+    <div class="right-divisor">
+      <a href="https://www.hackerrank.com/jocelohere" target="_blank">
+        <fa-icon [icon]="faIcons.hackerrank" size="2x"></fa-icon>
+      </a>
+      <p class="title-icon"><a href="https://www.hackerrank.com/jocelohere" target="_blank">Hacker Rank</a></p>
+    </div>
+    <div class="right-divisor">
+      <a href="https://leetcode.com/jocelo/" target="_blank">
+        <fa-icon [icon]="faIcons.diagram" size="2x"></fa-icon>
+      </a>
+      <p class="title-icon"><a href="https://leetcode.com/jocelo/" target="_blank">LeetCode</a></p>
+    </div>
+    <div>
+      <a href="https://exercism.io/profiles/jocelo" target="_blank">
+        <fa-icon [icon]="faIcons.exercism" size="2x"></fa-icon>
+      </a>
+      <p class="title-icon"><a href="https://exercism.io/profiles/jocelo" target="_blank">Exercism</a></p>
+    </div>
+  </section>
+  <section>
+    <p>
+      {{today | date:'YYYY'}} <fa-icon [icon]="faCopyright"></fa-icon> All rights reserved
+    </p>
+  </section>
 </div>

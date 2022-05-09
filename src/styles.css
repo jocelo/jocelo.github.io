@@ -11,12 +11,8 @@ body p {
   line-height: 1.5rem;
 }
 
-a {
-  color: rgb(15, 113, 163);
-}
-
 a:hover {
-  color: orangered;
+  color: darkorange;
 }
 
 input {

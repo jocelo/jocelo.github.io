@@ -1,12 +1,17 @@
 .blog-body {
     margin: 0 200px;
     padding-bottom: 50px;
-    min-height: 100vh;
 
-    article {
+    section.articles {
+        column-count: 3;
+    }
+
+    .one-article {
+        max-width: 300px;
         border: 1px solid gray;
         margin-bottom: 20px;
         background-color: white;
+        display: inline-block;
 
         .pointer {
             cursor: pointer;
@@ -18,18 +23,18 @@
             font-size: 0.9rem;
         }
 
+        .published-date {
+            text-align: right;
+            margin-right: 15px;
+            font-size: 0.8rem;
+        }
+
         .top-section {
             display: flex;
             flex-direction: row;
 
             h2:hover {
                 cursor: pointer;
-            }
-
-            .published-date {
-                text-align: right;
-                margin-right: 15px;
-                font-size: 0.8rem;
             }
 
             div:first-child {
@@ -128,6 +133,36 @@ input.search-input {
     .post-body {
         padding: 10px;
     }
+}
 
+.example-card {
+    max-width: 300px;
+}
 
+.mat-card-image:first-child {
+    margin-top: 0;
+}
+
+.bottom-section {
+    background: lightgray;
+    margin: -16px;
+    padding: 5px;
+    font-size: 0.9rem;
+
+    span {
+        padding: 0 10px;
+        border-right: 1px solid lightslategray;
+    }
+
+    span:first-of-type {
+        padding-left: 0;
+    }
+
+    span:last-of-type {
+        border-right: 0;
+    }
+}
+
+.mat-card .bottom-section.mat-card-actions {
+    margin-bottom: -16px;
 }

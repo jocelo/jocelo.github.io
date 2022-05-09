@@ -21,7 +21,8 @@
           </div>
 
           <mat-card-content>
-            <p>{{post.desc}}</p>
+            <p>{{post.desc}} <span *ngIf="post.readTime" class="time-to-read"> -
+                {{post.readTime}} min read</span></p>
 
           </mat-card-content>
           <mat-card-actions class="bottom-section">

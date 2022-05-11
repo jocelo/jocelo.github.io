@@ -1,5 +1,5 @@
 <section>
-  <mat-toolbar *ngIf="true" class="desktop-bar">
+  <mat-toolbar class="desktop-nav nav-bar">
     <span class="pointer sub-header">
       <a routerLink="/latest">Blog</a>
       <a routerLink="/certifications">Certifications</a>
@@ -18,7 +18,7 @@
     </span>
   </mat-toolbar>
 
-  <mat-toolbar color="primary" *ngIf="false">
+  <mat-toolbar class="mobile-nav nav-bar">
     <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon"
       aria-label="Example icon-button with menu icon">
       <mat-icon>menu</mat-icon>
@@ -41,9 +41,7 @@
         <span>Videos</span>
       </button> -->
     </mat-menu>
-    <span class="pointer" (click)="openSection('/')">Jocelo </span>
-    <span *ngIf="selectedItem" class="sub-header">/</span>
-    <span>{{selectedItem | titlecase}}</span>
+    <span class="pointer" (click)="openSection('/')">alfredo alonso </span>
     <span class="example-spacer"></span>
 
     <a href="https://github.com/jocelo" class="icon_width" target="_blank">

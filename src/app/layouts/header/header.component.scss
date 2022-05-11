@@ -1,4 +1,4 @@
-.desktop-bar {
+.nav-bar {
   display: flex;
   background: black;
   color: white;
@@ -35,6 +35,14 @@
   span:nth-of-type(3) {
     text-align: right;
   }
+}
+
+.desktop-nav {
+  display: flex;
+}
+
+.mobile-nav {
+  display: none;
 }
 
 nav {
@@ -185,6 +193,14 @@ a.disabled {
 }
 
 @media screen and (max-width: 700px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: flex;
+  }
+
   a {
     color: white;
 

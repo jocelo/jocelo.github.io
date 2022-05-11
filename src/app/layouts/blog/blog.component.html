@@ -28,6 +28,7 @@
           <mat-card-actions class="bottom-section">
             <span *ngFor="let topic of post.topics" class="topic"><a href="blog/topic/{{topic}}">{{topic}}</a> </span>
           </mat-card-actions>
+          <img class="lang-flag" [src]="post.flag" width="20px">
         </mat-card>
         <!--         
         <div class="top-section">

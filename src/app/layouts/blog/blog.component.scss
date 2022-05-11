@@ -60,10 +60,6 @@
         .bottom-section {
             background: lightgray;
             padding: 5px 10px;
-
-            span {
-                padding-right: 5px;
-            }
         }
 
         .picture-section {
@@ -77,6 +73,12 @@
                 font-size: 0.8rem;
                 color: darkslategray;
             }
+        }
+
+        .lang-flag {
+            position: absolute;
+            right: 8px;
+            top: 8px;
         }
 
     }
@@ -122,6 +124,7 @@ input.search-input {
 
         section.articles {
             column-count: 1;
+            text-align: center;
         }
     }
 
@@ -138,6 +141,8 @@ input.search-input {
     .post-body {
         padding: 10px;
     }
+
+
 }
 
 .example-card {

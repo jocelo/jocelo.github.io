@@ -94,6 +94,11 @@ h3 {
 }
 
 @media screen and (max-width: 700px) {
+	.personal-section {
+		min-height: 80vh;
+		margin: 0 10px;
+	}
+
 	.lang-section {
 		width: 100%;
 	}

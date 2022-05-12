@@ -12,8 +12,8 @@
       <article class="one-article" *ngFor="let post of posts">
         <mat-card class="example-card">
           <mat-card-header>
-            <mat-card-title>{{post.title}}</mat-card-title>
-            <mat-card-subtitle>{{post.publishedDate}}</mat-card-subtitle>
+            <mat-card-title class="pointer" (click)="openArticle(post.url)">{{post.title}}</mat-card-title>
+            <mat-card-subtitle (click)="openArticle(post.url)">{{post.publishedDate}}</mat-card-subtitle>
           </mat-card-header>
 
           <div class="picture-section">
@@ -21,7 +21,8 @@
           </div>
 
           <mat-card-content>
-            <p>{{post.desc}} <span *ngIf="post.readTime" class="time-to-read"> -
+            <p class="pointer" (click)="openArticle(post.url)">{{post.desc}} <span *ngIf="post.readTime"
+                class="time-to-read"> -
                 {{post.readTime}} min read</span></p>
 
           </mat-card-content>

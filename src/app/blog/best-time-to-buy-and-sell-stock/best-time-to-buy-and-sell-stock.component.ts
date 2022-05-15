@@ -2,58 +2,39 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { ViewportScroller } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router, Scroll } from '@angular/router';
-
 import { filter } from 'rxjs/operators';
+import { PostData, Vegetable, IbigO, InextPost } from '../blog.interfaces';
 
-import { faSearch, faLanguage } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faLanguage, faLightbulb } from '@fortawesome/free-solid-svg-icons';
 import { faYoutube } from '@fortawesome/free-brands-svg-icons';
-import { MatTabChangeEvent } from '@angular/material/tabs';
 
 import * as code from './code.json';
 import { BlogService } from 'src/app/services/blog.service';
 import { Title } from '@angular/platform-browser';
 
-export interface PostData {
-  name: string;
-  url?: string;
-}
-
-export interface Vegetable {
-  name: string;
-}
-
-export interface IbigO {
-  tiempo: string;
-  desc: string;
-}
-
-export interface InextPost {
-  name: string;
-  url: string;
-}
-
 @Component({
-  selector: 'app-balanceo-de-parentesis',
-  templateUrl: './balanceo-de-parentesis.component.html',
-  styleUrls: ['./balanceo-de-parentesis.component.scss']
+  selector: 'app-best-time-to-buy-and-sell-stock',
+  templateUrl: './best-time-to-buy-and-sell-stock.component.html',
+  styleUrls: ['./best-time-to-buy-and-sell-stock.component.scss']
 })
-export class BalanceoDeParentesisComponent implements OnInit {
+export class BestTimeToBuyAndSellStockComponent implements OnInit {
   faSearch = faSearch;
   faExclamationCircle = faYoutube;
   faLanguage = faLanguage;
+  faLightbulb = faLightbulb;
 
   sites: PostData[] = [{
     name: 'Leetcode',
-    url: 'https://leetcode.com/problems/valid-parentheses/'
+    url: 'https://leetcode.com/problems/best-time-to-buy-and-sell-stock/'
   }, {
     name: 'Hackerrank',
-    url: 'https://www.hackerrank.com/challenges/balanced-brackets/problem'
+    url: 'https://www.hackerrank.com/challenges/stockmax/problem'
   }, {
     name: 'Codewars',
-    url: 'https://www.codewars.com/kata/52774a314c2333f0a7000688'
+    url: 'https://www.codewars.com/kata/58f174ed7e9b1f32b40000ec'
   }, {
     name: 'Codechef',
-    url: 'https://www.codechef.com/problems/RNT011'
+    url: ''
   }];
 
   the_code: any;
@@ -66,14 +47,12 @@ export class BalanceoDeParentesisComponent implements OnInit {
   displayedColumnsBigO: string[] = ['tiempo', 'desc'];
 
   restrictionDataSource = [
-    { nomenclatura: 'i >= 0', desc: 'Donde: <br> <span class="inline-code">i</span> es la longitud de la cadena' },
-    { nomenclatura: 'n[i] = { [ ( ) ] }', desc: 'Donde: <br> cada caracter <span class="inline-code">n[i]</span> puede ser solamente uno de los caracteres validos de la lista' }
+    { nomenclatura: '1 <= prices.length <= 10<sup>5</sup>', desc: 'Where: <br> <span class="inline-code">prices</span> represents the list of sotck prices and the maximum size of the list falls between 1 and 10<sup>5</sup>. So, the list will never be empty.' },
+    { nomenclatura: '0 <= prices[i] <= 10<sup>4</sup>', desc: 'Where: <br> Each element on the list <span class="inline-code">prices[i]</span> is the stock price at that day and will have a value between 0 and 10<sup>4</sup>, in practice, this range is delimited by the lowest and greatest safe integer value in the language you are using.' },
   ];
 
   bigODataSource: IbigO[] = [{
-    tiempo: 'O(n)', desc: `Donde: <br> <span class="inline-code">n = longitud del array.</span> <br> Debemos leer todo el array de inicio a fin.`
-  }, {
-    tiempo: 'O(1)', desc: `Usamos una pila para almacenar todas las ocurrencias de paréntesis de apertura; esta estructura de datos nos permite tener lectura y escritura en tiempo constante.`
+    tiempo: 'O(n)', desc: `Where <br> <span class="inline-code">n = list size of prices.</span> <br />We need to go over the entire list just once.`
   }];
 
   nextPosts: InextPost[] = [{
@@ -81,7 +60,11 @@ export class BalanceoDeParentesisComponent implements OnInit {
     url: 'balanced-brackets'
   }];
 
-  postTitle = 'Balanceo de Paréntesis';
+  postTitle = 'Best Time to Buy and Sell Stock';
+  postPicture: {
+    src: string;
+    desc: string;
+  };
 
   constructor(
     private router: Router,
@@ -101,9 +84,13 @@ export class BalanceoDeParentesisComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.titleService.setTitle(this.postTitle + ' - Jocelo blog');
     this.jsonData = code;
+    this.postPicture = {
+      src: '/assets/blog/nicholas-cappello-Wb63zqJ5gnE-unsplash.jpg',
+      desc: 'Photo by <a href="https://unsplash.com/@bash__profile?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Nicholas Cappello</a> on <a href="https://unsplash.com/s/photos/stock?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>'
+    };
 
     this.the_code = {
       js_code: this.jsonData.javascript.code.join('\n'),
@@ -117,10 +104,14 @@ export class BalanceoDeParentesisComponent implements OnInit {
     };
     this.pseudoCode = this.jsonData.pseudocode;
 
-    this.topics = this.service.getArticleTopics('balanceo-de-parentesis');
+    let wholeUrl: string[] = this.router.url.split('/');
+    let url: string = wholeUrl[wholeUrl.length - 1];
+
+    this.topics = this.service.getArticleTopics(url);
   }
 
   drop(event: CdkDragDrop<Vegetable[]>) {
     moveItemInArray(this.sites, event.previousIndex, event.currentIndex);
   }
+
 }

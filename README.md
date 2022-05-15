@@ -1,3 +1,3 @@
-# Alfredo Alonso Portfolio
+# Alfredo Alonso Website
 
-Go to [this link](https://jocelo.dev) for the latest version of my website.
+Go to [this link](https://jocelo.dev) for the latest version of my Website and.

@@ -10,6 +10,9 @@ import {
   faRulerHorizontal,
   faTable
 } from '@fortawesome/free-solid-svg-icons';
+
+import { faUncharted } from '@fortawesome/free-brands-svg-icons';
+
 import { Router } from '@angular/router';
 
 export interface Vegetable {
@@ -34,6 +37,7 @@ export class ChipsComponent implements OnInit {
   faFileCode = faFileCode;
   faTable = faTable;
   faBooks = faBook;
+  faUncharted = faUncharted;
 
   constructor(
     private router: Router
@@ -48,7 +52,10 @@ export class ChipsComponent implements OnInit {
       'algoritmos': faFileCode,
       'hashtable': faTable,
       'blind_75': faBook,
-      'data structures': faCubes
+      'data structures': faCubes,
+      'estructuras de datos': faCubes,
+      'dynamic programming': faUncharted,
+      'programacion dinamica': faUncharted
     };
   }
 

@@ -24,6 +24,15 @@ export class BlogComponent implements OnInit {
   ngOnInit() {
     this.invalidSearchToken = false;
     this.posts = [{
+      url: 'best-time-to-buy-and-sell-stock',
+      img: 'blog/nicholas-cappello-Wb63zqJ5gnE-unsplash.jpg',
+      imgDesc: 'Photo by <a href="https://unsplash.com/@bash__profile?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Nicholas Cappello</a> on <a href="https://unsplash.com/s/photos/stock?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>',
+      title: 'Best time to buy and sell stock: Blind 75 - 2/75',
+      desc: 'We discuss the approach for solving the Best Tiem to Buy and Sell Stock problem as we get an introduction to dynamic programming. Second article of the Blind 75 series.',
+      lang: 'en',
+      readTime: '7',
+      publishedDate: this.service.getPostDate('best-time-to-buy-and-sell-stock')
+    }, {
       url: 'two-sum',
       img: 'blog/michal-matlon-4ApmfdVo32Q-unsplash.jpg',
       imgDesc: 'Photo by <a href="https://unsplash.com/@michalmatlon?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Michal Matlon</a> on <a href="https://unsplash.com/s/photos/math?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>',

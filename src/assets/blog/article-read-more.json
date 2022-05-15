@@ -102,5 +102,12 @@
     },{
       "title": "What is a stack?",
       "url": "what-is-a-stack"
-    }]
+  }],
+  "best-time-to-buy-and-sell-stock": [{
+    "title": "Two sum",
+    "url": "two-sum"
+  }, {
+    "title": "Balanced brackets",
+    "url": "balanced-brackets"
+  }]
 }

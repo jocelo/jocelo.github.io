@@ -1,0 +1,204 @@
+{
+  "pseudocode": [
+    {
+      "stepNo": "step1",
+      "desc": "We declare <span class='inline-code'>minValue</span> that will store the cheapest stock. We initialize with the maximum safe integer value in order to make sure we will always find a minimum value (any value will be smaller than the maximum allowed integer, right?).",
+      "notes":[{
+        "noteNo": "step1.1",
+        "lang": "javascript",
+        "desc": "With Javascript (ES6) we can use <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER'>MAX_SAFE_INTEGER</a> which is the maximum safe integer value."
+      }, {
+        "noteNo": "step1.1",
+        "lang": "python",
+        "desc": "With Python3 we can use <span class='inline-code'>sys.maxsize</span> but we have to import sys, in case we do not want to import anything, we can instead initialize minValue with a big-ish value, like 10<sup>10</sup>."
+      }, {
+        "noteNo": "step1.1",
+        "lang": "php",
+        "desc": "PHP has a constant we can use to get the maximum safe integer value: <a href='https://www.php.net/manual/en/reserved.constants.php'>PHP_INT_MAX</a>."
+      }]
+    }, {
+      "stepNo": "step2",
+      "desc": "We declare <span class='inline-code'>profit</span> that will hold the maximum profit at any time. We initialize with 0 so we can cover some base cases: one of which is the case when the list only has one element."
+    }, {
+      "stepNo": "step3",
+      "desc": "We iterate over the list of prices. We will use the term <b>local price</b> to identify the current price of the iteration.",
+      "notes":[{
+        "noteNo": "step3.1",
+        "lang": "javascript",
+        "desc": "On javascript (ES6) we use the <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach'>forEach()</a> method."
+      }]
+    }, {
+      "stepNo": "step4",
+      "desc": "Here's where the dynamic programming kicks in."
+    }, {
+      "stepNo": "step5",
+      "desc": "If the current price we are validating is less than our <span class='inline-code'>minValue</span>, then we replace the <span class='inline-code'>minValue</span> with the current min value."
+    }, {
+      "stepNo": "step6",
+      "desc": "In case the local price is not smaller that the previously saved."
+    }, {
+      "stepNo": "step7",
+      "desc": "We save the maximum value from either (1) the maximum <span class='inline-code'>profit</span> or (2) if we have found a new maximum profit."
+    }, {
+      "stepNo": "step8",
+      "desc": "We are positive that the value in <span class='inline-code'>profit</span> has the maximum possible profit, so we just return it."
+    }
+  ],
+  "javascript": {
+    "code": [
+      "",
+      "  var maxProfit = function(prices) {",
+      "    var minValue = Number.MAX_SAFE_INTEGER;",
+      "    var profit = 0;",
+      "    ",
+      "    prices.forEach(function(price) {",
+      "        if (price<minValue) {",
+      "            minValue = price;",
+      "        } else {",
+      "            profit = Math.max(profit, price-minValue);",
+      "        }",
+      "    });",
+      "    return profit;",
+      "  }",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [3]
+      },
+      {
+        "key": "step2",
+        "codeLines": [4]
+      },
+      {
+        "key": "step3",
+        "codeLines": [6, 12]
+      },
+      {
+        "key": "step4",
+        "codeLines": [7, 8, 9, 10, 11]
+      },
+      {
+        "key": "step5",
+        "codeLines": [7, 8]
+      },
+      {
+        "key": "step6",
+        "codeLines": [9]
+      },
+      {
+        "key": "step7",
+        "codeLines": [10]
+      },
+      {
+        "key": "step8",
+        "codeLines": [13]
+      }
+    ]
+  },
+  "python": {
+    "code": [
+      "",
+      "  def maxProfit(prices):",
+      "    minValue = 10**10",
+      "    profit = 0",
+      "  ",
+      "    for price in prices:",
+      "      if price < minValue:",
+      "        minValue = price",
+      "      else:",
+      "        profit = max(profit, price-minValue)",
+      "",
+      "    return profit",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [3]
+      },
+      {
+        "key": "step2",
+        "codeLines": [4]
+      },
+      {
+        "key": "step3",
+        "codeLines": [6]
+      },
+      {
+        "key": "step4",
+        "codeLines": [7, 8, 9, 10]
+      },
+      {
+        "key": "step5",
+        "codeLines": [7, 8]
+      },
+      {
+        "key": "step6",
+        "codeLines": [9]
+      },
+      {
+        "key": "step7",
+        "codeLines": [10]
+      },
+      {
+        "key": "step8",
+        "codeLines": [12]
+      }
+    ]
+  },
+  "php": {
+    "code": [
+      "",
+      "  function maxProfit($prices) {",
+      "    $minValue = PHP_INT_MAX;",
+      "    $profit = 0;",
+      "  ",
+      "    foreach ($prices as $key => $price) {",
+      "      if ($price < $minValue) {",
+      "        $minValue = $price;",
+      "      } else {",
+      "        $profit = max($profit, $price-$minValue);",
+      "      }",
+      "    }",
+      "    return $profit;",
+      "  }",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [3]
+      },
+      {
+        "key": "step2",
+        "codeLines": [4]
+      },
+      {
+        "key": "step3",
+        "codeLines": [6, 12]
+      },
+      {
+        "key": "step4",
+        "codeLines": [7, 8, 9, 10, 11]
+      },
+      {
+        "key": "step5",
+        "codeLines": [7, 8]
+      },
+      {
+        "key": "step6",
+        "codeLines": [9]
+      },
+      {
+        "key": "step7",
+        "codeLines": [10]
+      },
+      {
+        "key": "step8",
+        "codeLines": [13]
+      }
+    ]
+  }
+}

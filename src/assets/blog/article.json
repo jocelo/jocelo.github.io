@@ -59,5 +59,10 @@
     "language": "en",
     "title": "Algorithm: Two Sum",
     "topics": ["algorithms", "data structures", "hashtable", "blind_75"]
+  },
+  "best-time-to-buy-and-sell-stock": {
+    "language": "en",
+    "title": "Algorithm: Best time to buy and sell stock",
+    "topics": ["algorithms", "data structures", "dynamic programming", "blind_75"]
   }
 }

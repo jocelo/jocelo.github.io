@@ -1,0 +1,211 @@
+<app-simple-article>
+  <h1 id="article-top">{{postTitle}}</h1>
+  <app-writer lang="en" readTime="7"></app-writer>
+  <mat-card class="card-note" *ngIf="false">
+    <fa-icon [icon]="faLanguage" style="margin-right: 10px;" size="lg"></fa-icon> Para la version en español <a
+      [routerLink]="['/blog','suma-dos-numeros']">da click aquí.</a>
+  </mat-card>
+
+  <p>Welcome to this new article regarding algorithms. This time we will review a really interesting problem: <u>Best
+      Time to Buy and Sell Stock</u>. As usual, you will find the code on a couple of different programming languages.
+    So far the list includes Javascript (ES6), Python and PHP.
+  </p>
+  <p>The list will increase over time, so if you do not see a language you like, come back later and you might see it on
+    the list. <span *ngIf="false">And if you want to run this code in your local environment (your own laptop), check
+      out my post on how getting the tools you need.</span>
+  </p>
+
+  <app-post-image [src]="postPicture.src" [desc]="postPicture.desc"></app-post-image>
+
+  <p>You can find this problem in the following websites:</p>
+  <app-chips [data]="sites"></app-chips>
+  <p>This problems is part of the famous list: <a
+      href="https://www.teamblind.com/post/New-Year-Gift---Curated-List-of-Top-75-LeetCode-Questions-to-Save-Your-Time-OaM1orEU"
+      target="_blank">Blind Curated 75 Leetcode questions</a>; it's the second problem from the array category.</p>
+  <p>I encourage you to read this article from top to bottom, however if you are too eager (like me) to check the
+    solution, or read the Big O analysis, use the direct links below:</p>
+  <ul>
+    <li> <a routerLink="." fragment="definition">Definition</a></li>
+    <li> <a routerLink="." fragment="solution">Solution</a></li>
+    <li> <a routerLink="." fragment="code">Source Code</a></li>
+    <li> <a routerLink="." fragment="bigo">Complexity Analysis</a></li>
+    <li> <a routerLink="." fragment="conclusion">Wrapping up</a></li>
+  </ul>
+  <hr />
+
+  <h2 id="definition">Definition</h2>
+  <p>For this problem you are given the following data:</p>
+  <ul>
+    <li>A list of positive integer numbers that represents the prices of a stock over a period of
+      time. The number of elements in the list represents the size of the array; so in the following example we have the
+      prices of the stock for 7 consecutive days. i.e.: <span class="inline-code">[7, 1, 5, 3, 6, 4, 2]</span> </li>
+  </ul>
+  <p>Your goal is to buy a single stock for a cheap price and sell it for a greater price, so you get the maximum
+    profit out of this operation.
+  </p>
+  <p>The profit is calculated by subtracting the <b>sale</b> price from the <b>buy</b> price. The sale price should be
+    the cheapest price and the sale price should be the maximum possible price.</p>
+  <p>The algorithm should just return a number: <b>the maximum profit</b>.</p>
+  <p>Following with the example above, the profit would be <span class="inline-code">5</span>, since we buy the stock on
+    the second day for a price of <span class="inline-code">1</span> and sell the stock on the fifth day for a price of
+    <span class="inline-code">6</span>.
+  </p>
+  <ul>
+    <li><span class="inline-code">6 - 1 = 5</span></li>
+  </ul>
+  <hr />
+
+  <h3>Restrictions</h3>
+  <p>These restrictions are an important part of the problem statement, as they will ultimately define how your
+    algorithm will look like. Things like: if you should consider empty lists; whether we need to validate data
+    types before performing operations; any boundary constrains that we should account for; and many more.</p>
+  <table mat-table [dataSource]="restrictionDataSource" class="mat-elevation-z8 hide-header lg-table align-center">
+    <!-- Code Column -->
+    <ng-container matColumnDef="nomenclatura">
+      <td mat-cell class="nowrap" *matCellDef="let element"> <span [innerHTML]="element.nomenclatura"></span> </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="desc">
+      <td mat-cell *matCellDef="let element"> <span [innerHTML]="element.desc"></span> </td>
+    </ng-container>
+
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <p>An additional restriction we have is that we cannot sell a stock in the <i>past</i>: meaning if we buy a stock on
+    the <b>2<sup>nd</sup></b> day, we can sell it only from <b>3<sup>rd</sup></b> day onwards.
+  </p>
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Back to top</a>
+  </div>
+  <hr />
+
+  <h2 id="solution">Solution</h2>
+  <mat-card *ngIf="false" class="card-note">
+    <fa-icon [icon]="faExclamationCircle" style="margin-right: 10px;" size="lg"></fa-icon> La solución también se
+    encuentra en video, para verlo <a href="https://www.youtube.com/channel/UC547pgqomI0IcjOmltxQdAQ"
+      target="_blank">visita mi canal</a>.
+  </mat-card>
+  <p>This algorithm touches the following topics:</p>
+  <section>
+    <app-chips [data]="topics" [blogLinks]="true"></app-chips>
+  </section>
+  <p>We need to buy a stock on a day and sell it on any day on the future where we get the most profit.</p>
+  <p>We can think of this as a two step process:</p>
+  <ol>
+    <li>Identify the day when the stock price is the cheapest.</li>
+    <li>Using this <u>cheapest</u> price we can calculate the profit for each day forward, until we find the largest
+      possible profit.
+    </li>
+  </ol>
+
+  <p>We could first loop the list to find the lowest stock price and the position, and then do a second loop
+    looking for the biggest stock price, make the calculation and return our result... lets try this with an example:
+  </p>
+  <ul>
+    <li><span class="inline-code">[3, 10, 1, 2]</span> (1)</li>
+  </ul>
+
+  <p>Our first approach would find and buy the stock at the minimum price of <span class="inline-code">1</span> (on the
+    3<sup>rd</sup> day), and during a second iteration to find the largest price, our search narrows to just the last
+    element of the list: <span class="inline-code">[2]</span>. This approach will give us the
+    result of <span class="inline-code">1</span> by doing the operation: <span class="inline-code">2 - 1</span>. </p>
+
+  <p>Hmmm ok, but we can clearly see that this is not the correct solution for example (1). We should then search for
+    the <b>second</b> lowest stock price and do it all over again. In this case, we would buy the stock on the
+    <b>1<sup>st</sup></b> day and sell in on the <b>2<sup>nd</sup></b> day: <span class="inline-code">10 - 3 = 7</span>.
+    This is a greater profit than the first operation (which was <span class="inline-code">1</span>).
+  </p>
+
+  <p>We nailed it!!... did we? Let's do another example:</p>
+  <ul>
+    <li> <span class="inline-code">[8, 15, 1, 2, 3, 5]</span> (2) </li>
+  </ul>
+
+  <p>With this example, and with our current solution, we would need to repeat the process for a <b>third time</b> or
+    maybe a forth?... you see where I'm getting ?
+  </p>
+
+  <p>We quickly figure out that this is not the optimal way of solving this problem, however we have figured it out the
+    <b>core idea</b>
+    <fa-icon [icon]="faLightbulb" style="margin-left: 5px;"></fa-icon> of what would be our optimal solution, we just
+    have to make smart decisions. And in order to make smart decisions, we need a way to remember the previous values we
+    have calculated. Smells like dynamic programming.
+  </p>
+
+  <p>So, a new solution: while we iterate over the list of prices, if we find the <i>cheapest</i>stock, we <b>remember
+      it</b> and continue with the next iteration. In case the current price is not <i>cheaper</i>, we calculate how
+    much we would profit by selling the stock (that is if we have already bought a stock at this point). If we hit the
+    jackpot with a maximum profit, we also <b>remember it</b>, but we keep going with our list. And the best part is
+    that we can do both things at the same time.</p>
+
+  <p>All right, now let's convert this into code.</p>
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Back to top</a>
+  </div>
+  <hr />
+
+  <h2 id="code">Source Code</h2>
+
+  <app-code-block language="en" [code]="the_code" [codeSteps]="codeSteps" [pseudoCode]="pseudoCode">
+  </app-code-block>
+
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Back to top</a>
+  </div>
+  <hr />
+
+  <h2 id="bigo">Complexity Analysis</h2>
+  <h3>Time</h3>
+  <p>Speaking in terms of <u>time</u> our solution has just one <span class="inline-code">for loop</span>, which
+    translates to:</p>
+  <table mat-table [dataSource]="bigODataSource" class="mat-elevation-z8 lg-table align-center">
+    <!-- Time Column -->
+    <ng-container matColumnDef="tiempo">
+      <th mat-header-cell *matHeaderCellDef> Time </th>
+      <td mat-cell *matCellDef="let element"> {{element.tiempo}} </td>
+    </ng-container>
+
+    <!-- Desc Column -->
+    <ng-container matColumnDef="desc">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let element"> <span [innerHTML]="element.desc"></span> </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsBigO"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumnsBigO;"></tr>
+  </table>
+
+  <h3>Space</h3>
+  <p>In terms of <u>space</u>, we are only using a couple of variables for storing temporal variables for remembering
+    previous choices for minimum stock price and maximum profit, so we can say that the space complexity is constant
+    <span class="inline-code">O(1)</span>. No matter how big the list grows, we still are just using these two
+    variables.
+  </p>
+  <p><u>We conclude</u> then, the Big(O) analysis and say that for the Best time to buy an sell a stock problem, the
+    complexity is:</p>
+  <section class="complexity-summary">
+    <div>Time: <strong>O(n)</strong></div>
+    <div>Space: <strong>O(1)</strong></div>
+  </section>
+
+  <p>Where <span class="inline-code">n</span> is the length of the list of prices.</p>
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Back to top</a>
+  </div>
+  <hr />
+
+  <h2 id="conclusion">Wrapping Up</h2>
+  <p>Thanks for reading this article!</p>
+  <p>We did an analysis of the Best time to buy and sell stock problem and discussed an optimal solution.</p>
+  <p>This is the first problem where we briefly touch a pretty important concept called <u>Dynamic Programming</u>: a
+    way of <i>remembering</i> computations or values made while going through a data set, so we can use them later to
+    make smart decisions.
+  </p>
+  <p>I hope you learned something new with this article and remember to reach out if you have any comments, questions,
+    suggestions or if you know other ways of solving this problem; You can find me on <a
+      href="https://twitter.com/jocelodev" target="_blank">twitter</a>.</p>
+  <hr />
+
+  <app-read-next lang="en"></app-read-next>
+</app-simple-article>

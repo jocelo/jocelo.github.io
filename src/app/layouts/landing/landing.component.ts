@@ -61,10 +61,6 @@ export class LandingComponent implements OnInit {
     }
   }
 
-  log(msg = 'default msg') {
-    //console.log(msg);
-  }
-
   handleKeyUp(event): void {
     event.preventDefault();
     event.stopPropagation();

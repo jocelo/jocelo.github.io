@@ -33,6 +33,8 @@ import { DeleteWholeLineVsCodeComponent } from './delete-whole-line-vs-code/dele
 import { BorrarLineasVsCodeComponent } from './borrar-lineas-vs-code/borrar-lineas-vs-code.component';
 import { SumaDosNumerosComponent } from './suma-dos-numeros/suma-dos-numeros.component';
 import { TwoSumComponent } from './two-sum/two-sum.component';
+import { AutoformatoArchivosComponent } from './autoformato-archivos/autoformato-archivos.component';
+import { BestTimeToBuyAndSellStockComponent } from './best-time-to-buy-and-sell-stock/best-time-to-buy-and-sell-stock.component';
 
 const blogRoutes: Routes = [
   { path: 'topic/:token', component: SearchByTopicComponent },
@@ -44,11 +46,13 @@ const blogRoutes: Routes = [
   { path: 'que-es-una-cola', component: QueEsUnaColaComponent },
   { path: 'what-is-a-queue', component: WhatIsAQueueComponent },
   { path: 'format-documents-on-save', component: VscodeFormatOnSaveComponent },
+  { path: 'autoformato-archivo-al-guardar', component: AutoformatoArchivosComponent },
   { path: 'urls-dinamicos', component: UrlsConPalabrasClaveComponent },
   { path: 'delete-code-line', component: DeleteWholeLineVsCodeComponent },
   { path: 'eliminar-linea-codigo', component: BorrarLineasVsCodeComponent },
   { path: 'suma-dos-numeros', component: SumaDosNumerosComponent },
-  { path: 'two-sum', component: TwoSumComponent }
+  { path: 'two-sum', component: TwoSumComponent },
+  { path: 'best-time-to-buy-and-sell-stock', component: BestTimeToBuyAndSellStockComponent }
 ];
 
 @NgModule({
@@ -74,7 +78,9 @@ const blogRoutes: Routes = [
     DeleteWholeLineVsCodeComponent,
     BorrarLineasVsCodeComponent,
     SumaDosNumerosComponent,
-    TwoSumComponent
+    TwoSumComponent,
+    AutoformatoArchivosComponent,
+    BestTimeToBuyAndSellStockComponent
   ],
   imports: [
     CommonModule,

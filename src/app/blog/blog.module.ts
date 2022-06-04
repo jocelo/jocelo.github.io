@@ -35,6 +35,8 @@ import { SumaDosNumerosComponent } from './suma-dos-numeros/suma-dos-numeros.com
 import { TwoSumComponent } from './two-sum/two-sum.component';
 import { AutoformatoArchivosComponent } from './autoformato-archivos/autoformato-archivos.component';
 import { BestTimeToBuyAndSellStockComponent } from './best-time-to-buy-and-sell-stock/best-time-to-buy-and-sell-stock.component';
+import { ContainsDuplicateComponent } from './contains-duplicate/contains-duplicate.component';
+import { HashTableComponent } from './hash-table/hash-table.component';
 
 const blogRoutes: Routes = [
   { path: 'topic/:token', component: SearchByTopicComponent },
@@ -52,7 +54,9 @@ const blogRoutes: Routes = [
   { path: 'eliminar-linea-codigo', component: BorrarLineasVsCodeComponent },
   { path: 'suma-dos-numeros', component: SumaDosNumerosComponent },
   { path: 'two-sum', component: TwoSumComponent },
-  { path: 'best-time-to-buy-and-sell-stock', component: BestTimeToBuyAndSellStockComponent }
+  { path: 'best-time-to-buy-and-sell-stock', component: BestTimeToBuyAndSellStockComponent },
+  { path: 'contains-duplicate', component: ContainsDuplicateComponent },
+  { path: 'what-is-a-hash-table', component: HashTableComponent }
 ];
 
 @NgModule({
@@ -80,7 +84,9 @@ const blogRoutes: Routes = [
     SumaDosNumerosComponent,
     TwoSumComponent,
     AutoformatoArchivosComponent,
-    BestTimeToBuyAndSellStockComponent
+    BestTimeToBuyAndSellStockComponent,
+    ContainsDuplicateComponent,
+    HashTableComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,194 @@
+{
+  "pseudocode": [
+    {
+      "stepNo": "step1",
+      "desc": "First we create our hashtable that will be used to keep track of the current number.",
+      "notes":[{
+        "noteNo": "step1.1",
+        "lang": "javascript",
+        "desc": "On Javascript (ES6) we can use a <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set' target='_blank'>set</a> object. We will use the <i>has</i> and <i>add</i> methods."
+      }, {
+        "noteNo": "step1.1",
+        "lang": "python",
+        "desc": "On Python 3 we should use the <a href='https://docs.python.org/3/tutorial/datastructures.html#sets' target='_blank'>set</a> data type."
+      }, {
+        "noteNo": "step1.1",
+        "lang": "php",
+        "desc": "On PHP, there's no native <i>Set</i> data type. So we need to use an array. We could implement a <i>Set</i> ourselves (or get it from the web) so the search could be more efficient, but that is outside the scope of this article, however an array works just fine for this problem."
+      }]
+    }, {
+      "stepNo": "step2",
+      "desc": "Iterating over the list of numbers."
+    }, {
+      "stepNo": "step3",
+      "desc": "Checking against our hashtable, if we have seen the current number before we return <span class='inline-code'>true</span>."
+    }, {
+      "stepNo": "step4",
+      "desc": "Marking the current number as seen (remembering) by storing it in the hashtable."
+    }, {
+      "stepNo": "step5",
+      "desc": "If we reach this part outside the iteration, it means we have gone through the entire list without finding any duplicate and we should return <span class='inline-code'>false</span>."
+    }
+  ],
+  "javascript": {
+    "code": [
+      "",
+      "  var containsDuplicate = function(nums) {",
+      "    const a_set = new Set();",
+      "    for (let num of nums) {",
+      "        if (a_set.has(num)) {",
+      "            return true;",
+      "        }",
+      "        a_set.add(num);",
+      "    }",
+      "    return false;",
+      "  }",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [3]
+      },
+      {
+        "key": "step2",
+        "codeLines": [4, 9]
+      },
+      {
+        "key": "step3",
+        "codeLines": [5, 6, 7]
+      },
+      {
+        "key": "step4",
+        "codeLines": [8]
+      },
+      {
+        "key": "step5",
+        "codeLines": [10]
+      }
+    ]
+  },
+  "python": {
+    "code": [
+      "",
+      "  def containsDuplicate(nums):",
+      "    a_set = set()",
+      "",
+      "    for num in nums:",
+      "      if num in a_set:",
+      "          return True",
+      "",
+      "      a_set.add(num)",
+      "",
+      "  return False",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [3]
+      },
+      {
+        "key": "step2",
+        "codeLines": [5]
+      },
+      {
+        "key": "step3",
+        "codeLines": [6, 7]
+      },
+      {
+        "key": "step4",
+        "codeLines": [9]
+      },
+      {
+        "key": "step5",
+        "codeLines": [11]
+      }
+    ]
+  },
+  "php": {
+    "code": [
+      "",
+      "  function containsDuplicate($nums) {",
+      "    $a_set = array();",
+      "",
+      "    foreach($nums as $num) {",
+      "      if (in_array($num, $a_set)) {",
+      "        return true;",
+      "      }",
+      "      array_push($a_set, $num);",
+      "    }",
+      "    return false;",
+      "  }",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [3]
+      },
+      {
+        "key": "step2",
+        "codeLines": [5, 10]
+      },
+      {
+        "key": "step3",
+        "codeLines": [6, 7, 8]
+      },
+      {
+        "key": "step4",
+        "codeLines": [9]
+      },
+      {
+        "key": "step5",
+        "codeLines": [11]
+      }
+    ]
+  },
+  "java": {
+    "code": [
+      "",
+      "  class Solution {",
+      "    public boolean containsDuplicate(int[] nums) ",
+      "    {",
+      "        Set<Integer> hashtable = new HashSet<Integer>();",
+      "",
+      "        for (int num : nums)",
+      "        {",
+      "          if (hashtable.contains(num))",
+      "          {",
+      "              return true;",
+      "          }",
+      "          ",
+      "          hashtable.add(num);",
+      "        }",
+      "",
+      "        return false;",
+      "    }",
+      "  }",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [5]
+      },
+      {
+        "key": "step2",
+        "codeLines": [7, 8, 15]
+      },
+      {
+        "key": "step3",
+        "codeLines": [9, 10, 11, 12]
+      },
+      {
+        "key": "step4",
+        "codeLines": [14]
+      },
+      {
+        "key": "step5",
+        "codeLines": [17]
+      }
+    ]
+  }
+}

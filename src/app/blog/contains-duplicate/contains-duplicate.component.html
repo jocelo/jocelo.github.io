@@ -1,0 +1,175 @@
+<app-simple-article>
+  <h1 id="article-top">{{postTitle}}</h1>
+  <app-writer lang="en" readTime="5"></app-writer>
+  <mat-card class="card-note" *ngIf="false">
+    <fa-icon [icon]="faLanguage" style="margin-right: 10px;" size="lg"></fa-icon> Para la version en español <a
+      [routerLink]="['/blog','suma-dos-numeros']">da click aquí.</a>
+  </mat-card>
+
+  <p>Welcome to this new article regarding algorithms and data structures! On this article we are going to discuss about
+    the <b>contains duplicate</b> problem. I believe this is a simple enough problem to cover the basis on working with
+    a Set / Hashtable. As usual, you will find the code on a couple of different programming languages.
+  </p>
+
+  <app-post-image [src]="postPicture.src" [desc]="postPicture.desc"></app-post-image>
+
+  <p>You can find this problem in the following websites:</p>
+  <app-chips [data]="sites"></app-chips>
+  <p>This problems is part of the famous list: <a
+      href="https://www.teamblind.com/post/New-Year-Gift---Curated-List-of-Top-75-LeetCode-Questions-to-Save-Your-Time-OaM1orEU"
+      target="_blank">Blind Curated 75 Leetcode questions</a>; This is the <b>third</b> problem from the <i>array</i>
+    category.</p>
+  <p>I encourage you to read this article from top to bottom, however if you are too eager (like me) to check the
+    solution, or read the Big O analysis, use the direct links below:</p>
+  <ul>
+    <li> <a routerLink="." fragment="definition">Definition</a></li>
+    <li> <a routerLink="." fragment="solution">Solution</a></li>
+    <li> <a routerLink="." fragment="code">Source Code</a></li>
+    <li> <a routerLink="." fragment="bigo">Complexity Analysis</a></li>
+    <li> <a routerLink="." fragment="conclusion">Wrapping up</a></li>
+  </ul>
+  <hr />
+
+  <h2 id="definition">Definition</h2>
+  <p>For this problem you are given the following data:</p>
+  <ul>
+    <li>A non-empty list of integer numbers; i.e. <span class="inline-code">[1, 2, 3, 1]</span> </li>
+  </ul>
+  <p>Your job is to create the algorithm that will evaluate this list of numbers and will return <span
+      class="inline-code">true</span> if at least one number is duplicated. On the other hand, if all the numbers from
+    the list are <b>unique</b> then you will return <span class="inline-code">false</span>.
+  </p>
+  <hr />
+
+  <h3>Restrictions</h3>
+  <p>Nothing too crazy here. Only delimiting the size of the list.</p>
+  <table mat-table [dataSource]="restrictionDataSource" class="mat-elevation-z8 hide-header lg-table align-center">
+    <!-- Code Column -->
+    <ng-container matColumnDef="nomenclatura">
+      <td mat-cell class="nowrap" *matCellDef="let element"> <span [innerHTML]="element.nomenclatura"></span> </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="desc">
+      <td mat-cell *matCellDef="let element"> <span [innerHTML]="element.desc"></span> </td>
+    </ng-container>
+
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Back to top</a>
+  </div>
+  <hr />
+
+  <h2 id="solution">Solution</h2>
+  <mat-card *ngIf="false" class="card-note">
+    <fa-icon [icon]="faExclamationCircle" style="margin-right: 10px;" size="lg"></fa-icon> La solución también se
+    encuentra en video, para verlo <a href="https://www.youtube.com/channel/UC547pgqomI0IcjOmltxQdAQ"
+      target="_blank">visita mi canal</a>.
+  </mat-card>
+  <p>As mentioned in the description, there's only two possible outcomes from this algorithm <span
+      class="inline-code">false</span> if the list of numbers is <i>unique</i> and <span class="inline-code">true</span>
+    if there is at least one element that is repeated two or more times. Let's take the example above:
+  </p>
+  <ul>
+    <li><span class="inline-code">[1, 2, 3, 1]</span></li>
+  </ul>
+  <p>Doing a quick scan on the list we notice the <span class="inline-code">1</span> is
+    duplicated. The outcome of our algorithm should be <span class="inline-code">True</span>. How did you do it in your
+    head?
+  </p>
+
+  <p>Well, I think the natural approach is taking the first number and looking for another instance of that number... If
+    none are present, then take the second number and repeat the process. Basically going through the list two times...
+    one <b>outside</b> iteration when we grab the <i>first</i> instance of the number we are looking for, and a second
+    <b>inner</b> iteration where we look for any duplicated instance of the number.
+  </p>
+
+  <p>
+    <fa-icon [icon]="faSpider" style="margin-right: 10px;" size="lg"></fa-icon>Your spidey senses should be tingling
+    by now: Two iterations... two loops... two complex! (pun intended). Can we do any better? Yes we can!
+  </p>
+
+  <p>If we <i>remember</i> the visited number one at a time, as we go through the list, we would just iterate over the
+    list once. And how could we <i>remember</i> in an efficient way? Hashtables to the rescue!</p>
+
+  <p>Pseudo-code could be something like this:</p>
+
+  <ul class="pseudo-code">
+    <li>Iterate over the list of elements</li>
+    <ul>
+      <li><b>remember</b> the number from the list in a hashtable</li>
+      <li>Checking the hashtable on each iteration, <b>if</b> we have seen the number before then that's it... return
+        <span class="inline-code">true</span> and stop processing any more
+      </li>
+      <li>if we are done reading the list, it means we did not found any duplicates so we can return <span
+          class="inline-code">false</span> </li>
+    </ul>
+  </ul>
+
+  <p>Since the list have at least one element we do not need to handle edge cases, so pseudo code above looks pretty
+    solid. All right, time to throw some lines.</p>
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Back to top</a>
+  </div>
+  <hr />
+
+  <h2 id="code">Source Code</h2>
+
+  <app-code-block language="en" [code]="the_code" [codeSteps]="codeSteps" [pseudoCode]="pseudoCode">
+  </app-code-block>
+
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Back to top</a>
+  </div>
+  <hr />
+
+  <h2 id="bigo">Complexity Analysis</h2>
+  <h3>Time</h3>
+  <p>In terms of <u>time</u> our solution has two major items that we should consider:</p>
+  <ol>
+    <li>A <span class="inline-code">for loop</span></li>
+    <li>The hashtable. We use this data structure because we know it has a constant time <b>O(1)</b> for read/write
+      operations. Refer to the <a href="https://www.bigocheatsheet.com/" target="_blank">Big O cheat sheet</a> to find
+      out the time
+      complexity for the different data structures.
+    </li>
+  </ol>
+  <p>one iteration + hashtable operations makes the time complexity be <span class="inline-code">O(n) + O(n) =
+      2*O(n)</span>. The complexity is always simplified to the single operation with the worst performance and we
+    always drop constant values, so dropping the constant value <span class="inline-code">2</span>, we end up with <span
+      class="inline-code">O(n)</span>.</p>
+
+  <h3>Space</h3>
+  <p>Speaking of <u>space</u>, the hashtable potentially could be as large as the list of numbers we are given.
+    Basically we are creating a <i>copy</i> of the data so space complexity is linear (directly related with the size of
+    the list) <span class="inline-code">O(n)</span>.
+  </p>
+  <p><u>We conclude</u> then, the Big(O) analysis and say that for the Contains Duplicate problem, the
+    complexity is:</p>
+  <section class="complexity-summary">
+    <div>Time: <strong>O(n)</strong></div>
+    <div>Space: <strong>O(n)</strong></div>
+  </section>
+
+  <p>Where <span class="inline-code">n</span> is the number of elements from the list.</p>
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Back to top</a>
+  </div>
+  <hr />
+
+  <h2 id="conclusion">Wrapping Up</h2>
+  <p>Thanks for reading this article!</p>
+  <p>We did an analysis of the <i>Contains Duplicate</i> problem and discussed an optimal solution.</p>
+  <p>We practiced using a <b>hashtable</b>; a pretty useful data structure. You will see it appearing
+    a ton while solving algorithms and also it's pretty useful to remove duplicates. Keep this <a
+      href="https://www.bigocheatsheet.com/" target="_blank">Big-O reference</a> in your bookmarks as it's a pretty
+    handy cheat sheet.
+  </p>
+  <p>I hope you learned something new with this article and remember to reach out if you have any comments, questions,
+    suggestions or if you know other ways of solving this problem; You can find me on <a
+      href="https://twitter.com/jocelodev" target="_blank">twitter</a>.</p>
+  <hr />
+
+  <app-read-next lang="en"></app-read-next>
+</app-simple-article>

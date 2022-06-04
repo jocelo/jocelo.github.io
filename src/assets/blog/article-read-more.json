@@ -109,5 +109,12 @@
   }, {
     "title": "Balanced brackets",
     "url": "balanced-brackets"
+  }],
+  "contains-duplicate": [{
+    "title": "Two sum",
+    "url": "two-sum"
+  }, {
+    "title": "Best time to buy and sell stock",
+    "url": "best-time-to-buy-and-sell-stock"
   }]
 }

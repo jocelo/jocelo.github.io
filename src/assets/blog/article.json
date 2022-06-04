@@ -64,5 +64,10 @@
     "language": "en",
     "title": "Algorithm: Best time to buy and sell stock",
     "topics": ["algorithms", "data structures", "dynamic programming", "blind_75"]
+  },
+  "contains-duplicate": {
+    "language": "en",
+    "title": "Algorithm: Contains Duplicate",
+    "topics": ["algorithms", "data structures", "hashtable", "blind_75"]
   }
 }

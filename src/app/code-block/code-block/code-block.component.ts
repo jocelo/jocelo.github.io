@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { faLanguage, faSearch, faPlusCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
-import { faJsSquare, faPython, faPhp } from '@fortawesome/free-brands-svg-icons';
+import { faJsSquare, faPython, faPhp, faJava } from '@fortawesome/free-brands-svg-icons';
 
 import { MatTabChangeEvent } from '@angular/material/tabs';
 
@@ -25,6 +25,7 @@ export class CodeBlockComponent implements OnInit {
   faSearch = faSearch;
   faLanguage = faLanguage;
   faJsSquare = faJsSquare;
+  faJava = faJava;
   faPython = faPython;
   faPhp = faPhp;
 

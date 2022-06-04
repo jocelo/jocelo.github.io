@@ -15,6 +15,15 @@
       </span>
       <mat-tab-group mat-align-tabs="start" (focusChange)="myTabFocusChange($event)">
 
+        <!-- Java -->
+        <mat-tab label="java">
+          <ng-template mat-tab-label>
+            <fa-icon [icon]="faJava" style="margin-right: 10px;" size="2x"></fa-icon> Java
+          </ng-template>
+          <!-- {{code.js_code}} -->
+          <pre><code [highlight]="code.java_code" [lineNumbers]="true"></code></pre>
+        </mat-tab>
+
         <!-- Javascript -->
         <mat-tab label="javascript">
           <ng-template mat-tab-label>
@@ -28,7 +37,7 @@
         <ng-template [ngIf]="code['py_code']">
           <mat-tab *ngIf="code['py_code']" label="python">
             <ng-template mat-tab-label>
-              <fa-icon [icon]="faPython" style="margin-right: 10px;" size="2x"></fa-icon> Python
+              <fa-icon [icon]="faPython" style="margin-right: 10px;" size="2x"></fa-icon> Python 3
             </ng-template>
             <pre><code [highlight]="code.py_code" [lineNumbers]="true"></code></pre>
           </mat-tab>

@@ -6,7 +6,7 @@
       "notes":[{
         "noteNo": "step1.1",
         "lang": "javascript",
-        "desc": "On Javascript (ES6) we can use a <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set' target='_blank'>set</a> object. We will use the <i>has</i> and <i>add</i> methods."
+        "desc": "On JavaScript (ES6) we can use a <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set' target='_blank'>set</a> object. We will use the <i>has</i> and <i>add</i> methods."
       }, {
         "noteNo": "step1.1",
         "lang": "python",

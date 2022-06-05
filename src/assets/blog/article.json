@@ -69,5 +69,10 @@
     "language": "en",
     "title": "Algorithm: Contains Duplicate",
     "topics": ["algorithms", "data structures", "hashtable", "blind_75"]
+  },
+  "contains-duplicate-en-espanol": {
+    "language": "es",
+    "title": "Algoritmo: Contains Duplicate en Español",
+    "topics": ["algoritmos", "estructuras de datos", "hashtable", "blind_75"]
   }
 }

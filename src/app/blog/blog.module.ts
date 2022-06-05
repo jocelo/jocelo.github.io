@@ -27,6 +27,7 @@ import { WhatIsAQueueComponent } from './what-is-a-queue/what-is-a-queue.compone
 import { VscodeFormatOnSaveComponent } from './vscode-format-on-save/vscode-format-on-save.component';
 import { LightDividerDirective } from '../directives/light-divider.directive';
 import { PostImageComponent } from '../components/post-image/post-image.component';
+import { PostTranslatedComponent } from '../components/post-translated/post-translated.component';
 import { IntersectionObserverDirective } from '../directives/intersection-observer.directive';
 import { SimpleArticleComponent } from './components/simple-article/simple-article.component';
 import { DeleteWholeLineVsCodeComponent } from './delete-whole-line-vs-code/delete-whole-line-vs-code.component';
@@ -37,6 +38,8 @@ import { AutoformatoArchivosComponent } from './autoformato-archivos/autoformato
 import { BestTimeToBuyAndSellStockComponent } from './best-time-to-buy-and-sell-stock/best-time-to-buy-and-sell-stock.component';
 import { ContainsDuplicateComponent } from './contains-duplicate/contains-duplicate.component';
 import { HashTableComponent } from './hash-table/hash-table.component';
+import { ContainsDuplicateEsComponent } from './contains-duplicate-es/contains-duplicate-es.component';
+import { BestTimeToBuyAndSellStockEsComponent } from './best-time-to-buy-and-sell-stock-es/best-time-to-buy-and-sell-stock-es.component';
 
 const blogRoutes: Routes = [
   { path: 'topic/:token', component: SearchByTopicComponent },
@@ -55,8 +58,10 @@ const blogRoutes: Routes = [
   { path: 'suma-dos-numeros', component: SumaDosNumerosComponent },
   { path: 'two-sum', component: TwoSumComponent },
   { path: 'best-time-to-buy-and-sell-stock', component: BestTimeToBuyAndSellStockComponent },
+  { path: 'best-time-to-buy-and-sell-stock-en-espanol', component: BestTimeToBuyAndSellStockEsComponent },
   { path: 'contains-duplicate', component: ContainsDuplicateComponent },
-  { path: 'what-is-a-hash-table', component: HashTableComponent }
+  { path: 'what-is-a-hash-table', component: HashTableComponent },
+  { path: 'contains-duplicate-en-espanol', component: ContainsDuplicateEsComponent }
 ];
 
 @NgModule({
@@ -77,6 +82,7 @@ const blogRoutes: Routes = [
     VscodeFormatOnSaveComponent,
     LightDividerDirective,
     PostImageComponent,
+    PostTranslatedComponent,
     IntersectionObserverDirective,
     SimpleArticleComponent,
     DeleteWholeLineVsCodeComponent,
@@ -86,7 +92,9 @@ const blogRoutes: Routes = [
     AutoformatoArchivosComponent,
     BestTimeToBuyAndSellStockComponent,
     ContainsDuplicateComponent,
-    HashTableComponent
+    HashTableComponent,
+    ContainsDuplicateEsComponent,
+    BestTimeToBuyAndSellStockEsComponent
   ],
   imports: [
     CommonModule,

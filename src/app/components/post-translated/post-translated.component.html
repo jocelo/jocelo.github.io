@@ -1,0 +1,9 @@
+<mat-card class="card-note" *ngIf="englishVersion">
+  <fa-icon [icon]="faLanguage" style="margin-right: 10px;" size="lg"></fa-icon> For english version <a
+    [routerLink]="['/blog', link]">click here.</a>
+</mat-card>
+
+<mat-card class="card-note" *ngIf="spanishVersion">
+  <fa-icon [icon]="faLanguage" style="margin-right: 10px;" size="lg"></fa-icon> Para la version en español <a
+    [routerLink]="['/blog', link]">da click aquí.</a>
+</mat-card>

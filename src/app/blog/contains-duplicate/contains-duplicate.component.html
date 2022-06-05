@@ -1,10 +1,7 @@
 <app-simple-article>
   <h1 id="article-top">{{postTitle}}</h1>
   <app-writer lang="en" readTime="5"></app-writer>
-  <mat-card class="card-note" *ngIf="false">
-    <fa-icon [icon]="faLanguage" style="margin-right: 10px;" size="lg"></fa-icon> Para la version en español <a
-      [routerLink]="['/blog','suma-dos-numeros']">da click aquí.</a>
-  </mat-card>
+  <app-post-translated lang="es" link="contains-duplicate-en-espanol"></app-post-translated>
 
   <p>Welcome to this new article regarding algorithms and data structures! On this article we are going to discuss about
     the <b>contains duplicate</b> problem. I believe this is a simple enough problem to cover the basis on working with

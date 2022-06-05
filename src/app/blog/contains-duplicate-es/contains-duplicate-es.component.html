@@ -1,0 +1,194 @@
+<app-simple-article>
+  <h1 id="article-top">{{postTitle}}</h1>
+  <app-writer lang="es" readTime="5"></app-writer>
+  <app-post-translated lang="en" link="contains-duplicate"></app-post-translated>
+
+  <p>Bienvenido a otro articulo relacionado con algoritmos y estructuras de datos. En esta ocasión vamos a discutir
+    acerca del problema llamado <b>Contains Duplicate</b> (contiene duplicados). Creo que es un problema relativamente
+    sencillo y sirve como practica para usar una estructura de datos llamada tabla
+    hash (Hashtable). O bien, si nunca has escuchado o leído acerca de las tablas hash, este problema sirve como una
+    excelente introducción a como usar dichas tablas. Podrás ver la solución propuesta en varios lenguajes de
+    programación.
+  </p>
+
+  <app-post-image [src]="postPicture.src" [desc]="postPicture.desc"></app-post-image>
+
+  <p>Este problema lo encuentras en los siguientes sitios:</p>
+  <app-chips [data]="sites"></app-chips>
+  <p>El problema es parte de la lista de 75 preguntas de leetcode originalmente llamada: <a
+      href="https://www.teamblind.com/post/New-Year-Gift---Curated-List-of-Top-75-LeetCode-Questions-to-Save-Your-Time-OaM1orEU"
+      target="_blank">Blind Curated 75 Leetcode questions</a>; Este es el <b>tercer</b> problema en la categoría de
+    <i>arrays</i>.
+  </p>
+  <p>Lo mas recomendable es que leas el articulo de inicio a fin, sin embargo si tu ansia por leer código es muy
+    grande, o quieres ver en análisis de la big O, puedes usar el indice y brincarte a la sección que mas te interese:
+  </p>
+  <ul>
+    <li> <a routerLink="." fragment="definition">Definición</a></li>
+    <li> <a routerLink="." fragment="solution">Solución</a></li>
+    <li> <a routerLink="." fragment="code">Código</a></li>
+    <li> <a routerLink="." fragment="bigo">Análisis de Complejidad</a></li>
+    <li> <a routerLink="." fragment="conclusion">Conclusión</a></li>
+  </ul>
+  <hr />
+
+  <h2 id="definition">Definición</h2>
+  <p>El problema nos da los siguientes datos:</p>
+  <ul>
+    <li>Una lista no vacía de números enteros; ejemplo <span class="inline-code">[1, 2, 3, 1]</span> </li>
+  </ul>
+  <p>Tu objetivo es crear un algoritmo que evalué la lista de números y regrese el valor de <span
+      class="inline-code">true</span> (verdadero) si al menos un número de la lista esta duplicado. Por el otro lado, si
+    todos los números de la lista son <b>únicos</b> entonces tu algoritmo deberá regresar <span
+      class="inline-code">false</span> (falso).
+  </p>
+  <hr />
+
+  <h3>Restricciones</h3>
+  <p>Para este problema, no tenemos mucho que preocuparnos en cuestión de restricciones; solamente la delimitación del
+    tamaño de la lista de números.</p>
+  <table mat-table [dataSource]="restrictionDataSource" class="mat-elevation-z8 hide-header lg-table align-center">
+    <!-- Code Column -->
+    <ng-container matColumnDef="nomenclatura">
+      <td mat-cell class="nowrap" *matCellDef="let element"> <span [innerHTML]="element.nomenclatura"></span> </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="desc">
+      <td mat-cell *matCellDef="let element"> <span [innerHTML]="element.desc"></span> </td>
+    </ng-container>
+
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Regresar al inicio</a>
+  </div>
+  <hr />
+
+  <h2 id="solution">Solución</h2>
+  <mat-card *ngIf="false" class="card-note">
+    <fa-icon [icon]="faExclamationCircle" style="margin-right: 10px;" size="lg"></fa-icon> La solución también se
+    encuentra en video, para verlo <a href="https://www.youtube.com/channel/UC547pgqomI0IcjOmltxQdAQ"
+      target="_blank">visita mi canal</a>.
+  </mat-card>
+  <p>Como se menciona en la descripción y recapitulando, solo hay dos posibles resultados: <span
+      class="inline-code">false</span> si la lista de números es <i>unica</i> y <span class="inline-code">true</span>
+    si hay al menos un número ó elemento que se repita dos ó mas veces. Continuemos con el ejemplo anterior:
+  </p>
+  <ul>
+    <li><span class="inline-code">[1, 2, 3, 1]</span></li>
+  </ul>
+  <p>Haciendo un barrido rápido de la lista, nos damos cuenta que el <span class="inline-code">1</span> esta duplicado.
+    Asi que el resultado de nuestro algoritmo deberá ser <span class="inline-code">True</span>. Tu y yo como entidades
+    no-computacionales, como resolvemos este problema?
+  </p>
+
+  <p>Creo que la forma mas natural de resolver este problema es tomar el primer número, <b>recordarlo</b> en nuestra
+    memoria y buscar cualquier otra ocurrencia del mismo número en el resto de la lista. Si
+    <u>no</u> encontramos ningún otro número, nos olvidamos del número y <b>recordamos</b> el segundo número, repitiendo
+    el procedimiento de búsqueda. Básicamente estamos recorriendo la lista dos veces: la primera es el ciclo
+    <b>exterior</b>, el cual nos da el número que debemos recordar, y un segundo ciclo <b>interior</b>, para buscar
+    duplicados.
+  </p>
+
+  <p>
+    <fa-icon [icon]="faSpider" style="margin-right: 10px;" size="lg" class="spidey-sense"></fa-icon>Tu sentido arácnido
+    debería estar
+    vibrando justo ahora: dos iteraciones... dos ciclos... hmmm. Se podrá hacer algo mas eficiente? Si señor!
+  </p>
+
+  <p>Mientras recorremos la lista, podemos llevar un registro de que números hemos visto anteriormente, o bien
+    <i>recordar</i> los números mientras recorremos la lista, y al mismo tiempo vamos comparando el número actual contra
+    nuestro registro. Como podemos <i>recordar/almacenar</i> de una manera eficiente? Tablas Hash al rescate!
+    (hashtable)
+  </p>
+
+  <p>El pseudo-código de esta solución podría verse algo asi:</p>
+
+  <ul class="pseudo-code">
+    <li>Iteramos sobre la lista de números</li>
+    <ul>
+      <li><u>Anotamos</u> el número actual en la tabla hash</li>
+      <li>Comparamos la tabla hash en cada paso de la iteracion, revisamos <u>si</u> hemos visto el número actual en la
+        tabla; en caso de que <u>si este</u> entonces listo... regresamos <span class="inline-code">true</span> y
+        hemos terminado
+      </li>
+      <li>Si terminamos de iterar la lista significa que no encontramos ningún número duplicado, asi que regresamos
+        <span class="inline-code">false</span>
+      </li>
+    </ul>
+  </ul>
+
+  <p>Recordando las restricciones, no necesitamos validar ningún caso en especial, ya que la lista siempre contiene al
+    menos un elemento; asi que nuestro pseudo-código se ve bastante bien y podemos comenzar a tirar código.
+  </p>
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Regresar al inicio</a>
+  </div>
+  <hr />
+
+  <h2 id="code">Código</h2>
+
+  <app-code-block language="es" [code]="the_code" [codeSteps]="codeSteps" [pseudoCode]="pseudoCode">
+  </app-code-block>
+
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Regresar al inicio</a>
+  </div>
+  <hr />
+
+  <h2 id="bigo">Análisis de Complejidad</h2>
+  <h3>Tiempo</h3>
+  <p>En cuestión de <u>tiempo</u> nuestra solución tiene dos operaciones importantes que debemos considerar:</p>
+  <ol>
+    <li>Un <span class="inline-code">ciclo for</span></li>
+    <li>La tabla hash. Usamos esta estructura de datos porque sabemos que tiene operaciones de búsqueda y escritura muy
+      eficientes; específicamente tiene complejidad constante <b>O(1)</b>. Puedes referirte al <a
+        href="https://www.bigocheatsheet.com/" target="_blank">tabla resumen de Big O</a> para encontrar la complejidad
+      de las diferentes estructuras de datos.
+    </li>
+  </ol>
+  <p>Asi pues, la iteración + el uso de la tabla hash, son dos instancias de complejidad lineal cada una, o bien <span
+      class="inline-code">O(n) + O(n) = 2*O(n)</span>. Ahora bien, la complejidad siempre debe simplificarse hasta
+    obtener la única operación mas costosa y siempre se ignoran los valores constantes. En este caso, perdemos el valor
+    <span class="inline-code">2</span>, y tenemos como resultado final para el tiempo una complejidad lineal <span
+      class="inline-code">O(n)</span>.
+  </p>
+
+  <h3>Espacio</h3>
+  <p>En términos de <u>espacio</u>, la tabla hash potencialmente puede crecer hasta tener el mismo tamaño de la lista de
+    números original.
+    Básicamente estamos creando una <i>copia</i> de los datos, asi que la complejidad en espacio es también lineal
+    (directamente relacionada con el tamaño de la lista de números) <span class="inline-code">O(n)</span>.
+  </p>
+  <p><u>Concluimos</u> el análisis de la Big(O), y decimos que para el problema de Contains Duplicate, la
+    complejidad es:</p>
+  <section class="complexity-summary">
+    <div>Tiempo: <strong>O(n)</strong></div>
+    <div>Espacio: <strong>O(n)</strong></div>
+  </section>
+
+  <p>Donde <span class="inline-code">n</span> es la cantidad de elementos (números) de la lista.</p>
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Regresar al inicio</a>
+  </div>
+  <hr />
+
+  <h2 id="conclusion">Conclusion</h2>
+  <p>Gracias por leer este articulo!</p>
+  <p>Revisamos el problema de <i>Contains Duplicate</i> (contiene duplicados) y discutimos una solución optima
+    usando <b>tablas hash</b>.</p>
+  <p>Esta es una estructura de datos muy recurrida en muchos escenarios diferentes; algunos lenguajes de programación
+    inclusive tienen implementaciones de tablas hash llamadas <b>Set</b>, la cual, ademas de tener un tiempo constante
+    en acceso y escritura tiene métodos nativos, que sirven para remover elementos duplicados, realizar operaciones de
+    conjuntos, comparaciones y mas. <a href="https://docs.python.org/3/library/stdtypes.html#set" target="_black">Set en
+      Python</a> es un excelente ejemplo de esto. También te recomiendo guardar la liga de la <a
+      href="https://www.bigocheatsheet.com/" target="_blank">tabla de referencia de Big-O</a> en tus marcadores.
+  </p>
+  <p>Espero que hayas aprendido algo nuevo en este articulo y recuerda que si tienes comentarios, preguntas,
+    sugerencias, sabes de algún otro método para resolver este problema o simplemente quieres decir hola, me puedes
+    encontrar en <a href="https://twitter.com/jocelodev" target="_blank">twitter</a>.</p>
+  <hr />
+
+  <app-read-next lang="en"></app-read-next>
+</app-simple-article>

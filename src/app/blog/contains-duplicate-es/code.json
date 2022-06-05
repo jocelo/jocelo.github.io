@@ -1,0 +1,194 @@
+{
+  "pseudocode": [
+    {
+      "stepNo": "step1",
+      "desc": "Primero, creamos la tabla hash que nos servirá para llevar el registro de los números que vamos procesando.",
+      "notes":[{
+        "noteNo": "step1.1",
+        "lang": "javascript",
+        "desc": "En JavaScript (ES6) usaremos un objeto <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set' target='_blank'>set</a>, ya que tiene los métodos <i>has</i> y <i>add</i>."
+      }, {
+        "noteNo": "step1.1",
+        "lang": "python",
+        "desc": "En Python 3 podemos usar el tipo de dato <a href='https://docs.python.org/3/tutorial/datastructures.html#sets' target='_blank'>set</a>."
+      }, {
+        "noteNo": "step1.1",
+        "lang": "php",
+        "desc": "En PHP, no existe el concepto de tabla hash o <i>Set</i>. Asi que debemos usar un array. Podríamos tratar de implementar la clase <i>Set</i> y los métodos que ocupamos (o bien, buscar una solución desde la web) para que nuestro algoritmo sea mas eficiente, pero esto cae fuera del alcance de este articulo, sin embargo el array sirve bastante bien para este problema."
+      }]
+    }, {
+      "stepNo": "step2",
+      "desc": "Iteramos sobre la lista de números."
+    }, {
+      "stepNo": "step3",
+      "desc": "Revisamos en la tabla hash si ya hemos visto anteriormente el numero actual, en caso positivo regresamos <span class='inline-code'>true</span>."
+    }, {
+      "stepNo": "step4",
+      "desc": "Marcamos el numero actual como visto (lo recordamos); esto lo hacemos guardándolo en la tabla hash."
+    }, {
+      "stepNo": "step5",
+      "desc": "Si llegamos fuera del ciclo, significa que recorrimos toda la lista de números sin encontrar ningún duplicado, por lo tango regresamos <span class='inline-code'>false</span>."
+    }
+  ],
+  "javascript": {
+    "code": [
+      "",
+      "  var contieneDuplicados = function(nums) {",
+      "    const tabla_hash = new Set();",
+      "    for (let num of nums) {",
+      "        if (tabla_hash.has(num)) {",
+      "            return true;",
+      "        }",
+      "        tabla_hash.add(num);",
+      "    }",
+      "    return false;",
+      "  }",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [3]
+      },
+      {
+        "key": "step2",
+        "codeLines": [4, 9]
+      },
+      {
+        "key": "step3",
+        "codeLines": [5, 6, 7]
+      },
+      {
+        "key": "step4",
+        "codeLines": [8]
+      },
+      {
+        "key": "step5",
+        "codeLines": [10]
+      }
+    ]
+  },
+  "python": {
+    "code": [
+      "",
+      "  def contieneDuplicados(nums):",
+      "    tabla_hash = set()",
+      "",
+      "    for num in nums:",
+      "      if num in tabla_hash:",
+      "          return True",
+      "",
+      "      tabla_hash.add(num)",
+      "",
+      "  return False",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [3]
+      },
+      {
+        "key": "step2",
+        "codeLines": [5]
+      },
+      {
+        "key": "step3",
+        "codeLines": [6, 7]
+      },
+      {
+        "key": "step4",
+        "codeLines": [9]
+      },
+      {
+        "key": "step5",
+        "codeLines": [11]
+      }
+    ]
+  },
+  "php": {
+    "code": [
+      "",
+      "  function contieneDuplicados($nums) {",
+      "    $tabla_hash = array();",
+      "",
+      "    foreach($nums as $num) {",
+      "      if (in_array($num, $tabla_hash)) {",
+      "        return true;",
+      "      }",
+      "      array_push($tabla_hash, $num);",
+      "    }",
+      "    return false;",
+      "  }",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [3]
+      },
+      {
+        "key": "step2",
+        "codeLines": [5, 10]
+      },
+      {
+        "key": "step3",
+        "codeLines": [6, 7, 8]
+      },
+      {
+        "key": "step4",
+        "codeLines": [9]
+      },
+      {
+        "key": "step5",
+        "codeLines": [11]
+      }
+    ]
+  },
+  "java": {
+    "code": [
+      "",
+      "  class Solution {",
+      "    public boolean contieneDuplicados(int[] nums) ",
+      "    {",
+      "        Set<Integer> tabla_hash = new HashSet<Integer>();",
+      "",
+      "        for (int num : nums)",
+      "        {",
+      "          if (tabla_hash.contains(num))",
+      "          {",
+      "              return true;",
+      "          }",
+      "          ",
+      "          tabla_hash.add(num);",
+      "        }",
+      "",
+      "        return false;",
+      "    }",
+      "  }",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [5]
+      },
+      {
+        "key": "step2",
+        "codeLines": [7, 8, 15]
+      },
+      {
+        "key": "step3",
+        "codeLines": [9, 10, 11, 12]
+      },
+      {
+        "key": "step4",
+        "codeLines": [14]
+      },
+      {
+        "key": "step5",
+        "codeLines": [17]
+      }
+    ]
+  }
+}

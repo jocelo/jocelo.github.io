@@ -170,5 +170,53 @@
         "codeLines": [12]
       }
     ]
+  },
+  "java": {
+    "code": [
+      "",
+      "  class Solution {",
+      "    public int[] twoSum(int[] nums, int target) {",
+      "        Map<Integer, Integer> hash_table = new HashMap<>();",
+      "        ",
+      "        for (int i=0 ; i<nums.length ; i++)",
+      "        {",
+      "            int right_addend = target - nums[i];",
+      "            if (hash_table.containsKey(right_addend))",
+      "            {",
+      "                return new int[] {hash_table.get(right_addend), i};",
+      "            }",
+      "            hash_table.put(nums[i], i);",
+      "        }",
+      "        return new int[] {};",
+      "    }",
+      "  }",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [4]
+      },
+      {
+        "key": "step2",
+        "codeLines": [6, 7, 14]
+      },
+      {
+        "key": "step3",
+        "codeLines": [8]
+      },
+      {
+        "key": "step4",
+        "codeLines": [9, 10, 11, 12]
+      },
+      {
+        "key": "step5",
+        "codeLines": [13]
+      },
+      {
+        "key": "step6",
+        "codeLines": [15]
+      }
+    ]
   }
 }

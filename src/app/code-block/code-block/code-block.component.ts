@@ -1,8 +1,7 @@
 import { Component, Input, OnInit, Inject } from '@angular/core';
 
-import { faLanguage, faSearch, faPlusCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { faJsSquare, faPython, faPhp, faJava } from '@fortawesome/free-brands-svg-icons';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { MatTabChangeEvent } from '@angular/material/tabs';
 
@@ -30,10 +29,6 @@ export class CodeBlockComponent implements OnInit {
   lineByLine: Boolean = false;
   lblMode: string;
 
-  faTimesCircle = faTimesCircle;
-  faPlusCircle = faPlusCircle;
-  faSearch = faSearch;
-  faLanguage = faLanguage;
   faJsSquare = faJsSquare;
   faJava = faJava;
   faPython = faPython;
@@ -81,10 +76,6 @@ export class LineByLineDialog {
   postTitle: string;
   lblMode: string;
 
-  faTimesCircle = faTimesCircle;
-  faPlusCircle = faPlusCircle;
-  faSearch = faSearch;
-  faLanguage = faLanguage;
   faJsSquare = faJsSquare;
   faJava = faJava;
   faPython = faPython;

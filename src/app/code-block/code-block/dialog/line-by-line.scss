@@ -37,6 +37,10 @@ ol.steps li:hover {
   padding: 10px !important;
 }
 
+.mat-dialog-content {
+  max-height: initial;
+}
+
 h2 {
   border-bottom: 2px solid lightsteelblue;
   padding: 0 0 10px;

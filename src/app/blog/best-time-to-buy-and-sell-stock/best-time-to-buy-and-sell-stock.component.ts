@@ -93,11 +93,13 @@ export class BestTimeToBuyAndSellStockComponent implements OnInit {
     };
 
     this.the_code = {
+      java_code: this.jsonData.java.code.join('\n'),
       js_code: this.jsonData.javascript.code.join('\n'),
       py_code: this.jsonData.python.code.join('\n'),
       php_code: this.jsonData.php.code.join('\n')
     };
     this.codeSteps = {
+      'java': this.jsonData.java.steps,
       'javascript': this.jsonData.javascript.steps,
       'python': this.jsonData.python.steps,
       'php': this.jsonData.php.steps

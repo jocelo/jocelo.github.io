@@ -129,7 +129,8 @@
 
   <h2 id="code">Código</h2>
 
-  <app-code-block language="es" [code]="the_code" [codeSteps]="codeSteps" [pseudoCode]="pseudoCode">
+  <app-code-block language="es" [postTitle]="postTitle" [code]="the_code" [codeSteps]="codeSteps"
+    [pseudoCode]="pseudoCode">
   </app-code-block>
 
   <div class="back-to-top">
@@ -168,13 +169,13 @@
     <div>Espacio: <strong>O(n)</strong></div>
   </section>
 
-  <p>Donde <span class="inline-code">n</span> es la cantidad de elementos (números) de la lista.</p>
+  <p>Dónde <span class="inline-code">n</span> es la cantidad de elementos (números) de la lista.</p>
   <div class="back-to-top">
     <a routerLink="." fragment="article-top">Regresar al inicio</a>
   </div>
   <hr />
 
-  <h2 id="conclusion">Conclusion</h2>
+  <h2 id="conclusion">Conclusión</h2>
   <p>Gracias por leer este articulo!</p>
   <p>Revisamos el problema de <i>Contains Duplicate</i> (contiene duplicados) y discutimos una solución optima
     usando <b>tablas hash</b>.</p>

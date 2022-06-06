@@ -64,8 +64,8 @@ export class ContainsDuplicateEsComponent implements OnInit {
   displayedColumnsBigO: string[] = ['tiempo', 'desc'];
 
   restrictionDataSource = [
-    { nomenclatura: '1 <= nums.length <= 10<sup>5</sup>', desc: 'Donde: <br> <span class="inline-code">nums</span> es la lista de numeros; y <i>nums.length</i> es el tamaño de la lista, el cual esta entre 1 y 10<sup>5</sup>. La lista nunca esta vacía.' },
-    { nomenclatura: '-10<sup>9</sup> <= nums[i] <= 10<sup>9</sup>', desc: 'Donde: <br> Cada numero (elemento) de la lista <span class="inline-code">nums[i]</span> tiene un valor entero entre -10<sup>9</sup> y 10<sup>9</sup>.' },
+    { nomenclatura: '1 <= nums.length <= 10<sup>5</sup>', desc: 'Dónde: <br> <span class="inline-code">nums</span> es la lista de numeros; y <i>nums.length</i> es el tamaño de la lista, el cual esta entre 1 y 10<sup>5</sup>. La lista nunca esta vacía.' },
+    { nomenclatura: '-10<sup>9</sup> <= nums[i] <= 10<sup>9</sup>', desc: 'Dónde: <br> Cada numero (elemento) de la lista <span class="inline-code">nums[i]</span> tiene un valor entero entre -10<sup>9</sup> y 10<sup>9</sup>.' },
   ];
 
   postTitle = 'Contains duplicate en español';

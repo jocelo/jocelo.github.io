@@ -69,10 +69,6 @@
     encuentra en video, para verlo <a href="https://www.youtube.com/channel/UC547pgqomI0IcjOmltxQdAQ"
       target="_blank">visita mi canal</a>.
   </mat-card>
-  <p>Este problema tiene relación con los siguientes temas:</p>
-  <section>
-    <app-chips [data]="topics" [blogLinks]="true"></app-chips>
-  </section>
 
   <p>Sigamos con el ejemplo de la sección de definición del problema: <span class="inline-code">[2, 7, 11, 15]</span> y
     <span class="inline-code">9</span>.
@@ -124,7 +120,8 @@
 
   <h2 id="code">Código</h2>
 
-  <app-code-block language="es" [code]="the_code" [codeSteps]="codeSteps" [pseudoCode]="pseudoCode">
+  <app-code-block language="es" [postTitle]="postTitle" [code]="the_code" [codeSteps]="codeSteps"
+    [pseudoCode]="pseudoCode">
   </app-code-block>
 
   <div class="back-to-top">

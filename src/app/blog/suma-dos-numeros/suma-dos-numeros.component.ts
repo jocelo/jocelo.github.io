@@ -114,7 +114,7 @@ export class SumaDosNumerosComponent implements OnInit {
     this.jsonData = code;
     this.postPicture = {
       src: '/assets/blog/michal-matlon-4ApmfdVo32Q-unsplash.jpg',
-      desc: 'Photo by <a href="https://unsplash.com/@michalmatlon?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Michal Matlon</a> on <a href="https://unsplash.com/s/photos/math?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>'
+      desc: 'Foto de <a href="https://unsplash.com/@michalmatlon?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Michal Matlon</a> en <a href="https://unsplash.com/s/photos/math?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>'
     };
 
     this.the_code = {

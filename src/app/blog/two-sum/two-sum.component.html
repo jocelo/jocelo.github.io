@@ -76,10 +76,6 @@
     encuentra en video, para verlo <a href="https://www.youtube.com/channel/UC547pgqomI0IcjOmltxQdAQ"
       target="_blank">visita mi canal</a>.
   </mat-card>
-  <p>This algorithm has the following topics:</p>
-  <section>
-    <app-chips [data]="topics" [blogLinks]="true"></app-chips>
-  </section>
 
   <p>Let's follow up with the example from before: <span class="inline-code">[2, 7, 11, 15]</span> and
     <span class="inline-code">9</span>.
@@ -128,7 +124,8 @@
 
   <h2 id="code">Source Code</h2>
 
-  <app-code-block language="en" [code]="the_code" [codeSteps]="codeSteps" [pseudoCode]="pseudoCode">
+  <app-code-block language="en" [postTitle]="postTitle" [code]="the_code" [codeSteps]="codeSteps"
+    [pseudoCode]="pseudoCode">
   </app-code-block>
 
   <div class="back-to-top">

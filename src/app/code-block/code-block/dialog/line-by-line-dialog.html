@@ -1,0 +1,96 @@
+<h2><span class="dialog-title">{{postTitle}}</span>
+  <button mat-icon-button color="primary" class="pull-right" aria-label="close modal" mat-dialog-close>
+    <mat-icon>close</mat-icon>
+  </button>
+</h2>
+<mat-dialog-content class="line-by-line-container">
+  <section class="code-container">
+    <section class="code-container line-by-line">
+      <div class="code-section">
+        <mat-tab-group mat-align-tabs="start" (focusChange)="myTabFocusChange($event)">
+
+          <!-- Java -->
+          <mat-tab label="java">
+            <ng-template mat-tab-label>
+              <fa-icon [icon]="faJava" style="margin-right: 10px;" size="2x"></fa-icon> Java
+            </ng-template>
+            <!-- {{code.js_code}} -->
+            <pre><code [highlight]="code.java_code" [lineNumbers]="true"></code></pre>
+          </mat-tab>
+
+          <!-- Javascript -->
+          <mat-tab label="javascript">
+            <ng-template mat-tab-label>
+              <fa-icon [icon]="faJsSquare" style="margin-right: 10px;" size="2x"></fa-icon> Javascript
+            </ng-template>
+            <!-- {{code.js_code}} -->
+            <pre><code [highlight]="code.js_code" [lineNumbers]="true"></code></pre>
+          </mat-tab>
+
+          <!-- Python -->
+          <ng-template [ngIf]="code['py_code']">
+            <mat-tab *ngIf="code['py_code']" label="python">
+              <ng-template mat-tab-label>
+                <fa-icon [icon]="faPython" style="margin-right: 10px;" size="2x"></fa-icon> Python 3
+              </ng-template>
+              <pre><code [highlight]="code.py_code" [lineNumbers]="true"></code></pre>
+            </mat-tab>
+          </ng-template>
+
+          <!-- Python 2 -->
+          <ng-template [ngIf]="code['py2_code']">
+            <mat-tab label="python2">
+              <ng-template mat-tab-label>
+                <fa-icon [icon]="faPython" style="margin-right: 10px;" size="2x"></fa-icon> Python
+              </ng-template>
+              <pre><code [highlight]="code.py2_code" [lineNumbers]="true"></code></pre>
+            </mat-tab>
+          </ng-template>
+
+          <!-- Python 3 -->
+          <ng-template [ngIf]="code['py3_code']">
+            <mat-tab *ngIf="code['py3_code']" label="python3">
+              <ng-template mat-tab-label>
+                <fa-icon [icon]="faPython" style="margin-right: 10px;" size="2x"></fa-icon> Python
+              </ng-template>
+              <pre><code [highlight]="code.py3_code" [lineNumbers]="true"></code></pre>
+            </mat-tab>
+          </ng-template>
+
+          <!-- PHP  -->
+          <mat-tab label="php">
+            <ng-template mat-tab-label>
+              <fa-icon [icon]="faPhp" style="margin-right: 10px;" size="2x"></fa-icon> PHP
+            </ng-template>
+            <pre><code [highlight]="code.php_code" [lineNumbers]="true"></code></pre>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+      <div class="explain-section">
+        <mat-card class="card-note">
+          <fa-icon [icon]="faSearch" size="lg"></fa-icon>
+          <span *ngIf="language=='en'">Move the cursor over each numbered instructions from the pseudo-code below so you
+            can match up more easily the pseudo-code and the real code.</span>
+          <span *ngIf="language=='es'">Mueve el cursor sobre cada instrucción de pseudo-código abajo para que puedas
+            analizar cada sección del algoritmo.</span>
+        </mat-card>
+        <ol class="steps">
+          <li *ngFor="let s of pseudoCode" [id]="s.stepNo" (mouseover)="showTheThing($event)"
+            (mouseout)="hideTheThing()">
+            <span [innerHTML]="s.desc"></span>
+            <ul *ngIf="s.notes">
+              <span *ngFor="let note of s.notes">
+                <li *ngIf="showNotes(note)" [id]="note.noteNo"> <span [innerHTML]="note.desc"></span></li>
+              </span>
+            </ul>
+          </li>
+          <section *ngIf="pseudoNotes && pseudoNotes[lblMode]">
+            <p *ngFor="let note of pseudoNotes[lblMode]">
+              <span [innerHTML]="note"></span>
+            </p>
+          </section>
+        </ol>
+      </div>
+    </section>
+  </section>
+</mat-dialog-content>

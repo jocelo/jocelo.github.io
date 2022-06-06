@@ -4,74 +4,35 @@
 
 .code-section .linexline-toggle {
   position: absolute;
-  right: 15px;
+  right: 25px;
   top: 75px;
   color: white;
   z-index: 3;
   cursor: pointer;
-}
 
-.explain-section {
-  display: none;
-  padding: 0 20px;
-}
-
-.code-container.line-by-line {
-  background: #FFFFFF;
-  display: flex;
-  position: relative;
-  left: -250px;
-  margin: 10px;
-  width: calc(100% + 480px);
-  border-top: 3px solid lightsteelblue;
-  border-bottom: 3px solid lightsteelblue;
-}
-
-.bg-shadow {
-  content: " ";
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  width: 100%;
-  min-height: 100vh;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-.code-container.line-by-line div {
-  flex: 1;
-}
-
-.line-by-line .explain-section {
-  display: block;
-  border-left: 3px solid lightsteelblue;
-}
-
-ol.steps li {
-  padding: 5px;
-  cursor: pointer;
-
-  span.inline-code {
-    background: red;
-    color: purple;
+  &:hover {
+    color: cornflowerblue;
   }
 }
 
-ol.steps li:hover {
-  background-color: rgb(229, 255, 0);
+.material-icons.md-18 {
+  font-size: 18px;
 }
 
-.closelxl {
-  margin-top: -10px;
-  float: right;
+.material-icons.md-24 {
+  font-size: 24px;
+}
+
+.material-icons.md-36 {
+  font-size: 36px;
+}
+
+.material-icons.md-48 {
+  font-size: 48px;
+}
+
+.fake-link {
+  font-weight: bold;
   cursor: pointer;
-}
-
-
-@media screen and (max-width: 600px) {
-  .code-container.line-by-line {
-    flex-direction: column;
-    left: 0;
-    width: 98%;
-  }
+  text-decoration: underline;
 }

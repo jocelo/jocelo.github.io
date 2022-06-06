@@ -1,17 +1,17 @@
 <section class="code-container">
-  <div class="bg-shadow" (click)="toggleLineByLine()" *ngIf="lineByLine"></div>
-  <p *ngIf="language=='en'">Maximize the code window so you can toggle <b>line by line</b> (<fa-icon
-      (click)="toggleLineByLine()" [icon]="faPlusCircle">
-    </fa-icon>) mode. It might help you grasp the ideas behind the algorithm.
+  <p *ngIf="language=='en'">Maximize the code window so you can toggle <span class="fake-link"
+      (click)="openDialog()">line by line <mat-icon class="material-icons md-18" (click)="openDialog()">launch
+      </mat-icon></span>. It might help you grasp the ideas behind the algorithm.
   </p>
-  <p *ngIf="language=='es'">Maximiza la ventana del código para que actives el modo <b>linea por linea</b> (<fa-icon
-      (click)="toggleLineByLine()" [icon]="faPlusCircle">
-    </fa-icon>); podrás ver comentarios por cada linea de código y analizaras el algoritmo paso a paso.
+  <p *ngIf="language=='es'">Maximiza la ventana del código para que actives el modo <span class="fake-link"
+      (click)="openDialog()">linea por linea
+      <mat-icon class="material-icons md-18" (click)="openDialog()">launch</mat-icon>
+    </span>. Podrás ver comentarios por cada linea de código y analizaras el algoritmo paso a paso.
   </p>
-  <section class="code-container" [ngClass]="{'line-by-line': lineByLine}">
+  <section class="code-container">
     <div class="code-section">
-      <span class="linexline-toggle" (click)="toggleLineByLine()" *ngIf="!lineByLine">
-        <fa-icon [icon]="faPlusCircle" size="3x"></fa-icon>
+      <span class="linexline-toggle" (click)="openDialog()">
+        <mat-icon class="material-icons md-36">launch</mat-icon>
       </span>
       <mat-tab-group mat-align-tabs="start" (focusChange)="myTabFocusChange($event)">
 
@@ -71,32 +71,5 @@
           <pre><code [highlight]="code.php_code" [lineNumbers]="true"></code></pre>
         </mat-tab>
       </mat-tab-group>
-    </div>
-    <div class="explain-section">
-      <h3>Line-by-Line <span class="closelxl" (click)="toggleLineByLine()">
-          <fa-icon [icon]="faTimesCircle" style="margin-right: 10px;" size="2x"></fa-icon>
-        </span></h3>
-      <mat-card class="card-note">
-        <fa-icon [icon]="faSearch" size="lg"></fa-icon>
-        <span *ngIf="language=='en'">Move the cursor over each numbered instructions from the pseudo-code below so you
-          can match up more easily the pseudo-code and the real code.</span>
-        <span *ngIf="language=='es'">Mueve el cursor sobre cada instrucción de pseudo-código abajo para que puedas
-          analizar cada sección del algoritmo.</span>
-      </mat-card>
-      <ol class="steps">
-        <li *ngFor="let s of pseudoCode" [id]="s.stepNo" (mouseover)="showTheThing($event)" (mouseout)="hideTheThing()">
-          <span [innerHTML]="s.desc"></span>
-          <ul *ngIf="s.notes">
-            <span *ngFor="let note of s.notes">
-              <li *ngIf="showNotes(note)" [id]="note.noteNo"> <span [innerHTML]="note.desc"></span></li>
-            </span>
-          </ul>
-        </li>
-        <section *ngIf="pseudoNotes && pseudoNotes[lblMode]">
-          <p *ngFor="let note of pseudoNotes[lblMode]">
-            <span [innerHTML]="note"></span>
-          </p>
-        </section>
-      </ol>
     </div>
   </section>

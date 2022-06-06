@@ -1,0 +1,52 @@
+.code-container.line-by-line {
+  display: flex;
+  margin: 0;
+}
+
+.code-section {
+  padding: 0 10px 0 0;
+}
+
+.explain-section {
+  padding: 0 0 0 10px;
+  border-left: 2px solid lightsteelblue;
+}
+
+
+ol.steps li {
+  padding: 5px;
+  cursor: pointer;
+
+  span.inline-code {
+    background: red;
+    color: purple;
+  }
+}
+
+ol.steps li:hover {
+  background-color: rgb(229, 255, 0);
+}
+
+.pull-right {
+  position: absolute;
+  top: 15px;
+  right: 30px;
+}
+
+.mat-dialog-container {
+  padding: 10px !important;
+}
+
+h2 {
+  border-bottom: 2px solid lightsteelblue;
+  padding: 0 0 10px;
+  margin: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .code-container.line-by-line {
+    flex-direction: column;
+    left: 0;
+    width: 98%;
+  }
+}

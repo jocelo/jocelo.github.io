@@ -74,5 +74,10 @@
     "language": "es",
     "title": "Algoritmo: Contains Duplicate en Español",
     "topics": ["algoritmos", "estructuras de datos", "hashtable", "blind_75"]
+  },
+  "product-of-array-except-self": {
+    "language": "en",
+    "title": "Algorithm: Product of Array Except Self",
+    "topics": ["algorithms", "prefix sum", "dynamic programming", "blind_75"]
   }
 }

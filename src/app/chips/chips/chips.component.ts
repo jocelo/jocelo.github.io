@@ -8,7 +8,8 @@ import {
   faExternalLinkAlt,
   faFileCode,
   faRulerHorizontal,
-  faTable
+  faTable,
+  faLayerGroup
 } from '@fortawesome/free-solid-svg-icons';
 
 import { faUncharted } from '@fortawesome/free-brands-svg-icons';
@@ -38,6 +39,7 @@ export class ChipsComponent implements OnInit {
   faTable = faTable;
   faBooks = faBook;
   faUncharted = faUncharted;
+  faLayerGroup = faLayerGroup;
 
   constructor(
     private router: Router
@@ -55,7 +57,9 @@ export class ChipsComponent implements OnInit {
       'data structures': faCubes,
       'estructuras de datos': faCubes,
       'dynamic programming': faUncharted,
-      'programacion dinamica': faUncharted
+      'programacion dinamica': faUncharted,
+      'prefix sum': faLayerGroup,
+      'suma prefijos': faLayerGroup
     };
   }
 

@@ -24,6 +24,15 @@ export class BlogComponent implements OnInit {
   ngOnInit() {
     this.invalidSearchToken = false;
     this.posts = [{
+      url: 'product-of-array-except-self',
+      img: 'blog/faris-mohammed-PQinRWK1TgU-unsplash.jpg',
+      imgDesc: 'Photo by <a href="https://unsplash.com/@pkmfaris?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Faris Mohammed</a> on <a href="https://unsplash.com/s/photos/array?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>',
+      title: 'Product of Array Except Self: Blind 75 - 4/75',
+      desc: 'We discuss an optimal solution for Product of Array Except Self problem. This is the fourth problem in the array group from the Blind 75 series.',
+      lang: 'en',
+      readTime: '7',
+      publishedDate: this.service.getPostDate('product-of-array-except-self')
+    }, {
       url: 'contains-duplicate',
       img: 'blog/markus-krisetya-Vkp9wg-VAsQ-unsplash.jpg',
       imgDesc: 'Photo by <a href="https://unsplash.com/@krisetya?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Markus Krisetya</a> on <a href="https://unsplash.com/s/photos/numbers?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>',

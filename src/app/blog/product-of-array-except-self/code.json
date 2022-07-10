@@ -1,0 +1,286 @@
+{
+  "pseudocode": [
+    {
+      "stepNo": "step1",
+      "desc": "We declare <span class='inline-code'>left_side</span> and <span class='inline-code'>right_side</span>; these list will store the aggregated multiplication starting from left and right sides. These will be the same size of the original list."
+    }, {
+      "stepNo": "step2",
+      "desc": "We declare the <span class='inline-code'>result</span> list that will hold the results of multiplying the totals of all the left elements and the right elements, except the current element."
+    }, {
+      "stepNo": "step3",
+      "desc": "We initialize the first element of <span class='inline-code'>left_side</span> with a 1, otherwise the result of multiplications would always be 0.",
+      "notes":[{
+        "noteNo": "step3.1",
+        "lang": "python",
+        "desc": "Here, we are initializing the array across with 1's. Since we will be overriding the values, this works just fine."
+      }, {
+        "noteNo": "step3.1",
+        "lang": "php",
+        "desc": "PHP has a <span class='inline-code'>array_fill</span> constructor we can use, to create and initialize the array; same size of original array and fill it up with 1's."
+      }]
+    }, {
+      "stepNo": "step4",
+      "desc": "We do the same for the <span class='inline-code'>right_side</span>, with the only difference that the 1 should be placed in the last element of the list, because we are filling this list in reverse order (from right to left).",
+      "notes":[{
+        "noteNo": "step4.1",
+        "lang": "python",
+        "desc": "Same thing, we initialize the entire array with 1's so we have a good starting point for when we will be filling it up."
+      }, {
+        "noteNo": "step3.1",
+        "lang": "php",
+        "desc": "Same thing as before using <span class='inline-code'>array_fill</span>."
+      }]
+    }, {
+      "stepNo": "step5",
+      "desc": "Time to start filling <span class='inline-code'>left_side</span>. We start our iterator from the second element, and we store the results of multiplying the <i>i-1<sup>th</sup></i> element of the original list and the <i>i-1<sup>th</sup></i> element from <span class='inline-code'>left_side</span> list. So, we are storing the prefix multiplication value to the left of the current index."
+    }, {
+      "stepNo": "step6",
+      "desc": "We repeat the process to fill <span class='inline-code'>right_side</span>, but we need to start filling it in reverse: from right to left. So we start from the second to last element, and we multiply the  <i>i+1<sup>th</sup></i> element of the original list with the <i>i+1<sup>th</sup></i> element from <span class='inline-code'>right_side</span> list."
+    }, {
+      "stepNo": "step7",
+      "desc": "Then we iterate over the original list a final time, multiplying the <i>i<sup>th</sup></i> element from  <span class='inline-code'>left_side</span> and <span class='inline-code'>right_side</span>. This operation will multiply all elements <i>except</i> the current element."
+    }, {
+      "stepNo": "step8",
+      "desc": "Finally, we just return the <span class='inline-code'>result</span> list, which hold our final result."
+    }
+  ],
+  "javascript": {
+    "code": [
+      "",
+      "  var productExceptSelf = function(nums) {",
+      "    const left_side = new Array(nums.length);",
+      "    const right_side = new Array(nums.length);",
+      "    const result = new Array(nums.length)",
+      "",
+      "    left_side[0] = 1;",
+      "    right_side[nums.length-1] = 1;",
+      "",
+      "    for (let i=1 ; i<nums.length ; i++) {",
+      "        left_side[i] = left_side[i-1] * nums[i-1];",
+      "    }",
+      "    for (let i=nums.length-2 ; i>-1 ; i--) {",
+      "        right_side[i] = right_side[i+1] * nums[i+1];",
+      "    }",
+      "    ",
+      "    for (let i=0 ; i<nums.length ; i++) {",
+      "        result[i] = left_side[i] * right_side[i];",
+      "    }",
+      "",
+      "    return result;",
+      "  };",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [3, 4]
+      },
+      {
+        "key": "step2",
+        "codeLines": [5]
+      },
+      {
+        "key": "step3",
+        "codeLines": [7]
+      },
+      {
+        "key": "step4",
+        "codeLines": [8]
+      },
+      {
+        "key": "step5",
+        "codeLines": [10, 11, 12]
+      },
+      {
+        "key": "step6",
+        "codeLines": [13, 14, 15]
+      },
+      {
+        "key": "step7",
+        "codeLines": [17, 18, 19]
+      },
+      {
+        "key": "step8",
+        "codeLines": [21]
+      }
+    ]
+  },
+  "python": {
+    "code": [
+      "",
+      "  def productExceptSelf(self, nums):",
+      "    left_side = [1] * len(nums)",
+      "    right_side = [1] * len(nums)",
+      "    res = [0] * len(nums)",
+      "",
+      "    for i in range(1, len(nums)):",
+      "      left_side[i] = left_side[i-1] * nums[i-1]",
+      "",
+      "    for i in range(len(nums)-2, -1, -1):",
+      "      right_side[i] = right_side[i+1] * nums[i+1]",
+      "",
+      "    for i in range(len(nums)):",
+      "      res[i] = left_side[i] * right_side[i]",
+      "",
+      "    return res",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [3, 4]
+      },
+      {
+        "key": "step2",
+        "codeLines": [5]
+      },
+      {
+        "key": "step3",
+        "codeLines": [3]
+      },
+      {
+        "key": "step4",
+        "codeLines": [4]
+      },
+      {
+        "key": "step5",
+        "codeLines": [7, 8]
+      },
+      {
+        "key": "step6",
+        "codeLines": [10, 11]
+      },
+      {
+        "key": "step7",
+        "codeLines": [13, 14]
+      },
+      {
+        "key": "step8",
+        "codeLines": [16]
+      }
+    ]
+  },
+  "php": {
+    "code": [
+      "",
+      "  function productExceptSelf($nums) {",
+      "    $left_side = array_fill(0, count($nums), 1);",
+      "    $right_side = array_fill(0, count($nums), 1);",
+      "    $result = array_fill(0, count($nums), 1);",
+      "",
+      "    for ($i=1 ; $i<count($nums) ; $i++) {",
+      "      $left_side[$i] = $left_side[$i-1] * $nums[$i-1];",
+      "    }",
+      "",
+      "    for ($i=count($nums)-2 ; $i>-1 ; $i--) {",
+      "      $right_side[$i] = $right_side[$i+1] * $nums[$i+1];",
+      "    }",
+      "",
+      "    for ($i=0 ; $i<count($nums) ; $i++) {",
+      "      $result[$i] = $left_side[$i] * $right_side[$i];",
+      "    }",
+      "",
+      "    return $result;",
+      "}",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [3, 4]
+      },
+      {
+        "key": "step2",
+        "codeLines": [5]
+      },
+      {
+        "key": "step3",
+        "codeLines": [3]
+      },
+      {
+        "key": "step4",
+        "codeLines": [4]
+      },  
+      {
+        "key": "step5",
+        "codeLines": [7, 8, 9]
+      },
+      {
+        "key": "step6",
+        "codeLines": [11, 12, 13]
+      },
+      {
+        "key": "step7",
+        "codeLines": [15, 16, 17]
+      },
+      {
+        "key": "step8",
+        "codeLines": [19]
+      }
+    ]
+  },
+  "java": {
+    "code": [
+      "",
+      "  class Solution {",
+      "    public int[] productExceptSelf(int[] nums) {",
+      "      int[] left_side = new int[nums.length];",
+      "      int[] right_side = new int[nums.length];",
+      "      int[] result = new int[nums.length];",
+      "",
+      "      left_side[0] = 1;",
+      "      right_side[nums.length-1] = 1;",
+      "",
+      "      for (int i=1 ; i<nums.length ; i++) {",
+      "        left_side[i] = left_side[i-1] * nums[i-1];",
+      "      }",
+      "",
+      "      for (int i=nums.length-2 ; i>-1 ; i--) {",
+      "        right_side[i] = right_side[i+1] * nums[i+1];",
+      "      }",
+      "",
+      "      for (int i=0 ; i<nums.length ; i++) {",
+      "        result[i] = left_side[i] * right_side[i];",
+      "      }",
+      "",
+      "      return result;",
+      "    }",
+      "  }",
+      "", ""
+    ],
+    "steps": [
+      {
+        "key": "step1",
+        "codeLines": [4, 5]
+      },
+      {
+        "key": "step2",
+        "codeLines": [6]
+      },
+      {
+        "key": "step3",
+        "codeLines": [8]
+      },
+      {
+        "key": "step4",
+        "codeLines": [9]
+      },
+      {
+        "key": "step5",
+        "codeLines": [11, 12, 13]
+      },
+      {
+        "key": "step6",
+        "codeLines": [15, 16, 17]
+      },
+      {
+        "key": "step7",
+        "codeLines": [19, 20, 21]
+      },
+      {
+        "key": "step8",
+        "codeLines": [23]
+      }
+    ]
+  }
+}

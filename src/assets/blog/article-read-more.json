@@ -123,5 +123,15 @@
   }, {
     "title": "Best time to buy and sell stock en español",
     "url": "best-time-to-buy-and-sell-stock-en-espanol"
+  }],
+  "product-of-array-except-self": [{
+    "title": "Contains duplicate",
+    "url": "contains-duplicate"
+  }, {
+    "title": "Best time to buy and sell stock",
+    "url": "best-time-to-buy-and-sell-stock"
+  }, {
+    "title": "Two sum",
+    "url": "two-sum"
   }]
 }

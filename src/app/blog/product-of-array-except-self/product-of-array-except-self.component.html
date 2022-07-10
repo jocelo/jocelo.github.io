@@ -1,0 +1,192 @@
+<app-simple-article>
+  <h1 id="article-top">{{postTitle}}</h1>
+  <app-writer lang="en" readTime="7"></app-writer>
+  <app-post-translated *ngIf="false" lang="es" link="contains-duplicate-en-espanol"></app-post-translated>
+
+  <p>Welcome to this new article regarding algorithms and data structures! On this article we are going to discuss about
+    the <b>product of an array except self</b> problem. This is a problem that seems a lot more complex of that it
+    really is, we just have to consider what information we could prepare before hand.
+  </p>
+
+  <app-post-image [src]="postPicture.src" [desc]="postPicture.desc"></app-post-image>
+
+  <p>You can find this problem in the following websites:</p>
+  <app-chips [data]="sites"></app-chips>
+  <p>This problems is part of the famous list: <a
+      href="https://www.teamblind.com/post/New-Year-Gift---Curated-List-of-Top-75-LeetCode-Questions-to-Save-Your-Time-OaM1orEU"
+      target="_blank">Blind Curated 75 Leetcode questions</a>; This is the <b>fourth</b> problem from the <i>array</i>
+    category.</p>
+  <p>I encourage you to read this article from top to bottom, however if you are too eager (like me) to check the
+    solution, or read the Big O analysis, use the direct links below:</p>
+  <ul>
+    <li> <a routerLink="." fragment="definition">Definition</a></li>
+    <li> <a routerLink="." fragment="solution">Solution</a></li>
+    <li> <a routerLink="." fragment="code">Source Code</a></li>
+    <li> <a routerLink="." fragment="bigo">Complexity Analysis</a></li>
+    <li> <a routerLink="." fragment="conclusion">Wrapping up</a></li>
+  </ul>
+  <hr />
+
+  <h2 id="definition">Definition</h2>
+  <p>For this problem you are given the following data:</p>
+  <ul>
+    <li>A non-empty list of numbers; i.e. <span class="inline-code">[1, 2, 3, 4, 5, 6]</span> </li>
+  </ul>
+  <p>And we need to come up with an algorithm that will return a new list with the same length as the original one,
+    but each position of the list it will hold the result of multiplying every <u>other</u> element of the list. That
+    is, all elements of the array multiplied with each other, <b>except</b> the current one.
+  </p>
+  <hr />
+
+  <h3>Restrictions</h3>
+  <p>Among the restriction we have, there's one big enough that will change entirely the way we are approaching and
+    solving this problem: <u>we cannot use the division operation</u>. Rest of the restrictions are as usual, just data
+    boundaries and list size.</p>
+  <table mat-table [dataSource]="restrictionDataSource" class="mat-elevation-z8 hide-header lg-table align-center">
+    <!-- Code Column -->
+    <ng-container matColumnDef="nomenclatura">
+      <td mat-cell class="nowrap" *matCellDef="let element"> <span [innerHTML]="element.nomenclatura"></span> </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="desc">
+      <td mat-cell *matCellDef="let element"> <span [innerHTML]="element.desc"></span> </td>
+    </ng-container>
+
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Back to top</a>
+  </div>
+  <hr />
+
+  <h2 id="solution">Solution</h2>
+  <mat-card *ngIf="false" class="card-note">
+    <fa-icon [icon]="faExclamationCircle" style="margin-right: 10px;" size="lg"></fa-icon> La solución también se
+    encuentra en video, para verlo <a href="https://www.youtube.com/channel/UC547pgqomI0IcjOmltxQdAQ"
+      target="_blank">visita mi canal</a>.
+  </mat-card>
+  <p>While reading the problem's description, you must have thought of a simple way for solving this problem:
+    multiply <span class="inline-code">all elements</span> to get a <i>grand total</i> and then iterate over the list
+    <span class="inline-code">dividing</span> the grand total between the individual current value.
+  </p>
+  <p>This is an excellent solution <u>if</u> and only <u>if</u> we wouldn't had the restriction to <b>not use divisor
+      operation</b>. Darn...</p>
+  <p>So as usual, we start by coming up with <b>a</b> solution, a first approach, then we can iterate and start making
+    optimizations.</p>
+  <p>First thing's first... we need to iterate over the list of numbers; how about if each different iteration, we
+    calculate all elements <u>behind</u> and <u>ahead</u> of the current element... and then we multiply those two with
+    each other. That way, we would be including all numbers <u>except</u> the current one... Hmm that sounds
+    promising.</p>
+  <p>We would need a <span class="inline-code">main</span> iterator and then must likely a <span class="inline-code">
+      'left' iterator</span> that starting from the beginning of the list will be multiplying all elements up to
+    (excluding) the current element and a <span class="inline-code">'right' iterator</span> that will be multiplying all
+    the elements starting from the current element + 1, up to the end of the list. </p>
+  <p>
+    Finally we would just multiply the results together ('behind' cumulative value and 'ahead' cumulative value) so
+    we would get the result for that specific index. You can see in the image below how we will be using the 3
+    iterators.
+  </p>
+  <app-post-image src="assets/blog/product_of_array.png" desc="Three iterators" size="normal"></app-post-image>
+  <p>Following with the example from the image, when the main iterator is over the third element <span
+      class="inline-code">3</span>, that makes the left iterator to go through the values <span class="inline-code">1
+      and 2</span> getting us a result of <span class="inline-code">2</span> and the right iterator goes through
+    elements <span class="inline-code">4, 5 and 6</span>, obtaining a multiplied value of <span
+      class="inline-code">120</span>.</p>
+  <p>So, we now could easily multiply these two values together <span class="inline-code">2 * 120 = 240</span>. Sweet!
+    We have found the correct value for the result list on this specific index. We just need to repeat the same for all
+    indices of the main iterator... However, if you figured it ouy by now, we would be repeating a lot of work: for each
+    new iteration of the main loop, we would be starting over the left and right iterations, doing a bunch of work over
+    and over again.</p>
+  <p>Could we do better? Of course! We scratch the surface of <b>dynamic programming</b>; We can create a list with the
+    same size of the original list that will hold the <u>cumulative results up to that position</u>. Continuing with the
+    same example, the original array is <span class="inline-code">[1, 2, 3, 4, 5, 6]</span>, so our helper list with the
+    cumulative multiplications would be <span class="inline-code">[1, 1, 2, 6, 24, 120]</span>.</p>
+  <p>We create another helper array, for the right "side" <span class="inline-code">[720, 360, 120, 30, 6, 1]</span>.
+  </p>
+
+  <p>We should get these two extra lists before hand, so we iterate over the original list only 1 time each. That is,
+    iterate one time to build the left prefix multiplication, another loop to build the suffix multiplication. Since we
+    are iterating
+    separately, we do not increase the complexity.</p>
+
+  <p>Last piece of the process, would be to iterate one last time over the original list, and we just multiply the left
+    helper list with the right helper list on <u>i<sup>th</sup> </u> position of each lists. Neat huh?</p>
+
+  <p>That's pretty much it. Iterate three times over the original list, one at a time, and create two helper arrays.
+    Pseudo-code would be something like this:</p>
+
+  <ul class="pseudo-code">
+    <li>Iterate over the list of elements a first time:</li>
+    <ul>
+      <li>create a helper list <b>left_totals</b>, with the result of multiplying the value of the previous index,
+        against the previous value (value to the left), in other words a prefix multiplication</li>
+    </ul>
+    <li>Iterate over the list of elements a second time, in reverse order:</li>
+    <ul>
+      <li>create a helper list <b>right_totals</b>, with the result of multiplying the next index, against the next
+        value (value to the right), or a suffix multiplication</li>
+    </ul>
+    <li>Iterate over the list of elements a third time:</li>
+    <ul>
+      <li>create a results list that will hold the value of multiplying the <i>i<sup>th</sup></i> element of
+        <b>left_totals</b> and the <i>i<sup>th</sup></i> element of <b>right_totals</b>
+      </li>
+    </ul>
+  </ul>
+
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Back to top</a>
+  </div>
+  <hr />
+
+  <h2 id="code">Source Code</h2>
+
+  <app-code-block language="en" [postTitle]="postTitle" [code]="the_code" [codeSteps]="codeSteps"
+    [pseudoCode]="pseudoCode">
+  </app-code-block>
+
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Back to top</a>
+  </div>
+  <hr />
+
+  <h2 id="bigo">Complexity Analysis</h2>
+  <h3>Time</h3>
+  <p>In terms of <u>time</u> go through the entire original list 3 times, but on separate loops: <span
+      class="inline-code"> O(n) + O(n) + O(n) = 3*O(n)</span>, dropping constant values we get <span
+      class="inline-code">O(n)</span>.</p>
+
+  <h3>Space</h3>
+  <p>Speaking of <u>space</u>, the helper lists we are using will have the same length of the original list. Simliar to
+    the time analysis, we get <span class="inline-code">O(n) + O(n) + O(n) = 3*O(n)</span>, again dropping constants we
+    end up with <span class="inline-code">O(n)</span>.
+  </p>
+  <p><u>We conclude</u> then, the Big(O) analysis and say that for the Product of array except self problem, the
+    complexity is:</p>
+  <section class="complexity-summary">
+    <div>Time: <strong>O(n)</strong></div>
+    <div>Space: <strong>O(n)</strong></div>
+  </section>
+
+  <p>Where <span class="inline-code">n</span> is the number of elements from the original list.</p>
+  <div class="back-to-top">
+    <a routerLink="." fragment="article-top">Back to top</a>
+  </div>
+  <hr />
+
+  <h2 id="conclusion">Wrapping Up</h2>
+  <p>Thanks for reading this article!</p>
+  <p>We did an analysis of the <i>Product of Array Except Self</i> problem and discussed an optimal solution.</p>
+  <p>We practiced using what could be considered an introduction to <b>dynamic programming</b>. More concrete, we
+    implement something called <a href="https://en.wikipedia.org/wiki/Prefix_sum" target="_blank">prefix sum</a>.
+  </p>
+  <p>By using the prefix sum, we were able to reduce the complexity of the algorithm down to linear complexity in terms
+    of time and space.</p>
+  <p>I hope you learned something new with this article and remember to reach out if you have any comments, questions,
+    suggestions or if you know other ways of solving this problem; You can find me on <a
+      href="https://twitter.com/jocelodev" target="_blank">twitter</a>.</p>
+  <hr />
+
+  <app-read-next lang="en"></app-read-next>
+</app-simple-article>

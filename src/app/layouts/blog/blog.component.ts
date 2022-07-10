@@ -11,10 +11,12 @@ import { BlogService } from 'src/app/services/blog.service';
 })
 export class BlogComponent implements OnInit {
   fruits: string[] = ['docker', 'angular', 'devops'];
-  posts: object[];
+  allPosts: any;
+  posts: object[] | void[];
   faSearch = faSearch;
   searchToken: string;
   invalidSearchToken: boolean;
+  langMode: string;
 
   constructor(
     private router: Router,
@@ -22,8 +24,10 @@ export class BlogComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.langMode = 'en';
+
     this.invalidSearchToken = false;
-    this.posts = [{
+    this.allPosts = [{
       url: 'product-of-array-except-self',
       img: 'blog/faris-mohammed-PQinRWK1TgU-unsplash.jpg',
       imgDesc: 'Photo by <a href="https://unsplash.com/@pkmfaris?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Faris Mohammed</a> on <a href="https://unsplash.com/s/photos/array?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>',
@@ -142,11 +146,13 @@ export class BlogComponent implements OnInit {
       publishedDate: this.service.getPostDate('balanceo-de-parentesis')
     }];
 
-    this.posts.forEach(post => {
+    this.allPosts.forEach(post => {
       post['topics'] = this.service.getArticleTopics(post['url']);
       post['flag'] = post['lang'] === 'es' ? 'assets/mx.svg' : 'assets/us.svg';
-      post['lang'] = post['lang'] === 'es' ? 'Español' : 'Ingles';
+      // post['lang'] = post['lang'] === 'es' ? 'Español' : 'Ingles';
     });
+
+    this.posts = this.allPosts.filter(post => post.lang === this.langMode);
   }
 
   public openArticle(postURL: any): void {
@@ -161,6 +167,11 @@ export class BlogComponent implements OnInit {
     }
 
     this.router.navigate(['/blog/topic/', this.searchToken]);
+  }
+
+  public changeLanguage(lang: string): void {
+    this.langMode = lang;
+    this.posts = this.allPosts.filter(post => post.lang === lang);
   }
 
 }

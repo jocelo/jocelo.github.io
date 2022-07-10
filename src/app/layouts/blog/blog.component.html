@@ -7,7 +7,15 @@
     <p *ngIf="invalidSearchToken" class="invalid-search-token">Enter a valid search token.</p>
   </div>
   <section class="blog-body">
-    <h1>Latest Articles</h1>
+    <h1 class="language-header">
+      <span class="title">Latest Articles</span>
+      <span> <a (click)="changeLanguage('es')">
+          <img class="lang-flag" [ngClass]="{'grayed': langMode == 'en'}" src="assets/mx.svg" width="30px"></a>
+      </span>
+      <span> <a (click)="changeLanguage('en')">
+          <img class="lang-flag" [ngClass]="{'grayed': langMode == 'es'}" src="assets/us.svg" width="30px"></a>
+      </span>
+    </h1>
     <section class="articles">
       <article class="one-article" *ngFor="let post of posts">
         <mat-card class="example-card">

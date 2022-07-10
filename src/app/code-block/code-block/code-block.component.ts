@@ -66,7 +66,7 @@ export class CodeBlockComponent implements OnInit {
   templateUrl: 'dialog/line-by-line-dialog.html',
   styleUrls: ['dialog/line-by-line.scss']
 })
-export class LineByLineDialog {
+export class LineByLineDialog implements OnInit {
   lineByLine = false;
   language: string;
   code: any;
@@ -75,6 +75,7 @@ export class LineByLineDialog {
   pseudoNotes: any;
   postTitle: string;
   lblMode: string;
+  showHelp: boolean;
 
   faJsSquare = faJsSquare;
   faJava = faJava;
@@ -90,6 +91,13 @@ export class LineByLineDialog {
 
     const firstCode = Object.keys(data.code)[0];
     this.lblMode = firstCode.split('_')[0];
+  }
+
+  ngOnInit() {
+    this.showHelp = true;
+    setTimeout(() => {
+      // this.showHelp = false;
+    }, 5000);
   }
 
   public showNotes(theNote): boolean {
@@ -125,5 +133,9 @@ export class LineByLineDialog {
 
   public myTabFocusChange(changeEvent: MatTabChangeEvent): void {
     this.lblMode = changeEvent.tab.textLabel;
+  }
+
+  public hideHelp() {
+    this.showHelp = false;
   }
 }

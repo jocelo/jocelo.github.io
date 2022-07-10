@@ -40,6 +40,7 @@ import { ContainsDuplicateComponent } from './contains-duplicate/contains-duplic
 import { HashTableComponent } from './hash-table/hash-table.component';
 import { ContainsDuplicateEsComponent } from './contains-duplicate-es/contains-duplicate-es.component';
 import { BestTimeToBuyAndSellStockEsComponent } from './best-time-to-buy-and-sell-stock-es/best-time-to-buy-and-sell-stock-es.component';
+import { ProductOfArrayExceptSelfComponent } from './product-of-array-except-self/product-of-array-except-self.component';
 
 const blogRoutes: Routes = [
   { path: 'topic/:token', component: SearchByTopicComponent },
@@ -61,7 +62,8 @@ const blogRoutes: Routes = [
   { path: 'best-time-to-buy-and-sell-stock-en-espanol', component: BestTimeToBuyAndSellStockEsComponent },
   { path: 'contains-duplicate', component: ContainsDuplicateComponent },
   { path: 'what-is-a-hash-table', component: HashTableComponent },
-  { path: 'contains-duplicate-en-espanol', component: ContainsDuplicateEsComponent }
+  { path: 'contains-duplicate-en-espanol', component: ContainsDuplicateEsComponent },
+  { path: 'product-of-array-except-self', component: ProductOfArrayExceptSelfComponent }
 ];
 
 @NgModule({
@@ -94,7 +96,8 @@ const blogRoutes: Routes = [
     ContainsDuplicateComponent,
     HashTableComponent,
     ContainsDuplicateEsComponent,
-    BestTimeToBuyAndSellStockEsComponent
+    BestTimeToBuyAndSellStockEsComponent,
+    ProductOfArrayExceptSelfComponent
   ],
   imports: [
     CommonModule,

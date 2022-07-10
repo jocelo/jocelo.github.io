@@ -173,3 +173,20 @@ ol.steps li:hover {
     width: 100%;
   }
 }
+
+// move this to a directive
+.spidey-sense {
+  animation-duration: 1.5s;
+  animation-name: tingling;
+  animation-iteration-count: infinite;
+}
+
+@keyframes tingling {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}

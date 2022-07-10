@@ -67,7 +67,7 @@
         </mat-tab-group>
       </div>
       <div class="explain-section">
-        <mat-card class="card-note">
+        <mat-card class="card-note" *ngIf="showHelp" (click)="hideHelp()">
           <mat-icon>manage_search</mat-icon>
           <span *ngIf="language=='en'">Place the cursor over each numbered instructions from the list below so you
             can match up with the code on the left.</span>

@@ -1,0 +1,89 @@
+.algo-container {
+  display: inline-block;
+  margin: 5px;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 200px;
+  max-width: 200px;
+  padding: 5px 10px;
+  height: 170px;
+  max-height: 170px;
+  vertical-align: top;
+
+  & h4 {
+    text-align: center;
+  }
+
+  & .sources {
+    display: flex;
+    margin: 0 30px;
+  }
+
+  & .sources span:first-of-type {
+    flex: 1;
+  }
+}
+
+.blind-leetcode {
+  & table {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 35px;
+  }
+
+  & .filter-section {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+
+    & div {
+      flex: 1;
+    }
+
+    & .filter-toggle {
+      text-align: right;
+    }
+
+    & .mat-form-field-appearance-standard .mat-form-field-flex {
+      padding-top: 0;
+    }
+
+    .search-input {
+      width: 70%;
+    }
+  }
+}
+
+.issue-checkbox {
+  width: 40px;
+  text-align: center;
+}
+
+fa-icon.disabled {
+  color: lightgray;
+  cursor: wait;
+}
+
+.mat-chip-list .mat-chip.mat-primary span.topic-label {
+  font-size: 0.8rem;
+}
+
+.mat-column-title {
+  width: 300px !important;
+}
+
+.mat-column-topic {
+  width: 110px !important;
+}
+
+.mat-column-solution a {
+  margin: 10px 5px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.mat-column-solution a.missing {
+  color: lightgray;
+  cursor: wait;
+}

@@ -54,3 +54,11 @@ span.inline-code {
 .center {
   text-align: center;
 }
+
+.mat-form-field-infix {
+  border-top: 5em !important;
+}
+
+section.blind-leetcode .filter-section .mat-form-field-appearance-standard .mat-form-field-flex {
+  padding-top: 0;
+}

@@ -19,6 +19,10 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatInputModule } from '@angular/material/input';
 import { HighlightDirective } from '../highlight.directive';
 import { UrlsConPalabrasClaveComponent } from './urls-con-palabras-clave/urls-con-palabras-clave.component';
 import { WhatIsAStackComponent } from './what-is-a-stack/what-is-a-stack.component';
@@ -41,6 +45,10 @@ import { HashTableComponent } from './hash-table/hash-table.component';
 import { ContainsDuplicateEsComponent } from './contains-duplicate-es/contains-duplicate-es.component';
 import { BestTimeToBuyAndSellStockEsComponent } from './best-time-to-buy-and-sell-stock-es/best-time-to-buy-and-sell-stock-es.component';
 import { ProductOfArrayExceptSelfComponent } from './product-of-array-except-self/product-of-array-except-self.component';
+import { BlindLeetcodeComponent } from './blind-leetcode/blind-leetcode.component';
+import { PublishAngularNpmPackageComponent } from './publish-angular-npm-package/publish-angular-npm-package.component';
+import { NgxGgistModule } from 'ngx-ggist';
+import { FormsModule } from '@angular/forms';
 
 const blogRoutes: Routes = [
   { path: 'topic/:token', component: SearchByTopicComponent },
@@ -56,14 +64,16 @@ const blogRoutes: Routes = [
   { path: 'urls-dinamicos', component: UrlsConPalabrasClaveComponent },
   { path: 'delete-code-line', component: DeleteWholeLineVsCodeComponent },
   { path: 'eliminar-linea-codigo', component: BorrarLineasVsCodeComponent },
-  { path: 'suma-dos-numeros', component: SumaDosNumerosComponent },
+  { path: 'two-sum-en-espanol', component: SumaDosNumerosComponent },
   { path: 'two-sum', component: TwoSumComponent },
   { path: 'best-time-to-buy-and-sell-stock', component: BestTimeToBuyAndSellStockComponent },
   { path: 'best-time-to-buy-and-sell-stock-en-espanol', component: BestTimeToBuyAndSellStockEsComponent },
   { path: 'contains-duplicate', component: ContainsDuplicateComponent },
   { path: 'what-is-a-hash-table', component: HashTableComponent },
   { path: 'contains-duplicate-en-espanol', component: ContainsDuplicateEsComponent },
-  { path: 'product-of-array-except-self', component: ProductOfArrayExceptSelfComponent }
+  { path: 'product-of-array-except-self', component: ProductOfArrayExceptSelfComponent },
+  { path: 'blind-75-leetcode', component: BlindLeetcodeComponent },
+  { path: 'publish-angular-npm-package', component: PublishAngularNpmPackageComponent }
 ];
 
 @NgModule({
@@ -97,17 +107,25 @@ const blogRoutes: Routes = [
     HashTableComponent,
     ContainsDuplicateEsComponent,
     BestTimeToBuyAndSellStockEsComponent,
-    ProductOfArrayExceptSelfComponent
+    ProductOfArrayExceptSelfComponent,
+    BlindLeetcodeComponent,
+    PublishAngularNpmPackageComponent
   ],
   imports: [
     CommonModule,
     CodeBlockModule,
     ChipsModule,
     FontAwesomeModule,
-    MatTabsModule,
-    MatTableModule,
-    MatChipsModule,
+    FormsModule,
     MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSlideToggleModule,
+    MatTableModule,
+    MatTabsModule,
+    NgxGgistModule,
     RouterModule.forChild(
       blogRoutes
     )

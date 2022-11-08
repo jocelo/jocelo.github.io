@@ -57,7 +57,7 @@
       <th mat-header-cell *matHeaderCellDef> Video </th>
       <td mat-cell *matCellDef="let element">
         <a *ngIf="element.video" [href]="element.leetcode" target="_blank"><fa-icon [icon]="faYouTube" style="margin-right: 10px;" size="2x"></fa-icon></a>
-        <fa-icon *ngIf="!element.video" [icon]="faYouTube" style="margin-right: 10px;" class="disabled" size="2x"></fa-icon>
+        <fa-icon *ngIf="!element.video" [icon]="faIcons.youtube" style="margin-right: 10px;" class="disabled" size="2x"></fa-icon>
       </td>
     </ng-container>
 
@@ -66,7 +66,7 @@
       <th mat-header-cell *matHeaderCellDef> Article </th>
       <td mat-cell *matCellDef="let element"> 
         <a *ngIf="element.article" [routerLink]="['/blog', element.article]" target="_blank">
-          <fa-icon [icon]="faBook" style="margin-right: 10px;" size="2x"></fa-icon>
+          <fa-icon [icon]="faIcons.book" style="margin-right: 10px;" size="2x"></fa-icon>
         </a>
         <fa-icon *ngIf="!element.article" [icon]="faBook" style="margin-right: 10px;" class="disabled" size="2x"></fa-icon>
       </td>

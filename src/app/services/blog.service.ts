@@ -3,6 +3,23 @@ import { Injectable } from '@angular/core';
 import datesJson from '../../assets/blog/article-dates.json';
 import readMoreJson from '../../assets/blog/article-read-more.json';
 import articlesJson from '../../assets/blog/article.json';
+import blindLeetcodeJson from '../../assets/blog/blind-leetcode.json';
+
+export interface ArticleEntry {
+  no: number;
+  done: boolean;
+  title: string;
+  leetcode: string;
+  video: string;
+  article: string;
+  mainTopic: string;
+  solution: {
+    javascript: string;
+    java: string;
+    php: string;
+    python: string;
+  };
+}
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +28,7 @@ export class BlogService {
   articleDates = datesJson;
   articlesRelated = readMoreJson;
   articles = articlesJson;
+  blindLeetcode: ArticleEntry[] = blindLeetcodeJson;
 
   constructor() { }
 
@@ -58,5 +76,9 @@ export class BlogService {
       article[1]['lastUpdate'] = this.getPostDate(article[0]);
     });
     return articles;
+  }
+
+  public getBlindLeetcodeList(): ArticleEntry[] {
+    return this.blindLeetcode;
   }
 }

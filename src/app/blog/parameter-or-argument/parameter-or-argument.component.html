@@ -1,0 +1,47 @@
+<app-simple-article>
+  <h1>Parameter or Argument. What is the difference?</h1>
+
+  <app-writer lang="en" readTime="2"></app-writer>
+  <mat-card class="card-note" *ngIf="false">
+    <fa-icon [icon]="faLanguage" style="margin-right: 10px;" size="lg"></fa-icon> Para la version en español <a
+      [routerLink]="['/blog','parametro-o-argumento']">da click aquí.</a>
+  </mat-card>
+
+  <p>The terms <i>Parameter</i> and <i>Argument</i> are interchangeable, right? Both mean the same thing: The <b>stuff/value/variables</b> that is being passed into a function.</p>
+
+  <p>If you search the web, you might found <a href="https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/argument-vs-parameter" target="_blank">some articles <fa-icon [icon]="faExternalLink" style="margin-right: 10px;"></fa-icon></a>that mention both terms can be used interchangeably. And that is the way that I have being using them pretty much since I began writing code (well, I began writing HTML but you know what I mean)... What if I told you that there is a subtle but important difference?.</p>
+
+  <div class="center">
+    <iframe src="https://giphy.com/embed/11e0gEWxYoSYTK" width="480" height="197" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/reactiongifs-mrw-oc-11e0gEWxYoSYTK">via GIPHY</a></p>
+  </div>  
+
+  <p>Ok, so first, let us define each terms: according with Wordnik and <a href="https://en.wikipedia.org/wiki/Parameter_(computer_programming)#Parameters_and_arguments" target="_blank">Wikipedia <fa-icon [icon]="faExternalLink" style="margin-right: 10px;"></fa-icon></a>:</p>
+
+  <p> <a href="https://www.wordnik.com/words/parameter" target="_blank">Parameter: <fa-icon [icon]="faExternalLink" style="margin-right: 10px;"></fa-icon></a>A variable used in a calculation within a computer program which must be assigned a value before the calculation can be performed.</p>
+  <p> <a href="https://www.wordnik.com/words/argument" target="_blank">Argument: <fa-icon [icon]="faExternalLink" style="margin-right: 10px;"></fa-icon></a>A value, or reference to a value, passed to a function.</p>
+
+  <p>Read them again. I'll wait... done? ok, now check out the code below.</p>
+
+  <ngx-ggist
+    user="jocelo"
+    scriptId="e4e9d847e715afe84dea6a4e2f0c1e7a"></ngx-ggist>
+
+  <p>So, with this <i>new</i> knowledge we can say:</p>
+
+  <ul>
+    <li> <i>min</i> & <i>max</i> are <b>parameters</b>, since these are the <u>variables</u> or <u>placeholders</u> that we define in the functions signature. </li>
+    <li> <i>4</i> & <i>8</i> are <b>arguments</b>, since these are the <u>values</u> that are being assigned or used in the function. </li>
+  </ul>
+
+  <p>If you think about it (and use your muscle memory) at some point in the past you probably would have said something like: <i>if these <u>optional parameters</u> do not have <u>default arguments</u> we are creating a bug</i>.</p>
+  
+  <p>Aha! there you have it! You might have already being using the correct terms but never thought about it outside this context.</p>
+
+  <p>A visual aid is always helpful, here is one for you:</p>
+
+  <app-post-image src="/assets/blog/arguments-vs-parameters.png" desc="argument and parameter differences"></app-post-image>
+
+  <p>There you have it; next time somebody asks if argument and parameter are the same thing you know exactly what to answer. Hope you learned something new and talk to you in the next post!</p>
+
+  <app-read-next lang="en"></app-read-next>
+</app-simple-article>

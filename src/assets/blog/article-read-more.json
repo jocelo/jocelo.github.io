@@ -133,5 +133,12 @@
   }, {
     "title": "Two sum",
     "url": "two-sum"
+  }],
+  "argument-or-parameter": [{
+    "title": "Deleting Code lines in VS Code",
+    "url": "delete-code-line"
+  },{
+    "title": "VS Code: Formatting files on save",
+    "url": "format-documents-on-save"
   }]
 }

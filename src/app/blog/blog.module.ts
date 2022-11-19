@@ -49,6 +49,7 @@ import { BlindLeetcodeComponent } from './blind-leetcode/blind-leetcode.componen
 import { PublishAngularNpmPackageComponent } from './publish-angular-npm-package/publish-angular-npm-package.component';
 import { NgxGgistModule } from 'ngx-ggist';
 import { FormsModule } from '@angular/forms';
+import { ParameterOrArgumentComponent } from './parameter-or-argument/parameter-or-argument.component';
 
 const blogRoutes: Routes = [
   { path: 'topic/:token', component: SearchByTopicComponent },
@@ -73,7 +74,8 @@ const blogRoutes: Routes = [
   { path: 'contains-duplicate-en-espanol', component: ContainsDuplicateEsComponent },
   { path: 'product-of-array-except-self', component: ProductOfArrayExceptSelfComponent },
   { path: 'blind-75-leetcode', component: BlindLeetcodeComponent },
-  { path: 'publish-angular-npm-package', component: PublishAngularNpmPackageComponent }
+  { path: 'publish-angular-npm-package', component: PublishAngularNpmPackageComponent },
+  { path: 'argument-or-parameter', component: ParameterOrArgumentComponent },
 ];
 
 @NgModule({
@@ -109,7 +111,8 @@ const blogRoutes: Routes = [
     BestTimeToBuyAndSellStockEsComponent,
     ProductOfArrayExceptSelfComponent,
     BlindLeetcodeComponent,
-    PublishAngularNpmPackageComponent
+    PublishAngularNpmPackageComponent,
+    ParameterOrArgumentComponent
   ],
   imports: [
     CommonModule,

@@ -41,6 +41,10 @@ span.inline-code {
   border-radius: 5px;
 }
 
+span.inline-code.multiline {
+  line-height: 1.5rem;
+}
+
 .mat-table {
   font-family: 'Work Sans', sans-serif;
   line-height: 1.4rem;

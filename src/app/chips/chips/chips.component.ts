@@ -9,7 +9,8 @@ import {
   faFileCode,
   faRulerHorizontal,
   faTable,
-  faLayerGroup
+  faLayerGroup,
+  faKeyboard
 } from '@fortawesome/free-solid-svg-icons';
 
 import { faUncharted } from '@fortawesome/free-brands-svg-icons';
@@ -31,6 +32,7 @@ export class ChipsComponent implements OnInit {
 
   icons: any;
 
+  faKeyboard = faKeyboard;
   faCubes = faCubes;
   faExternalLinkAlt = faExternalLinkAlt;
   faRulerHorizontal = faRulerHorizontal;
@@ -59,7 +61,9 @@ export class ChipsComponent implements OnInit {
       'dynamic programming': faUncharted,
       'programacion dinamica': faUncharted,
       'prefix sum': faLayerGroup,
-      'suma prefijos': faLayerGroup
+      'suma prefijos': faLayerGroup,
+      'programming': faKeyboard,
+      'programacion': faKeyboard
     };
   }
 

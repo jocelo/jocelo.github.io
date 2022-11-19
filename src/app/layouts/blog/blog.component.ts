@@ -28,6 +28,15 @@ export class BlogComponent implements OnInit {
 
     this.invalidSearchToken = false;
     this.allPosts = [{
+      url: 'argument-or-parameter',
+      img: 'blog/florian-olivo-4hbJ-eymZ1o-unsplash.jpeg',
+      imgDesc: 'Photo by <a href="https://unsplash.com/@florianolv?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Florian Olivo</a> on <a href="https://unsplash.com/s/photos/coding?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>',
+      title: 'Parameter or Argument. What is the difference?',
+      desc: 'Ever wondered it these two terms can be interchangeably used? Read along to find more.',
+      lang: 'en',
+      readTime: '2',
+      publishedDate: this.service.getPostDate('argument-or-parameter')
+    }, {
       url: 'product-of-array-except-self',
       img: 'blog/faris-mohammed-PQinRWK1TgU-unsplash.jpg',
       imgDesc: 'Photo by <a href="https://unsplash.com/@pkmfaris?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Faris Mohammed</a> on <a href="https://unsplash.com/s/photos/array?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>',

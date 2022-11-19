@@ -24,3 +24,6 @@ export class WriterComponent implements OnInit {
   }
 
 }
+
+// TODO: need to add this: https://irisreading.com/what-is-the-average-reading-speed/
+// Add a link where it says why we choose a 200 ppm read time average

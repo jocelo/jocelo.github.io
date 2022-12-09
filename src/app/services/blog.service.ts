@@ -81,4 +81,16 @@ export class BlogService {
   public getBlindLeetcodeList(): ArticleEntry[] {
     return this.blindLeetcode;
   }
+
+  // TODO:
+  // return default language or n/a
+  // if found, we need to return the correct text to set in the translated part
+  public getArticleLanguage(url: string): string {
+    // console.log(`this the URL: ${url}`);
+    const theArticle = Object.entries(this.articles).filter((article, idx) => article[0] === url);
+    // console.log('theArticle');
+    // console.log(theArticle);
+
+    return 'en';
+  }
 }

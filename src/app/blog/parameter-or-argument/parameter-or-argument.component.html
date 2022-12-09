@@ -1,11 +1,8 @@
 <app-simple-article>
-  <h1>Parameter or Argument. What is the difference?</h1>
+  <h1>{{postTitle}}</h1>
 
   <app-writer lang="en" readTime="2"></app-writer>
-  <mat-card class="card-note" *ngIf="false">
-    <fa-icon [icon]="faLanguage" style="margin-right: 10px;" size="lg"></fa-icon> Para la version en español <a
-      [routerLink]="['/blog','parametro-o-argumento']">da click aquí.</a>
-  </mat-card>
+  <app-post-translated lang="es" link="argumento-o-parametro"></app-post-translated>
 
   <p>The terms <i>Parameter</i> and <i>Argument</i> are interchangeable, right? Both mean the same thing: The <b>stuff/value/variables</b> that is being passed into a function.</p>
 

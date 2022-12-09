@@ -28,6 +28,15 @@ export class BlogComponent implements OnInit {
 
     this.invalidSearchToken = false;
     this.allPosts = [{
+      url: 'argumento-o-parametro',
+      img: 'blog/florian-olivo-4hbJ-eymZ1o-unsplash.jpeg',
+      imgDesc: 'Photo by <a href="https://unsplash.com/@florianolv?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Florian Olivo</a> on <a href="https://unsplash.com/s/photos/coding?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>',
+      title: 'Argumento o Parámetro. Hay alguna diferencia?',
+      desc: 'Alguna ves te has preguntado si estos dos términos significan lo mismo? En este articulo encontraras un breve análisis de las diferencias en estos términos.',
+      lang: 'es',
+      readTime: '2',
+      publishedDate: this.service.getPostDate('argumento-o-parametro')
+    }, {
       url: 'argument-or-parameter',
       img: 'blog/florian-olivo-4hbJ-eymZ1o-unsplash.jpeg',
       imgDesc: 'Photo by <a href="https://unsplash.com/@florianolv?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Florian Olivo</a> on <a href="https://unsplash.com/s/photos/coding?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>',

@@ -84,5 +84,10 @@
     "language": "en",
     "title": "Argument or Parameter. What is the difference?",
     "topics": ["programming"]
+  },
+  "argumento-o-parametro": {
+    "language": "es",
+    "title": "Argumento o Parametro. Hay alguna diferencia?",
+    "topics": ["programacion"]
   }
 }

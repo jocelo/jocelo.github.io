@@ -50,6 +50,8 @@ import { PublishAngularNpmPackageComponent } from './publish-angular-npm-package
 import { NgxGgistModule } from 'ngx-ggist';
 import { FormsModule } from '@angular/forms';
 import { ParameterOrArgumentComponent } from './parameter-or-argument/parameter-or-argument.component';
+import { ParametroOArgumentoComponent } from './parametro-o-argumento/parametro-o-argumento.component';
+import { DisclaimerComponent } from './components/disclaimer/disclaimer.component';
 
 const blogRoutes: Routes = [
   { path: 'topic/:token', component: SearchByTopicComponent },
@@ -76,6 +78,7 @@ const blogRoutes: Routes = [
   { path: 'blind-75-leetcode', component: BlindLeetcodeComponent },
   { path: 'publish-angular-npm-package', component: PublishAngularNpmPackageComponent },
   { path: 'argument-or-parameter', component: ParameterOrArgumentComponent },
+  { path: 'argumento-o-parametro', component: ParametroOArgumentoComponent }
 ];
 
 @NgModule({
@@ -112,7 +115,9 @@ const blogRoutes: Routes = [
     ProductOfArrayExceptSelfComponent,
     BlindLeetcodeComponent,
     PublishAngularNpmPackageComponent,
-    ParameterOrArgumentComponent
+    ParameterOrArgumentComponent,
+    ParametroOArgumentoComponent,
+    DisclaimerComponent
   ],
   imports: [
     CommonModule,

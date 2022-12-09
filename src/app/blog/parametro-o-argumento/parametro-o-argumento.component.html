@@ -1,0 +1,38 @@
+<app-simple-article>
+  <h1>{{postTitle}}</h1>
+  <app-writer lang="es" readTime="2"></app-writer>
+  <app-post-translated lang="en" link="argument-or-parameter"></app-post-translated>
+  <p>Los términos <i>Parámetro</i> y <i>Argumento</i> se pueden usar indistintamente, verdad? Ambos los usamos para definir lo mismo: <b>aquello/valores/variables</b> que se pasa a una función.</p>
+
+  <p>Si realizas una búsqueda web podrás encontrar <a href="https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/argument-vs-parameter" target="_blank"> algunos artículos<fa-icon [icon]="faExternalLink" style="margin-left: 5px;"></fa-icon></a> donde mencionan que ambos términos son indistintos. Así es precisamente como yo usaba estos términos desde que comencé a programar (mis primeras lineas fueron en código HTML pero bueno, sabes a que me refiero)... Sin embargo, un dia soleado pero frio durante una discusión con compañeros de trabajo, descubrimos que si hay una ligera pero importante diferencia.</p>
+
+  <div class="center">
+    <iframe src="https://giphy.com/embed/11e0gEWxYoSYTK" width="480" height="197" frameBorder="0" class="giphy-embed" allowFullScreen style="max-width: 100%;"></iframe><p><a href="https://giphy.com/gifs/reactiongifs-mrw-oc-11e0gEWxYoSYTK">via GIPHY</a></p>
+  </div>
+
+  <p>De acuerdo a <a href="https://es.wikipedia.org/wiki/Par%C3%A1metro#Programaci%C3%B3n_de_computadoras" target="_blank">Wikipedia <fa-icon [icon]="faExternalLink" style="margin-right: 10px;"></fa-icon></a>; existen los parámetros (parámetros formales) y argumentos (parámetros reales)</p>
+
+  <ngx-ggist
+    user="jocelo"
+    scriptId="e4e9d847e715afe84dea6a4e2f0c1e7a"></ngx-ggist>
+
+  <p>Este ejemplo nos ayuda a definir:</p>
+
+  <ul>
+    <li> <i>min</i> y <i>max</i> son <b>parámetros (o parámetros formales)</b>, ya que son las <u>variables</u> o <u>espacios reservados</u> que definimos como parte de la función. </li>
+    <li> <i>4</i> y <i>8</i> son <b>argumentos (o parámetros reales)</b>, ya que estos son los <u>valores</u> que se están asignando/usando en el código de la función. </li>
+  </ul>
+
+  <p>Si lo piensas por un momento, y usas tu memoria muscular, estoy seguro que en algun momento habras dicho algo como: <i>si los <u>parametros opcionales</u> no tienen <u>argumentos por default</u> estaremos introduciendo bugs</i>.</p>
+  
+  <p>Ajá! Ya tenias este conocimiento pero nunca te habías percatado del significado individual.</p>
+
+  <p>Una guia visual siempre es bienvenida, aquí te dejo una:</p>
+
+  <app-post-image src="/assets/blog/argumentos-vs-parametros.png" desc="diferencias entre argumento y parámetro"></app-post-image>
+
+  <p>Ahi lo tienes, ya sabes como contestar la proxima ves que escuches a alguien preguntar si argumento y parámetro son lo mismo. Espero que hayas aprendido algo nuevo y nos leemos en el proximo post!</p>
+
+  <app-disclaimer lang="es"></app-disclaimer>
+  <app-read-next lang="es"></app-read-next>
+</app-simple-article>

@@ -1,0 +1,32 @@
+<app-simple-article>
+  <h1>{{postTitle}}</h1>
+
+  <app-writer lang="en" readTime="1"></app-writer>
+  <!-- <app-post-translated lang="es" link="argumento-o-parametro"></app-post-translated> -->
+
+  <p>Hello fellow developer!</p>
+
+  <p>On this article I would like to share with you a pretty neat productivity trick related with VS Code: Launching VSCode from within a terminal using whatever directory you are currently on.</p>
+
+  <app-post-image [src]="postPicture.src" [desc]="postPicture.desc"></app-post-image>
+
+  <p>Short and sweet: try opening a terminal, and then try executing this command:</p>
+
+  <span class="inline-code">> code .</span>
+
+  <p>Basically <span class="inline-code">code</span> launches VS Code and using <span class="inline-code">.</span> we are saying <i>please use the current directory when opening VS Code</i>. </p>
+
+  <p>Didn't work? You don't have installed the code command... No worries, I got you: </p>
+
+  <ul>
+    <li>With VSCode open, launch the Command Palette under <i>View</i> menu (shift+command+p on mac).</li>
+    <li>Start typing: <strong>install code command in path</strong> and press enter key.</li>
+    <li>You will get a confirmation message when done.</li>
+  </ul>
+
+  <p>Easy, right? I use this command all the time, hope you find it useful. Catch up with you soon!</p>
+
+  <hr />
+
+  <app-read-next lang="en"></app-read-next>
+</app-simple-article>

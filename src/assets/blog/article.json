@@ -89,5 +89,10 @@
     "language": "es",
     "title": "Argumento o Parametro. Hay alguna diferencia?",
     "topics": ["programacion"]
+  },
+  "open-vscode-from-terminal": {
+    "language": "es",
+    "title": "Open VS Code from a terminal",
+    "topics": ["vscode", "productivity", "tips"]
   }
 }

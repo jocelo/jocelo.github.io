@@ -28,6 +28,14 @@ export class BlogComponent implements OnInit {
 
     this.invalidSearchToken = false;
     this.allPosts = [{
+      url: 'open-vscode-from-terminal',
+      img: 'blog/ferenc-almasi--FHIdRVGets-unsplash.jpeg',
+      imgDesc: '',
+      title: 'Open VS Code from a terminal.',
+      desc: 'Launch VS Code quickly while referencing any directory.',
+      lang: 'en',
+      publishedDate: this.service.getPostDate('open-vscode-from-terminal')
+    }, {
       url: 'argumento-o-parametro',
       img: 'blog/florian-olivo-4hbJ-eymZ1o-unsplash.jpeg',
       imgDesc: 'Photo by <a href="https://unsplash.com/@florianolv?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Florian Olivo</a> on <a href="https://unsplash.com/s/photos/coding?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>',

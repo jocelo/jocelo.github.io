@@ -52,6 +52,7 @@ import { FormsModule } from '@angular/forms';
 import { ParameterOrArgumentComponent } from './parameter-or-argument/parameter-or-argument.component';
 import { ParametroOArgumentoComponent } from './parametro-o-argumento/parametro-o-argumento.component';
 import { DisclaimerComponent } from './components/disclaimer/disclaimer.component';
+import { OpenVscodeFromTerminalComponent } from './open-vscode-from-terminal/open-vscode-from-terminal.component';
 
 const blogRoutes: Routes = [
   { path: 'topic/:token', component: SearchByTopicComponent },
@@ -78,7 +79,7 @@ const blogRoutes: Routes = [
   { path: 'blind-75-leetcode', component: BlindLeetcodeComponent },
   { path: 'publish-angular-npm-package', component: PublishAngularNpmPackageComponent },
   { path: 'argument-or-parameter', component: ParameterOrArgumentComponent },
-  { path: 'argumento-o-parametro', component: ParametroOArgumentoComponent }
+  { path: 'open-vscode-from-terminal', component: OpenVscodeFromTerminalComponent }
 ];
 
 @NgModule({
@@ -117,7 +118,8 @@ const blogRoutes: Routes = [
     PublishAngularNpmPackageComponent,
     ParameterOrArgumentComponent,
     ParametroOArgumentoComponent,
-    DisclaimerComponent
+    DisclaimerComponent,
+    OpenVscodeFromTerminalComponent
   ],
   imports: [
     CommonModule,

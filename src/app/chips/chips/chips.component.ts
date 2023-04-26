@@ -10,7 +10,9 @@ import {
   faRulerHorizontal,
   faTable,
   faLayerGroup,
-  faKeyboard
+  faKeyboard,
+  faUmbrellaBeach,
+  faLightbulb
 } from '@fortawesome/free-solid-svg-icons';
 
 import { faUncharted } from '@fortawesome/free-brands-svg-icons';
@@ -42,6 +44,8 @@ export class ChipsComponent implements OnInit {
   faBooks = faBook;
   faUncharted = faUncharted;
   faLayerGroup = faLayerGroup;
+  faUmbrellaBeach = faUmbrellaBeach;
+  faLightbulb = faLightbulb;
 
   constructor(
     private router: Router
@@ -63,7 +67,10 @@ export class ChipsComponent implements OnInit {
       'prefix sum': faLayerGroup,
       'suma prefijos': faLayerGroup,
       'programming': faKeyboard,
-      'programacion': faKeyboard
+      'programacion': faKeyboard,
+      'vscode': faFileCode,
+      'productivity': faUmbrellaBeach,
+      'tips': faLightbulb
     };
   }
 

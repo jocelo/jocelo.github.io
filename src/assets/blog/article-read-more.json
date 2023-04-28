@@ -154,5 +154,12 @@
   },{
     "title": "VS Code: Formatting files on save",
     "url": "format-documents-on-save"
+  }],
+  "abrir-vscode-desde-terminal": [{
+    "title": "VS Code: Como eliminar lineas de código",
+    "url": "eliminar-linea-codigo"
+  },{
+    "title": "URL's dinámicos",
+    "url": "urls-dinamicos"
   }]
 }

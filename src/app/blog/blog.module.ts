@@ -53,6 +53,7 @@ import { ParameterOrArgumentComponent } from './parameter-or-argument/parameter-
 import { ParametroOArgumentoComponent } from './parametro-o-argumento/parametro-o-argumento.component';
 import { DisclaimerComponent } from './components/disclaimer/disclaimer.component';
 import { OpenVscodeFromTerminalComponent } from './open-vscode-from-terminal/open-vscode-from-terminal.component';
+import { AbrirVscodeDesdeTerminalComponent } from './abrir-vscode-desde-terminal/abrir-vscode-desde-terminal.component';
 
 const blogRoutes: Routes = [
   { path: 'topic/:token', component: SearchByTopicComponent },
@@ -79,7 +80,8 @@ const blogRoutes: Routes = [
   { path: 'blind-75-leetcode', component: BlindLeetcodeComponent },
   { path: 'publish-angular-npm-package', component: PublishAngularNpmPackageComponent },
   { path: 'argument-or-parameter', component: ParameterOrArgumentComponent },
-  { path: 'open-vscode-from-terminal', component: OpenVscodeFromTerminalComponent }
+  { path: 'open-vscode-from-terminal', component: OpenVscodeFromTerminalComponent },
+  { path: 'abrir-vscode-desde-terminal', component: AbrirVscodeDesdeTerminalComponent }
 ];
 
 @NgModule({
@@ -119,7 +121,8 @@ const blogRoutes: Routes = [
     ParameterOrArgumentComponent,
     ParametroOArgumentoComponent,
     DisclaimerComponent,
-    OpenVscodeFromTerminalComponent
+    OpenVscodeFromTerminalComponent,
+    AbrirVscodeDesdeTerminalComponent
   ],
   imports: [
     CommonModule,

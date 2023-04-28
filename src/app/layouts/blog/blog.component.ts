@@ -28,6 +28,14 @@ export class BlogComponent implements OnInit {
 
     this.invalidSearchToken = false;
     this.allPosts = [{
+      url: 'abrir-vscode-desde-terminal',
+      img: 'blog/riku-lu-wvJuYrM5iuw-unsplash.jpeg',
+      imgDesc: '',
+      title: 'Abrir VS Code desde una terminal.',
+      desc: 'Abre VS Code de manera rápida y haciendo referencia a cualquier directorio.',
+      lang: 'es',
+      publishedDate: this.service.getPostDate('open-vscode-from-terminal')
+    }, {
       url: 'open-vscode-from-terminal',
       img: 'blog/ferenc-almasi--FHIdRVGets-unsplash.jpeg',
       imgDesc: '',

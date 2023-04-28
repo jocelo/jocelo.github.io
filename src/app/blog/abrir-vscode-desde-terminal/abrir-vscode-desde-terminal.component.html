@@ -1,0 +1,33 @@
+<app-simple-article>
+  <h1>{{postTitle}}</h1>
+
+  <app-writer lang="es" readTime="1"></app-writer>
+  <app-post-translated lang="en" link="open-vscode-from-terminal"></app-post-translated>
+
+  <p>Bienvenido developer!</p>
+
+  <p>En este corto articulo, me gustaría compartirte un tip de productividad relacionado con VS Code: Como abrir VSCode desde una terminal y automáticamente abrir también cualquier directorio en el que te encuentres.</p>
+
+  <app-post-image [src]="postPicture.src" [desc]="postPicture.desc"></app-post-image>
+
+  <p>Breve y consiso: abre una terminal y executa el siguiente comando:</p>
+
+  <span class="inline-code">> code .</span>
+
+  <p>Básicamente <span class="inline-code">code</span> abre VS Code y con el único parámetro que le agregamos: <span class="inline-code">.</span> le estamos indicando que <i>por favor incluye el directorio actual cuando abras VS Code</i>. </p>
+
+  <p>No funcionó? Eso significa que no tienes instalado el comando, pero no te preocupes, ahora veremos como se instala: </p>
+
+  <ul>
+    <li>Con VSCode abierto, abre la Paleta de Comandos. La encuentras en el menu <i>View</i> (o presiona shift+command+p en mac).</li>
+    <li>Comienza a escribir: <strong>install code command in path</strong> y presiona la tecla enter.</li>
+    <li>Recibirás un mensaje de confirmación cuando el comando haya terminado de instalarse.</li>
+  </ul>
+
+  <p>Fácil, verdad? Personalmente uso este comando todo el tiempo, espero encuentres util este tip. Nos leemos pronto!</p>
+
+  <hr />
+
+  <app-read-next lang="es"></app-read-next>
+</app-simple-article>
+  

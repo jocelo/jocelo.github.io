@@ -24,6 +24,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 
 import { HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
+import { GamesComponent } from './layouts/games/games.component';
 
 const appRoutes: Routes = [
   { path: 'index', redirectTo: '/home' },
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
   { path: 'certifications', component: CertificationsComponent },
   { path: 'tech-stack', component: TechStackComponent },
   { path: 'latest', component: BlogComponent },
+  { path: 'games', component: GamesComponent },
   {
     path: 'blog',
     loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule)
@@ -51,7 +53,8 @@ const appRoutes: Routes = [
     PageNotFoundComponent,
     PersonalComponent,
     PortfolioComponent,
-    TechStackComponent
+    TechStackComponent,
+    GamesComponent
   ],
   imports: [
     MatMenuModule,
